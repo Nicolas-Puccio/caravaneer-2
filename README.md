@@ -20,7 +20,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 ## Installation
 
-1. Download the `caravaneer2.swf` file from the repository. (current release not includes changes 5 and 6)
+1. Download the `caravaneer2.swf` file from the repository.
 2. Replace the existing `caravaneer2.swf` file in the game's folder with the downloaded file.
 3. Run the game as usual using the `.exe` file or through Steam.
 4. Create a new character named Puccio (Only needed for changes 1, 2, and 3)
