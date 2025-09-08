@@ -17,6 +17,11 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 6. **Extra UMi Alpha**: Start the game with a free UMi Alpha in the bunker storage, plus the storage got bigger to accomodate the vehicle.
 
+7. **Faster Walk Animation**: Walk animations during battle are twice as fast. (still not released)
+
+8. **More info on Trade Window**: Trade window also displays water/food needed. (still not released)
+
+
 
 ## Installation
 
@@ -28,13 +33,14 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 ## Files Changed
 
-1. battlemode ~line 261
-2. caravan ~line 1266
-3. caravanencountermenu ~line 72, and 97
-4. charactersetupscreen ~line 93, 378, 392, 406, and 420
-5. tradewindow ~line 96
-6. Presets ~line 8268
-7. GameData ~line 790
+1. BattleMode ~line 232, and 261
+2. Caravan ~line 1266
+3. CaravanEncounterMenu ~line 72, and 97
+4. CharacterSetupScreen ~line 93, 378, 392, 406, and 420
+5. NavigationScreen ~line 788
+6. TradeWindow ~line 96, and 525
+7. Presets ~line 8268
+8. GameData ~line 544, and 790
 
 
 # Broken Files
@@ -47,5 +53,6 @@ These files will break the compilation if they are changed
 
 # Things i was not able to change
 
-1. Let mercenaries be controlled manually without changing the name, the BattleField file would not recompile if editted
+1. Let mercenaries be controlled by the AI without changing the name, the BattleField file would not recompile if editted
 2. Edit some game tick functions, like adding more mercenaries for hire to towns, editting MapMode crashes the game
+3. reorganize trade window UI to have more items on screen, don't know how to
