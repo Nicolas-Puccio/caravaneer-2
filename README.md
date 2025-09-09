@@ -17,9 +17,9 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 6. **Extra UMi Alpha**: Start the game with a free UMi Alpha in the bunker storage, plus the storage got bigger to accomodate the vehicle.
 
-7. **Faster Walk Animation**: Walk animations during battle are twice as fast. (still not released)
+7. **Faster Walk Animation**: Walk animations during battle are twice as fast.
 
-8. **More info on Trade Window**: Trade window also displays water/food needed. (still not released)
+8. **More info on Trade Window**: Trade window also displays water/food needed.
 
 
 
