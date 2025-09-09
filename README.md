@@ -33,14 +33,15 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 ## Files Changed
 
-1. BattleMode ~line 232, and 261
-2. Caravan ~line 1266
-3. CaravanEncounterMenu ~line 72, and 97
-4. CharacterSetupScreen ~line 93, 378, 392, 406, and 420
-5. NavigationScreen ~line 788
-6. TradeWindow ~line 96, and 525
-7. Presets ~line 8268
-8. GameData ~line 544, and 790
+1. BattleMode		~line 232, and 261
+2. Caravan		~line 1266
+3. CaravanEncounterMenu	~line 72, and 97
+4. CharacterSetupScreen	~line 93, 378, 392, 406, and 420
+5. NavigationScreen	~line 788
+6. TradeWindow		~line 96, and 525
+7. Presets		~line 8268
+8. GameData		~line 544, and 790
+9. Images		819_TitleScreen.jpg
 
 
 # Broken Files
