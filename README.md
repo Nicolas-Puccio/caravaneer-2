@@ -20,7 +20,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 7. **Faster walk animation**: Walk animations during battle are twice as fast.
 
-8. **More info on trade window**: Trade window also displays water/food needed. (currently not considering water from food source)
+8. **More info on trade window**: Trade window displays water/food needed, and also auto-selects amount required.
 
 9. **No slaves during fights**: Slaves are removed from the fight, to improve performance, and make the battles faster.
 
@@ -41,6 +41,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 ## Instructions
 
 START BATTLE: using this button goes the default fight where you control all members
+
 AUTO DISTRIBUTE & FIGHT/ATTACK: using this button will make your mercenaries be controlled by the AI
 
 water/food need is only updated when the navigation screen is opened, it won't automatically update if more members are recruited/dismissed
@@ -53,10 +54,10 @@ water/food need is only updated when the navigation screen is opened, it won't a
 2. BattleMode				~line 200, 232, and 261
 3. Caravan				~line 1266
 4. CaravanEncounterMenu			~line 72, and 97
-5. CharacterSetupScreen			~line 93, 378, 392, 406, and 420
+5. CharacterSetupScreen			~line 92, 377, and 509
 6. MapMode				~line 5624					P-code only
 7. NavigationScreen			~line 788
-8. TradeWindow				~line 96, and 525
+8. TradeWindow				~line 96, 525, and 884
 9. Presets				~line 8268
 10. GameData				~line 544, and 790
 11. Images				819_TitleScreen.jpg
@@ -70,17 +71,16 @@ water/food need is only updated when the navigation screen is opened, it won't a
 
 ## Work in progress
 
-1. Fix "randomize attributes" button in character setup screen
-2. Include water from food sources in "water need" calculation
-3. Allow starting new breeding industries in currently not allowed towns
-4. Industry QOL UI changes
-5. Ability to improve water well
+1. Allow starting new breeding industries in currently not allowed towns
+2. Industry QOL UI changes
+3. Ability to improve water well
 
 
 
-##Ideas
+## Ideas
 
 1. New bandit types
 2. Make extra caravans while playing
 3. Make extra towns while playing
 4. Fix broken economy in Drekar camp
+5. Visual indicator if buy/sell price of a good is high/low in the current trade
