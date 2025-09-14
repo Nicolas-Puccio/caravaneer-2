@@ -12,7 +12,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 3. **Reduced warpower**: Each caravan member now contributes less warpower, making your caravan more likely to be attacked, especially if equipped with cheap weapons.
 
-4. **Auto distribute ammo & attack**: Using this button will enable AI control of caravan members. You can only manually control your main character.
+4. **Auto distribute ammo & attack**: Using this button will enable AI control of caravan members, and maybe main character([See Instructions](#installation-instructions)).
 
 5. **Increased starting stats**: Main character now has 80 stat points to distribute during character creation, with each stat capped at 20 points.
 
@@ -20,13 +20,18 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 7. **Faster walk animation**: Walk animations during battle are twice as fast.
 
-8. **More info on trade window**: Trade window displays water/food needed, and also auto-selects amount required.
+8. **More info on trade window**: Trade window displays water/food needed, and also auto-selects amount required. More items fit in the side scrolls.
 
-9. **No slaves during fights**: Slaves are removed from the fight, to improve performance, and make the battles faster.
+9. **Visual indicator of high price in trade window**: Item images will change color if the price is above a custom set value.
 
-10. **More mercenaries available in towns**: Added +1 to the amount of mercenary in a town, making it easier to find recruits in low population towns.
+10. **No slaves during fights**: Slaves are removed from the fight, to improve performance, and make the battles faster.
 
-11. **Smaller battle fields**: halved how much battle field size scales with weapon skill.
+11. **More mercenaries available in towns**: Added +1 to the amount of mercenary in a town, making it easier to find recruits in low population towns.
+
+12. **Smaller battle fields**: halved how much battle field size scales with weapon skill.
+
+13. **Town moved out of the way**: Silos and Kevin's house were moved slightly off the main road.
+
 
 
 ## Installation
@@ -34,17 +39,23 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 1. Download the `caravaneer2.swf` file from the repository.
 2. Replace the existing `caravaneer2.swf` file in the game's folder with the downloaded file.
 3. Run the game as usual, using the `.exe` file or through Steam.
-4. Create a new character named Puccio (Only needed for changes 1, 2, and 3. I am working on removing this requirement)
+4. Create a new character named Puccio (Only needed for changes 1, 2, and 3. I am working on removing this requirement).
 
 
 
 ## Instructions
 
-START BATTLE: using this button goes the default fight where you control all members
+START BATTLE: using this button goes the default fight where you control all members.
 
-AUTO DISTRIBUTE & FIGHT/ATTACK: using this button will make your mercenaries be controlled by the AI
+AUTO DISTRIBUTE & FIGHT/ATTACK: using this button will make your mercenaries be controlled by the AI.
 
-water/food need is only updated when the navigation screen is opened, it won't automatically update if more members are recruited/dismissed
+MAIN CHARACTER AI: only enabled if the second weapon slot of your main character is empty.
+
+
+Water/Food need is only updated when the navigation screen is opened, it won't automatically update if more members are recruited/dismissed.
+Trade window displays ID of items.
+
+In order to enable visual indicators need to create a "puccio.txt" with the "ID-Price" format, example .txt in the files section above. 
 
 
 
@@ -57,10 +68,11 @@ water/food need is only updated when the navigation screen is opened, it won't a
 5. CharacterSetupScreen			~line 92, 377, and 509
 6. MapMode				~line 5624					P-code only
 7. NavigationScreen			~line 788
-8. TradeWindow				~line 96, 525, and 884
-9. Presets				~line 8268
-10. GameData				~line 544, and 790
+8. TradeWindow				~line 96, 356, 460 ,525, 884, 1924,and 2017
+9. Presets				~line 8269, 8277, and 10705
+10. GameData				~line 544, 790, and 14544
 11. Images				819_TitleScreen.jpg
+
 
 
 ## Bugs
@@ -72,7 +84,7 @@ water/food need is only updated when the navigation screen is opened, it won't a
 ## Work in progress
 
 1. Allow starting new breeding industries in currently not allowed towns
-2. Industry QOL UI changes
+2. Industry QOL UI changes (profit/cost estimate, expenses total)
 3. Ability to improve water well
 
 
@@ -83,4 +95,5 @@ water/food need is only updated when the navigation screen is opened, it won't a
 2. Make extra caravans while playing
 3. Make extra towns while playing
 4. Fix broken economy in Drekar camp
-5. Visual indicator if buy/sell price of a good is high/low in the current trade
+5. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
+6. add config.txt to enable/disable any feature
