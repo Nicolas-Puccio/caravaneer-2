@@ -1,0 +1,11 @@
+line gets ignored if it doesn't have a DASH
+ID of item first, then the minimum PRICE required for green visual
+comments can be added by leaving a white space after the data
+the name is not required, it is just a comment
+
+20-1000		scimitar
+63-65		medicine
+65-10		glass bottle
+80-100		small metal jerrycan
+104-100		alcohol
+109-1000	tagelmust

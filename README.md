@@ -12,7 +12,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 3. **Reduced warpower**: Each caravan member now contributes less warpower, making your caravan more likely to be attacked, especially if equipped with cheap weapons.
 
-4. **Auto distribute ammo & attack**: Using this button will enable AI control of caravan members, and maybe main character([See Instructions](#installation-instructions)).
+4. **Auto distribute ammo & attack**: Using this button will enable AI control of caravan members, and maybe main character([See Instructions](#Instructions)).
 
 5. **Increased starting stats**: Main character now has 80 stat points to distribute during character creation, with each stat capped at 20 points.
 
