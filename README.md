@@ -30,7 +30,11 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 12. **Smaller battle fields**: halved how much battle field size scales with weapon skill.
 
-13. **Town moved out of the way**: Silos and Kevin's house were moved slightly off the main road.
+13. **Towns moved out of the way**: Silos and Kevin's house were moved slightly off the main road.
+
+14. **Fix starving towns**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
+
+15. **Industry UI QOL**: Improved UI to give an estimation of how profitable each industry is.
 
 
 
@@ -66,12 +70,13 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 3. Caravan				~line 1266
 4. CaravanEncounterMenu			~line 72, and 97
 5. CharacterSetupScreen			~line 92, 377, and 509
-6. MapMode				~line 5624					P-code only
+6. MapMode				~line 5624, and 5985				P-code only
 7. NavigationScreen			~line 788
-8. TradeWindow				~line 96, 356, 460 ,525, 884, 1924,and 2017
-9. Presets				~line 8269, 8277, and 10705
-10. GameData				~line 544, 790, and 14544
-11. Images				819_TitleScreen.jpg
+8. TownMode				~line 619, 691, 815, 836, 1015, and 1036
+9. TradeWindow				~line 96, 356, 460 ,525, 884, 1924, and 2017
+10. Presets				~line 8269, 8277, and 10705
+11. GameData				~line 544, 790, and 14544
+12. Images				819_TitleScreen.jpg
 
 
 
@@ -84,8 +89,8 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 ## Work in progress
 
 1. Allow starting new breeding industries in currently not allowed towns
-2. Industry QOL UI changes (profit/cost estimate, expenses total)
-3. Ability to improve water well
+2. Industry QOL UI changes (expenses total)
+3. Ability to improve water well (did wells get fixed with the food/forage update in v10?)
 
 
 
@@ -94,6 +99,5 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 1. New bandit types
 2. Make extra caravans while playing
 3. Make extra towns while playing
-4. Fix broken economy in Drekar camp
-5. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
-6. add config.txt to enable/disable any feature
+4. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
+5. add config.txt to enable/disable any feature
