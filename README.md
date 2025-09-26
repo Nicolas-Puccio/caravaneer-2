@@ -20,13 +20,15 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 7. **Faster walk animation**: Walk animations during battle are twice as fast.
 
-8. **No slaves during fights**: Slaves are removed from the fight, to improve performance, and make the battles faster.
+8. **Less entities during fights**: Slaves and transport are removed from the fight, to improve performance, and make the battles faster.
 
 9. **More mercenaries available in towns**: Added +1 to the amount of mercenary in a town, making it easier to find recruits in low population towns.
 
-10. **Smaller battle fields**: halved how much battle field size scales with weapon skill.
+10. **Smaller battle fields**: halved how much battle field size scales with weapon skill, and reduced min size when using melee weapons.
 
 11. **Fix starving towns**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
+
+12. **Partial fix chained industries**: Leather vest and yarn jackets will produce if consumption is satisfied by another industry, regardless of storage space.
 
 
 
@@ -77,8 +79,8 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 
 ## Files changed
 
-1. BattleField				~line 1544					P-code only
-2. BattleMode				~line 200, 232, and 261
+1. BattleField				~line 1402, and 1544				P-code only
+2. BattleMode				~line 200, 232, 261, and 661
 3. Caravan				~line 1266
 4. CaravanEncounterMenu			~line 72, and 97
 5. CharacterSetupScreen			~line 92, 377, and 509
@@ -88,7 +90,7 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 9. TownMode				~line 619, 691, 815, 836, 1015, and 1036
 10. TradeWindow				~line 96, 356, 460 ,525, 802, 884, 1924, and 2017
 11. Presets				~line 8269, 8277, and 10705
-12. GameData				~line 544, 790, and 14544
+12. GameData				~line 544, 790, 1364, and 14544
 13. Images				819_TitleScreen.jpg
 
 
@@ -106,6 +108,7 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 3. Ability to improve water well (did wells get fixed with the food/forage update in v10?)
 4. spawn characters in straight line rather than grid, code fails with large groups
 5. takeall shortcut in trade widnow does not work in middle section, breaks both
+6. fix how the loop runs in industry optimization
 
 
 
@@ -116,4 +119,3 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 3. Make extra towns while playing
 4. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
 5. add config.txt to enable/disable any feature
-6. remove transport from battlefield
