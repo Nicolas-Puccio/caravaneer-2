@@ -12,7 +12,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 3. **Reduced warpower**: Each caravan member now contributes less warpower, making your caravan more likely to be attacked, especially if equipped with cheap weapons.
 
-4. **Auto distribute ammo & attack**: Using this button will enable AI control of caravan members, and maybe main character([See Instructions](#Instructions)).
+4. **AI battles**: Can choose between fully automated battles, or only automate your mercenaries.
 
 5. **Increased starting stats**: Main character now has 80 stat points to distribute during character creation, with each stat capped at 20 points.
 
@@ -26,7 +26,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 10. **Smaller battle fields**: halved how much battle field size scales with weapon skill, and reduced min size when using melee weapons.
 
-11. **Fix starving towns**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
+11. **Fix starving towns due to forage deficit**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
 
 12. **Partial fix chained industries**: Leather vest and yarn jackets will produce if consumption is satisfied by another industry, regardless of storage space.
 
@@ -63,13 +63,6 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 ## Instructions
 
-START BATTLE: using this button goes the default fight where you control all members.
-
-AUTO DISTRIBUTE & FIGHT/ATTACK: using this button will make your mercenaries be controlled by the AI.
-
-MAIN CHARACTER AI: only enabled if the second weapon slot of your main character is empty.
-
-
 Water/Food need is only updated when the navigation screen is opened, it won't automatically update if more members are recruited/dismissed.
 Trade window displays ID of items.
 
@@ -82,16 +75,17 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 1. BattleField				~line 1402, and 1544				P-code only
 2. BattleMode				~line 200, 232, 261, and 661
 3. Caravan				~line 1266
-4. CaravanEncounterMenu			~line 72, and 97
-5. CharacterSetupScreen			~line 92, 377, and 509
-6. List					~line 792
-7. MapMode				~line 5624, and 5985				P-code only
-8. NavigationScreen			~line 788
-9. TownMode				~line 619, 691, 815, 836, 1015, and 1036
-10. TradeWindow				~line 96, 356, 460 ,525, 802, 884, 1924, and 2017
-11. Presets				~line 8269, 8277, and 10705
-12. GameData				~line 544, 790, 1364, and 14544
-13. Images				819_TitleScreen.jpg
+4. Caravaneer2				~line 1270
+5. CaravanEncounterMenu			~line 72, and 97
+6. CharacterSetupScreen			~line 92, 377, and 509
+7. List					~line 780, and 792
+8. MapMode				~line 5624, and 5985				P-code only
+9. NavigationScreen			~line 788
+10. TownMode				~line 619, 691, 815, 836, 1015, and 1036
+11. TradeWindow				~line 96, 356, 460 ,525, 802, 884, 1943, and 2036
+12. Presets				~line 8269, 8277, and 10705
+13. GameData				~line 544, 790, 1364, and 14544
+14. Images				819_TitleScreen.jpg
 
 
 
@@ -108,14 +102,15 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 3. Ability to improve water well (did wells get fixed with the food/forage update in v10?)
 4. spawn characters in straight line rather than grid, code fails with large groups
 5. takeall shortcut in trade widnow does not work in middle section, breaks both
-6. fix how the loop runs in industry optimization
-
+6. fix how the loop runs in industry optimization(currently only one industry is processed
+7. Orth still runs out of food, how to fix without affecting all towns?
+8. Crowdfunder dlc.
 
 
 ## Ideas
 
 1. New bandit types
 2. Make extra caravans while playing
-3. Make extra towns while playing
+3. Make extra towns (succeeded adding static towns, but not generating them while playing)
 4. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
 5. add config.txt to enable/disable any feature
