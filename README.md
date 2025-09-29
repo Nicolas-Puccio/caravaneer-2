@@ -30,6 +30,8 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 12. **Partial fix chained industries**: Leather vest and yarn jackets will produce if consumption is satisfied by another industry, regardless of storage space.
 
+13. **Enabled Crowdfunder DLC**: DLC with weapon that shoots money ([Install Instructions](#Installation)).
+
 
 
 ### Quality of Life
@@ -54,8 +56,10 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 ## Installation
 
-1. Download the `caravaneer2.swf` file from the repository.
-2. Replace the existing `caravaneer2.swf` file in the game's folder with the downloaded file.
+1a. Download the `caravaneer2.swf` file from the repository.
+1b. (optional) Download `Crowdfunder.swf` file from repository to enable DLC with new weapon.
+2a. Replace existing `caravaneer2.swf` file in the game's folder with the downloaded file.
+2b. (optional) Add `Crowdfunder.swf` file in the same folder.
 3. Run the game as usual, using the `.exe` file or through Steam.
 4. Create a new character named Puccio (Only needed for changes 1, 2, and 3. I am working on removing this requirement).
 
@@ -100,11 +104,11 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 1. Allow starting new breeding industries in currently not allowed towns
 2. Industry QOL UI changes (expenses total)
 3. Ability to improve water well (did wells get fixed with the food/forage update in v10?)
-4. spawn characters in straight line rather than grid, code fails with large groups
-5. takeall shortcut in trade widnow does not work in middle section, breaks both
-6. fix how the loop runs in industry optimization(currently only one industry is processed
+4. Spawn characters in straight line rather than grid, code fails with large groups
+5. Takeall shortcut in trade widnow does not work in middle section, breaks both
+6. Fix how the loop runs in industry optimization(currently only one industry is processed
 7. Orth still runs out of food, how to fix without affecting all towns?
-8. Crowdfunder dlc.
+8. Verify if escorts work properly, like spencer and the dude from lintu.
 
 
 ## Ideas
@@ -113,4 +117,4 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 2. Make extra caravans while playing
 3. Make extra towns (succeeded adding static towns, but not generating them while playing)
 4. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
-5. add config.txt to enable/disable any feature
+5. Add config.txt to enable/disable any feature
