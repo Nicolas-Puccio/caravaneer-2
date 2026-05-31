@@ -43,6 +43,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 	- Reduced size of item image to fit more items on the side scrolls.
 	- Visual indicator of high sell price, can be set on [the prices file](#Instructions).
 	- Displays item's ID for using in prices file and modding.
+	- Move undesired items to the bottom of the trade window.
 
 - Industries UI
 	- Add estimation of consumption expences, and profit.
@@ -56,12 +57,19 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 ## Installation
 
-1a. Download the `caravaneer2.swf` file from the repository.
-1b. (optional) Download `Crowdfunder.swf` file from repository to enable DLC with new weapon.
-2a. Replace existing `caravaneer2.swf` file in the game's folder with the downloaded file.
-2b. (optional) Add `Crowdfunder.swf` file in the same folder.
-3. Run the game as usual, using the `.exe` file or through Steam.
-4. Create a new character named Puccio (Only needed for changes 1, 2, and 3. I am working on removing this requirement).
+1. Download the files  
+   - Download `caravaneer2.swf` from the repository.  
+   - *(Optional)* Download `Crowdfunder.swf` to enable the DLC with a new weapon.
+
+2. Replace or add the files  
+   - Replace the existing `caravaneer2.swf` in the game folder with the new one.  
+   - *(Optional)* Add `Crowdfunder.swf` in the same folder.
+
+3. Run the game  
+   - Start it with the `.exe` file or through Steam.
+
+4. Create a new character  
+   - Name it **Puccio** (only required for changes 1, 2, and 3; I’m working on removing this requirement).
 
 
 
@@ -70,26 +78,29 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 Water/Food need is only updated when the navigation screen is opened, it won't automatically update if more members are recruited/dismissed.
 Trade window displays ID of items.
 
-In order to enable visual indicators need to create a "puccio.txt" with the "ID-Price" format, example .txt in the files section above. 
+In order to enable visual indicators need to create a "puccio.txt" with the "ID-Price" format, example .txt in the files section above.
+In order to put undesired items at the bottom of trade window need to add the IDs to the end of "puccio.txt" file
 
 
 
 ## Files changed
 
-1. BattleField				~line 1402, and 1544				P-code only
-2. BattleMode				~line 200, 232, 261, and 661
-3. Caravan				~line 1266
-4. Caravaneer2				~line 1270
-5. CaravanEncounterMenu			~line 72, and 97
-6. CharacterSetupScreen			~line 92, 377, and 509
-7. List					~line 780, and 792
-8. MapMode				~line 5624, and 5985				P-code only
-9. NavigationScreen			~line 788
-10. TownMode				~line 619, 691, 815, 836, 1015, and 1036
-11. TradeWindow				~line 96, 356, 460 ,525, 802, 884, 1943, and 2036
-12. Presets				~line 8269, 8277, and 10705
-13. GameData				~line 544, 790, 1364, and 14544
-14. Images				819_TitleScreen.jpg
+| File                  | Line(s)                                       | Notes        |
+|-----------------------|-----------------------------------------------|--------------|
+| BattleField           | 1402, 1544                                    | P-code only  |
+| BattleMode            | 200, 232, 261, 661                            |              |
+| Caravan               | 1266                                          |              |
+| Caravaneer2           | 1270                                          |              |
+| CaravanEncounterMenu  | 72, 97                                        |              |
+| CharacterSetupScreen  | 92, 377, 509                                  |              |
+| List                  | 580, 780, 792                                 |              |
+| MapMode               | 5624, 5985                                    | P-code only  |
+| NavigationScreen      | 788                                           |              |
+| TownMode              | 619, 691, 815, 836, 1015, 1036                |              |
+| TradeWindow           | 96, 356, 460, 525, 802, 884, 1943, 2036       |              |
+| Presets               | 8269, 8277, 10705                             |              |
+| GameData              | 544, 790, 1364, 14544                         |              |
+| Images                | 819_TitleScreen.jpg                           |              |
 
 
 
@@ -106,7 +117,7 @@ In order to enable visual indicators need to create a "puccio.txt" with the "ID-
 3. Ability to improve water well (did wells get fixed with the food/forage update in v10?)
 4. Spawn characters in straight line rather than grid, code fails with large groups
 5. Takeall shortcut in trade widnow does not work in middle section, breaks both
-6. Fix how the loop runs in industry optimization(currently only one industry is processed
+6. Fix how the loop runs in industry optimization(currently only one industry is processed)
 7. Orth still runs out of food, how to fix without affecting all towns?
 8. Verify if escorts work properly, like spencer and the dude from lintu.
 
