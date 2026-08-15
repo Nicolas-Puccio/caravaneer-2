@@ -568,7 +568,7 @@ package IsoEngine
          bulbs[2].visible = !_loc9_;
          if(free)
          {
-            _loc1_ = Infinity;
+            _loc1_ = 100000000000000000000;
          }
          else if(partner is Town && shop is Object && shopType != 1)
          {
@@ -722,7 +722,7 @@ package IsoEngine
                }
                if(!GD.advancedTrading && max >= 0.05 && item is Item && item.itemData.liquid)
                {
-                  maxLiquid = Infinity;
+                  maxLiquid = 100000000000000000000;
                   if(from == partners[1])
                   {
                      maxLiquid = GD.Caravans[0].maxLiquidAmount(item.type);
@@ -2038,7 +2038,7 @@ package IsoEngine
                   {
                      if(_loc2_[_loc23_].multiline)
                      {
-                        _loc26_ = -Infinity;
+                        _loc26_ = -100000000000000000000;
                         for(_loc25_ in _loc27_)
                         {
                            _loc29_ = _loc27_[_loc25_].text.length;
@@ -2328,7 +2328,7 @@ package IsoEngine
          }
          else
          {
-            partnersWeightDiff = Infinity;
+            partnersWeightDiff = 100000000000000000000;
          }
          if(!free && moneyDiff > 0 && Math.abs(moneyDiff) > GD.Caravans[0].money)
          {

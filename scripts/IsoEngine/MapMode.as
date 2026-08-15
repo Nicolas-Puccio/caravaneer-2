@@ -2924,7 +2924,7 @@ package IsoEngine
                               {
                                  GD.Caravans[i].direction = MathFunctions.CalcRevYAngle(GD.Caravans[i].x,GD.Caravans[i].y,GD.Caravans[j].x,GD.Caravans[j].y);
                                  GD.Caravans[i].deflected = true;
-                                 GD.Caravans[i].lastFlicker = Infinity;
+                                 GD.Caravans[i].lastFlicker = 100000000000000000000;
                                  break;
                               }
                            }
@@ -4877,7 +4877,7 @@ package IsoEngine
                               });
                            }
                         }
-                        smallestDifference = Infinity;
+                        smallestDifference = 100000000000000000000;
                         for(j in allFood)
                         {
                            allFood[j].differenceFromPerfect = allFood[j].price - GD.Towns[i].perfectFoodPrice;
@@ -5967,7 +5967,7 @@ package IsoEngine
                            selectedExpansion = null;
                            if(GD.Towns[i].money > GD.Towns[i].GDPperCapita * 5)
                            {
-                              bestScore = -Infinity;
+                              bestScore = -100000000000000000000;
                            }
                            for(j in possibleExpansions)
                            {
@@ -6265,7 +6265,7 @@ package IsoEngine
                         }
                         break;
                      case 2:
-                        distToAusz = Infinity;
+                        distToAusz = 100000000000000000000;
                         if(!GD.Story.federationStartedDefehse || GD.Story.piratesWillAttack && !GD.Story.piratesReleased)
                         {
                            for(i in GD.Caravans)
@@ -7892,7 +7892,7 @@ package IsoEngine
          }
          if(param1.fearless)
          {
-            _loc4_ = Infinity;
+            _loc4_ = 100000000000000000000;
          }
          else
          {

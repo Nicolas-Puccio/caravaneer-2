@@ -1031,7 +1031,7 @@ package
                _loc5_ = buttonsArray.push({}) - 1;
                if(GameData.languages[_loc4_].ind > 2 && GameData.languages[_loc4_].ind != 18 && GameData.languages[_loc4_].ind != 19 && GameData.languages[_loc4_].ind != 20 && GameData.languages[_loc4_].ind != 30)
                {
-                  _loc2_ = " - " + Texts.fetch(6875,null,Infinity,GameData.languages[_loc4_].ind).toUpperCase();
+                  _loc2_ = " - " + Texts.fetch(6875,null,100000000000000000000,GameData.languages[_loc4_].ind).toUpperCase();
                }
                else
                {
@@ -1879,7 +1879,7 @@ package
          return new Button(param1,param2,param3,param4,param5,param6);
       }
       
-      public function fetchText(param1:*, param2:* = 1, param3:* = Infinity) : *
+      public function fetchText(param1:*, param2:* = 1, param3:* = 100000000000000000000) : *
       {
          return Texts.fetch(param1,param2,param3);
       }

@@ -153,7 +153,7 @@ package IsoEngine
       
       public var nearbyTowns:*;
       
-      public var lastFlicker:* = Infinity;
+      public var lastFlicker:* = 100000000000000000000;
       
       public var prevDir:* = 0;
       
@@ -430,7 +430,7 @@ package IsoEngine
       public function findCargo(param1:*) : *
       {
          var _loc3_:* = undefined;
-         var _loc2_:* = Infinity;
+         var _loc2_:* = 100000000000000000000;
          _loc3_ = 0;
          while(_loc3_ < Cargo.length)
          {
@@ -441,7 +441,7 @@ package IsoEngine
             }
             _loc3_++;
          }
-         if(_loc2_ != Infinity)
+         if(_loc2_ != 100000000000000000000)
          {
             return Cargo[_loc2_];
          }
@@ -646,7 +646,7 @@ package IsoEngine
             while(_loc5_ > 0 && _loc9_.length > 0)
             {
                _loc8_ = null;
-               _loc10_ = -Infinity;
+               _loc10_ = -100000000000000000000;
                for(_loc6_ in _loc9_)
                {
                   _loc12_ = _loc9_[_loc6_].volumeToWeight / 10 - Math.abs(_loc9_[_loc6_].volume - _loc5_);
@@ -705,7 +705,7 @@ package IsoEngine
                }
                if(_loc9_.length > 0)
                {
-                  _loc10_ = -Infinity;
+                  _loc10_ = -100000000000000000000;
                   _loc8_ = null;
                   for(_loc6_ in _loc9_)
                   {
@@ -1231,7 +1231,7 @@ package IsoEngine
          {
             return staticModeSight;
          }
-         var _loc1_:* = -Infinity;
+         var _loc1_:* = -100000000000000000000;
          var _loc4_:* = 1;
          for(_loc3_ in People)
          {
@@ -1357,7 +1357,7 @@ package IsoEngine
          {
             return staticModeSpeed;
          }
-         var _loc1_:* = Infinity;
+         var _loc1_:* = 100000000000000000000;
          for(_loc5_ in People)
          {
             if(!(People[_loc5_].passengerIn is TransportUnit) && People[_loc5_].speed < _loc1_)
@@ -1372,7 +1372,7 @@ package IsoEngine
                _loc1_ = Transport[_loc5_].speed;
             }
          }
-         if(_loc1_ == Infinity)
+         if(_loc1_ == 100000000000000000000)
          {
             _loc1_ = 0;
          }
@@ -1483,7 +1483,7 @@ package IsoEngine
          {
             return staticModeMinWindPoweredSpeed;
          }
-         var _loc2_:* = Infinity;
+         var _loc2_:* = 100000000000000000000;
          for(_loc1_ in Transport)
          {
             if(Transport[_loc1_].windPowered && !(Transport[_loc1_].passengerIn is TransportUnit) && Transport[_loc1_].speed < _loc2_)
@@ -1914,7 +1914,7 @@ package IsoEngine
          _loc9_ = 0;
          while(_loc9_ < _loc12_.length)
          {
-            _loc6_ = -Infinity;
+            _loc6_ = -100000000000000000000;
             _loc1_ = undefined;
             for(_loc10_ in _loc12_[_loc9_].pretenders)
             {
@@ -1968,7 +1968,7 @@ package IsoEngine
                   _loc12_[_loc9_].pretenders[_loc10_].score -= 100;
                   if(_loc8_.type == _loc2_.type)
                   {
-                     _loc12_[_loc9_].pretenders[_loc10_].score = -Infinity;
+                     _loc12_[_loc9_].pretenders[_loc10_].score = -100000000000000000000;
                   }
                }
                if(Math.abs(_loc8_.weight + _loc12_[_loc9_].pretenders[_loc10_].weightReserved - _loc12_[_loc9_].minWeight) > 5)
@@ -1977,14 +1977,14 @@ package IsoEngine
                }
                if(_loc12_[_loc9_].pretenders[_loc10_].person.weapons[0] == _loc12_[_loc9_].weapon)
                {
-                  _loc12_[_loc9_].pretenders[_loc10_].score = -Infinity;
+                  _loc12_[_loc9_].pretenders[_loc10_].score = -100000000000000000000;
                }
             }
          }
          _loc9_ = 0;
          while(_loc9_ < _loc12_.length)
          {
-            _loc6_ = -Infinity;
+            _loc6_ = -100000000000000000000;
             _loc1_ = undefined;
             for(_loc10_ in _loc12_[_loc9_].pretenders)
             {
@@ -2086,7 +2086,7 @@ package IsoEngine
                }
                _loc10_++;
             }
-            _loc4_ = Infinity;
+            _loc4_ = 100000000000000000000;
             for(_loc11_ in People)
             {
                for(_loc13_ in People[_loc11_].attachments)
@@ -3156,7 +3156,7 @@ package IsoEngine
                {
                   _loc11_.unshift({
                      "ref":_loc4_[_loc7_].ref,
-                     "score":Infinity
+                     "score":100000000000000000000
                   });
                   _loc4_.splice(_loc7_,1);
                   if(_loc5_ == 0)
@@ -3173,7 +3173,7 @@ package IsoEngine
                _loc7_++;
             }
          }
-         _loc13_ = Infinity;
+         _loc13_ = 100000000000000000000;
          for(_loc7_ in _loc11_)
          {
             if(_loc11_[_loc7_].ref.weight < _loc13_)

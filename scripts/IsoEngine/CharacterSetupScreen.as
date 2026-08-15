@@ -39,15 +39,15 @@ package IsoEngine
       
       public var colors:*;
       
-      public const colorsOrder:*;
+      public var colorsOrder:*;
       
-      public const colorNames:*;
+      public var colorNames:*;
       
-      public const partsOrder:*;
+      public var partsOrder:*;
       
-      public const namesOrder:*;
+      public var namesOrder:*;
       
-      public const buttonsOrder:*;
+      public var buttonsOrder:*;
       
       public const maxBristleGrades:* = 7;
       

@@ -129,3 +129,8 @@ In order to put undesired items at the bottom of trade window need to add the ID
 3. Make extra towns (succeeded adding static towns, but not generating them while playing)
 4. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
 5. Add config.txt to enable/disable any feature
+
+
+
+## Files with errors
+BATTLEFIELD (enemy pathfinding breaks)

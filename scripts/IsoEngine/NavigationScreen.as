@@ -529,10 +529,10 @@ package IsoEngine
       {
          var _loc5_:* = undefined;
          var _loc3_:* = 0;
-         var _loc1_:Number = Infinity;
-         var _loc4_:Number = -Infinity;
-         var _loc2_:Number = Infinity;
-         var _loc6_:Number = -Infinity;
+         var _loc1_:Number = 100000000000000000000;
+         var _loc4_:Number = -100000000000000000000;
+         var _loc2_:Number = 100000000000000000000;
+         var _loc6_:Number = -100000000000000000000;
          for(_loc5_ in GD.Towns)
          {
             if(GD.Towns[_loc5_].discovered)
@@ -762,7 +762,7 @@ package IsoEngine
             {
                GD.Caravans[0].direction = _loc2_;
             }
-            if(travelTime == Infinity)
+            if(travelTime == 100000000000000000000)
             {
                infoText.text += Texts.fetch(1446);
             }
@@ -783,7 +783,7 @@ package IsoEngine
                infoText.text += _loc4_ + Texts.abbreviation(1401) + "\n\n";
             }
          }
-         if(GD.routeStart != null && GD.routeEnd != null && travelTime != Infinity && distance > 0)
+         if(GD.routeStart != null && GD.routeEnd != null && travelTime != 100000000000000000000 && distance > 0)
          {
             infoText.text += Texts.fetch(1402) + ": " + MathFunctions.NumberFormat(waterNeed * travelTime / 24,0) + " " + Texts.fetch(11) + "\n";
             infoText.text += Texts.fetch(1403) + ": " + MathFunctions.NumberFormat(waterAvailable,0) + " " + Texts.fetch(11) + "\n\n";

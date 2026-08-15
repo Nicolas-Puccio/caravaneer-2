@@ -465,7 +465,7 @@ package IsoEngine
       
       public var canBreakEconomy:*;
       
-      public const LOIS_SETTINGS:*;
+      public var LOIS_SETTINGS:*;
       
       public var Time:* = 2509568400;
       
@@ -4624,7 +4624,7 @@ package IsoEngine
          }
          if(param1 is Caravan)
          {
-            _loc20_ = Infinity;
+            _loc20_ = 100000000000000000000;
             for(_loc11_ in Towns)
             {
                _loc8_ = MathFunctions.CalcDistance(param1.x,param1.y,Presets.Towns[_loc11_].x,Presets.Towns[_loc11_].y);
@@ -4719,7 +4719,7 @@ package IsoEngine
          {
             _loc16_ = 1e-13;
          }
-         var _loc19_:§--UNKNOWN--§ = _loc23_;
+         var _loc19_:* = _loc23_;
          var _loc10_:* = 1;
          if(param2 == 1)
          {
@@ -5034,7 +5034,7 @@ package IsoEngine
       {
          var _loc3_:* = undefined;
          var _loc4_:* = undefined;
-         var _loc5_:Number = Infinity;
+         var _loc5_:Number = 100000000000000000000;
          var _loc2_:Boolean = false;
          if(param1 is Caravan)
          {
@@ -5079,7 +5079,7 @@ package IsoEngine
             param1.moveX = (Presets.Towns[param2].x - param1.x) / param1.stepsLeft;
             param1.moveY = (Presets.Towns[param2].y - param1.y) / param1.stepsLeft;
          }
-         param1.lastFlicker = Infinity;
+         param1.lastFlicker = 100000000000000000000;
          param1.guardPosition = null;
          param1.moving = true;
       }

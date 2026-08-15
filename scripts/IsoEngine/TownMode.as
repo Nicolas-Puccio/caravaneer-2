@@ -54,9 +54,9 @@ package IsoEngine
       
       public var stopped:* = false;
       
-      internal const buttonPositions:*;
+      internal var buttonPositions:*;
       
-      internal const buttonTexts:*;
+      internal var buttonTexts:*;
       
       internal const labelSpace:* = 209;
       
@@ -64,7 +64,7 @@ package IsoEngine
       
       internal const labelRoundness:* = 10;
       
-      internal const labelNames:*;
+      internal var labelNames:*;
       
       public function TownMode(param1:*, param2:*, param3:* = 1)
       {
