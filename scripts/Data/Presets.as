@@ -8183,7 +8183,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":6,
          "faction":18
-      },{
+      },{//-bunker
          "name":1605,
          "x":-10000,
          "y":-1000,
@@ -8271,9 +8271,9 @@ package Data
          "tax":0.05,
          "electricityPrice":0.3,
          "noticeability":160
-      },{
+      },{//-silos
          "name":1610,
-         "x":-9950,
+         "x":-10050,
          "y":-1300,
          "population":1,
          "obligatoryPeople":[],
@@ -8322,7 +8322,7 @@ package Data
          "maxAttributes":0.8,
          "maxExperience":0.8,
          "faction":1
-      },{
+      },{//-lintu camp
          "name":1613,
          "x":-9930,
          "y":-1700,
@@ -8685,7 +8685,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":1.2,
          "faction":4
-      },{
+      },{//-drekar camp
          "name":1635,
          "x":-9127,
          "y":-1105,
@@ -8747,7 +8747,7 @@ package Data
          "maxAttributes":0.9,
          "maxExperience":1.2,
          "faction":2
-      },{
+      },{//-sigurd hut
          "name":1980,
          "x":-10050,
          "y":-2500,
@@ -8773,7 +8773,7 @@ package Data
          "tax":0.05,
          "electricityPrice":0.3,
          "noticeability":150
-      },{
+      },{//-saxaul tree
          "name":2078,
          "x":-11600,
          "y":-1370,
@@ -10699,7 +10699,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":0.9,
          "faction":11
-      },{
+      },{//-kevin house
          "name":2938,
          "x":-11950,
          "y":1800,
@@ -14524,7 +14524,7 @@ package Data
          "maxAttributes":1.6,
          "maxExperience":10,
          "faction":17
-      },{
+      },{//-thu wal
          "name":5650,
          "x":-2450,
          "y":-1600,
