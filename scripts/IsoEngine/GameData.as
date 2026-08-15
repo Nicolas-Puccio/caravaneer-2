@@ -16,6 +16,30 @@ package IsoEngine
    public class GameData
    {
       
+      public static var foodAveragePrice:*;
+      
+      public static var upperBodyClothingAveragePrice:*;
+      
+      public static var lowerBodyClothingAveragePrice:*;
+      
+      public static var shoesAveragePrice:*;
+      
+      public static var hatAveragePrice:*;
+      
+      public static var currentGame:*;
+      
+      public static var chargers:*;
+      
+      public static var localStorageError:*;
+      
+      internal static var processedObjects:*;
+      
+      internal static var undeletableObjects:*;
+      
+      internal static var processedObjectsNames:*;
+      
+      public static var TravelModeMusic:Class = §Caravaneer2-192KBps_mp3$f86c7687a93d4e5946e77b1fd9a8131b-1416848272§;
+      
       public static const magicMode:* = false;
       
       public static const healAnimalPrice:* = 20;
@@ -56,15 +80,7 @@ package IsoEngine
       
       public static const sellIndustriesRate:* = 0.55;
       
-      public static var foodAveragePrice:*;
-      
-      public static var upperBodyClothingAveragePrice:*;
-      
-      public static var lowerBodyClothingAveragePrice:*;
-      
-      public static var shoesAveragePrice:*;
-      
-      public static var hatAveragePrice:*;
+      public static const medsDosage:* = [0,5,10,20,50];
       
       public static var averageSlavePrice:* = 5000;
       
@@ -77,24 +93,6 @@ package IsoEngine
       public static const priceAmplification:* = 1;
       
       public static const minPricePercentage:* = 0.8;
-      
-      public static const workersPercentage:* = 0.85;
-      
-      public static var currentGame:*;
-      
-      public static var chargers:*;
-      
-      public static var localStorageError:*;
-      
-      internal static var processedObjects:*;
-      
-      internal static var undeletableObjects:*;
-      
-      internal static var processedObjectsNames:*;
-      
-      public static var TravelModeMusic:Class = §Caravaneer2-192KBps_mp3$f86c7687a93d4e5946e77b1fd9a8131b-1416848272§;
-      
-      public static const medsDosage:* = [0,5,10,20,50];
       
       public static const itemCategories:* = ["food","upperBodyClothing","lowerBodyClothing","shoes","hat"];
       
@@ -127,6 +125,8 @@ package IsoEngine
          "item":74,
          "amount":0.5
       }];
+      
+      public static const workersPercentage:* = 0.85;
       
       public static var workshopRecipes:* = [{
          "outcome":61,
@@ -465,11 +465,84 @@ package IsoEngine
       
       public var canBreakEconomy:*;
       
-      public var LOIS_SETTINGS:*;
+      public const LOIS_SETTINGS:* = {
+         "specialPortrait":2,
+         "name":Texts.fetch(1833),
+         "gender":2,
+         "age":24,
+         "physical":4,
+         "agility":8,
+         "accuracy":6,
+         "intelligence":7,
+         "portraitShoulders":1,
+         "portraitShirt":1,
+         "sleevesType":5,
+         "portraitHair":2,
+         "skinColor":{
+            "r":200,
+            "g":160,
+            "b":140,
+            "bc":1
+         },
+         "hairColor":{
+            "r":20,
+            "g":15,
+            "b":0,
+            "bc":1
+         },
+         "eyesColor":{
+            "r":20,
+            "g":15,
+            "b":0,
+            "bc":1
+         },
+         "eyebrowsColor":{
+            "r":20,
+            "g":15,
+            "b":0,
+            "bc":1
+         },
+         "lipsColor":{
+            "r":150,
+            "g":60,
+            "b":40,
+            "bc":1
+         },
+         "shirtColor":{
+            "r":180,
+            "g":180,
+            "b":180,
+            "bc":1
+         },
+         "pantsColor":{
+            "r":0,
+            "g":0,
+            "b":0,
+            "bc":1
+         },
+         "shoesColor":{
+            "r":20,
+            "g":10,
+            "b":0,
+            "bc":1
+         },
+         "hasRightBracelet":false,
+         "hasLeftBracelet":false,
+         "crossbowExperience":5000,
+         "swordsExperience":10000,
+         "painExperience":2000,
+         "closeBattleExperience":13000,
+         "rangedWeaponsExperience":7000,
+         "generalBattleExperience":20000
+      };
       
       public var Time:* = 2509568400;
       
       public var Caravans:*;
+      
+      public var waterNeed:* = 0;
+      
+      public var foodNeed:* = 0;
       
       public var Towns:*;
       
@@ -601,76 +674,6 @@ package IsoEngine
          initiatedDLC = [];
          removedDLC = [];
          canBreakEconomy = false;
-         LOIS_SETTINGS = {
-            "specialPortrait":2,
-            "name":Texts.fetch(1833),
-            "gender":2,
-            "age":24,
-            "physical":4,
-            "agility":8,
-            "accuracy":6,
-            "intelligence":7,
-            "portraitShoulders":1,
-            "portraitShirt":1,
-            "sleevesType":5,
-            "portraitHair":2,
-            "skinColor":{
-               "r":200,
-               "g":160,
-               "b":140,
-               "bc":1
-            },
-            "hairColor":{
-               "r":20,
-               "g":15,
-               "b":0,
-               "bc":1
-            },
-            "eyesColor":{
-               "r":20,
-               "g":15,
-               "b":0,
-               "bc":1
-            },
-            "eyebrowsColor":{
-               "r":20,
-               "g":15,
-               "b":0,
-               "bc":1
-            },
-            "lipsColor":{
-               "r":150,
-               "g":60,
-               "b":40,
-               "bc":1
-            },
-            "shirtColor":{
-               "r":180,
-               "g":180,
-               "b":180,
-               "bc":1
-            },
-            "pantsColor":{
-               "r":0,
-               "g":0,
-               "b":0,
-               "bc":1
-            },
-            "shoesColor":{
-               "r":20,
-               "g":10,
-               "b":0,
-               "bc":1
-            },
-            "hasRightBracelet":false,
-            "hasLeftBracelet":false,
-            "crossbowExperience":5000,
-            "swordsExperience":10000,
-            "painExperience":2000,
-            "closeBattleExperience":13000,
-            "rangedWeaponsExperience":7000,
-            "generalBattleExperience":20000
-         };
          Caravans = [];
          Towns = [];
          Squares = [];
@@ -694,7 +697,7 @@ package IsoEngine
          tutorialMask = new Sprite();
          tutorialGrid.blendMode = "layer";
          tutorialMask.blendMode = "erase";
-         var _loc16_:Bitmap = new Bitmap(new BitmapData(880,495,true,0));
+         var _loc16_:* = new Bitmap(new BitmapData(880,495,true,0));
          _loc14_ = 0;
          while(_loc14_ < 880)
          {
@@ -736,7 +739,7 @@ package IsoEngine
          screenNode = param1;
          parent = param2;
          build = parent.build;
-         var _loc10_:ContextMenu = new ContextMenu();
+         var _loc10_:* = new ContextMenu();
          _loc10_.hideBuiltInItems();
          param1.addEventListener("menuSelect",contextMenuSelect,false,0,false);
          param1.contextMenu = _loc10_;
@@ -786,6 +789,7 @@ package IsoEngine
             Towns[15].addToStock(67,2);
             Towns[15].addToStock(68,1);
             Towns[15].GDPperCapita = 6.3;
+            Towns[15].playersStorage.push(new TransportUnit(13));//-umi alpha to bunker
             Towns[15].addToStock(2,1,Towns[15].playersStorage);
             Towns[15].addToStock(42,1,Towns[15].playersStorage);
             Towns[15].addToStock(229,1,Towns[15].playersStorage);
@@ -881,7 +885,7 @@ package IsoEngine
             _loc5_ = describeType(param1)..variable;
             _loc8_ = _loc5_.length();
          }
-         var _loc4_:Array = [];
+         var _loc4_:* = [];
          if(getQualifiedClassName(param1) == "Object")
          {
             for(_loc6_ in param1)
@@ -980,11 +984,11 @@ package IsoEngine
       
       public static function staticMakeDate(param1:*) : *
       {
-         var _loc2_:Object = {};
+         var _loc2_:* = {};
          var _loc4_:* = param1;
          var _loc3_:int = 31622400;
          var _loc6_:* = 2678400;
-         var _loc5_:Array = [undefined,31,28,31,30,31,30,31,31,30,31,30,31];
+         var _loc5_:* = [undefined,31,28,31,30,31,30,31,31,30,31,30,31];
          _loc2_.Year = 1;
          while(_loc4_ >= _loc3_)
          {
@@ -1116,8 +1120,8 @@ package IsoEngine
          var _loc6_:* = undefined;
          var _loc9_:* = undefined;
          var _loc10_:* = undefined;
-         var _loc4_:Object = {};
-         var _loc17_:Array = [];
+         var _loc4_:* = {};
+         var _loc17_:* = [];
          for(_loc11_ in param1)
          {
             _loc5_ = param1[_loc11_].consumption;
@@ -1165,7 +1169,7 @@ package IsoEngine
                }
             }
          }
-         var _loc15_:Array = [];
+         var _loc15_:* = [];
          for(_loc11_ in param1)
          {
             if(param1[_loc11_].consumption.length > 0 || param1[_loc11_].production.length > 0 || param1[_loc11_].electricityConsumption > 0 || param1[_loc11_].electricityProduction > 0)
@@ -1356,6 +1360,69 @@ package IsoEngine
                });
             }
          }
+         //+- HORRIBLY made, should clean an made generic
+         var puccioRunLoop:* = true;
+         for(_loc11_ in _loc15_)
+         {
+            if(puccioRunLoop && _loc15_[_loc11_].productionRate == 0)
+            {
+               if(_loc15_[_loc11_].ref.type == 16)
+               {
+                  var leatherVestIndustry:* = _loc15_[_loc11_].ref;
+                  var leatherType:* = leatherVestIndustry.consumption[0].item;
+                  var leatherAmount:* = leatherVestIndustry.consumption[0].amount * param3;
+                  var leatherVestType:* = leatherVestIndustry.production[0].item;
+                  var leatherVestAmount:* = leatherVestIndustry.production[0].amount * param3;
+                  for(_loc12_ in _loc4_.production)
+                  {
+                     if(puccioRunLoop && _loc4_.production[_loc12_].item == leatherType && _loc4_.production[_loc12_].amount >= leatherAmount)
+                     {
+                        _loc4_.production[_loc12_].amount -= leatherAmount;
+                        addItemToArray(_loc4_.production,{
+                           "item":leatherVestType,
+                           "amount":leatherVestAmount
+                        });
+                        puccioRunLoop = false;
+                     }
+                  }
+               }
+               if(_loc15_[_loc11_].ref.type == 19)
+               {
+                  var jacketIndustry:* = _loc15_[_loc11_].ref;
+                  var yarnType:* = jacketIndustry.consumption[0].item;
+                  var yarnAmount:* = jacketIndustry.consumption[0].amount * param3;
+                  var jacketAmount:* = jacketIndustry.production[0].amount * param3;
+                  var jacket0Type:* = jacketIndustry.production[0].item;
+                  var jacket1Type:* = jacketIndustry.production[1].item;
+                  var jacket2Type:* = jacketIndustry.production[2].item;
+                  var jacket3Type:* = jacketIndustry.production[3].item;
+                  for(_loc12_ in _loc4_.production)
+                  {
+                     if(puccioRunLoop && _loc4_.production[_loc12_].item == yarnType && _loc4_.production[_loc12_].amount >= yarnAmount)
+                     {
+                        _loc4_.production[_loc12_].amount -= yarnAmount;
+                        addItemToArray(_loc4_.production,{
+                           "item":jacket0Type,
+                           "amount":jacketAmount
+                        });
+                        addItemToArray(_loc4_.production,{
+                           "item":jacket1Type,
+                           "amount":jacketAmount
+                        });
+                        addItemToArray(_loc4_.production,{
+                           "item":jacket2Type,
+                           "amount":jacketAmount
+                        });
+                        addItemToArray(_loc4_.production,{
+                           "item":jacket3Type,
+                           "amount":jacketAmount
+                        });
+                        puccioRunLoop = false;
+                     }
+                  }
+               }
+            }
+         }
          return _loc4_;
       }
       
@@ -1380,7 +1447,7 @@ package IsoEngine
          {
             return param1;
          }
-         var _loc2_:String = "";
+         var _loc2_:* = "";
          _loc4_ = 0;
          while(_loc4_ < param1.length)
          {
@@ -2065,7 +2132,7 @@ package IsoEngine
             param1.addPerson(new Character(_loc4_));
             _loc8_++;
          }
-         var _loc13_:Number = Math.round(Presets.CaravanTypes[param1.type].totalWeaponsPercentage * _loc10_);
+         var _loc13_:* = Math.round(Presets.CaravanTypes[param1.type].totalWeaponsPercentage * _loc10_);
          _loc8_ = 1;
          while(_loc8_ <= _loc13_)
          {
@@ -2152,7 +2219,7 @@ package IsoEngine
       
       public function randomBrightColor() : *
       {
-         var _loc1_:Number = Rndm.random();
+         var _loc1_:* = Rndm.random();
          if(_loc1_ > 0.85)
          {
             return {
@@ -2226,9 +2293,9 @@ package IsoEngine
          {
             return "not in the battle mode";
          }
-         var _loc1_:String = "";
+         var _loc1_:* = "";
          var _loc2_:XMLList = describeType(currentScreenContainer.BF)..variable;
-         var _loc6_:int = _loc2_.length();
+         var _loc6_:* = _loc2_.length();
          _loc4_ = 0;
          while(_loc4_ < _loc6_)
          {
@@ -2320,9 +2387,9 @@ package IsoEngine
          var _loc9_:* = undefined;
          var _loc4_:* = undefined;
          var _loc1_:* = undefined;
-         var _loc5_:Object = {};
-         var _loc10_:Array = [];
-         var _loc7_:Array = [];
+         var _loc5_:* = {};
+         var _loc10_:* = [];
+         var _loc7_:* = [];
          gatherInfo(this,_loc5_,variablesToSave,"Game Data > ");
          for(_loc3_ in _loc5_.Squares)
          {
@@ -2700,7 +2767,7 @@ package IsoEngine
          }
          if(param2 == 1 || param2 == null)
          {
-            var _loc16_:Array = [];
+            var _loc16_:* = [];
             for(_loc8_ in _loc4_.initiatedDLC)
             {
                if(_loc4_.initiatedDLC[_loc8_] && (_loc4_.removedDLC == undefined || !_loc4_.removedDLC[_loc8_]))
@@ -3483,6 +3550,8 @@ package IsoEngine
          var introText:*;
          var proceedButton:*;
          var proceedButtonText:*;
+         var _loc8_:int;
+         var _loc9_:*;
          var m:* = param1;
          var allies:* = param2;
          var opponents:* = param3;
@@ -3586,8 +3655,8 @@ package IsoEngine
                   }
                   if((opponents[i].specialPurpose == 1 || opponents[i].specialPurpose == 3 || getFactionRelations(0,2) < -10) && Story.fafnirIsMadAtYou)
                   {
-                     var _loc8_:int = 9;
-                     var _loc9_:Number = Story.characterRelations[_loc8_] - 20;
+                     _loc8_ = 9;
+                     _loc9_ = Story.characterRelations[_loc8_] - 20;
                      Story.characterRelations[_loc8_] = _loc9_;
                      Story.dialogueDefaults[9] = 500;
                      Story.fafnirIsMadAtYou = true;
@@ -3920,7 +3989,7 @@ package IsoEngine
                while(i < currentScreenContainer.numChildren)
                {
                   currentScreenContainer.removeChild(currentScreenContainer.getChildAt(i));
-                  i = Number(i) + 1;
+                  i++;
                }
                screenNode.removeChild(currentScreenContainer);
             }
@@ -4247,8 +4316,8 @@ package IsoEngine
          var _loc6_:* = undefined;
          var _loc16_:* = undefined;
          var _loc14_:* = undefined;
-         var _loc22_:Array = [];
-         var _loc17_:Array = [];
+         var _loc22_:* = [];
+         var _loc17_:* = [];
          var _loc7_:* = itemsToUpdate.indexOf(param1);
          if(_loc7_ > -1)
          {
@@ -4351,7 +4420,7 @@ package IsoEngine
                _loc21_ = _loc20_ * Item.getDataFromType(param1).price / _loc4_;
             }
             _loc21_ /= _loc22_[_loc8_].amount;
-            _loc21_ = _loc21_ * 3;
+            _loc21_ *= 3;
             _loc11_[_loc22_[_loc8_].townNum].push({
                "price":_loc21_,
                "amount":_loc22_[_loc8_].amount
@@ -4375,9 +4444,9 @@ package IsoEngine
                _loc2_++;
             }
          }
-         var _loc26_:* = param1;
-         var _loc25_:Number = globalPrices[_loc26_] / _loc2_;
-         globalPrices[_loc26_] = _loc25_;
+         var _loc24_:* = param1;
+         var _loc23_:* = globalPrices[_loc24_] / _loc2_;
+         globalPrices[_loc24_] = _loc23_;
          for(_loc8_ in _loc11_)
          {
             if(_loc11_[_loc8_].length == 0)
@@ -4962,8 +5031,8 @@ package IsoEngine
       {
          var _loc11_:* = undefined;
          var _loc10_:* = oneIntegral(param1,param3,param4,param5,param6);
-         var _loc8_:Number = 0.8 * param3 * (1 + 10 * param5);
-         var _loc9_:Number = 1 * param3 * param6 * Math.sqrt((1 + 10 * param5) * (2 + 20 * param4));
+         var _loc8_:* = 0.8 * param3 * (1 + 10 * param5);
+         var _loc9_:* = 1 * param3 * param6 * Math.sqrt((1 + 10 * param5) * (2 + 20 * param4));
          if(param7)
          {
             _loc11_ = (_loc10_ + param2) * (1 + 10 * param5);
@@ -4972,7 +5041,7 @@ package IsoEngine
          {
             _loc11_ = Math.max(_loc10_ - param2,0) * (1 + 10 * param5);
          }
-         var _loc12_:Number = (0 - Math.sqrt(Math.abs(4 * _loc8_ * Math.pow(_loc9_,2) * _loc11_ + Math.pow(_loc9_,4))) + 2 * _loc8_ * _loc11_ + Math.pow(_loc9_,2)) / (2 * Math.pow(_loc8_,2));
+         var _loc12_:* = (0 - Math.sqrt(Math.abs(4 * _loc8_ * Math.pow(_loc9_,2) * _loc11_ + Math.pow(_loc9_,4))) + 2 * _loc8_ * _loc11_ + Math.pow(_loc9_,2)) / (2 * Math.pow(_loc8_,2));
          if(param7)
          {
             return Math.abs(_loc12_ - param1);
@@ -4992,8 +5061,8 @@ package IsoEngine
          {
             param4 = 0.1;
          }
-         var _loc11_:Number = Math.pow(param4,2) / (param6 * param5);
-         var _loc9_:Number = Math.pow(param4,2) / (param7 * param5);
+         var _loc11_:* = Math.pow(param4,2) / (param6 * param5);
+         var _loc9_:* = Math.pow(param4,2) / (param7 * param5);
          if(param1 > _loc11_)
          {
             return param2 / ((_loc12_ - param1) * param3 * Math.pow(param4,2) / (param5 * _loc11_));
@@ -5012,7 +5081,7 @@ package IsoEngine
          {
             _loc8_ += param3 * Math.pow(param4,2) * Math.log(_loc11_) / param5 - param3 * Math.pow(param4,2) * Math.log(param1) / param5;
          }
-         var _loc10_:Number = param2 - _loc8_;
+         var _loc10_:* = param2 - _loc8_;
          return _loc11_ + _loc10_ / (param3 * Math.pow(param4,2) / (param5 * _loc11_));
       }
       
@@ -5025,7 +5094,7 @@ package IsoEngine
          else
          {
             var _loc3_:* = param1;
-            var _loc4_:Number = Story.specificReputations[_loc3_] + param2;
+            var _loc4_:* = Story.specificReputations[_loc3_] + param2;
             Story.specificReputations[_loc3_] = _loc4_;
          }
       }
@@ -5034,7 +5103,7 @@ package IsoEngine
       {
          var _loc3_:* = undefined;
          var _loc4_:* = undefined;
-         var _loc5_:Number = 100000000000000000000;
+         var _loc5_:* = 100000000000000000000;
          var _loc2_:Boolean = false;
          if(param1 is Caravan)
          {
@@ -5407,9 +5476,9 @@ package IsoEngine
                      Story.characterRelations[10] += 10;
                      if(Caravans[0].People[0].gender == 2)
                      {
-                        var _loc39_:int = 10;
-                        var _loc38_:Number = Story.characterRelations[_loc39_] + 20;
-                        Story.characterRelations[_loc39_] = _loc38_;
+                        var _loc37_:int = 10;
+                        var _loc36_:* = Story.characterRelations[_loc37_] + 20;
+                        Story.characterRelations[_loc37_] = _loc36_;
                      }
                      affectSpecificReputation(5,20);
                   }
@@ -6753,8 +6822,8 @@ package IsoEngine
                   Towns[Item.Goods[74].towns[_loc24_]].abolishSlavery();
                   Towns[Item.Goods[74].towns[_loc24_]].bannedGoods = [165,104];
                   Towns[Item.Goods[74].towns[_loc24_]].specialPrices = {
-                     165:20,
-                     104:10
+                     "165":20,
+                     "104":10
                   };
                   Towns[Item.Goods[74].towns[_loc24_]].faction = 14;
                   for(_loc25_ in Towns[Item.Goods[74].towns[_loc24_]].industries)
@@ -7290,8 +7359,8 @@ package IsoEngine
                navigationMode.mapTowns[47].text.text = mapMode.townNameTexts[47].text = Towns[47].altName = Texts.fetch(5332);
                Towns[45].bannedGoods = [104];
                Towns[45].specialPrices = {
-                  104:15,
-                  95:0.6
+                  "104":15,
+                  "95":0.6
                };
                Towns[45].industries.push(new Industry(37,20,Towns[45]));
                Towns[45].industries[Towns[45].industries.length - 1].forSale = false;
@@ -7733,7 +7802,7 @@ package IsoEngine
                if(!Story.loisIsDead)
                {
                   var _loc48_:int = 10;
-                  var _loc51_:Number = Story.characterRelations[_loc48_] + 25;
+                  var _loc51_:* = Story.characterRelations[_loc48_] + 25;
                   Story.characterRelations[_loc48_] = _loc51_;
                }
                Story.dialogueDefaults[10] = 1882;
@@ -11753,7 +11822,7 @@ package IsoEngine
       
       private function createMikazeOilMainCharacters() : *
       {
-         var _loc1_:Array = [];
+         var _loc1_:* = [];
          _loc1_.push(new Character({
             "name":Texts.fetch(4804),
             "specialPortrait":7,
@@ -12151,7 +12220,7 @@ package IsoEngine
       
       private function createNariziansSquad() : *
       {
-         var _loc1_:Caravan = new Caravan(3,mapMode.mapSymbols);
+         var _loc1_:* = new Caravan(3,mapMode.mapSymbols);
          _loc1_.x = Presets.Towns[25].x;
          _loc1_.y = Presets.Towns[25].y;
          _loc1_.addPerson(new Character({
@@ -13214,7 +13283,7 @@ package IsoEngine
                break;
             case 17:
                var _loc4_:int = 17;
-               var _loc5_:Number = Story.characterRelations[_loc4_] + 5;
+               var _loc5_:* = Story.characterRelations[_loc4_] + 5;
                Story.characterRelations[_loc4_] = _loc5_;
                break;
             case 18:
@@ -13428,8 +13497,8 @@ package IsoEngine
          var _loc8_:* = undefined;
          var _loc2_:* = undefined;
          var _loc4_:* = undefined;
-         var _loc1_:Array = [];
-         var _loc3_:Array = [];
+         var _loc1_:* = [];
+         var _loc3_:* = [];
          var _loc7_:int = 38;
          for(_loc4_ in Towns)
          {
@@ -13561,7 +13630,7 @@ package IsoEngine
          Caravans[_loc3_].addCargo(120,Presets.caravanRoutes[param1].size);
          Caravans[_loc3_].addCargo(121,Presets.caravanRoutes[param1].size * 40);
          Caravans[_loc3_].addCargo(168,4);
-         var _loc2_:Number = Math.round(Presets.caravanRoutes[param1].size / 4);
+         var _loc2_:* = Math.round(Presets.caravanRoutes[param1].size / 4);
          Caravans[_loc3_].addCargo(169,_loc2_);
          for(_loc4_ in Presets.caravanRoutes[param1].extraEquipment)
          {
@@ -13646,13 +13715,13 @@ package IsoEngine
          refillSupply(param1,62,20 * param1.People.length,Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town]);
          refillSupply(param1,"food",20000 * param1.People.length,Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town]);
          var _loc8_:* = 0;
-         var _loc13_:Array = [];
+         var _loc13_:* = [];
          for(_loc6_ in Presets.caravanRoutes[param1.route].points[param1.routePoint].buy)
          {
             _loc8_ += Presets.caravanRoutes[param1.route].points[param1.routePoint].buy[_loc6_].amount;
          }
-         var _loc2_:Number = param1.maxCargo - param1.totalCargo;
-         var _loc3_:Number = _loc2_ / _loc8_;
+         var _loc2_:* = param1.maxCargo - param1.totalCargo;
+         var _loc3_:* = _loc2_ / _loc8_;
          for(_loc6_ in Presets.caravanRoutes[param1.route].points[param1.routePoint].buy)
          {
             _loc9_ = _loc3_ * Presets.caravanRoutes[param1.route].points[param1.routePoint].buy[_loc6_].amount;
@@ -13795,7 +13864,7 @@ package IsoEngine
                }
             }
          }
-         var _loc10_:Number = param3 - _loc5_;
+         var _loc10_:* = param3 - _loc5_;
          if(_loc10_ > 0)
          {
             if(param2 is Number)
@@ -14310,7 +14379,7 @@ package IsoEngine
       {
          var _loc6_:* = MathFunctions.CalcDistance(param1,param2,param3,param4);
          var _loc7_:* = MathFunctions.CalcRevYAngle(param1,param2,param3,param4);
-         var _loc5_:Sprite = new Sprite();
+         var _loc5_:* = new Sprite();
          _loc5_.graphics.beginFill(16777215);
          _loc5_.graphics.moveTo(-15,0);
          _loc5_.graphics.lineTo(-15,0 - _loc6_ + 30);
@@ -14328,10 +14397,10 @@ package IsoEngine
       
       internal function generateTutorialWindow(param1:*, param2:*, param3:*, param4:*, param5:*) : *
       {
-         var _loc6_:Sprite = new Sprite();
-         var _loc7_:EngineText = new EngineText(param1,0,13,"left",20,20,param2 - 40,495,true,true);
+         var _loc6_:* = new Sprite();
+         var _loc7_:* = new EngineText(param1,0,13,"left",20,20,param2 - 40,495,true,true);
          _loc7_.height = _loc7_.textHeight + 5;
-         var _loc10_:Number = _loc7_.height + 80;
+         var _loc10_:* = _loc7_.height + 80;
          _loc6_.graphics.beginFill(16777215);
          _loc6_.graphics.moveTo(0,10);
          _loc6_.graphics.curveTo(0,0,10,0);
@@ -14343,11 +14412,11 @@ package IsoEngine
          _loc6_.graphics.curveTo(0,_loc10_,0,_loc10_ - 10);
          _loc6_.graphics.endFill();
          _loc6_.addChild(_loc7_);
-         var _loc8_:Switch = new Switch(5,showTutorial,switchShowTutorial,switchShowTutorial,null,null,15,15,false,null,0);
+         var _loc8_:* = new Switch(5,showTutorial,switchShowTutorial,switchShowTutorial,null,null,15,15,false,null,0);
          _loc8_.x = 20;
          _loc8_.y = _loc10_ - 37.5;
          _loc6_.addChild(_loc8_);
-         var _loc9_:EngineText = new EngineText(Texts.fetch(6837).toUpperCase(),0,13,"left",45,_loc10_ - 39.5,150,20);
+         var _loc9_:* = new EngineText(Texts.fetch(6837).toUpperCase(),0,13,"left",45,_loc10_ - 39.5,150,20);
          _loc6_.addChild(_loc9_);
          okButton.x = param2 - 160;
          okButton.y = _loc10_ - 40;
@@ -14530,6 +14599,66 @@ package IsoEngine
          okButton = null;
          System.pauseForGCIfCollectionImminent(1);
          System.gc();
+      }
+      //- i think this was for the puccio.txt file
+      public function pucciogetsellprice(param1:* = null, param2:* = null) : *
+      {
+         if(param1 == null || param2 == null)
+         {
+            return "";
+         }
+         var _locpuccio1_:* = 0;
+         for(_locpuccio2_ in param1)
+         {
+            _locpuccio1_ += calculatePrice(Towns[param2],param1[_locpuccio2_].item,param1[_locpuccio2_].amount,false,null);
+         }
+         return " ($" + Math.round(_locpuccio1_) + ")";
+      }
+      
+      public function pucciogetbuyprice(param1:* = null, param2:* = null) : *
+      {
+         if(param1 == null || param2 == null)
+         {
+            return "";
+         }
+         var _locpuccio1_:* = 0;
+         for(_locpuccio2_ in param1)
+         {
+            _locpuccio1_ += calculatePrice(Towns[param2],param1[_locpuccio2_].item,param1[_locpuccio2_].amount,true,null);
+         }
+         return " ($" + Math.round(_locpuccio1_) + ")";
+      }
+      //- increase chances of Forage expansion over water
+      public function PuccioReSelectExpansion(possibleExpansions:*, selectedExpansion:*) : *
+      {
+         _locForageProduction_ = 0;
+         _locForageConsumption_ = 0;
+         puccioForageIndustryIndex = 0;
+         result = selectedExpansion;
+         for(j in possibleExpansions)
+         {
+            //locating forage industry
+            if(possibleExpansions[j].industry.production[0].item == 62)
+            {
+               _locForageProduction_ = possibleExpansions[j].industry.production[0].amount;
+               puccioForageIndustryIndex = j;
+            }
+
+            //checking how much forage we consume
+            for(k in possibleExpansions[j].industry.consumption)
+            {
+               if(possibleExpansions[j].industry.consumption[k].item == 62)
+               {
+                  _locForageConsumption_ += possibleExpansions[j].industry.consumption[k].amount;
+               }
+            }
+         }
+         //if we consume more than we produce, force upgrade to be Forage
+         if(_locForageProduction_ != 0 && _locForageConsumption_ > _locForageProduction_)
+         {
+            result = puccioForageIndustryIndex;
+         }
+         return result;
       }
    }
 }

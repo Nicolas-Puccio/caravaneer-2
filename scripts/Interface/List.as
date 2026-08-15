@@ -7,11 +7,29 @@ package Interface
    import IsoEngine.TransportUnit;
    import flash.display.Bitmap;
    import flash.display.Sprite;
+   import flash.events.Event;
+   import flash.events.MouseEvent;
    import flash.geom.ColorTransform;
+   import flash.net.URLLoader;
+   import flash.net.URLRequest;
    import flash.utils.getDefinitionByName;
    
    public class List extends Sprite
    {
+      
+      private var lookup:Object = {};
+      
+      private var bottomIDs:* = {};
+      
+      public var GD:*;
+      
+      public var enableNewColor:* = false;
+      
+      public var newColor:* = 5792848;
+      
+      public var partner:*;
+      
+      public var realShop:*;
       
       public var scrollableArea:*;
       
@@ -96,6 +114,7 @@ package Interface
          var _selectFrameSize:* = param14;
          var _selectFrameAlpha:* = param15;
          var _alwaysAllow:* = param16;
+         //+-loadTextFile();
          filterButtonsArr = [];
          filterValues = [];
          super();
@@ -202,11 +221,11 @@ package Interface
                filterIcons[n].alpha = 0.3;
                filterIcons[n].mouseEnabled = false;
                addChild(filterIcons[n]);
-               remainingButts = Number(remainingButts) - 1;
-               col = Number(col) + 1;
+               remainingButts--;
+               col++;
             }
-            remainingRows = Number(remainingRows) - 1;
-            row = Number(row) + 1;
+            remainingRows--;
+            row++;
          }
          if(vertical)
          {
@@ -279,6 +298,54 @@ package Interface
          update();
       }
       
+      private function loadTextFile() : void
+      {
+         var loader:URLLoader = new URLLoader();
+         loader.addEventListener(Event.COMPLETE,onFileLoaded);
+         loader.load(new URLRequest("puccio.txt"));
+      }
+      
+      private function onFileLoaded(e:Event) : void
+      {
+         var loader:URLLoader = URLLoader(e.target);
+         var lines:Array = loader.data.split("\n");
+         for each(var line in lines)
+         {
+            if(line.indexOf("-") == -1)
+            {
+               var ids:Array = line.split(",");
+               for each(var idStr in ids)
+               {
+                  var id:int = int(idStr);
+                  if(id > 0)
+                  {
+                     bottomIDs[id] = true;
+                  }
+               }
+            }
+            else
+            {
+               var parts:Array = line.split("-");
+               if(parts.length == 2)
+               {
+                  var key:int = int(parts[0]);
+                  var secondParts:Array = parts[1].split(/\s+/);
+                  var value:int = int(secondParts[0]);
+                  lookup[key] = value;
+               }
+            }
+         }
+         update();
+      }
+      
+      public function EnableNewColor(_GD:*, _partner:*, _realShop:*) : *
+      {
+         enableNewColor = true;
+         partner = _partner;
+         realShop = _realShop;
+         GD = _GD;
+      }
+      
       private function switchFilter(param1:* = null) : *
       {
          var _loc4_:* = undefined;
@@ -330,7 +397,7 @@ package Interface
          var _loc7_:* = undefined;
          var _loc16_:* = undefined;
          var _loc9_:* = undefined;
-         var _loc11_:Number = selectFrameSize / ((listSize - 30) / 250);
+         var _loc11_:* = selectFrameSize / ((listSize - 30) / 250);
          if(param1 is Array)
          {
             fullList = [];
@@ -339,7 +406,7 @@ package Interface
                fullList.push(param1[_loc4_]);
             }
          }
-         var _loc12_:Array = ["volunteers","mercenaries","prisoners","slaves","other","market","food","liquids","liquidscontainers","devices","tools","miscellaneous","weapons","ammo","armor","attachments","firstaid","animals","carts","cars"];
+         var _loc12_:* = ["volunteers","mercenaries","prisoners","slaves","other","market","food","liquids","liquidscontainers","devices","tools","miscellaneous","weapons","ammo","armor","attachments","firstaid","animals","carts","cars"];
          if(finalList is Array && finalList.length > 0)
          {
             _loc14_ = finalList[selectedItem].item;
@@ -487,7 +554,7 @@ package Interface
                }
             }
          }
-         var _loc15_:Array = [];
+         var _loc15_:* = [];
          if(selectedItem >= finalList.length)
          {
             selectedItem = finalList.length - 1;
@@ -496,6 +563,31 @@ package Interface
          {
             selectedItem = 0;
          }
+         var kept:Array = [];
+         var moved:Array = [];
+         var i:int = 0;
+         while(i < finalList.length)
+         {
+            var obj:* = finalList[i];
+            var isEnd:Boolean = false;
+            if(obj.item is Item)
+            {
+               if(bottomIDs[obj.item.type])
+               {
+                  isEnd = true;
+               }
+            }
+            if(isEnd)
+            {
+               moved.push(obj);
+            }
+            else
+            {
+               kept.push(obj);
+            }
+            i++;
+         }
+         finalList = kept.concat(moved);
          for(_loc4_ in finalList)
          {
             finalList[_loc4_].selectFrame = new Sprite();
@@ -512,7 +604,14 @@ package Interface
             finalList[_loc4_].pic.addChild(finalList[_loc4_].selectFrame);
             finalList[_loc4_].selectFrame.visible = !unselectable && _loc4_ == selectedItem;
             _loc15_[_loc4_] = new Sprite();
-            _loc15_[_loc4_].graphics.beginFill(picBGColor,0.8);
+            if(enableNewColor && finalList[_loc4_].item is Item && lookup[finalList[_loc4_].item.type] && GD.calculatePrice(partner,finalList[_loc4_].item.type,1,false,realShop) > lookup[finalList[_loc4_].item.type])
+            {
+               _loc15_[_loc4_].graphics.beginFill(newColor,0.8);
+            }
+            else
+            {
+               _loc15_[_loc4_].graphics.beginFill(picBGColor,0.8);
+            }
             _loc15_[_loc4_].graphics.moveTo(0,10);
             _loc15_[_loc4_].graphics.curveTo(0,0,10,0);
             _loc15_[_loc4_].graphics.lineTo(250 - 10,0);
@@ -704,7 +803,7 @@ package Interface
             if(vertical)
             {
                finalList[_loc4_].pic.x = 10;
-               finalList[_loc4_].pic.y = 10 + _loc4_ * (listSize - 20);
+               finalList[_loc4_].pic.y = 5 + _loc4_ * (listSize - 25);
             }
             else
             {
@@ -716,6 +815,7 @@ package Interface
             finalList[_loc4_].pic.mouseChildren = false;
             finalList[_loc4_].pic.addEventListener("click",selectItem,false,0,false);
             finalList[_loc4_].pic.doubleClickEnabled = true;
+            finalList[_loc4_].pic.addEventListener(MouseEvent.RIGHT_CLICK,selectItemMax,false,0,false);
             finalList[_loc4_].pic.addEventListener("doubleClick",doubleClick,false,0,false);
             scrollableArea.addContent(finalList[_loc4_].pic,null,null,null,null,true);
          }
@@ -730,6 +830,34 @@ package Interface
             {
                onSelect(null);
             }
+         }
+      }
+      
+      private function selectItemMax(param1:*) : *
+      {
+         var _loc3_:* = undefined;
+         var _loc2_:* = undefined;
+         if(GameData.soundFXOn)
+         {
+            new SFXClick().play();
+         }
+         for(_loc3_ in finalList)
+         {
+            if(finalList[_loc3_].pic == param1.target)
+            {
+               _loc2_ = _loc3_;
+               break;
+            }
+         }
+         if(!unselectable)
+         {
+            finalList[selectedItem].selectFrame.visible = false;
+         }
+         selectedItem = _loc2_;
+         onSelect(finalList[selectedItem].item,true);
+         if(!unselectable)
+         {
+            finalList[selectedItem].selectFrame.visible = true;
          }
       }
       

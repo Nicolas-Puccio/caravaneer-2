@@ -7953,7 +7953,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{
+      },{//-14willoshigrad
          "name":566,
          "x":3197,
          "y":3101,
@@ -8183,7 +8183,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":6,
          "faction":18
-      },{//-bunker
+      },{//-15 bunker
          "name":1605,
          "x":-10000,
          "y":-1000,
@@ -8271,7 +8271,7 @@ package Data
          "tax":0.05,
          "electricityPrice":0.3,
          "noticeability":160
-      },{//-silos
+      },{//-16 silos
          "name":1610,
          "x":-10050,
          "y":-1300,
@@ -8322,7 +8322,7 @@ package Data
          "maxAttributes":0.8,
          "maxExperience":0.8,
          "faction":1
-      },{//-lintu camp
+      },{//-17 lintu camp
          "name":1613,
          "x":-9930,
          "y":-1700,
@@ -8473,7 +8473,7 @@ package Data
          "maxAttributes":0.7,
          "maxExperience":0.8,
          "faction":1
-      },{
+      },{//-18 pullid
          "name":1633,
          "x":-10900,
          "y":-900,
@@ -8563,7 +8563,7 @@ package Data
          "maxAttributes":0.7,
          "maxExperience":0.8,
          "faction":3
-      },{
+      },{//-19 kivi
          "name":1634,
          "x":-9945,
          "y":-250,
@@ -8685,7 +8685,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":1.2,
          "faction":4
-      },{//-drekar camp
+      },{//-20 drekar camp
          "name":1635,
          "x":-9127,
          "y":-1105,
@@ -8747,7 +8747,7 @@ package Data
          "maxAttributes":0.9,
          "maxExperience":1.2,
          "faction":2
-      },{//-sigurd hut
+      },{//-21 sigurd hut
          "name":1980,
          "x":-10050,
          "y":-2500,
@@ -8773,7 +8773,7 @@ package Data
          "tax":0.05,
          "electricityPrice":0.3,
          "noticeability":150
-      },{//-saxaul tree
+      },{//-22 saxaul tree
          "name":2078,
          "x":-11600,
          "y":-1370,

@@ -92,6 +92,15 @@ package IsoEngine
          var _loc9_:* = undefined;
          super();
          GD = param1;
+         GD.Caravans[0].People[0].category = 1;
+         for(_locCaravanMember_ in GD.Caravans[0].People)
+         {
+            if(GD.Caravans[0].People[_locCaravanMember_].category == 5 && GD.Caravans[0].People[_locCaravanMember_].name.indexOf("bot-") == 0)
+            {
+               GD.Caravans[0].People[_locCaravanMember_].category = 2;
+               GD.Caravans[0].People[_locCaravanMember_].name = GD.Caravans[0].People[_locCaravanMember_].name.substring(4);
+            }
+         }
          onExit = new Function();
          D = new Dialogue(880,495);
          addChild(D);
@@ -102,7 +111,7 @@ package IsoEngine
          D.addToMask(bottomLineCapacity);
          D.addToMask(bottomLineDate);
          D.addToMask(bottomLineMoney);
-         var _loc11_:Sprite = new Sprite();
+         var _loc11_:* = new Sprite();
          D.addToMask(_loc11_);
          _loc11_.graphics.lineStyle(1,16777215);
          _loc11_.graphics.moveTo(0,472);
@@ -142,7 +151,7 @@ package IsoEngine
          mainCharPic.x = 130;
          mainCharPic.y = 12;
          D.addChild(mainCharPic);
-         var _loc10_:EngineText = new EngineText(Texts.fetch(3).toUpperCase(),16777215,16,"left",200,11,550,20,true);
+         var _loc10_:* = new EngineText(Texts.fetch(3).toUpperCase(),16777215,16,"left",200,11,550,20,true);
          D.addChild(_loc10_);
          moneyText = new EngineText("",16777215,16,"left",360,226,160,22,true);
          D.addToMask(moneyText);
@@ -311,7 +320,7 @@ package IsoEngine
          {
             partners[0].array = partners[0].array.concat(GD.Caravans[0].People);
          }
-         var _loc20_:Array = ["market","food","liquids","liquidscontainers","devices","tools","miscellaneous","weapons","ammo","attachments","armor","firstaid","animals","carts","cars"];
+         var _loc20_:* = ["market","food","liquids","liquidscontainers","devices","tools","miscellaneous","weapons","ammo","attachments","armor","firstaid","animals","carts","cars"];
          if(partner is Town && partner.allowsSlaves || !(partner is Town))
          {
             _loc20_.push("slaves");
@@ -344,7 +353,11 @@ package IsoEngine
          }
          if(!param9)
          {
-            partners[0].list = new List([],450,true,_loc20_,["volunteers","mercenaries","prisoners","other"].concat(blockedFilters),selectPlayerItem,null,false,false,true);
+            partners[0].list = new List([],450,true,_loc20_,["volunteers","mercenaries","prisoners","other"].concat(blockedFilters),selectPlayerItem,85,false,false,true);
+            if(partner is Town)
+            {
+               partners[0].list.EnableNewColor(GD,partner,realShop);
+            }
             partners[0].list.x = 10;
             partners[0].list.y = 12;
             D.addChild(partners[0].list);
@@ -447,17 +460,17 @@ package IsoEngine
          partners[0].list.update(partners[0].array);
          if(!param9)
          {
-            partners[1].list = new List([],390,true,[],["volunteers","mercenaries","prisoners","other"],selectPartnerItem,null,false,false,true);
+            partners[1].list = new List([],390,true,[],["volunteers","mercenaries","prisoners","other"],selectPartnerItem,85,false,false,true);//-forgot what 85 was
             partners[1].list.x = 770;
             partners[1].list.y = 42;
             partners[1].list.update(partners[1].array);
             D.addChild(partners[1].list);
          }
-         var _loc12_:Button = new Button(10,takeAll,Texts.fetch(1356,1,10).toUpperCase(),null,null,true);
+         var _loc12_:* = new Button(10,takeAll,Texts.fetch(1356,1,10).toUpperCase(),null,null,true);
          _loc12_.x = 767;
          _loc12_.y = 9;
          D.addChild(_loc12_);
-         var _loc19_:Button = new Button(10,pressClear,Texts.fetch(1357,1,10).toUpperCase(),null,null,true);
+         var _loc19_:* = new Button(10,pressClear,Texts.fetch(1357,1,10).toUpperCase(),null,null,true);
          _loc19_.x = 767;
          _loc19_.y = 441;
          D.addChild(_loc19_);
@@ -514,11 +527,19 @@ package IsoEngine
             partnersAvailableSpace = setLimit - _loc5_ + totalWeight(partners[0].items);
          }
          playersAvailableSpace = GD.Caravans[0].maxCargo - GD.Caravans[0].totalCargo + totalWeight(partners[1].items);
-         yourPrice.text = Texts.fetch(1347).toUpperCase() + ": " + MathFunctions.NumberFormat(totalPrice(partners[0].items),2,false);
-         yourWeight.text = Texts.fetch(1191).toUpperCase() + ": " + MathFunctions.NumberFormat(totalWeight(partners[0].items),1,true);
+         yourPrice.text = Texts.fetch(1347).toUpperCase() + ": " + MathFunctions.NumberFormat(totalPrice(partners[0].items),2,false) + "   " + Texts.fetch(1191).toUpperCase() + ": " + MathFunctions.NumberFormat(totalWeight(partners[0].items),1,true);
+         _locWaterFromFood_ = 0;
+         for(_locCargo_ in GD.Caravans[0].Cargo)
+         {
+            if(GD.Caravans[0].Cargo[_locCargo_].itemData.food)
+            {
+               _locWaterFromFood_ += GD.Caravans[0].Cargo[_locCargo_].itemData.waterPercentage * GD.Caravans[0].Cargo[_locCargo_].amount * GD.Caravans[0].Cargo[_locCargo_].weightPerUnit;
+            }
+         }
+         yourWeight.text = "WATER NEED: " + MathFunctions.NumberFormat(Math.max(GD.waterNeed - GD.Caravans[0].water - _locWaterFromFood_,0),0) + "   FOOD NEED: " + MathFunctions.NumberFormat(Math.max(GD.foodNeed - GD.Caravans[0].food,0),0) + " kcal";
          if(partnersAvailableSpace != null)
          {
-            yourWeight.text += " / " + MathFunctions.NumberFormat(partnersAvailableSpace,1,true);
+            yourPrice.text += " / " + MathFunctions.NumberFormat(partnersAvailableSpace,1,true);
          }
          partnerPrice.text = Texts.fetch(1347).toUpperCase() + ": " + MathFunctions.NumberFormat(totalPrice(partners[1].items),2,false);
          partnerWeight.text = Texts.fetch(1191).toUpperCase() + ": " + MathFunctions.NumberFormat(totalWeight(partners[1].items),1,true) + " / " + MathFunctions.NumberFormat(playersAvailableSpace,1,true);
@@ -582,7 +603,7 @@ package IsoEngine
          {
             _loc1_ = 0;
          }
-         var _loc3_:Number = totalPrice(partners[0].items) - totalPrice(partners[1].items);
+         var _loc3_:* = totalPrice(partners[0].items) - totalPrice(partners[1].items);
          bulbs[3].visible = _loc3_ > _loc1_ && _loc3_ > 0;
          if(partnersAvailableSpace == null)
          {
@@ -612,9 +633,9 @@ package IsoEngine
          {
             bulbs[5].visible = false;
          }
-         var _loc11_:Number = totalPrice(partners[0].items) - totalPrice(partners[1].items);
+         var _loc11_:* = totalPrice(partners[0].items) - totalPrice(partners[1].items);
          moneyText.text = MathFunctions.NumberFormat(Math.abs(_loc11_),2) + " €";
-         var _loc10_:Number = moneyText.textWidth + 20;
+         var _loc10_:* = moneyText.textWidth + 20;
          if(Math.abs(_loc11_) < 0.005)
          {
             moneyDirection.rotation = 90;
@@ -651,17 +672,17 @@ package IsoEngine
          updateBottomLine();
       }
       
-      public function selectPlayerItem(param1:*) : *
+      public function selectPlayerItem(param1:*, takeMax:* = false) : *
       {
-         takeItem(partners[0],param1);
+         takeItem(partners[0],param1,takeMax);
       }
       
-      public function selectPartnerItem(param1:*) : *
+      public function selectPartnerItem(param1:*, takeMax:* = false) : *
       {
-         takeItem(partners[1],param1);
+         takeItem(partners[1],param1,takeMax);
       }
       
-      private function takeItem(param1:*, param2:*) : *
+      private function takeItem(param1:*, param2:*, takeMax:*) : *
       {
          var max:*;
          var i:*;
@@ -778,11 +799,18 @@ package IsoEngine
                   problemDisplay.txt.text = Texts.fetch(1020);
                   problemDisplay.counter = 50;
                }
-               if(max < 3.05)
+               if(max < 5.05 && !takeMax)
                {
                   if(max >= 0.05)
                   {
                      doMove(from,item,Math.min(1,max));
+                  }
+               }
+               else if(takeMax)
+               {
+                  if(max >= 0.05)
+                  {
+                     doMove(from,item,max);
                   }
                }
                else
@@ -865,7 +893,20 @@ package IsoEngine
                         }
                      }
                   };
-                  calculator.setValue(Math.min(1,calculator.max));
+                  _locAmountNeeded_ = Math.min(1,calculator.max);
+                  if(item.itemData.food)
+                  {
+                     _locAmountNeeded_ = Math.ceil((GD.foodNeed - GD.Caravans[0].food) / item.itemData.calories);
+                     _locAmountNeeded_ = Math.min(_locAmountNeeded_,calculator.max);
+                     _locAmountNeeded_ = Math.max(_locAmountNeeded_,Math.min(1,calculator.max));
+                  }
+                  if(item.type == 1)
+                  {
+                     _locAmountNeeded_ = GD.waterNeed - GD.Caravans[0].water - _locWaterFromFood_;
+                     _locAmountNeeded_ = Math.min(_locAmountNeeded_,calculator.max);
+                     _locAmountNeeded_ = Math.max(_locAmountNeeded_,Math.min(1,calculator.max));
+                  }
+                  calculator.setValue(_locAmountNeeded_);
                   calculator.info.text = Texts.fetch(1348).toUpperCase();
                   calculator.onDone = function(param1:*):*
                   {
@@ -1104,7 +1145,12 @@ package IsoEngine
          }
       }
       
-      private function clickBarterItem(param1:*) : *
+      private function ClickbarterItemAll(param1:*) : *
+      {
+         clickBarterItem(param1,true);
+      }
+      
+      private function clickBarterItem(param1:*, removeAll:* = false) : *
       {
          var j:*;
          var part:*;
@@ -1133,9 +1179,13 @@ package IsoEngine
                break;
             }
          }
-         if(partners[part].items[ind].item is Item && partners[part].items[ind].item.amount < 3.05)
+         if(partners[part].items[ind].item is Item && partners[part].items[ind].item.amount < 3.05 && !removeAll)//-forgot what this does
          {
             returnItem(part,ind,Math.min(1,partners[part].items[ind].item.amount));
+         }
+         else if(removeAll)
+         {
+            returnItem(part,ind,partners[part].items[ind].item.amount);
          }
          else if(partners[part].items[ind].item is Item)
          {
@@ -1178,7 +1228,7 @@ package IsoEngine
                      calculator.rightSideText.text += "\n\n" + Texts.fetch(1369).replace("@amount@",MathFunctions.NumberFormat(0 - partner.maxLiquidAmount(partners[part].items[ind].item.type),1,true) + " " + Texts.fetch(11));
                   }
                }
-               var _loc2_:Number = null;
+               var _loc2_:* = null;
                if(part == 1)
                {
                   _loc2_ = GD.Caravans[0].maxCargo - GD.Caravans[0].totalCargo;
@@ -1638,13 +1688,13 @@ package IsoEngine
          bottomLineMoney.text = Texts.fetch(20).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Caravans[0].money,2);
          var _loc1_:* = GD.makeDate();
          bottomLineDate.text = _loc1_.Day2d + "-" + _loc1_.ShortMonthName + "-" + _loc1_.Year2d + " " + _loc1_.Hour2d + ":" + _loc1_.Minute2d;
-         var _loc2_:Number = 860 - bottomLineCapacity.textWidth - bottomLineDate.textWidth;
+         var _loc2_:* = 860 - bottomLineCapacity.textWidth - bottomLineDate.textWidth;
          bottomLineMoney.x = 10 + bottomLineCapacity.textWidth + _loc2_ / 2 - bottomLineMoney.textWidth / 2;
       }
       
       private function transportCharacterPrice(param1:*, param2:*) : *
       {
-         var _loc3_:Number = transportCharacterPricePerMoneyUnit(param1,param2) * param1.price;
+         var _loc3_:* = transportCharacterPricePerMoneyUnit(param1,param2) * param1.price;
          if(param1 is TransportUnit && param1.category == 1)
          {
             _loc3_ = Math.max(_loc3_,meatPrice(param1));
@@ -1810,7 +1860,7 @@ package IsoEngine
             }
          }
          _loc4_ = priceIntegral(0.00001,Math.max(_loc5_,0.0001),Math.max(_loc10_,_loc6_ / 100));
-         _loc4_ = _loc4_ / _loc5_;
+         _loc4_ /= _loc5_;
          _loc4_ = Math.min(_loc4_,1.2);
          _loc4_ = Math.max(_loc4_,0.1);
          if(partner is Town)
@@ -1879,21 +1929,22 @@ package IsoEngine
          }
          var _loc18_:* = 0;
          var _loc10_:* = 0;
-         var _loc28_:Array = [];
-         var _loc15_:String = "";
-         var _loc13_:String = "";
-         var _loc21_:String = "";
-         var _loc7_:String = "";
-         var _loc14_:String = "";
+         var _loc28_:* = [];
+         var _loc15_:* = "";
+         var _loc13_:* = "";
+         var _loc21_:* = "";
+         var _loc7_:* = "";
+         var _loc14_:* = "";
          var _loc6_:* = "";
          for(_loc23_ in partners)
          {
             if(mouseX >= partners[_loc23_].list.x + partners[_loc23_].list.scrollableArea.x + 10 && mouseX <= partners[_loc23_].list.x + partners[_loc23_].list.scrollableArea.x + partners[_loc23_].list.scrollableArea.currWidth - 10 && mouseY >= partners[_loc23_].list.y + partners[_loc23_].list.scrollableArea.y && mouseY <= partners[_loc23_].list.y + partners[_loc23_].list.scrollableArea.y + partners[_loc23_].list.scrollableArea.currHeight)
             {
-               _loc12_ = (partners[_loc23_].list.scrollableArea.Content.mouseY - 10) % 80;
-               if(_loc12_ < 70)
+               //-fix for tooltip
+               _loc12_ = (partners[_loc23_].list.scrollableArea.Content.mouseY - 5) % 60;
+               if(_loc12_ < 55)
                {
-                  _loc8_ = Math.floor((partners[_loc23_].list.scrollableArea.Content.mouseY - 10) / 80);
+                  _loc8_ = Math.floor((partners[_loc23_].list.scrollableArea.Content.mouseY - 5) / 60);
                   if(_loc8_ >= 0 && _loc8_ < partners[_loc23_].list.finalList.length)
                   {
                      _loc19_ = partners[_loc23_].list.finalList[_loc8_].item;
@@ -1983,7 +2034,12 @@ package IsoEngine
          {
             _loc27_ = [];
             _loc4_ = [];
-            _loc27_.push(new EngineText(_loc19_.name.toUpperCase(),0,14,"center",12,5,880,20));
+            _locType_ = "";
+            if(_loc19_ is Item)
+            {
+               _locType_ = " - " + _loc19_.type;
+            }
+            _loc27_.push(new EngineText(_loc19_.name.toUpperCase() + _locType_,0,14,"center",12,5,880,20));
             _loc4_[0] = false;
             _loc24_ = 25;
             if(_loc15_ != "")
@@ -2186,7 +2242,7 @@ package IsoEngine
             addToPartner(GD.Caravans[0],partners[param1].items[param2].item,partners[param1].items[param2].item.amount);
             reduceFromPartner(partner,partners[param1].items[param2].item,partners[param1].items[param2].item.amount);
          }
-         var _loc4_:Boolean = param1 == 1;
+         var _loc4_:* = param1 == 1;
          var _loc5_:* = GD.calculatePrice(partner,partners[param1].items[param2].item.type,param3,_loc4_,realShop);
          if(param1 == 0)
          {
