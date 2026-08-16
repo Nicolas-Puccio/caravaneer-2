@@ -10,27 +10,25 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 2. **Post-combat health**: After combat, all caravan members heal to at least 10% HP, ensuring good walking speed after fights.
 
-3. **Reduced warpower**: Each caravan member now contributes less warpower, making your caravan more likely to be attacked, especially if equipped with cheap weapons.
+3. **AI battles**: Can choose between fully automated battles, or only automate your mercenaries.
 
-4. **AI battles**: Can choose between fully automated battles, or only automate your mercenaries.
+4. **Increased starting stats**: Main character now has 80 stat points to distribute during character creation, with each stat capped at 20 points.
 
-5. **Increased starting stats**: Main character now has 80 stat points to distribute during character creation, with each stat capped at 20 points.
+5. **Extra UMi alpha**: Start the game with a free UMi Alpha in the bunker storage, plus the storage got bigger to accomodate the vehicle.
 
-6. **Extra UMi alpha**: Start the game with a free UMi Alpha in the bunker storage, plus the storage got bigger to accomodate the vehicle.
+6. **Faster walk animation**: Walk animations during battle are twice as fast.
 
-7. **Faster walk animation**: Walk animations during battle are twice as fast.
+7. **Less entities during fights**: Slaves and transport are removed from the fight, to improve performance, and make the battles faster.
 
-8. **Less entities during fights**: Slaves and transport are removed from the fight, to improve performance, and make the battles faster.
+8. **More mercenaries available in towns**: Added +1 to the amount of mercenary in a town, making it easier to find recruits in low population towns.
 
-9. **More mercenaries available in towns**: Added +1 to the amount of mercenary in a town, making it easier to find recruits in low population towns.
+9. **Smaller battle fields**: halved how much battle field size scales with weapon skill, and reduced min size when using melee weapons.
 
-10. **Smaller battle fields**: halved how much battle field size scales with weapon skill, and reduced min size when using melee weapons.
+10. **Fix starving towns due to forage deficit**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
 
-11. **Fix starving towns due to forage deficit**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
+11. **Partial fix chained industries**: Leather vest and yarn jackets will produce if consumption is satisfied by another industry, regardless of storage space.
 
-12. **Partial fix chained industries**: Leather vest and yarn jackets will produce if consumption is satisfied by another industry, regardless of storage space.
-
-13. **Enabled Crowdfunder DLC**: DLC with weapon that shoots money ([Install Instructions](#Installation)).
+12. **Enabled Crowdfunder DLC**: DLC with weapon that shoots money ([Install Instructions](#Installation)).
 
 
 
@@ -69,7 +67,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
    - Start it with the `.exe` file or through Steam.
 
 4. Create a new character  
-   - Name it **Puccio** (only required for changes 1, 2, and 3; I’m working on removing this requirement).
+   - Only needed for the extra UMI ALPHA to spawn in the bunker
 
 
 
@@ -80,27 +78,6 @@ Trade window displays ID of items.
 
 In order to enable visual indicators need to create a "puccio.txt" with the "ID-Price" format, example .txt in the files section above.
 In order to put undesired items at the bottom of trade window need to add the IDs to the end of "puccio.txt" file
-
-
-
-## Files changed
-
-| File                  | Line(s)                                       | Notes        |
-|-----------------------|-----------------------------------------------|--------------|
-| BattleField           | 1402, 1544                                    | P-code only  |
-| BattleMode            | 200, 232, 261, 661                            |              |
-| Caravan               | 1266                                          |              |
-| Caravaneer2           | 1270                                          |              |
-| CaravanEncounterMenu  | 72, 97                                        |              |
-| CharacterSetupScreen  | 92, 377, 509                                  |              |
-| List                  | 580, 780, 792                                 |              |
-| MapMode               | 5624, 5985                                    | P-code only  |
-| NavigationScreen      | 788                                           |              |
-| TownMode              | 619, 691, 815, 836, 1015, 1036                |              |
-| TradeWindow           | 96, 356, 460, 525, 802, 884, 1943, 2036       |              |
-| Presets               | 8269, 8277, 10705                             |              |
-| GameData              | 544, 790, 1364, 14544                         |              |
-| Images                | 819_TitleScreen.jpg                           |              |
 
 
 

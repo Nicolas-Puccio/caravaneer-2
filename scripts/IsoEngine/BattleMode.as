@@ -197,7 +197,8 @@ package IsoEngine
                            }
                            if(weaponType.category == 2 || weaponType.category == 3 || weaponType.category == 4)
                            {
-                              compRange = Math.round(compRange * 0.5 + compRange * allGroups[i].group.People[j][weaponSkillName + "Skill"] / 200);
+                              //-reduces how much a weapon skill affects the battlefield size
+                              compRange = Math.round(compRange * 0.5 + compRange * allGroups[i].group.People[j][weaponSkillName + "Skill"] / 400);
                            }
                            if(compRange > maxRange)
                            {
@@ -215,7 +216,8 @@ package IsoEngine
          }
          if(settings.fieldWidth == undefined)
          {
-            fieldWidth = Math.max(maxRange,50);
+            //-slightly reduces minimum size
+            fieldWidth = Math.max(maxRange,40);
          }
          else
          {
@@ -223,13 +225,15 @@ package IsoEngine
          }
          if(settings.fieldHeight == undefined)
          {
-            fieldHeight = Math.max(maxRange,50);
+            //-slightly reduces minimum size
+            fieldHeight = Math.max(maxRange,40);
          }
          else
          {
             fieldHeight = settings.fieldHeight;
          }
-         BF = new BattleField(640,445,fieldWidth,fieldHeight,obstacles,GD.difficulty,GD.autoCenter,GD.walkAnimationSpeed,GD.showGrid);
+         //-double animation speed
+         BF = new BattleField(640,445,fieldWidth,fieldHeight,obstacles,GD.difficulty,GD.autoCenter,GD.walkAnimationSpeed * 2,GD.showGrid);
          BF.onWin = function():*
          {
             var _loc7_:* = undefined;
@@ -250,7 +254,7 @@ package IsoEngine
             if(enemyWarPower / allyWarPower > 1.5)
             {
                var _loc12_:int = 6;
-               var _loc11_:Number = GD.Story.specificReputations[_loc12_] + enemyWarPower / allyWarPower * 0.1;
+               var _loc11_:* = GD.Story.specificReputations[_loc12_] + enemyWarPower / allyWarPower * 0.1;
                GD.Story.specificReputations[_loc12_] = _loc11_;
             }
             BF.paused = true;
@@ -285,7 +289,16 @@ package IsoEngine
                   {
                      _loc9_ += BF.ActList[_loc5_].meatAmount;
                   }
-                  BF.ActList[_loc5_].caravan.removePerson(BF.ActList[_loc5_]);
+                  if(BF.ActList[_loc5_].caravan.People[0].name == "Puccio" && BF.ActList[_loc5_].specialPurpose == 0)
+                  {
+                     //-ress dead members
+                     BF.ActList[_loc5_].HP = BF.ActList[_loc5_].maxHealth / 5;
+                     BF.ActList[_loc5_].dead = false;
+                  }
+                  else
+                  {
+                     BF.ActList[_loc5_].caravan.removePerson(BF.ActList[_loc5_]);
+                  }
                   if(BF.ActList[_loc5_] == GD.Caravans[0].People[0])
                   {
                      GD.setMode(6,2724);
@@ -293,6 +306,11 @@ package IsoEngine
                }
                else
                {
+                  //-heal non dead members
+                  if(BF.ActList[_loc5_].caravan.People[0].name == "Puccio" && BF.ActList[_loc5_].HP < BF.ActList[_loc5_].maxHealth / 5 + 1)
+                  {
+                     BF.ActList[_loc5_].HP = BF.ActList[_loc5_].maxHealth / 5;
+                  }
                   for(_loc7_ in BF.ActList[_loc5_].weapons)
                   {
                      BF.ActList[_loc5_].unloadWeapon(_loc7_);
@@ -594,13 +612,13 @@ package IsoEngine
          while(i <= 3)
          {
             sides[i] = [];
-            i = Number(i) + 1;
+            i++;
          }
          i = 0;
          while(i <= 3)
          {
             sides[i] = 0;
-            i = Number(i) + 1;
+            i++;
          }
          for(i in allGroups)
          {
@@ -644,37 +662,37 @@ package IsoEngine
             if(allGroups[i].side != undefined)
             {
                switch(allGroups[i].side)
-               {
+               {//-i believe spawns characters closer to the edge
                   case 0:
                      BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),
-                        "y":Math.round(Math.max(fieldHeight / 2 - maxRange / 2,0))
+                        "x":Math.max(1,Math.min(Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),fieldWidth - 2)),
+                        "y":Math.max(1,Math.min(Math.round(Math.max(fieldHeight / 2 - maxRange / 2,0)),fieldWidth - 2))
                      });
                      break;
                   case 1:
                      BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.min(fieldWidth / 2 + maxRange / 2 - 1,fieldWidth - 1),
-                        "y":Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5))
+                        "x":Math.max(1,Math.min(Math.min(fieldWidth / 2 + maxRange / 2 - 1,fieldWidth - 1),fieldWidth - 2)),
+                        "y":Math.max(1,Math.min(Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5)),fieldWidth - 2))
                      });
                      break;
                   case 2:
                      BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),
-                        "y":Math.round(Math.min(fieldHeight / 2 + maxRange / 2 - 1,fieldHeight - 1))
+                        "x":Math.max(1,Math.min(Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),fieldWidth - 2)),
+                        "y":Math.max(1,Math.min(Math.round(Math.min(fieldHeight / 2 + maxRange / 2 - 1,fieldHeight - 1)),fieldWidth - 2))
                      });
                      break;
                   case 3:
                      BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.round(Math.max(fieldWidth / 2 - maxRange / 2,0)),
-                        "y":Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5))
+                        "x":Math.max(1,Math.min(Math.round(Math.max(fieldWidth / 2 - maxRange / 2,0)),fieldWidth - 2)),
+                        "y":Math.max(1,Math.min(Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5)),fieldWidth - 2))
                      });
                }
             }
             if(allGroups[i].location != undefined)
             {
                BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                  "x":allGroups[i].location.x,
-                  "y":allGroups[i].location.y
+                  "x":Math.max(1,Math.min(allGroups[i].location.x,fieldWidth - 2)),
+                  "y":Math.max(1,Math.min(allGroups[i].location.y,fieldWidth - 2))
                });
             }
          }
@@ -737,11 +755,11 @@ package IsoEngine
                         while(yy <= startY + 1)
                         {
                            BI.weaponIconAmmo.bitmapData.setPixel32(xx,yy,4291413247);
-                           yy = Number(yy) + 1;
+                           yy++;
                         }
-                        xx = Number(xx) + 1;
+                        xx++;
                      }
-                     i = Number(i) + 1;
+                     i++;
                   }
                   if(dotsToDisplay < data.loadedAmmoAmount)
                   {
@@ -752,9 +770,9 @@ package IsoEngine
                         while(yy <= 58)
                         {
                            BI.weaponIconAmmo.bitmapData.setPixel32(xx,yy,4291413247);
-                           yy = Number(yy) + 1;
+                           yy++;
                         }
-                        xx = Number(xx) + 1;
+                        xx++;
                      }
                      yy = 53;
                      while(yy <= 62)
@@ -763,9 +781,9 @@ package IsoEngine
                         while(xx <= 10)
                         {
                            BI.weaponIconAmmo.bitmapData.setPixel32(xx,yy,4291413247);
-                           xx = Number(xx) + 1;
+                           xx++;
                         }
-                        yy = Number(yy) + 1;
+                        yy++;
                      }
                   }
                }
@@ -843,14 +861,14 @@ package IsoEngine
                {
                   BI.HPBars[i].visible = i < lastHPBar;
                   BI.MoraleBars[i].visible = i < lastMoraleBar;
-                  i = Number(i) + 1;
+                  i++;
                }
                BI.APIndicator.setValue(data.AP,0,false);
                i = 0;
                while(i < 20)
                {
                   BI.APDots[i].visible = i < data.AP;
-                  i = Number(i) + 1;
+                  i++;
                }
                BI.APOverflow.visible = data.AP > 20;
                BI.bleedingSign.visible = data.bleeding > 0.5;
@@ -979,7 +997,7 @@ package IsoEngine
       private function leave() : *
       {
          var _loc2_:* = undefined;
-         var _loc1_:Caravan = new Caravan(5,GD.mapMode.mapSymbols);
+         var _loc1_:* = new Caravan(5,GD.mapMode.mapSymbols);
          for(_loc2_ in slaves)
          {
             slaves[_loc2_].category = 1;
@@ -1034,8 +1052,8 @@ package IsoEngine
             var _loc2_:* = undefined;
             var _loc4_:* = undefined;
             var _loc6_:* = undefined;
-            var _loc3_:Array = [];
-            var _loc1_:Array = [];
+            var _loc3_:* = [];
+            var _loc1_:* = [];
             for(_loc4_ in lootArray)
             {
                if(lootArray[_loc4_].originallyBelongedTo is Caravan)

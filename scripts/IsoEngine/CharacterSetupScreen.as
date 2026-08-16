@@ -39,15 +39,15 @@ package IsoEngine
       
       public var colors:*;
       
-      public var colorsOrder:*;
+      public const colorsOrder:* = ["skin","hair","lips","eyes","eyeSockets","eyebrows","beard"];
       
-      public var colorNames:*;
+      public const colorNames:* = [1543,1530,1544,1533,1545,1535,1546];
       
-      public var partsOrder:*;
+      public const partsOrder:* = ["head","hair","nose","mouth","eyes","beard","eyebrows","ears","wrinkles","whiskers","moustache","shirt","necklace"];
       
-      public var namesOrder:*;
+      public const namesOrder:* = [1529,1530,1531,1532,1533,1534,1535,1536,1537,1538,1539,1540,1541,1542];
       
-      public var buttonsOrder:*;
+      public const buttonsOrder:* = [0,1,3,4,2,6,5,7,8,10,9,13,11,12];
       
       public const maxBristleGrades:* = 7;
       
@@ -75,26 +75,22 @@ package IsoEngine
          var placeY:*;
          var placeX:*;
          var setCharacter:* = param1;
-         colorsOrder = ["skin","hair","lips","eyes","eyeSockets","eyebrows","beard"];
-         colorNames = [1543,1530,1544,1533,1545,1535,1546];
-         partsOrder = ["head","hair","nose","mouth","eyes","beard","eyebrows","ears","wrinkles","whiskers","moustache","shirt","necklace"];
-         namesOrder = [1529,1530,1531,1532,1533,1534,1535,1536,1537,1538,1539,1540,1541,1542];
-         buttonsOrder = [0,1,3,4,2,6,5,7,8,10,9,13,11,12];
          super();
          if(setCharacter == null)
          {
             theCharacter = new Character({"age":25});
-            theCharacter.basePhysical = 5;
-            theCharacter.baseAgility = 5;
-            theCharacter.baseAccuracy = 5;
-            theCharacter.baseIntelligence = 5;
+            theCharacter.basePhysical = 10;
+            theCharacter.baseAgility = 10;
+            theCharacter.baseAccuracy = 10;
+            theCharacter.baseIntelligence = 10;
             theCharacter.gender = 1;
+            theCharacter.name = "Puccio";
          }
          else
          {
             theCharacter = setCharacter;
          }
-         availablePoints = Math.max(0,20 - theCharacter.basePhysical - theCharacter.baseAgility - theCharacter.baseAccuracy - theCharacter.baseIntelligence);
+         availablePoints = Math.max(0,80 - theCharacter.basePhysical - theCharacter.baseAgility - theCharacter.baseAccuracy - theCharacter.baseIntelligence);
          onDone = defaultOnDone;
          onCancel = defaultOnCancel;
          D = new Dialogue(880,495);
@@ -194,7 +190,7 @@ package IsoEngine
             radio[i].disp.mouseChildren = false;
             radio[i].disp.addEventListener("click",clickRadio,false,0,false);
             D.addChild(radio[i].disp);
-            i = Number(i) + 1;
+            i++;
          }
          radio[0].disp.x = 830;
          radio[0].disp.y = 72;
@@ -283,7 +279,7 @@ package IsoEngine
             }
             D.addChild(attributeValueBGs[i]);
             D.addChild(values[i]);
-            i = Number(i) + 1;
+            i++;
          }
          attributeNames[4] = new EngineText(Texts.fetch(1528).toUpperCase() + ":",16777215,14,"right",315,222,250,20);
          D.addChild(attributeNames[4]);
@@ -379,7 +375,7 @@ package IsoEngine
                }
                break;
             case 1:
-               if(availablePoints > 0 && theCharacter.basePhysical < 10)
+               if(availablePoints > 0 && theCharacter.basePhysical < 20)
                {
                   theCharacter.basePhysical++;
                   availablePoints = Number(availablePoints) - 1;
@@ -393,7 +389,7 @@ package IsoEngine
                }
                break;
             case 3:
-               if(availablePoints > 0 && theCharacter.baseAgility < 10)
+               if(availablePoints > 0 && theCharacter.baseAgility < 20)
                {
                   theCharacter.baseAgility++;
                   availablePoints = Number(availablePoints) - 1;
@@ -407,7 +403,7 @@ package IsoEngine
                }
                break;
             case 5:
-               if(availablePoints > 0 && theCharacter.baseAccuracy < 10)
+               if(availablePoints > 0 && theCharacter.baseAccuracy < 20)
                {
                   theCharacter.baseAccuracy++;
                   availablePoints = Number(availablePoints) - 1;
@@ -421,7 +417,7 @@ package IsoEngine
                }
                break;
             case 7:
-               if(availablePoints > 0 && theCharacter.baseIntelligence < 10)
+               if(availablePoints > 0 && theCharacter.baseIntelligence < 20)
                {
                   theCharacter.baseIntelligence++;
                   availablePoints = Number(availablePoints) - 1;
@@ -511,11 +507,11 @@ package IsoEngine
                _loc7_[_loc6_] = 1;
                _loc6_++;
             }
-            _loc5_ = 16;
+            _loc5_ = 36;
             while(_loc5_ > 0)
             {
                _loc4_ = MathFunctions.random(0,3);
-               if(_loc7_[_loc4_] < 10)
+               if(_loc7_[_loc4_] < 20)
                {
                   _loc7_[_loc4_]++;
                   _loc5_--;
@@ -525,7 +521,7 @@ package IsoEngine
             theCharacter.baseAgility = _loc7_[1];
             theCharacter.baseAccuracy = _loc7_[2];
             theCharacter.baseIntelligence = _loc7_[3];
-            availablePoints = 0;
+            availablePoints = 40;
          }
          if(_loc3_ != 36 && _loc3_ != 38 && _loc3_ != 39)
          {

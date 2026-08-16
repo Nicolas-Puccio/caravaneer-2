@@ -616,7 +616,7 @@ package IsoEngine
                {
                   _loc2_.push(Texts.fetch(949).toUpperCase());
                }
-               screens[4].townIndustryItems[_loc7_].consumptionText = new EngineText(Texts.fetch(922).toUpperCase() + ": " + _loc2_.join("; "),16777215,12,"right",100,51,440,20);
+               screens[4].townIndustryItems[_loc7_].consumptionText = new EngineText(Texts.fetch(922).toUpperCase() + ": " + _loc2_.join("; ") + GD.pucciogetbuyprice(_loc4_,town),16777215,12,"right",100,51,440,20);
                GameData.makeLineFit(screens[4].townIndustryItems[_loc7_].consumptionText,440);
                screens[4].townIndustryItems[_loc7_].disp.addChild(screens[4].townIndustryItems[_loc7_].consumptionText);
                _loc6_ = [];
@@ -688,7 +688,7 @@ package IsoEngine
                      }
                   }
                }
-               screens[4].townIndustryItems[_loc7_].productionText = new EngineText(Texts.fetch(921).toUpperCase() + ": " + _loc2_.join("; "),16777215,12,"right",100,71,440,20);
+               screens[4].townIndustryItems[_loc7_].productionText = new EngineText(Texts.fetch(921).toUpperCase() + ": " + _loc2_.join("; ") + GD.pucciogetsellprice(_loc4_,town),16777215,12,"right",100,71,440,20);
                GameData.makeLineFit(screens[4].townIndustryItems[_loc7_].productionText,440);
                screens[4].townIndustryItems[_loc7_].disp.addChild(screens[4].townIndustryItems[_loc7_].productionText);
                GD.Towns[town].industries[_loc7_].essential = _loc19_;
@@ -812,7 +812,7 @@ package IsoEngine
                {
                   _loc2_.push(Texts.fetch(949).toUpperCase());
                }
-               screens[4].playersIndustryItems[_loc7_].consumptionText = new EngineText(Texts.fetch(922).toUpperCase() + ": " + _loc2_.join("; "),16777215,12,"right",100,51,440,20);
+               screens[4].playersIndustryItems[_loc7_].consumptionText = new EngineText(Texts.fetch(922).toUpperCase() + ": " + _loc2_.join("; ") + GD.pucciogetbuyprice(_loc4_,town),16777215,12,"right",100,51,440,20);
                GameData.makeLineFit(screens[4].playersIndustryItems[_loc7_].consumptionText,440);
                screens[4].playersIndustryItems[_loc7_].disp.addChild(screens[4].playersIndustryItems[_loc7_].consumptionText);
                _loc2_ = [];
@@ -833,7 +833,7 @@ package IsoEngine
                      _loc2_.push(Texts.fetch(Item.getDataFromType(_loc4_[_loc8_].item).name).toUpperCase() + " x " + Math.round(_loc4_[_loc8_].amount * 10) / 10);
                   }
                }
-               screens[4].playersIndustryItems[_loc7_].productionText = new EngineText(Texts.fetch(921).toUpperCase() + ": " + _loc2_.join("; "),16777215,12,"right",100,71,440,20);
+               screens[4].playersIndustryItems[_loc7_].productionText = new EngineText(Texts.fetch(921).toUpperCase() + ": " + _loc2_.join("; ") + GD.pucciogetsellprice(_loc4_,town),16777215,12,"right",100,71,440,20);
                GameData.makeLineFit(screens[4].playersIndustryItems[_loc7_].productionText,440);
                screens[4].playersIndustryItems[_loc7_].disp.addChild(screens[4].playersIndustryItems[_loc7_].productionText);
                if(!GD.Towns[town].playersIndustries[_loc7_].cantDownsize)
@@ -1012,7 +1012,7 @@ package IsoEngine
                   {
                      _loc2_.push(Texts.fetch(949).toUpperCase());
                   }
-                  screens[4].newIndustryItems[_loc7_].consumptionText = new EngineText(Texts.fetch(922).toUpperCase() + ": " + _loc2_.join("; "),16777215,12,"right",100,51,440,20);
+                  screens[4].newIndustryItems[_loc7_].consumptionText = new EngineText(Texts.fetch(922).toUpperCase() + ": " + _loc2_.join("; ") + GD.pucciogetbuyprice(_loc4_,town),16777215,12,"right",100,51,440,20);
                   GameData.makeLineFit(screens[4].newIndustryItems[_loc7_].consumptionText,440);
                   screens[4].newIndustryItems[_loc7_].disp.addChild(screens[4].newIndustryItems[_loc7_].consumptionText);
                   _loc2_ = [];
@@ -1033,7 +1033,7 @@ package IsoEngine
                         _loc2_.push(Texts.fetch(Item.getDataFromType(_loc4_[_loc8_].item).name).toUpperCase() + " x " + Math.round(_loc4_[_loc8_].amount * 10) / 10);
                      }
                   }
-                  screens[4].newIndustryItems[_loc7_].productionText = new EngineText(Texts.fetch(921).toUpperCase() + ": " + _loc2_.join("; "),16777215,12,"right",100,71,440,20);
+                  screens[4].newIndustryItems[_loc7_].productionText = new EngineText(Texts.fetch(921).toUpperCase() + ": " + _loc2_.join("; ") + GD.pucciogetsellprice(_loc4_,town),16777215,12,"right",100,71,440,20);
                   GameData.makeLineFit(screens[4].newIndustryItems[_loc7_].productionText,440);
                   screens[4].newIndustryItems[_loc7_].disp.addChild(screens[4].newIndustryItems[_loc7_].productionText);
                   if(_loc11_.forSale || GD.Story.finishedTheGame && GD.canBreakEconomy)

@@ -63,6 +63,37 @@ package IsoEngine
                      attackFunction(false,group,settings,obstacles);
                   };
                   buttonFunctions.push(funct);
+                  textLines.push(Texts.fetch(633).toUpperCase() + " (full AI)");
+                  funct = function():*
+                  {
+                     for(_locCaravanMember_ in gameData.Caravans[0].People)
+                     {
+                        if(gameData.Caravans[0].People[_locCaravanMember_].category == 2 || _locCaravanMember_ == 0)
+                        {
+                           gameData.Caravans[0].People[_locCaravanMember_].category = 5;
+                           if(_locCaravanMember_ != 0)
+                           {
+                              gameData.Caravans[0].People[_locCaravanMember_].name = "bot-" + gameData.Caravans[0].People[_locCaravanMember_].name;
+                           }
+                        }
+                     }
+                     attackFunction(true,group,settings,obstacles);
+                  };
+                  buttonFunctions.push(funct);
+                  textLines.push(Texts.fetch(633).toUpperCase() + " (mercenaries AI)");
+                  funct = function():*
+                  {
+                     for(_locCaravanMember_ in gameData.Caravans[0].People)
+                     {
+                        if(gameData.Caravans[0].People[_locCaravanMember_].category == 2)
+                        {
+                           gameData.Caravans[0].People[_locCaravanMember_].category = 5;
+                           gameData.Caravans[0].People[_locCaravanMember_].name = "bot-" + gameData.Caravans[0].People[_locCaravanMember_].name;
+                        }
+                     }
+                     attackFunction(true,group,settings,obstacles);
+                  };
+                  buttonFunctions.push(funct);
                   break;
                case "auto distribute ammo and go to battle":
                   textLines.push(Texts.fetch(635).toUpperCase());
@@ -77,6 +108,37 @@ package IsoEngine
                   textLines.push(Texts.fetch(636).toUpperCase());
                   funct = function():*
                   {
+                     attackFunction(true,group,settings,obstacles);
+                  };
+                  buttonFunctions.push(funct);
+                  textLines.push(Texts.fetch(636).toUpperCase() + " (full AI)");
+                  funct = function():*
+                  {
+                     for(_locCaravanMember_ in gameData.Caravans[0].People)
+                     {
+                        if(gameData.Caravans[0].People[_locCaravanMember_].category == 2 || _locCaravanMember_ == 0)
+                        {
+                           gameData.Caravans[0].People[_locCaravanMember_].category = 5;
+                           if(_locCaravanMember_ != 0)
+                           {
+                              gameData.Caravans[0].People[_locCaravanMember_].name = "bot-" + gameData.Caravans[0].People[_locCaravanMember_].name;
+                           }
+                        }
+                     }
+                     attackFunction(true,group,settings,obstacles);
+                  };
+                  buttonFunctions.push(funct);
+                  textLines.push(Texts.fetch(636).toUpperCase() + " (mercenaries AI)");
+                  funct = function():*
+                  {
+                     for(_locCaravanMember_ in gameData.Caravans[0].People)
+                     {
+                        if(gameData.Caravans[0].People[_locCaravanMember_].category == 2)
+                        {
+                           gameData.Caravans[0].People[_locCaravanMember_].category = 5;
+                           gameData.Caravans[0].People[_locCaravanMember_].name = "bot-" + gameData.Caravans[0].People[_locCaravanMember_].name;
+                        }
+                     }
                      attackFunction(true,group,settings,obstacles);
                   };
                   buttonFunctions.push(funct);

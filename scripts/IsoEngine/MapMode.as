@@ -5618,7 +5618,8 @@ package IsoEngine
                         }
                         if(!Presets.Towns[i].noPeopleToHire)
                         {
-                           idealNumber = GD.Towns[i].unemployed / 2;
+                           //-try to guarantee at least 1 unemployed
+                           idealNumber = GD.Towns[i].unemployed / 2 + 1;
                            toReduce = idealNumber * 0.1 * Math.random() * 720 / 1440;
                            if(Math.random() < toReduce - Math.floor(toReduce))
                            {
@@ -5979,6 +5980,8 @@ package IsoEngine
                            }
                            if(selectedExpansion != null)
                            {
+                              //-previously done on GD because this file failed to compile
+                              selectedExpansion = GD.PuccioReSelectExpansion(possibleExpansions,selectedExpansion);
                               possibleExpansions[selectedExpansion].industry.employees++;
                               theMoney = possibleExpansions[selectedExpansion].industry.pricePerUnit * 0.5;
                               GD.Towns[i].money -= theMoney;

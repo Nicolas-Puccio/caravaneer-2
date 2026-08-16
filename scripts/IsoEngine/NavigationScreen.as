@@ -87,17 +87,17 @@ package IsoEngine
          var _loc6_:* = undefined;
          super();
          GD = param1;
-         var _loc3_:Dialogue = new Dialogue(880,495);
+         var _loc3_:* = new Dialogue(880,495);
          pressedButtons = [];
          _loc3_.drawHorizontalLine(42,40,600);
          _loc3_.drawHorizontalLine(452,40,600);
          _loc3_.drawVerticalLine(40,42,452);
          _loc3_.drawVerticalLine(600,42,452);
-         var _loc11_:Sprite = new Sprite();
-         var _loc14_:ImportedBitmap = new ImportedBitmap("TownBG.jpg");
+         var _loc11_:* = new Sprite();
+         var _loc14_:* = new ImportedBitmap("TownBG.jpg");
          _loc14_.x = -660;
          _loc11_.addChild(_loc14_);
-         var _loc16_:Sprite = new Sprite();
+         var _loc16_:* = new Sprite();
          _loc16_.graphics.beginFill(16711680);
          _loc16_.graphics.drawRect(0,0,220,410);
          _loc11_.addChild(_loc16_);
@@ -106,12 +106,12 @@ package IsoEngine
          _loc11_.y = 42;
          _loc11_.filters = [new DropShadowFilter(3,45,0,1,5,5,0.5,3)];
          _loc3_.addChild(_loc11_);
-         var _loc13_:Button = new Button(2,closeThis,Texts.fetch(902).toUpperCase());
+         var _loc13_:* = new Button(2,closeThis,Texts.fetch(902).toUpperCase());
          _loc13_.x = 647;
          _loc13_.y = 459;
          _loc3_.addChild(_loc13_);
          map = new Sprite();
-         var _loc12_:Sprite = new Sprite();
+         var _loc12_:* = new Sprite();
          _loc12_.graphics.beginFill(16711680);
          _loc12_.graphics.drawRect(0,0,560,410);
          _loc12_.x = 40;
@@ -126,19 +126,19 @@ package IsoEngine
          map.y = 42;
          _loc3_.addChild(map);
          buttons = [];
-         var _loc8_:RepeatedGraphics = new RepeatedGraphics(1);
+         var _loc8_:* = new RepeatedGraphics(1);
          _loc8_.rotation = 90;
          buttons[0] = new Button(2,new Function(),_loc8_);
          buttons[0].x = 217;
          buttons[0].y = 9;
          _loc3_.addChild(buttons[0]);
-         var _loc4_:RepeatedGraphics = new RepeatedGraphics(1);
+         var _loc4_:* = new RepeatedGraphics(1);
          _loc4_.rotation = -90;
          buttons[2] = new Button(2,new Function(),_loc4_);
          buttons[2].x = 217;
          buttons[2].y = 459;
          _loc3_.addChild(buttons[2]);
-         var _loc7_:RepeatedGraphics = new RepeatedGraphics(1);
+         var _loc7_:* = new RepeatedGraphics(1);
          _loc7_.rotation = 90;
          buttons[3] = new Button(2,new Function(),_loc7_);
          buttons[3].x = 7;
@@ -146,7 +146,7 @@ package IsoEngine
          buttons[3].scaleX = -1;
          buttons[3].rotation = -90;
          _loc3_.addChild(buttons[3]);
-         var _loc9_:RepeatedGraphics = new RepeatedGraphics(1);
+         var _loc9_:* = new RepeatedGraphics(1);
          _loc9_.rotation = -90;
          buttons[1] = new Button(2,new Function(),_loc9_);
          buttons[1].x = 607;
@@ -171,7 +171,7 @@ package IsoEngine
             buttons[_loc6_].clickFunction = buttons[_loc6_].outFunction = releaseButton;
             buttons[_loc6_].downFunction = pressButton;
          }
-         var _loc5_:EngineText = new EngineText(Texts.fetch(1396).toUpperCase(),16777215,14,"center",640,12,220,20);
+         var _loc5_:* = new EngineText(Texts.fetch(1396).toUpperCase(),16777215,14,"center",640,12,220,20);
          _loc3_.addToMask(_loc5_);
          innerMapLines = new Sprite();
          map.addChild(innerMapLines);
@@ -195,12 +195,12 @@ package IsoEngine
             innerMap.addChild(mapTowns[_loc6_].disp);
          }
          map.addChild(innerMap);
-         var _loc15_:Sprite = new Sprite();
+         var _loc15_:* = new Sprite();
          _loc15_.graphics.beginFill(4278190080);
          _loc15_.graphics.drawRect(15,15,530,380);
          map.addChild(_loc15_);
          innerMap.mask = _loc15_;
-         var _loc2_:Sprite = new Sprite();
+         var _loc2_:* = new Sprite();
          _loc2_.graphics.lineStyle(2,2232576);
          _loc2_.graphics.drawRect(15,15,530,380);
          _loc2_.graphics.lineStyle(1,2232576);
@@ -211,7 +211,7 @@ package IsoEngine
          infoText = new EngineText("",2232576,14,"center",650,52,200,390,true,true);
          _loc3_.addChild(infoText);
          navText = new EngineText("",2892436,12,"left",60,62,500,390,true,true);
-         var _loc10_:Sprite = new Sprite();
+         var _loc10_:* = new Sprite();
          _loc10_.addChild(navText);
          _loc10_.mouseChildren = false;
          _loc10_.mouseEnabled = false;
@@ -366,20 +366,20 @@ package IsoEngine
          innerMap.x = 280 - GD.mapCenterX / 8 * GD.mapScale;
          innerMap.y = 205 - GD.mapCenterY / 8 * GD.mapScale;
          innerMapLines.graphics.clear();
-         var _loc11_:Number = 560 * 8 / GD.mapScale;
-         var _loc1_:Number = Math.pow(10,Math.round(Math.log(_loc11_ / 10) * 0.434294481904));
-         var _loc2_:Number = GD.mapCenterX - 265 * 8 / GD.mapScale;
-         var _loc8_:Number = GD.mapCenterY - 190 * 8 / GD.mapScale;
-         var _loc15_:Number = GD.mapCenterX + 265 * 8 / GD.mapScale;
-         var _loc6_:Number = GD.mapCenterY + 190 * 8 / GD.mapScale;
-         var _loc13_:Number = Math.ceil(_loc2_ / _loc1_) * _loc1_;
-         var _loc16_:Number = Math.floor(_loc15_ / _loc1_) * _loc1_;
-         var _loc17_:Boolean = _loc13_ / _loc1_ % 2 == 0;
-         var _loc3_:Number = Math.ceil(_loc8_ / _loc1_) * _loc1_;
-         var _loc12_:Number = Math.floor(_loc6_ / _loc1_) * _loc1_;
-         var _loc9_:Boolean = _loc3_ / _loc1_ % 2 == 0;
+         var _loc11_:* = 560 * 8 / GD.mapScale;
+         var _loc1_:* = Math.pow(10,Math.round(Math.log(_loc11_ / 10) * 0.434294481904));
+         var _loc2_:* = GD.mapCenterX - 265 * 8 / GD.mapScale;
+         var _loc8_:* = GD.mapCenterY - 190 * 8 / GD.mapScale;
+         var _loc15_:* = GD.mapCenterX + 265 * 8 / GD.mapScale;
+         var _loc6_:* = GD.mapCenterY + 190 * 8 / GD.mapScale;
+         var _loc13_:* = Math.ceil(_loc2_ / _loc1_) * _loc1_;
+         var _loc16_:* = Math.floor(_loc15_ / _loc1_) * _loc1_;
+         var _loc17_:* = _loc13_ / _loc1_ % 2 == 0;
+         var _loc3_:* = Math.ceil(_loc8_ / _loc1_) * _loc1_;
+         var _loc12_:* = Math.floor(_loc6_ / _loc1_) * _loc1_;
+         var _loc9_:* = _loc3_ / _loc1_ % 2 == 0;
          innerMapLines.graphics.clear();
-         var _loc14_:Array = [];
+         var _loc14_:* = [];
          innerMapLines.graphics.lineStyle(1,2232576,0.3);
          _loc4_ = _loc13_;
          while(_loc4_ <= _loc16_)
@@ -392,7 +392,7 @@ package IsoEngine
          }
          _loc14_.unshift(15);
          _loc14_.push(545);
-         var _loc7_:Array = [];
+         var _loc7_:* = [];
          _loc4_ = _loc3_;
          while(_loc4_ <= _loc12_)
          {
@@ -528,11 +528,11 @@ package IsoEngine
       public function resetZoom() : *
       {
          var _loc5_:* = undefined;
-         var _loc3_:* = 0;
-         var _loc1_:Number = 100000000000000000000;
-         var _loc4_:Number = -100000000000000000000;
-         var _loc2_:Number = 100000000000000000000;
-         var _loc6_:Number = -100000000000000000000;
+         var _loc3_:int = 0;
+         var _loc1_:* = 100000000000000000000;
+         var _loc4_:* = -100000000000000000000;
+         var _loc2_:* = 100000000000000000000;
+         var _loc6_:* = -100000000000000000000;
          for(_loc5_ in GD.Towns)
          {
             if(GD.Towns[_loc5_].discovered)
@@ -623,8 +623,8 @@ package IsoEngine
          {
             new SFXClick().play();
          }
-         var _loc2_:Number = innerMap.mouseX * 8;
-         var _loc3_:Number = innerMap.mouseY * 8;
+         var _loc2_:* = innerMap.mouseX * 8;
+         var _loc3_:* = innerMap.mouseY * 8;
          if(GD.routeStart != null && GD.routeEnd != null)
          {
             GD.routeStart = null;
@@ -785,9 +785,11 @@ package IsoEngine
          }
          if(GD.routeStart != null && GD.routeEnd != null && travelTime != 100000000000000000000 && distance > 0)
          {
-            infoText.text += Texts.fetch(1402) + ": " + MathFunctions.NumberFormat(waterNeed * travelTime / 24,0) + " " + Texts.fetch(11) + "\n";
+            GD.waterNeed = waterNeed * travelTime / 24;
+            GD.foodNeed = foodNeed * travelTime / 24;
+            infoText.text += Texts.fetch(1402) + ": " + MathFunctions.NumberFormat(GD.waterNeed,0) + " " + Texts.fetch(11) + "\n";
             infoText.text += Texts.fetch(1403) + ": " + MathFunctions.NumberFormat(waterAvailable,0) + " " + Texts.fetch(11) + "\n\n";
-            infoText.text += Texts.fetch(1404) + ": " + MathFunctions.NumberFormat(foodNeed * travelTime / 24,0) + " " + Texts.fetch(939) + "\n";
+            infoText.text += Texts.fetch(1404) + ": " + MathFunctions.NumberFormat(GD.foodNeed,0) + " " + Texts.fetch(939) + "\n";
             infoText.text += Texts.fetch(1405) + ": " + MathFunctions.NumberFormat(foodAvailable,0) + " " + Texts.fetch(939) + "\n\n";
             if(forageNeed > 0)
             {
@@ -856,6 +858,7 @@ package IsoEngine
          stopped = true;
          GD.setMode(1);
          GD.mapMode.musicFadeIn = true;
+         invertButtonFunction();
       }
       
       public function invertButtonFunction(param1:* = null) : *
