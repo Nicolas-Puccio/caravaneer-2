@@ -13601,6 +13601,8 @@ package IsoEngine
       
       public function createCaravanOnRoute(param1:*) : *//-called from MapMode
       {
+         var _locIsCustomCaravan_:* = param1 == 30
+
          var _loc4_:* = undefined;
          var _loc3_:* = undefined;
          if(mapMode is MapMode)
@@ -13622,16 +13624,29 @@ package IsoEngine
                "experienceModifier":3,
                "savePointer":true
             }));
-            Caravans[_loc3_].addTransport(new TransportUnit(9,true));
-            Caravans[_loc3_].addTransport(new TransportUnit(10,true));
+            //-seems to add a camel+cart
+            if(_locIsCustomCaravan_){
+               Caravans[_loc3_].addTransport(new TransportUnit(1,true));
+            }
+            else{
+               Caravans[_loc3_].addTransport(new TransportUnit(9,true));
+               Caravans[_loc3_].addTransport(new TransportUnit(10,true));
+            }
             _loc4_++;
          }
-         Caravans[_loc3_].addCargo(200,Presets.caravanRoutes[param1].size);
-         Caravans[_loc3_].addCargo(120,Presets.caravanRoutes[param1].size);
-         Caravans[_loc3_].addCargo(121,Presets.caravanRoutes[param1].size * 40);
-         Caravans[_loc3_].addCargo(168,4);
-         var _loc2_:* = Math.round(Presets.caravanRoutes[param1].size / 4);
-         Caravans[_loc3_].addCargo(169,_loc2_);
+         if(_locIsCustomCaravan_){
+            Caravans[_loc3_].addCargo(10,Presets.caravanRoutes[param1].size);//-hatchet
+            Caravans[_loc3_].addCargo(80,Presets.caravanRoutes[param1].size * 4);//-5l water container
+            Caravans[_loc3_].addCargo(100,Presets.caravanRoutes[param1].size);//-white jacket
+         }else{
+            Caravans[_loc3_].addCargo(120,Presets.caravanRoutes[param1].size);//-rifle
+            Caravans[_loc3_].addCargo(121,Presets.caravanRoutes[param1].size * 40);//-ammo
+            Caravans[_loc3_].addCargo(200,Presets.caravanRoutes[param1].size);//-some armor it seems
+            Caravans[_loc3_].addCargo(168,4);//-water container
+            var _loc2_:* = Math.round(Presets.caravanRoutes[param1].size / 4);
+            Caravans[_loc3_].addCargo(169,_loc2_);//-bigger water container
+         }
+         
          for(_loc4_ in Presets.caravanRoutes[param1].extraEquipment)
          {
             Caravans[_loc3_].addCargo(Presets.caravanRoutes[param1].extraEquipment[_loc4_].type,Presets.caravanRoutes[param1].extraEquipment[_loc4_].amount);
@@ -13712,6 +13727,7 @@ package IsoEngine
          }
          consumeFromLastPoint(param1);
          refillSupply(param1,1,50 * param1.People.length,Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town]);
+         //-refill forage, should check if have animals?
          refillSupply(param1,62,20 * param1.People.length,Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town]);
          refillSupply(param1,"food",20000 * param1.People.length,Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town]);
          var _loc8_:* = 0;

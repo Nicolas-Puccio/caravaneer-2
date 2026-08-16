@@ -3158,12 +3158,9 @@ package Data
             }]
          }]
       },{//-30 testing
-         "size":20,
+         "size":10,
          "onInit":false,
-         "extraEquipment":[{
-            "type":170,
-            "amount":1
-         }],
+         "extraEquipment":[],
          "points":[{
             "town":17,
             "buy":[{
@@ -3172,12 +3169,15 @@ package Data
             },
             {
                "item":"food",
-               "amount":50
+               "amount":100
             }],
             "sell":[]
          },{
             "town":18,
-            "buy":[],
+            "buy":[{
+               "item":"food",
+               "amount":10
+            }],
             "sell":[{
                "item":87,
                "amount":100
