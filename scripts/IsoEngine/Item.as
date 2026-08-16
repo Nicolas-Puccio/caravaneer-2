@@ -11,218 +11,223 @@ package IsoEngine
    
    public class Item
    {
-      
-      public static var Items:* = [{
+      //categories
+      //1 = good
+      //2 = weapon
+      //3 = ammo
+      //4 = attachment
+      //5 = armor
+      public static var Items:* = [{//-0 idk
          "category":0,
          "subCategory":0
-      },{
+      },{//-1
          "category":1,
          "subCategory":1
-      },{
+      },{//-2
          "category":2,
          "subCategory":1
-      },{
+      },{//-3
          "category":2,
          "subCategory":2
-      },{
+      },{//-4
          "category":2,
          "subCategory":3
-      },{
+      },{//-5
          "category":2,
          "subCategory":4
-      },{
+      },{//-6
          "category":2,
          "subCategory":5
-      },{
+      },{//-7
          "category":2,
          "subCategory":6
-      },{
+      },{//-8
          "category":2,
          "subCategory":7
-      },{
+      },{//-9
          "category":2,
          "subCategory":8
-      },{
+      },{//-1
          "category":2,
          "subCategory":9
-      },{
+      },{//-1
          "category":2,
          "subCategory":10
-      },{
+      },{//-1
          "category":2,
          "subCategory":11
-      },{
+      },{//-1
          "category":2,
          "subCategory":12
-      },{
+      },{//-1
          "category":2,
          "subCategory":13
-      },{
+      },{//-1
          "category":2,
          "subCategory":14
-      },{
+      },{//-1
          "category":2,
          "subCategory":15
-      },{
+      },{//-1
          "category":2,
          "subCategory":16
-      },{
+      },{//-1
          "category":2,
          "subCategory":17
-      },{
+      },{//-1
          "category":2,
          "subCategory":18
-      },{
+      },{//-2
          "category":2,
          "subCategory":19
-      },{
+      },{//-2
          "category":2,
          "subCategory":20
-      },{
+      },{//-2
          "category":2,
          "subCategory":21
-      },{
+      },{//-2
          "category":2,
          "subCategory":22
-      },{
+      },{//-2
          "category":2,
          "subCategory":23
-      },{
+      },{//-2
          "category":2,
          "subCategory":24
-      },{
+      },{//-2
          "category":2,
          "subCategory":25
-      },{
+      },{//-2
          "category":2,
          "subCategory":26
-      },{
+      },{//-2
          "category":2,
          "subCategory":27
-      },{
+      },{//-2
          "category":3,
          "subCategory":1
-      },{
+      },{//-3
          "category":3,
          "subCategory":2
-      },{
+      },{//-3
          "category":3,
          "subCategory":3
-      },{
+      },{//-3
          "category":3,
          "subCategory":4
-      },{
+      },{//-3
          "category":3,
          "subCategory":5
-      },{
+      },{//-3
          "category":3,
          "subCategory":6
-      },{
+      },{//-3
          "category":3,
          "subCategory":7
-      },{
+      },{//-3
          "category":3,
          "subCategory":8
-      },{
+      },{//-3
          "category":3,
          "subCategory":9
-      },{
+      },{//-3
          "category":3,
          "subCategory":10
-      },{
+      },{//-3
          "category":3,
          "subCategory":11
-      },{
+      },{//-40
          "category":3,
          "subCategory":12
-      },{
+      },{//-41
          "category":3,
          "subCategory":13
-      },{
+      },{//-42
          "category":1,
          "subCategory":2
-      },{
+      },{//-43
          "category":1,
          "subCategory":3
-      },{
+      },{//-44
          "category":1,
          "subCategory":4
-      },{
+      },{//-45 insects
          "category":1,
          "subCategory":15
-      },{
+      },{//-46
          "category":1,
          "subCategory":6
-      },{
+      },{//-47
          "category":4,
          "subCategory":1
-      },{
+      },{//-48
          "category":5,
          "subCategory":1
-      },{
+      },{//-49
          "category":5,
          "subCategory":2
-      },{
+      },{//-5
          "category":5,
          "subCategory":3
-      },{
+      },{//-5
          "category":5,
          "subCategory":4
-      },{
+      },{//-5
          "category":5,
          "subCategory":5
-      },{
+      },{//-5
          "category":5,
          "subCategory":6
-      },{
+      },{//-5
          "category":5,
          "subCategory":7
-      },{
+      },{//-5
          "category":5,
          "subCategory":8
-      },{
+      },{//-5
          "category":5,
          "subCategory":9
-      },{
+      },{//-5
          "category":5,
          "subCategory":10
-      },{
+      },{//-5
          "category":5,
          "subCategory":11
-      },{
+      },{//-5
          "category":5,
          "subCategory":12
-      },{
+      },{//-60
          "category":5,
          "subCategory":13
-      },{
+      },{//-61
          "category":2,
          "subCategory":28
-      },{
+      },{//-62 forage
          "category":1,
          "subCategory":7
-      },{
+      },{//-6
          "category":1,
          "subCategory":8
-      },{
+      },{//-6
          "category":1,
          "subCategory":9
-      },{
+      },{//-6
          "category":1,
          "subCategory":10
-      },{
+      },{//-6
          "category":1,
          "subCategory":11
-      },{
+      },{//-6
          "category":1,
          "subCategory":12
-      },{
+      },{//-6
          "category":1,
          "subCategory":13
-      },{
+      },{//-6
          "category":1,
          "subCategory":14
-      },{
+      },{//-7
          "category":1,
          "subCategory":5
       },{
@@ -704,14 +709,14 @@ package IsoEngine
          "subCategory":116
       }];
       
-      public static var Goods:* = [undefined,{
+      public static var Goods:* = [undefined,{//-1
          "name":14,
          "unit":"L",
          "weight":1,
          "liquid":true,
          "divisible":true,
          "price":1
-      },{
+      },{//-2
          "name":1054,
          "unit":"",
          "weight":0.75,
@@ -719,7 +724,7 @@ package IsoEngine
          "firstAidKit":true,
          "divisible":false,
          "heal":5
-      },{
+      },{//-3
          "name":1055,
          "unit":"",
          "weight":2,
@@ -727,7 +732,7 @@ package IsoEngine
          "firstAidKit":true,
          "divisible":false,
          "heal":15
-      },{
+      },{//-4
          "name":1056,
          "unit":"",
          "weight":5,
@@ -735,7 +740,7 @@ package IsoEngine
          "firstAidKit":true,
          "divisible":false,
          "heal":50
-      },{
+      },{//-5
          "name":1145,
          "unit":"Kg",
          "weight":1,
@@ -745,27 +750,27 @@ package IsoEngine
          "divisible":true,
          "calories":810,
          "waterPercentage":0.8
-      },{
+      },{//-6
          "name":1057,
          "unit":"",
          "weight":0.02,
          "divisible":false,
          "price":10000
-      },{
+      },{//-7 forage
          "name":17,
          "unit":"Kg",
          "weight":1,
          "divisible":true,
          "price":3,
          "market":true
-      },{
+      },{//-8
          "name":16,
          "unit":"g",
          "weight":0.001,
          "divisible":true,
          "price":50,
          "market":true
-      },{
+      },{//-9
          "name":18,
          "unit":"L",
          "weight":0.8,
@@ -773,7 +778,7 @@ package IsoEngine
          "divisible":true,
          "price":50,
          "market":true
-      },{
+      },{//-10
          "name":1210,
          "unit":"",
          "weight":0.35,
@@ -821,7 +826,7 @@ package IsoEngine
          "calories":520,
          "divisible":true,
          "waterPercentage":0.7
-      },{
+      },{//-15 insects
          "name":1058,
          "unit":"Kg",
          "weight":1,

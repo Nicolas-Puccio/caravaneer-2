@@ -8,7 +8,7 @@ package IsoEngine
       
       public static const variablesToSave:* = ["type","employees","forSale","maxSize"];
       
-      public static const Types:* = [{},{
+      public static const Types:* = [{},{//-1 insect farming
          "name":1291,
          "consumption":[{
             "item":62,
@@ -26,7 +26,7 @@ package IsoEngine
          "fixedExpenses":5,
          "storagePerUnit":10,
          "price":250000
-      },{
+      },{//-2 sheep breeding
          "name":1308,
          "consumption":[{
             "item":62,
@@ -56,7 +56,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":20,
          "price":400000
-      },{
+      },{//-3 forage cultivation
          "name":1309,
          "consumption":[{
             "item":1,
@@ -71,7 +71,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":150,
          "price":500000
-      },{
+      },{//-4 goat breeding
          "name":1310,
          "consumption":[{
             "item":62,
@@ -101,7 +101,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":30,
          "price":400000
-      },{
+      },{//-5
          "name":1311,
          "consumption":[{
             "item":62,
@@ -128,7 +128,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":50,
          "price":600000
-      },{
+      },{//-6
          "name":1312,
          "consumption":[{
             "item":78,
@@ -146,7 +146,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":20,
          "price":300000
-      },{
+      },{//-7
          "name":1313,
          "consumption":[{
             "item":90,
@@ -161,7 +161,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":15,
          "price":300000
-      },{
+      },{//-8
          "name":1314,
          "consumption":[{
             "item":90,
@@ -176,7 +176,7 @@ package IsoEngine
          "fixedExpenses":10,
          "storagePerUnit":20,
          "price":400000
-      },{
+      },{//-9 water well
          "name":1290,
          "consumption":[],
          "production":[{
@@ -191,7 +191,7 @@ package IsoEngine
          "replaceEmployeesBySize":true,
          "cantDownsize":true,
          "naturalResource":true
-      },{
+      },{//-10
          "name":1337,
          "consumption":[{
             "item":1,
@@ -206,7 +206,7 @@ package IsoEngine
          "fixedExpenses":50,
          "storagePerUnit":50,
          "price":250000
-      },{
+      },{//-11
          "name":1338,
          "consumption":[{
             "item":93,
@@ -221,7 +221,7 @@ package IsoEngine
          "fixedExpenses":5,
          "storagePerUnit":80,
          "price":500000
-      },{
+      },{//-12
          "name":1339,
          "consumption":[{
             "item":87,
@@ -236,7 +236,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":20,
          "price":350000
-      },{
+      },{//-13
          "name":1340,
          "consumption":[{
             "item":94,
@@ -266,7 +266,7 @@ package IsoEngine
          "fixedExpenses":70,
          "storagePerUnit":20,
          "price":375000
-      },{
+      },{//-14
          "name":1342,
          "consumption":[{
             "item":95,
@@ -287,7 +287,7 @@ package IsoEngine
          "fixedExpenses":80,
          "storagePerUnit":20,
          "price":375000
-      },{
+      },{//-15
          "name":1343,
          "consumption":[{
             "item":94,
@@ -302,7 +302,7 @@ package IsoEngine
          "fixedExpenses":80,
          "storagePerUnit":10,
          "price":400000
-      },{
+      },{//-16
          "name":1428,
          "consumption":[{
             "item":90,
@@ -317,7 +317,7 @@ package IsoEngine
          "fixedExpenses":35,
          "storagePerUnit":30,
          "price":350000
-      },{
+      },{//-17
          "name":1430,
          "consumption":[],
          "production":[{
@@ -330,7 +330,7 @@ package IsoEngine
          "storagePerUnit":40,
          "price":1250000,
          "naturalResource":true
-      },{
+      },{//-18
          "name":1431,
          "consumption":[{
             "item":98,
@@ -348,7 +348,7 @@ package IsoEngine
          "fixedExpenses":520,
          "storagePerUnit":20,
          "price":2750000
-      },{
+      },{//-19
          "name":1447,
          "consumption":[{
             "item":95,
@@ -372,7 +372,7 @@ package IsoEngine
          "fixedExpenses":2,
          "storagePerUnit":20,
          "price":300000
-      },{
+      },{//-20
          "name":1448,
          "consumption":[{
             "item":1,
@@ -387,7 +387,7 @@ package IsoEngine
          "fixedExpenses":350,
          "storagePerUnit":10,
          "price":1750000
-      },{
+      },{//-21
          "name":1571,
          "consumption":[{
             "item":62,
@@ -405,7 +405,7 @@ package IsoEngine
          "fixedExpenses":25,
          "storagePerUnit":20,
          "price":750000
-      },{
+      },{//-22 robbery
          "name":1636,
          "consumption":[],
          "production":[{
@@ -418,7 +418,7 @@ package IsoEngine
          "storagePerUnit":0,
          "price":375000,
          "naturalResource":true
-      },{
+      },{//-23
          "name":1639,
          "consumption":[{
             "item":1,
@@ -433,7 +433,7 @@ package IsoEngine
          "fixedExpenses":5,
          "storagePerUnit":20,
          "price":250000
-      },{
+      },{//-24
          "name":1640,
          "consumption":[{
             "item":1,
@@ -448,7 +448,7 @@ package IsoEngine
          "fixedExpenses":6,
          "storagePerUnit":20,
          "price":275000
-      },{
+      },{//-25
          "name":1641,
          "consumption":[{
             "item":1,
@@ -463,7 +463,7 @@ package IsoEngine
          "fixedExpenses":2,
          "storagePerUnit":30,
          "price":200000
-      },{
+      },{//-26
          "name":1642,
          "consumption":[{
             "item":1,
@@ -478,7 +478,7 @@ package IsoEngine
          "fixedExpenses":3,
          "storagePerUnit":20,
          "price":200000
-      },{
+      },{//-27
          "name":1643,
          "consumption":[{
             "item":1,
@@ -493,7 +493,7 @@ package IsoEngine
          "fixedExpenses":3,
          "storagePerUnit":20,
          "price":250000
-      },{
+      },{//-28
          "name":2865,
          "consumption":[{
             "item":94,
@@ -514,7 +514,7 @@ package IsoEngine
          "fixedExpenses":0,
          "storagePerUnit":40,
          "price":250000
-      },{
+      },{//-29
          "name":2885,
          "consumption":[{
             "item":94,
@@ -529,7 +529,7 @@ package IsoEngine
          "fixedExpenses":5,
          "storagePerUnit":20,
          "price":350000
-      },{
+      },{//-30
          "name":2896,
          "consumption":[{
             "item":84,
@@ -544,7 +544,7 @@ package IsoEngine
          "fixedExpenses":30,
          "storagePerUnit":10,
          "price":425000
-      },{
+      },{//-31
          "name":2898,
          "consumption":[{
             "item":86,
@@ -559,7 +559,7 @@ package IsoEngine
          "fixedExpenses":30,
          "storagePerUnit":10,
          "price":450000
-      },{
+      },{//-32
          "name":2900,
          "consumption":[{
             "item":89,
@@ -574,7 +574,7 @@ package IsoEngine
          "fixedExpenses":30,
          "storagePerUnit":10,
          "price":400000
-      },{
+      },{//-33
          "name":2901,
          "consumption":[{
             "item":62,
@@ -592,7 +592,7 @@ package IsoEngine
          "fixedExpenses":50,
          "storagePerUnit":10,
          "price":300000
-      },{
+      },{//-34
          "name":2902,
          "consumption":[{
             "item":45,
@@ -613,7 +613,7 @@ package IsoEngine
          "fixedExpenses":25,
          "storagePerUnit":10,
          "price":350000
-      },{
+      },{//-35
          "name":2903,
          "consumption":[{
             "item":75,
@@ -634,7 +634,7 @@ package IsoEngine
          "fixedExpenses":25,
          "storagePerUnit":10,
          "price":400000
-      },{
+      },{//-36
          "name":4263,
          "consumption":[{
             "item":1,
@@ -649,7 +649,7 @@ package IsoEngine
          "fixedExpenses":10,
          "storagePerUnit":20,
          "price":500000
-      },{
+      },{//-37
          "name":4264,
          "consumption":[{
             "item":165,
@@ -664,7 +664,7 @@ package IsoEngine
          "fixedExpenses":10,
          "storagePerUnit":80,
          "price":625000
-      },{
+      },{//-38
          "name":5644,
          "consumption":[],
          "production":[{
@@ -677,7 +677,7 @@ package IsoEngine
          "storagePerUnit":30,
          "price":1400000,
          "naturalResource":true
-      },{
+      },{//-39
          "name":5645,
          "consumption":[{
             "item":184,
@@ -695,7 +695,7 @@ package IsoEngine
          "fixedExpenses":15,
          "storagePerUnit":40,
          "price":1125000
-      },{
+      },{//-40
          "name":5646,
          "consumption":[{
             "item":186,
@@ -716,7 +716,7 @@ package IsoEngine
          "fixedExpenses":15,
          "storagePerUnit":35,
          "price":1250000
-      },{
+      },{//-41
          "name":5647,
          "consumption":[{
             "item":186,
@@ -734,7 +734,7 @@ package IsoEngine
          "fixedExpenses":30,
          "storagePerUnit":20,
          "price":1125000
-      },{
+      },{//-42
          "name":5648,
          "consumption":[{
             "item":186,
@@ -749,7 +749,7 @@ package IsoEngine
          "fixedExpenses":30,
          "storagePerUnit":20,
          "price":875000
-      },{
+      },{//-43
          "name":5679,
          "consumption":[{
             "item":93,
@@ -767,7 +767,7 @@ package IsoEngine
          "fixedExpenses":50,
          "storagePerUnit":10,
          "price":2375000
-      },{
+      },{//-44
          "name":5773,
          "consumption":[],
          "production":[{
@@ -780,7 +780,7 @@ package IsoEngine
          "storagePerUnit":80,
          "price":1900000,
          "naturalResource":true
-      },{
+      },{//-45
          "name":5774,
          "consumption":[{
             "item":195,
@@ -795,7 +795,7 @@ package IsoEngine
          "fixedExpenses":70,
          "storagePerUnit":100,
          "price":2200000
-      },{
+      },{//-46
          "name":5775,
          "consumption":[{
             "item":196,

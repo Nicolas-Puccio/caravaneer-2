@@ -5796,7 +5796,7 @@ package Data
       
       public static var faction_names:* = [[3,2189,2190,2191,2192,2193,1421,2854,2856,3172,3173,3547,3548,4253,4254,4267,4272,5655,5955,6115,6376,6656,6794,6793]];
       
-      public static var town_presets:* = [[{
+      public static var town_presets:* = [[{//-0
          "name":552,
          "x":757,
          "y":197,
@@ -5951,7 +5951,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":5,
          "faction":18
-      },{
+      },{//-1
          "name":553,
          "x":2933,
          "y":221,
@@ -6021,7 +6021,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":5,
          "faction":18
-      },{
+      },{//-2
          "name":554,
          "x":180,
          "y":445,
@@ -6203,7 +6203,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":5,
          "faction":18
-      },{
+      },{//-3
          "name":555,
          "x":628,
          "y":521,
@@ -6362,7 +6362,7 @@ package Data
          "maxAttributes":1.3,
          "maxExperience":20,
          "faction":18
-      },{
+      },{//-4
          "name":556,
          "x":2613,
          "y":525,
@@ -6474,7 +6474,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":5,
          "faction":18
-      },{
+      },{//-5 qubba
          "name":557,
          "x":801,
          "y":861,
@@ -6988,7 +6988,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":10,
          "faction":18
-      },{
+      },{//-6
          "name":558,
          "x":1337,
          "y":741,
@@ -7095,7 +7095,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":5,
          "faction":18
-      },{
+      },{//-7
          "name":559,
          "x":392,
          "y":1265,
@@ -7225,7 +7225,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":5,
          "faction":18
-      },{
+      },{//-8
          "name":560,
          "x":1077,
          "y":1441,
@@ -7360,7 +7360,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{
+      },{//-9
          "name":561,
          "x":2009,
          "y":1981,
@@ -7465,7 +7465,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{
+      },{//-10
          "name":562,
          "x":300,
          "y":2733,
@@ -7575,7 +7575,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":5,
          "faction":18
-      },{
+      },{//-11
          "name":563,
          "x":3157,
          "y":2385,
@@ -7628,7 +7628,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{
+      },{//-12
          "name":564,
          "x":861,
          "y":3149,
@@ -7906,7 +7906,7 @@ package Data
          "maxAttributes":1.3,
          "maxExperience":6,
          "faction":18
-      },{
+      },{//-13
          "name":565,
          "x":2417,
          "y":3273,
@@ -7953,7 +7953,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{//-14willoshigrad
+      },{//-14 willoshigrad
          "name":566,
          "x":3197,
          "y":3101,
@@ -8265,7 +8265,7 @@ package Data
          "noPeopleToHire":true,
          "cantExpandStorage":true,
          "stableEmployment":true,
-         "defaultStorage":100,
+         "defaultStorage":4600,
          "constantPopulation":true,
          "storagePrice":100,
          "tax":0.05,
@@ -8800,7 +8800,7 @@ package Data
          "tax":0.05,
          "electricityPrice":0.3,
          "noticeability":90
-      },{
+      },{//-23 new serino
          "name":2272,
          "x":-12000,
          "y":1600,
@@ -9122,7 +9122,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":2,
          "faction":8
-      },{
+      },{//-24
          "name":2516,
          "x":-14000,
          "y":340,
@@ -9274,7 +9274,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":1.2,
          "faction":8
-      },{
+      },{//-25
          "name":2866,
          "x":-13200,
          "y":2200,
@@ -9414,7 +9414,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":1.5,
          "faction":8
-      },{
+      },{//-26
          "name":2867,
          "x":-11650,
          "y":3150,
@@ -9702,7 +9702,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":3,
          "faction":8
-      },{
+      },{//-27
          "name":2868,
          "x":-12600,
          "y":3550,
@@ -10158,7 +10158,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":2.5,
          "faction":8
-      },{
+      },{//-28
          "name":2877,
          "x":-13610,
          "y":1650,
@@ -10215,7 +10215,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":1.5,
          "faction":8
-      },{
+      },{//-29
          "name":2878,
          "x":-14280,
          "y":1980,
@@ -10353,7 +10353,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":1.5,
          "faction":8
-      },{
+      },{//-30
          "name":2881,
          "x":-13800,
          "y":3450,
@@ -10463,7 +10463,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":1.5,
          "faction":8
-      },{
+      },{//-31
          "name":2882,
          "x":-12410,
          "y":4620,
@@ -10585,7 +10585,7 @@ package Data
          "maxAttributes":0.9,
          "maxExperience":1.3,
          "faction":8
-      },{
+      },{//-32
          "name":2883,
          "x":-14850,
          "y":5200,
@@ -10699,7 +10699,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":0.9,
          "faction":11
-      },{//-kevin house
+      },{//-33 kevin house
          "name":2938,
          "x":-11950,
          "y":1800,
@@ -10732,7 +10732,7 @@ package Data
          "tax":0.05,
          "electricityPrice":0.3,
          "noticeability":200
-      },{
+      },{//-34
          "name":3620,
          "x":-17200,
          "y":6250,
@@ -10787,7 +10787,7 @@ package Data
          "electricityPrice":0.3,
          "noticeability":400,
          "faction":12
-      },{
+      },{//-35
          "name":3909,
          "x":-12700,
          "y":8600,
@@ -10848,7 +10848,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":1.5,
          "faction":9
-      },{
+      },{//-36
          "name":3910,
          "x":-9600,
          "y":7600,
@@ -11360,7 +11360,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":3,
          "faction":13
-      },{
+      },{//-37
          "name":3911,
          "x":-8750,
          "y":4700,
@@ -11817,7 +11817,7 @@ package Data
          "maxAttributes":1.3,
          "maxExperience":3.5,
          "faction":14
-      },{
+      },{//-38
          "name":4252,
          "x":-8700,
          "y":6800,
@@ -12318,7 +12318,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":3.1,
          "faction":13
-      },{
+      },{//-39
          "name":4256,
          "x":-9900,
          "y":8850,
@@ -12450,7 +12450,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":2.5,
          "faction":13
-      },{
+      },{//-4
          "name":4257,
          "x":-7800,
          "y":10600,
@@ -12682,7 +12682,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":2,
          "faction":13
-      },{
+      },{//-4
          "name":4258,
          "x":-7500,
          "y":11100,
@@ -12781,7 +12781,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":2,
          "faction":13
-      },{
+      },{//-4
          "name":4259,
          "x":-10050,
          "y":6550,
@@ -12885,7 +12885,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":1.8,
          "faction":13
-      },{
+      },{//-4
          "name":4260,
          "x":-8200,
          "y":7400,
@@ -12981,7 +12981,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":2.5,
          "faction":13
-      },{
+      },{//-4
          "name":4261,
          "x":-6300,
          "y":6450,
@@ -13034,7 +13034,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":2.5,
          "faction":13
-      },{
+      },{//-4
          "name":4262,
          "x":-8400,
          "y":4450,
@@ -13186,7 +13186,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":2,
          "faction":14
-      },{
+      },{//-4
          "name":4766,
          "x":-15800,
          "y":6100,
@@ -13222,7 +13222,7 @@ package Data
          "tax":0.05,
          "electricityPrice":0.3,
          "noticeability":150
-      },{
+      },{//-4
          "name":5265,
          "x":-5700,
          "y":7200,
@@ -13250,7 +13250,7 @@ package Data
          "electricityPrice":0.3,
          "noticeability":150,
          "faction":16
-      },{
+      },{//-4
          "name":5614,
          "x":-6250,
          "y":2350,
@@ -13708,7 +13708,7 @@ package Data
          "maxAttributes":1.3,
          "maxExperience":3,
          "faction":5
-      },{
+      },{//-4
          "name":5622,
          "x":-10250,
          "y":8400,
@@ -13966,7 +13966,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":2,
          "faction":13
-      },{
+      },{//-5
          "name":5623,
          "x":-8500,
          "y":8150,
@@ -14042,7 +14042,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":2,
          "faction":13
-      },{
+      },{//-5
          "name":5624,
          "x":-8050,
          "y":9250,
@@ -14085,7 +14085,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":2.3,
          "faction":13
-      },{
+      },{//-5
          "name":5632,
          "x":-11550,
          "y":6600,
@@ -14136,7 +14136,7 @@ package Data
          "maxAttributes":1.5,
          "maxExperience":4,
          "faction":5
-      },{
+      },{//-5
          "name":5649,
          "x":-1700,
          "y":-5200,
@@ -14636,7 +14636,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{
+      },{//-5
          "name":5671,
          "x":-820,
          "y":-200,
@@ -15007,7 +15007,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":5,
          "faction":18
-      },{
+      },{//-5
          "name":5672,
          "x":450,
          "y":-600,
@@ -15132,7 +15132,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{
+      },{//-5
          "name":5673,
          "x":2490,
          "y":-245,
@@ -15250,7 +15250,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{
+      },{//-5
          "name":5674,
          "x":315,
          "y":3700,
@@ -15381,7 +15381,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{
+      },{//-5
          "name":5675,
          "x":-680,
          "y":1700,
@@ -15565,7 +15565,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":5,
          "faction":18
-      },{
+      },{//-6
          "name":5676,
          "x":7500,
          "y":-4500,
@@ -15722,7 +15722,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":6,
          "faction":18
-      },{
+      },{//-6
          "name":5677,
          "x":6800,
          "y":-3950,
@@ -15855,7 +15855,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":5,
          "faction":17
-      },{
+      },{//-6
          "name":5680,
          "x":-200,
          "y":900,
@@ -16003,7 +16003,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{
+      },{//-6
          "name":5776,
          "x":5650,
          "y":-6150,
@@ -16266,7 +16266,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":6,
          "faction":17
-      },{
+      },{//-6
          "name":5777,
          "x":6600,
          "y":-6350,
@@ -16402,7 +16402,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":7,
          "faction":17
-      },{
+      },{//-6
          "name":5778,
          "x":6200,
          "y":-6650,
@@ -16534,7 +16534,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":5,
          "faction":17
-      },{
+      },{//-6
          "name":5779,
          "x":-4750,
          "y":-5550,
@@ -16673,7 +16673,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":6,
          "faction":17
-      },{
+      },{//-6
          "name":5780,
          "x":1400,
          "y":-4000,
@@ -16833,7 +16833,7 @@ package Data
          "maxAttributes":1.3,
          "maxExperience":8,
          "faction":17
-      },{
+      },{//-6
          "name":6114,
          "x":-13400,
          "y":820,
@@ -16852,7 +16852,7 @@ package Data
          "electricityPrice":0.3,
          "noticeability":150,
          "faction":19
-      },{
+      },{//-6
          "name":6391,
          "x":1520,
          "y":-2050,
@@ -17016,7 +17016,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":20,
          "faction":20
-      },{
+      },{//-7
          "name":6766,
          "x":-2780,
          "y":-7435,
@@ -17154,7 +17154,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":4,
          "faction":17
-      },{
+      },{//-7
          "name":6767,
          "x":-3025,
          "y":-6950,
@@ -17292,7 +17292,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":6,
          "faction":17
-      },{
+      },{//-7
          "name":6768,
          "x":-1235,
          "y":-6228,
@@ -17414,7 +17414,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":6,
          "faction":17
-      },{
+      },{//-7
          "name":6769,
          "x":1520,
          "y":-6320,
@@ -17645,7 +17645,7 @@ package Data
          "maxAttributes":1.3,
          "maxExperience":7,
          "faction":17
-      },{
+      },{//-7
          "name":6770,
          "x":-2410,
          "y":-5530,
@@ -17769,7 +17769,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":5,
          "faction":17
-      },{
+      },{//-7
          "name":6771,
          "x":-295,
          "y":-5490,
@@ -17886,7 +17886,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":6,
          "faction":17
-      },{
+      },{//-7
          "name":6772,
          "x":-2789,
          "y":-4615,
@@ -17995,7 +17995,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":6,
          "faction":17
-      },{
+      },{//-7
          "name":6773,
          "x":115,
          "y":-4820,
@@ -18286,7 +18286,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":8,
          "faction":17
-      },{
+      },{//-7
          "name":6774,
          "x":-3780,
          "y":-4315,
@@ -18327,7 +18327,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":17
-      },{
+      },{//-7
          "name":6775,
          "x":1710,
          "y":-4156,
@@ -18447,7 +18447,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":8,
          "faction":17
-      },{
+      },{//-8
          "name":6777,
          "x":3255,
          "y":-4045,
@@ -18556,7 +18556,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":5,
          "faction":17
-      },{
+      },{//-81
          "name":6778,
          "x":2485,
          "y":-3458,
@@ -18662,7 +18662,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":6,
          "faction":17
-      },{
+      },{//-82 Valentingrad
          "name":6779,
          "x":-675,
          "y":-3120,
