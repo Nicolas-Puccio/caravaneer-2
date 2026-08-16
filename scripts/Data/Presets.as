@@ -8448,6 +8448,9 @@ package Data
             },{
                "type":4,
                "amount":2
+            },{//- umi alpha for sale on lintu camp
+               "type":13,
+               "amount":1
             }]
          }],
          "specialPrices":{45:1.5},
