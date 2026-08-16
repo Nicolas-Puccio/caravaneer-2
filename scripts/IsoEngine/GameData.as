@@ -673,7 +673,7 @@ package IsoEngine
          displayedTutorials = [];
          initiatedDLC = [];
          removedDLC = [];
-         canBreakEconomy = false;
+         canBreakEconomy = true;
          Caravans = [];
          Towns = [];
          Squares = [];
@@ -736,6 +736,7 @@ package IsoEngine
          _loc7_ = param3 == null;
          storyMode = param4;
          Story = new Caravaneer2MainStory();
+         Story.finishedTheGame = true
          screenNode = param1;
          parent = param2;
          build = parent.build;
