@@ -1,6 +1,6 @@
 # Caravaneer 2 - Modded
 
-This repository contains a modified version of [Caravaneer 2](https://store.steampowered.com/app/1500820/Caravaneer_2/)
+This repository contains a modified version of [Caravaneer 2](https://store.steampowered.com/app/1500820/Caravaneer_2/), and a folder structure that allows for a quick BULK IMPORT using JPEXS, it is recommended to edit the code on a separate IDE like VS CODE rather than inside JPEXS
 
 
 
