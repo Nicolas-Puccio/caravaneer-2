@@ -1400,7 +1400,7 @@ package IsoEngine
                      }
                   }
                }
-               if(!_loc14_)
+               if(false)//-disable transport spawn
                {
                   trace("adding transport at: " + _loc10_ + " " + _loc12_ + " direction: " + _loc28_[_loc22_].direction);
                   placeTransport(_loc28_[_loc22_],_loc10_,_loc12_);
@@ -1477,50 +1477,59 @@ package IsoEngine
                _loc32_ = Math.round(param3.x);
                _loc30_ = Math.round(param3.y);
             }
-            _loc27_ = 1;
-            _loc26_ = 0;
-            _loc24_ = 0;
+            _locDistanceFromCenter_ = 1;
+            _locEdgePosition_ = 0;
+            _locSide_ = 0;
             _loc10_ = _loc32_;
             _loc12_ = _loc30_;
             while(surroundingsBlocked(_loc10_,_loc12_))
             {
-               if(_loc24_ == 0)
+               if(_locSide_ == 0)
                {
-                  _loc10_ = _loc32_ + _loc26_;
-                  _loc12_ = _loc30_ - _loc27_;
+                  _loc10_ = _loc32_ + _locEdgePosition_;
+                  _loc12_ = _loc30_ - _locDistanceFromCenter_;
                }
-               if(_loc24_ == 1)
+               if(_locSide_ == 1)
                {
-                  _loc10_ = _loc32_ + _loc27_;
-                  _loc12_ = _loc30_ + _loc26_;
+                  _loc10_ = _loc32_ + _locDistanceFromCenter_;
+                  _loc12_ = _loc30_ + _locEdgePosition_;
                }
-               if(_loc24_ == 2)
+               if(_locSide_ == 2)
                {
-                  _loc10_ = _loc32_ - _loc26_;
-                  _loc12_ = _loc30_ + _loc27_;
+                  _loc10_ = _loc32_ - _locEdgePosition_;
+                  _loc12_ = _loc30_ + _locDistanceFromCenter_;
                }
-               if(_loc24_ == 3)
+               if(_locSide_ == 3)
                {
-                  _loc10_ = _loc32_ - _loc27_;
-                  _loc12_ = _loc30_ - _loc26_;
+                  _loc10_ = _loc32_ - _locDistanceFromCenter_;
+                  _loc12_ = _loc30_ - _locEdgePosition_;
                }
-               var _temp_27:* = Number(_loc26_) + 1;
-               _loc26_++;
-               if(_temp_27 > _loc27_)
+
+               //-crude way of forcing a line
+               if(_loc32_ < 20 || _loc32_ > gridHeight - 20)
                {
-                  var _temp_28:* = Number(_loc24_) + 1;
-                  _loc24_++;
-                  if(_temp_28 > 3)
+                  _loc10_ = _loc10_;
+               }
+               //-crude way of forcing a line
+               if(_loc30_ < 20 || _loc30_ > gridHeight - 20)
+               {
+                  _loc12_ = _loc12_;
+               }
+
+               _locEdgePosition_++;
+               if(_locEdgePosition_ > _locDistanceFromCenter_)
+               {
+                  _locSide_++;
+                  if(_locSide_ > 3)
                   {
-                     var _temp_29:* = Number(_loc27_) + 1;
-                     _loc27_++;
-                     if(_temp_29 >= gridWidth && _loc27_ >= gridHeight)
+                     _locDistanceFromCenter_++;
+                     if(_locDistanceFromCenter_ >= gridWidth && _locDistanceFromCenter_ >= gridHeight)
                      {
                         break;
                      }
-                     _loc24_ = 0;
+                     _locSide_ = 0;
                   }
-                  _loc26_ = 0 - _loc27_ + 1;
+                  _locEdgePosition_ = 0 - _locDistanceFromCenter_ + 1;
                }
             }
             _loc7_ = _loc10_ - gridWidth / 2;
@@ -1544,8 +1553,12 @@ package IsoEngine
             {
                _loc11_ = 2;
             }
-            addCharacter(Groups[_loc25_][_loc15_],_loc10_,_loc12_,_loc11_);
-            ActList.push(Groups[_loc25_][_loc15_]);
+            //-do not spawn prisoners
+            if(Groups[_loc25_][_loc15_].category != 4)
+            {
+               addCharacter(Groups[_loc25_][_loc15_],_loc10_,_loc12_,_loc11_);
+               ActList.push(Groups[_loc25_][_loc15_]);
+            }
          }
          ActList.sortOn("maxAP",18);
       }
