@@ -13599,7 +13599,7 @@ package IsoEngine
          }
       }
       
-      public function createCaravanOnRoute(param1:*) : *
+      public function createCaravanOnRoute(param1:*) : *//-called from MapMode
       {
          var _loc4_:* = undefined;
          var _loc3_:* = undefined;

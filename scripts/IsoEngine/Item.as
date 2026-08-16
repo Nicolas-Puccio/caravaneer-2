@@ -230,55 +230,55 @@ package IsoEngine
       },{//-7
          "category":1,
          "subCategory":5
-      },{
+      },{//-7
          "category":1,
          "subCategory":16
-      },{
+      },{//-7
          "category":1,
          "subCategory":17
-      },{
+      },{//-7
          "category":1,
          "subCategory":18
-      },{
+      },{//-7
          "category":1,
          "subCategory":19
-      },{
+      },{//-7
          "category":1,
          "subCategory":20
-      },{
+      },{//-7
          "category":1,
          "subCategory":21
-      },{
+      },{//-7
          "category":1,
          "subCategory":22
-      },{
+      },{//-7
          "category":1,
          "subCategory":23
-      },{
+      },{//-7
          "category":1,
          "subCategory":24
-      },{
+      },{//-8
          "category":1,
          "subCategory":25
-      },{
+      },{//-8
          "category":1,
          "subCategory":26
-      },{
+      },{//-8
          "category":1,
          "subCategory":27
-      },{
+      },{//-8
          "category":1,
          "subCategory":28
-      },{
+      },{//-8
          "category":1,
          "subCategory":29
-      },{
+      },{//-8
          "category":1,
          "subCategory":30
-      },{
+      },{//-8
          "category":1,
          "subCategory":31
-      },{
+      },{//-87? wool???
          "category":1,
          "subCategory":32
       },{
@@ -786,7 +786,7 @@ package IsoEngine
          "liquidsContainer":true,
          "divisible":false,
          "volume":1
-      },{
+      },{//-11
          "name":1140,
          "unit":"Kg",
          "weight":1,
@@ -796,7 +796,7 @@ package IsoEngine
          "calories":310,
          "divisible":true,
          "waterPercentage":0.3
-      },{
+      },{//-12
          "name":1142,
          "unit":"Kg",
          "weight":1,
@@ -806,7 +806,7 @@ package IsoEngine
          "calories":220,
          "divisible":true,
          "waterPercentage":0.5
-      },{
+      },{//-13
          "name":1143,
          "unit":"Kg",
          "weight":1,
@@ -816,7 +816,7 @@ package IsoEngine
          "calories":770,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-14
          "name":1144,
          "unit":"Kg",
          "weight":1,
@@ -836,7 +836,7 @@ package IsoEngine
          "calories":1210,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-16
          "name":1147,
          "unit":"Kg",
          "weight":1,
@@ -846,7 +846,7 @@ package IsoEngine
          "calories":950,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-17
          "name":1148,
          "unit":"",
          "weight":0.01,
@@ -856,7 +856,7 @@ package IsoEngine
          "calories":14,
          "divisible":false,
          "waterPercentage":0.4
-      },{
+      },{//-18
          "name":1149,
          "unit":"Kg",
          "weight":1,
@@ -866,7 +866,7 @@ package IsoEngine
          "calories":930,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-19
          "name":1150,
          "unit":"",
          "weight":0.022,
@@ -876,7 +876,7 @@ package IsoEngine
          "calories":31,
          "divisible":false,
          "waterPercentage":0.3
-      },{
+      },{//-20
          "name":1151,
          "unit":"Kg",
          "weight":1,
@@ -886,7 +886,7 @@ package IsoEngine
          "calories":1650,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-21
          "name":1165,
          "unit":"Kg",
          "weight":1,
@@ -896,7 +896,7 @@ package IsoEngine
          "calories":1750,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-22
          "name":1172,
          "unit":"L",
          "weight":1,
@@ -908,7 +908,7 @@ package IsoEngine
          "liquid":true,
          "divisible":true,
          "waterPercentage":0.89
-      },{
+      },{//-23
          "name":1174,
          "unit":"m²",
          "weight":1.8,
@@ -916,7 +916,7 @@ package IsoEngine
          "divisible":true,
          "food":false,
          "market":true
-      },{
+      },{//-24
          "name":1177,
          "unit":"L",
          "weight":0.9,
@@ -924,7 +924,7 @@ package IsoEngine
          "divisible":true,
          "liquid":true,
          "market":true
-      },{
+      },{//-25
          "name":1211,
          "unit":"",
          "weight":1.5,
@@ -932,7 +932,7 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":5
-      },{
+      },{//-26
          "name":1238,
          "unit":"",
          "weight":95,
@@ -945,7 +945,7 @@ package IsoEngine
          "production":[],
          "divisible":false,
          "electricityProduction":1000
-      },{
+      },{//-27
          "name":1245,
          "unit":"",
          "weight":8,
@@ -956,7 +956,7 @@ package IsoEngine
          "electricityConsumption":550,
          "divisible":false,
          "doctorImprove":0.7
-      },{
+      },{//-28
          "name":1253,
          "unit":"Kg",
          "weight":1,
@@ -966,7 +966,7 @@ package IsoEngine
          "calories":1750,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-29
          "name":1254,
          "unit":"L",
          "weight":1,
@@ -978,7 +978,7 @@ package IsoEngine
          "liquid":true,
          "divisible":true,
          "waterPercentage":0.89
-      },{
+      },{//-30
          "name":1300,
          "unit":"Kg",
          "weight":1,
@@ -988,7 +988,7 @@ package IsoEngine
          "calories":1830,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-31
          "name":1301,
          "unit":"L",
          "weight":1,
@@ -1000,7 +1000,7 @@ package IsoEngine
          "liquid":true,
          "divisible":true,
          "waterPercentage":0.89
-      },{
+      },{//-32 wool
          "name":1302,
          "unit":"Kg",
          "weight":1,

@@ -12,7 +12,7 @@ package Data
          "moving":true
       }];
       
-      private static const caravan_routes:* = [[{
+      private static const caravan_routes:* = [[{//-0
          "size":30,
          "onInit":true,
          "extraEquipment":[{
@@ -201,7 +201,7 @@ package Data
                "amount":13
             }]
          }]
-      },{
+      },{//-1
          "size":15,
          "onInit":true,
          "extraEquipment":[{
@@ -307,7 +307,7 @@ package Data
                "amount":25
             }]
          }]
-      },{
+      },{//-2
          "size":35,
          "onInit":true,
          "extraEquipment":[{
@@ -342,7 +342,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-3
          "size":38,
          "onInit":true,
          "extraEquipment":[{
@@ -451,7 +451,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-4
          "size":32,
          "onInit":true,
          "extraEquipment":[{
@@ -522,7 +522,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-5
          "size":67,
          "onInit":true,
          "extraEquipment":[{
@@ -712,7 +712,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-6
          "size":32,
          "onInit":true,
          "extraEquipment":[{
@@ -784,7 +784,7 @@ package Data
                "amount":63
             }]
          }]
-      },{
+      },{//-7
          "size":30,
          "onInit":true,
          "extraEquipment":[{
@@ -877,7 +877,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-8
          "size":65,
          "onInit":true,
          "extraEquipment":[{
@@ -1204,7 +1204,7 @@ package Data
                "amount":70
             }]
          }]
-      },{
+      },{//-9
          "size":65,
          "onInit":true,
          "extraEquipment":[{
@@ -1249,7 +1249,7 @@ package Data
             }],
             "sell":[]
          }]
-      },{
+      },{//-10
          "size":45,
          "onInit":true,
          "extraEquipment":[{
@@ -1347,7 +1347,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-11
          "size":35,
          "onInit":true,
          "extraEquipment":[{
@@ -1468,7 +1468,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-12
          "size":36,
          "onInit":true,
          "extraEquipment":[{
@@ -1614,7 +1614,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-13
          "size":34,
          "onInit":true,
          "extraEquipment":[{
@@ -1751,7 +1751,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-14
          "size":58,
          "onInit":true,
          "extraEquipment":[{
@@ -1869,7 +1869,7 @@ package Data
                "amount":60
             }]
          }]
-      },{
+      },{//-15
          "size":63,
          "onInit":true,
          "extraEquipment":[{
@@ -1986,7 +1986,7 @@ package Data
                "amount":22
             }]
          }]
-      },{
+      },{//-16
          "size":35,
          "onInit":true,
          "extraEquipment":[{
@@ -2030,7 +2030,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-17
          "size":62,
          "onInit":true,
          "extraEquipment":[{
@@ -2131,7 +2131,7 @@ package Data
                "amount":3
             }]
          }]
-      },{
+      },{//-18
          "size":64,
          "onInit":true,
          "extraEquipment":[{
@@ -2159,7 +2159,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-19
          "size":32,
          "onInit":true,
          "extraEquipment":[{
@@ -2187,7 +2187,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-20
          "size":64,
          "onInit":true,
          "extraEquipment":[{
@@ -2219,7 +2219,7 @@ package Data
             }],
             "sell":[]
          }]
-      },{
+      },{//-21
          "size":68,
          "onInit":true,
          "extraEquipment":[{
@@ -2247,7 +2247,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-22
          "size":67,
          "onInit":true,
          "extraEquipment":[{
@@ -2275,7 +2275,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-23
          "size":69,
          "onInit":true,
          "extraEquipment":[{
@@ -2337,7 +2337,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-24
          "size":62,
          "onInit":true,
          "extraEquipment":[{
@@ -2544,7 +2544,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-25
          "size":66,
          "onInit":true,
          "extraEquipment":[{
@@ -2607,7 +2607,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-26
          "size":69,
          "onInit":true,
          "extraEquipment":[{
@@ -2685,7 +2685,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-27
          "size":67,
          "onInit":true,
          "extraEquipment":[{
@@ -2967,7 +2967,7 @@ package Data
                "amount":100
             }]
          }]
-      },{
+      },{//-28
          "size":28,
          "onInit":true,
          "extraEquipment":[{
@@ -3113,7 +3113,7 @@ package Data
                "amount":1
             }]
          }]
-      },{
+      },{//-29
          "size":38,
          "onInit":false,
          "extraEquipment":[{
@@ -3725,13 +3725,13 @@ package Data
          "radius":8
       }]];
       
-      private static const caravan_types:* = [[{
+      private static const caravan_types:* = [[{//-0
          "faction":0,
          "name":3,
          "aggressive":true,
          "averagePeopleNum":1,
          "slavers":true
-      },{
+      },{//-1
          "faction":1,
          "name":641,
          "aggressive":true,
@@ -3786,7 +3786,7 @@ package Data
             "item":85,
             "amount":3
          }]
-      },{
+      },{//-2
          "faction":2,
          "name":642,
          "aggressive":true,
@@ -3837,7 +3837,7 @@ package Data
             "amount":3
          }],
          "transport":[]
-      },{
+      },{//-3
          "faction":3,
          "name":643,
          "aggressive":false,
@@ -3880,7 +3880,7 @@ package Data
             "item":212,
             "amount":0.2
          }]
-      },{
+      },{//-4
          "faction":4,
          "name":644,
          "aggressive":true,
@@ -3925,7 +3925,7 @@ package Data
             "item":85,
             "amount":3
          }]
-      },{
+      },{//-5
          "faction":5,
          "name":1286,
          "aggressive":false,
@@ -3946,7 +3946,7 @@ package Data
             "item":6,
             "probability":0.2
          }]
-      },{
+      },{//-6
          "faction":6,
          "name":1421,
          "aggressive":true,
@@ -3979,7 +3979,7 @@ package Data
             "item":1,
             "amount":3
          }]
-      },{
+      },{//-7
          "faction":2,
          "name":2223,
          "aggressive":true,
@@ -4032,7 +4032,7 @@ package Data
             "amount":0.05
          }],
          "transport":[]
-      },{
+      },{//-8
          "faction":1,
          "name":2310,
          "aggressive":true,
@@ -4085,7 +4085,7 @@ package Data
             "amount":3
          }],
          "transport":[]
-      },{
+      },{//-9
          "faction":7,
          "name":2854,
          "aggressive":true,
@@ -4112,7 +4112,7 @@ package Data
             "item":109,
             "amount":1
          }]
-      },{
+      },{//-10
          "faction":7,
          "name":2854,
          "aggressive":true,
@@ -4145,7 +4145,7 @@ package Data
             "item":39,
             "amount":5
          }]
-      },{
+      },{//-11
          "faction":7,
          "name":2854,
          "aggressive":true,
@@ -4178,7 +4178,7 @@ package Data
             "item":130,
             "amount":10
          }]
-      },{
+      },{//-12
          "faction":8,
          "name":2856,
          "aggressive":true,
@@ -4214,7 +4214,7 @@ package Data
             "item":34,
             "amount":5
          }]
-      },{
+      },{//-13
          "faction":10,
          "name":3173,
          "aggressive":true,
@@ -4250,7 +4250,7 @@ package Data
             "item":34,
             "amount":5
          }]
-      },{
+      },{//-14
          "faction":15,
          "name":4267,
          "aggressive":true,
@@ -4301,7 +4301,7 @@ package Data
             "item":212,
             "amount":0.2
          }]
-      },{
+      },{//-15
          "faction":15,
          "name":4267,
          "aggressive":true,
@@ -4358,7 +4358,7 @@ package Data
             "item":61,
             "amount":1
          }]
-      },{
+      },{//-16
          "faction":15,
          "name":4270,
          "aggressive":true,
@@ -4394,7 +4394,7 @@ package Data
             "item":39,
             "amount":5
          }]
-      },{
+      },{//-17
          "faction":6,
          "name":4271,
          "aggressive":true,
@@ -4442,7 +4442,7 @@ package Data
             "item":212,
             "amount":0.2
          }]
-      },{
+      },{//-18
          "faction":16,
          "name":4272,
          "aggressive":true,
@@ -4485,7 +4485,7 @@ package Data
             "item":153,
             "amount":1.1
          }]
-      },{
+      },{//-19
          "faction":13,
          "name":4277,
          "aggressive":true,
@@ -4527,7 +4527,7 @@ package Data
             "item":152,
             "amount":1.1
          }]
-      },{
+      },{//-20
          "faction":14,
          "name":4278,
          "aggressive":true,
@@ -4572,7 +4572,7 @@ package Data
             "item":59,
             "amount":1.1
          }]
-      },{
+      },{//-21
          "faction":10,
          "name":3173,
          "aggressive":true,
@@ -4608,7 +4608,7 @@ package Data
             "item":212,
             "amount":1.1
          }]
-      },{
+      },{//-22
          "faction":14,
          "name":4278,
          "aggressive":true,
@@ -4653,7 +4653,7 @@ package Data
             "item":59,
             "amount":1.1
          }]
-      },{
+      },{//-23
          "faction":13,
          "name":4943,
          "aggressive":true,
@@ -4695,7 +4695,7 @@ package Data
             "item":152,
             "amount":1.1
          }]
-      },{
+      },{//-24
          "faction":9,
          "name":3172,
          "aggressive":false,
@@ -4735,7 +4735,7 @@ package Data
             "item":35,
             "amount":10
          }]
-      },{
+      },{//-25
          "faction":19,
          "name":6115,
          "aggressive":false,
@@ -4801,7 +4801,7 @@ package Data
             "amount":1,
             "exactPerPerson":true
          }]
-      },{
+      },{//-26
          "faction":20,
          "name":6375,
          "aggressive":true,
@@ -4864,7 +4864,7 @@ package Data
             "amount":1,
             "exactPerPerson":true
          }]
-      },{
+      },{//-27
          "faction":20,
          "name":6380,
          "aggressive":true,
@@ -4912,7 +4912,7 @@ package Data
             "amount":1,
             "exactPerPerson":true
          }]
-      },{
+      },{//-28
          "faction":20,
          "name":6381,
          "aggressive":true,
@@ -4964,7 +4964,7 @@ package Data
             "item":212,
             "amount":0.2
          }]
-      },{
+      },{//-29
          "faction":18,
          "name":6443,
          "aggressive":true,
@@ -5009,7 +5009,7 @@ package Data
             "item":201,
             "amount":1.1
          }]
-      },{
+      },{//-30
          "faction":17,
          "name":6444,
          "aggressive":true,
@@ -5062,7 +5062,7 @@ package Data
             "amount":0.03333,
             "exactPerPerson":true
          }]
-      },{
+      },{//-31
          "faction":21,
          "name":6657,
          "aggressive":true,
@@ -5138,7 +5138,7 @@ package Data
             "type":1,
             "amount":3
          }]
-      },{
+      },{//-32
          "faction":21,
          "name":6656,
          "aggressive":false,
@@ -5213,7 +5213,7 @@ package Data
             "amount":1,
             "exactPerPerson":true
          }]
-      },{
+      },{//-33
          "faction":21,
          "name":6785,
          "aggressive":true,
@@ -5272,7 +5272,7 @@ package Data
             "amount":4
          }],
          "transport":[]
-      },{
+      },{//-34
          "faction":21,
          "name":6786,
          "aggressive":true,
@@ -5310,7 +5310,7 @@ package Data
             "amount":0.1
          }],
          "transport":[]
-      },{
+      },{//-35
          "faction":21,
          "name":6787,
          "aggressive":true,
@@ -5383,7 +5383,7 @@ package Data
             "amount":0.5,
             "exactPerPerson":true
          }]
-      },{
+      },{//-36
          "faction":22,
          "name":6788,
          "aggressive":true,
@@ -5439,7 +5439,7 @@ package Data
             "amount":0.1
          }],
          "transport":[]
-      },{
+      },{//-37
          "faction":22,
          "name":6789,
          "aggressive":true,
@@ -5506,7 +5506,7 @@ package Data
             "type":2,
             "amount":5
          }]
-      },{
+      },{//-38
          "faction":18,
          "name":6790,
          "aggressive":true,
@@ -5546,7 +5546,7 @@ package Data
             "amount":0.1
          }],
          "transport":[]
-      },{
+      },{//-39
          "faction":17,
          "name":6791,
          "aggressive":true,
@@ -5589,13 +5589,13 @@ package Data
             "amount":0.1
          }],
          "transport":[]
-      },{
+      },{//-40 caravan
          "faction":23,
          "name":6792,
          "aggressive":false,
          "averagePeopleNum":1,
          "slavers":false
-      },{
+      },{//-41 travellers
          "faction":5,
          "name":2193,
          "aggressive":false,

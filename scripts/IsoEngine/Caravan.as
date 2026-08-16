@@ -221,8 +221,9 @@ package IsoEngine
       
       public var staticModeAllWindPowered:*;
       
-      public function Caravan(param1:* = 0, param2:* = null, param3:* = null)
+      public function Caravan(paramType:* = 0, param2:* = null, param3:* = null)
       {
+         //type 5 = main?
          var _loc11_:* = undefined;
          var _loc10_:* = undefined;
          var _loc8_:* = undefined;
@@ -307,11 +308,11 @@ package IsoEngine
                }
             }
          }
-         type = param1;
+         type = paramType;
          aggressive = Presets.CaravanTypes[type].aggressive;
          name = Texts.fetch(Presets.CaravanTypes[type].name);
          slavers = Presets.CaravanTypes[type].slavers;
-         if(param1 != 0)
+         if(paramType != 0)
          {
             mapSymbol = new Sprite();
             mapSymbolRotatingPart = new Sprite();
