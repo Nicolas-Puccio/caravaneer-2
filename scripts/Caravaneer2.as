@@ -939,6 +939,39 @@ package
          var _loc5_:* = undefined;
          var _loc2_:* = undefined;
          var _loc3_:* = undefined;
+
+
+         //-test new town
+         setLocation(85,{
+            "name":1,
+            "x":-9950,
+            "y":-1000,
+            "population":0,
+            "obligatoryPeople":[],
+            "allowsSlaves":false,
+            "locations":[{
+               "x":298,
+               "y":160,
+               "category":1,
+               "subCategory":5,
+               "symbol":18,
+               "visible":true,
+               "name":7007
+            }],
+            "industries":[],
+            "possibleIndustries":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46],
+            "cantExpandStorage":false,
+            "noPeopleToHire":true,
+            "storyOnly":true,
+            "defaultStorage":1,
+            "constantPopulation":false,
+            "storagePrice":100,
+            "tax":0.05,
+            "electricityPrice":0.3,
+            "noticeability":80
+         });
+
+
          GD = new GameData(currentScreen,this,null,param1 == 1,mainScreenDifficulty,theCharacter);
          executeDLCOnInit();
          GD.seed = Rndm.seed = Math.random() * 16777215;
