@@ -665,26 +665,26 @@ package IsoEngine
                {//-i believe spawns characters closer to the edge
                   case 0:
                      BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.max(1,Math.min(Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),fieldWidth - 2)),
-                        "y":Math.max(1,Math.min(Math.round(Math.max(fieldHeight / 2 - maxRange / 2,0)),fieldWidth - 2))
+                        "x":Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),
+                        "y":Math.round(Math.max(fieldHeight / 2 - maxRange / 2,0))
                      });
                      break;
                   case 1:
                      BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.max(1,Math.min(Math.min(fieldWidth / 2 + maxRange / 2 - 1,fieldWidth - 1),fieldWidth - 2)),
-                        "y":Math.max(1,Math.min(Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5)),fieldWidth - 2))
+                        "x":Math.min(fieldWidth / 2 + maxRange / 2 - 1,fieldWidth - 1),
+                        "y":Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5))
                      });
                      break;
                   case 2:
                      BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.max(1,Math.min(Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),fieldWidth - 2)),
-                        "y":Math.max(1,Math.min(Math.round(Math.min(fieldHeight / 2 + maxRange / 2 - 1,fieldHeight - 1)),fieldWidth - 2))
+                        "x":Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),
+                        "y":Math.round(Math.min(fieldHeight / 2 + maxRange / 2 - 1,fieldHeight - 1))
                      });
                      break;
                   case 3:
                      BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.max(1,Math.min(Math.round(Math.max(fieldWidth / 2 - maxRange / 2,0)),fieldWidth - 2)),
-                        "y":Math.max(1,Math.min(Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5)),fieldWidth - 2))
+                        "x":Math.round(Math.max(fieldWidth / 2 - maxRange / 2,0)),
+                        "y":Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5))
                      });
                }
             }
