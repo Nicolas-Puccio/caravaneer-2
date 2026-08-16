@@ -3157,6 +3157,32 @@ package Data
                "amount":100
             }]
          }]
+      },{//-30 testing
+         "size":20,
+         "onInit":false,
+         "extraEquipment":[{
+            "type":170,
+            "amount":1
+         }],
+         "points":[{
+            "town":17,
+            "buy":[{
+               "item":87,
+               "amount":100
+            },
+            {
+               "item":"food",
+               "amount":50
+            }],
+            "sell":[]
+         },{
+            "town":18,
+            "buy":[],
+            "sell":[{
+               "item":87,
+               "amount":100
+            }]
+         }]
       }]];
       
       private static var random_groups:* = [[{

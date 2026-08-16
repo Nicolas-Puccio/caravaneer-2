@@ -1038,6 +1038,9 @@ package
          {
             GD.setMode(1);
          }
+
+         //- test new caravan
+         GD.createCaravanOnRoute(30);
       }
       
       public function switchShowTutorial() : *
