@@ -266,7 +266,8 @@ package
       {
          MouseWheelTrap.setup(stage);
          requestDLCList();
-         fullScreenAllowed = onSite || stage.allowsFullScreen;
+         //-disable fullscreen
+         fullScreenAllowed = false
          stage.scaleMode = "showAll";
          if(fullScreenAllowed)
          {

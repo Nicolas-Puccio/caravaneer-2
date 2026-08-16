@@ -8273,7 +8273,7 @@ package Data
          "noticeability":160
       },{//-16 silos
          "name":1610,
-         "x":-10050,
+         "x":-10000,
          "y":-1300,
          "population":1,
          "obligatoryPeople":[],
