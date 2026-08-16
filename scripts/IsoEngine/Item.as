@@ -47,7 +47,7 @@ package IsoEngine
       },{//-9
          "category":2,
          "subCategory":8
-      },{//-1
+      },{//-10 hatchet
          "category":2,
          "subCategory":9
       },{//-1
@@ -281,193 +281,193 @@ package IsoEngine
       },{//-87? wool???
          "category":1,
          "subCategory":32
-      },{
+      },{//-88
          "category":1,
          "subCategory":33
-      },{
+      },{//-89
          "category":1,
          "subCategory":34
-      },{
+      },{//-9
          "category":1,
          "subCategory":35
-      },{
+      },{//-9
          "category":1,
          "subCategory":36
-      },{
+      },{//-9
          "category":5,
          "subCategory":14
-      },{
+      },{//-9
          "category":1,
          "subCategory":37
-      },{
+      },{//-9
          "category":1,
          "subCategory":38
-      },{
+      },{//-9
          "category":1,
          "subCategory":39
-      },{
+      },{//-9
          "category":1,
          "subCategory":40
-      },{
+      },{//-9
          "category":1,
          "subCategory":41
-      },{
+      },{//-9
          "category":1,
          "subCategory":42
-      },{
+      },{//-9
          "category":5,
          "subCategory":15
-      },{
+      },{//-10
          "category":5,
          "subCategory":16
-      },{
+      },{//-10
          "category":5,
          "subCategory":17
-      },{
+      },{//-10
          "category":5,
          "subCategory":18
-      },{
+      },{//-10
          "category":1,
          "subCategory":43
-      },{
+      },{//-10
          "category":1,
          "subCategory":44
-      },{
+      },{//-10
          "category":1,
          "subCategory":45
-      },{
+      },{//-10
          "category":1,
          "subCategory":46
-      },{
+      },{//-10
          "category":1,
          "subCategory":47
-      },{
+      },{//-10
          "category":2,
          "subCategory":29
-      },{
+      },{//-10
          "category":5,
          "subCategory":19
-      },{
+      },{//-11
          "category":5,
          "subCategory":20
-      },{
+      },{//-11
          "category":5,
          "subCategory":21
-      },{
+      },{//-11
          "category":1,
          "subCategory":48
-      },{
+      },{//-11
          "category":1,
          "subCategory":49
-      },{
+      },{//-11
          "category":1,
          "subCategory":50
-      },{
+      },{//-11
          "category":1,
          "subCategory":51
-      },{
+      },{//-11
          "category":1,
          "subCategory":52
-      },{
+      },{//-11
          "category":1,
          "subCategory":53
-      },{
+      },{//-11
          "category":1,
          "subCategory":54
-      },{
+      },{//-11
          "category":1,
          "subCategory":55
-      },{
+      },{//-120
          "category":2,
          "subCategory":30
-      },{
+      },{//-121
          "category":3,
          "subCategory":14
-      },{
+      },{//-122
          "category":3,
          "subCategory":15
-      },{
+      },{//-123
          "category":2,
          "subCategory":31
-      },{
+      },{//-124
          "category":2,
          "subCategory":32
-      },{
+      },{//-125
          "category":2,
          "subCategory":33
-      },{
+      },{//-126
          "category":3,
          "subCategory":16
-      },{
+      },{//-127
          "category":3,
          "subCategory":17
-      },{
+      },{//-128
          "category":2,
          "subCategory":34
-      },{
+      },{//-129
          "category":3,
          "subCategory":18
-      },{
+      },{//-130
          "category":3,
          "subCategory":19
-      },{
+      },{//-131
          "category":3,
          "subCategory":20
-      },{
+      },{//-132
          "category":1,
          "subCategory":56
-      },{
+      },{//-133
          "category":1,
          "subCategory":57
-      },{
+      },{//-134
          "category":1,
          "subCategory":58
-      },{
+      },{//-135
          "category":1,
          "subCategory":59
-      },{
+      },{//-136
          "category":1,
          "subCategory":60
-      },{
+      },{//-137
          "category":2,
          "subCategory":35
-      },{
+      },{//-138
          "category":2,
          "subCategory":36
-      },{
+      },{//-139
          "category":2,
          "subCategory":37
-      },{
+      },{//-140
          "category":1,
          "subCategory":61
-      },{
+      },{//-14
          "category":2,
          "subCategory":38
-      },{
+      },{//-14
          "category":2,
          "subCategory":39
-      },{
+      },{//-14
          "category":2,
          "subCategory":40
-      },{
+      },{//-14
          "category":3,
          "subCategory":21
-      },{
+      },{//-14
          "category":3,
          "subCategory":22
-      },{
+      },{//-14
          "category":2,
          "subCategory":41
-      },{
+      },{//-14
          "category":3,
          "subCategory":23
-      },{
+      },{//-14
          "category":3,
          "subCategory":24
-      },{
+      },{//-14
          "category":2,
          "subCategory":42
-      },{
+      },{//-15
          "category":3,
          "subCategory":25
       },{
@@ -497,7 +497,7 @@ package IsoEngine
       },{
          "category":1,
          "subCategory":67
-      },{
+      },{//-16
          "category":1,
          "subCategory":68
       },{
@@ -518,16 +518,16 @@ package IsoEngine
       },{
          "category":1,
          "subCategory":74
-      },{
+      },{//-167
          "category":1,
          "subCategory":75
-      },{
+      },{//-168
          "category":1,
          "subCategory":76
-      },{
+      },{//-169
          "category":1,
          "subCategory":77
-      },{
+      },{//-170
          "category":1,
          "subCategory":78
       },{
@@ -557,7 +557,7 @@ package IsoEngine
       },{
          "category":3,
          "subCategory":27
-      },{
+      },{//-18
          "category":3,
          "subCategory":28
       },{
@@ -587,7 +587,7 @@ package IsoEngine
       },{
          "category":1,
          "subCategory":91
-      },{
+      },{//-190
          "category":1,
          "subCategory":92
       },{
@@ -617,7 +617,7 @@ package IsoEngine
       },{
          "category":1,
          "subCategory":100
-      },{
+      },{//-200
          "category":5,
          "subCategory":24
       },{
@@ -1008,7 +1008,7 @@ package IsoEngine
          "divisible":true,
          "food":false,
          "market":true
-      },{
+      },{//-3
          "name":1303,
          "unit":"Kg",
          "weight":1,
@@ -1018,7 +1018,7 @@ package IsoEngine
          "calories":1740,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-3
          "name":1304,
          "unit":"L",
          "weight":1,
@@ -1030,7 +1030,7 @@ package IsoEngine
          "liquid":true,
          "divisible":true,
          "waterPercentage":0.89
-      },{
+      },{//-3
          "name":1305,
          "unit":"m²",
          "weight":1.5,
@@ -1038,7 +1038,7 @@ package IsoEngine
          "divisible":true,
          "food":false,
          "market":true
-      },{
+      },{//-3
          "name":1306,
          "unit":"",
          "weight":0.8,
@@ -1047,7 +1047,7 @@ package IsoEngine
          "divisible":false,
          "food":false,
          "market":true
-      },{
+      },{//-3
          "name":1334,
          "unit":"Kg",
          "weight":1,
@@ -1055,7 +1055,7 @@ package IsoEngine
          "divisible":true,
          "food":false,
          "market":true
-      },{
+      },{//-3
          "name":1335,
          "unit":"m²",
          "weight":0.13,
@@ -1063,7 +1063,7 @@ package IsoEngine
          "divisible":true,
          "food":false,
          "market":true
-      },{
+      },{//-3
          "name":1336,
          "unit":"Kg",
          "weight":1,
@@ -1071,7 +1071,7 @@ package IsoEngine
          "divisible":true,
          "food":false,
          "market":true
-      },{
+      },{//-4
          "name":1341,
          "unit":"",
          "weight":0.4,
@@ -1080,14 +1080,14 @@ package IsoEngine
          "lowerBodyClothing":true,
          "food":false,
          "market":true
-      },{
+      },{//-4
          "name":20,
          "unit":"",
          "weight":0,
          "price":1,
          "divisible":true,
          "food":false
-      },{
+      },{//-4
          "name":1429,
          "unit":"",
          "weight":0.9,
@@ -1096,7 +1096,7 @@ package IsoEngine
          "food":false,
          "liquid":true,
          "market":true
-      },{
+      },{//-4
          "name":1569,
          "unit":"",
          "weight":1.8,
@@ -1104,7 +1104,7 @@ package IsoEngine
          "firstAidKit":true,
          "divisible":false,
          "heal":5
-      },{
+      },{//-4
          "name":1570,
          "unit":"",
          "weight":0.9,
@@ -1112,7 +1112,7 @@ package IsoEngine
          "liquid":true,
          "divisible":true,
          "market":true
-      },{
+      },{//-4
          "name":2077,
          "unit":"",
          "weight":0.3,
@@ -1153,7 +1153,7 @@ package IsoEngine
             "text":2067,
             "align":"left"
          }]
-      },{
+      },{//-4
          "name":1985,
          "unit":"",
          "weight":0.3,
@@ -1182,7 +1182,7 @@ package IsoEngine
             "text":2815,
             "align":"left"
          }]
-      },{
+      },{//-4
          "name":2285,
          "unit":"",
          "weight":0.01,
@@ -1193,7 +1193,7 @@ package IsoEngine
             "text":2286,
             "align":"left"
          }]
-      },{
+      },{//-4
          "name":2873,
          "unit":"",
          "weight":2.5,
@@ -1201,7 +1201,7 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":10
-      },{
+      },{//-4
          "name":2874,
          "unit":"",
          "weight":4.5,
@@ -1209,7 +1209,7 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":20
-      },{
+      },{//-5
          "name":2884,
          "unit":"",
          "weight":0.2,
@@ -1218,7 +1218,7 @@ package IsoEngine
          "upperBodyClothing":true,
          "food":false,
          "market":true
-      },{
+      },{//-5
          "name":2895,
          "unit":"Kg",
          "weight":1,
@@ -1230,7 +1230,7 @@ package IsoEngine
          "liquid":false,
          "divisible":true,
          "waterPercentage":0.45
-      },{
+      },{//-5
          "name":2897,
          "unit":"Kg",
          "weight":1,
@@ -1242,7 +1242,7 @@ package IsoEngine
          "liquid":false,
          "divisible":true,
          "waterPercentage":0.35
-      },{
+      },{//-5
          "name":2899,
          "unit":"Kg",
          "weight":1,
@@ -1254,14 +1254,14 @@ package IsoEngine
          "liquid":false,
          "divisible":true,
          "waterPercentage":0.2
-      },{
+      },{//-5
          "name":3157,
          "unit":"",
          "weight":0.01,
          "price":0.01,
          "divisible":false,
          "book":false
-      },{
+      },{//-5
          "name":3652,
          "unit":"",
          "weight":0.3,
@@ -1311,7 +1311,7 @@ package IsoEngine
             "text":3638,
             "align":"left"
          }]
-      },{
+      },{//-5
          "name":4207,
          "unit":"L",
          "weight":1,
@@ -1323,7 +1323,7 @@ package IsoEngine
          "liquid":true,
          "divisible":true,
          "waterPercentage":0.9
-      },{
+      },{//-5
          "name":4208,
          "unit":"Kg",
          "weight":1,
@@ -1333,7 +1333,7 @@ package IsoEngine
          "calories":1330,
          "divisible":true,
          "waterPercentage":0.4
-      },{
+      },{//-5
          "name":4212,
          "unit":"L",
          "weight":1,
@@ -1345,7 +1345,7 @@ package IsoEngine
          "liquid":true,
          "divisible":true,
          "waterPercentage":0.9
-      },{
+      },{//-5
          "name":4213,
          "unit":"Kg",
          "weight":1,
@@ -1355,7 +1355,7 @@ package IsoEngine
          "calories":980,
          "divisible":true,
          "waterPercentage":0.45
-      },{
+      },{//-6
          "name":4218,
          "unit":"",
          "weight":0.02,
@@ -1364,7 +1364,7 @@ package IsoEngine
          "divisible":false,
          "map":true,
          "towns":[23,24,25,26,27,28,29,30,31,32]
-      },{
+      },{//-6
          "name":4226,
          "unit":"",
          "weight":0.2,
@@ -1374,7 +1374,7 @@ package IsoEngine
          "sightAmplifier":true,
          "amplification":1.2,
          "huntingImprove":0.1
-      },{
+      },{//-6
          "name":4240,
          "unit":"",
          "weight":0.02,
@@ -1382,7 +1382,7 @@ package IsoEngine
          "divisible":false,
          "doctorImprove":0.2,
          "veterinaryImprove":0.2
-      },{
+      },{//-6
          "name":4242,
          "unit":"",
          "weight":0.05,
@@ -1391,7 +1391,7 @@ package IsoEngine
          "doctorImprove":0.15,
          "veterinaryImprove":0.15,
          "mechanicImprove":0.05
-      },{
+      },{//-6
          "name":4243,
          "unit":"",
          "weight":0.1,
@@ -1399,7 +1399,7 @@ package IsoEngine
          "divisible":false,
          "doctorImprove":0.25,
          "veterinaryImprove":0.15
-      },{
+      },{//-6
          "name":4244,
          "unit":"",
          "weight":0.005,
@@ -1407,28 +1407,28 @@ package IsoEngine
          "divisible":false,
          "doctorImprove":0.15,
          "veterinaryImprove":0.1
-      },{
+      },{//-6
          "name":4245,
          "unit":"",
          "weight":0.1,
          "price":30000,
          "divisible":false,
          "veterinaryImprove":0.2
-      },{
+      },{//-6
          "name":4246,
          "unit":"",
          "weight":0.05,
          "price":10000,
          "divisible":false,
          "mechanicImprove":0.2
-      },{
+      },{//-6
          "name":4247,
          "unit":"",
          "weight":0.1,
          "price":100000,
          "divisible":false,
          "doctorImprove":0.15
-      },{
+      },{//-6
          "name":4248,
          "unit":"",
          "weight":0.25,
@@ -1436,14 +1436,14 @@ package IsoEngine
          "divisible":false,
          "mechanicImprove":0.15,
          "veterinaryImprove":0.05
-      },{
+      },{//-7
          "name":4249,
          "unit":"",
          "weight":0.15,
          "price":30000,
          "divisible":false,
          "mechanicImprove":0.25
-      },{
+      },{//-7
          "name":4250,
          "unit":"",
          "weight":0.03,
@@ -1451,7 +1451,7 @@ package IsoEngine
          "divisible":false,
          "doctorImprove":0.2,
          "veterinaryImprove":0.1
-      },{
+      },{//-7
          "name":4251,
          "unit":"",
          "weight":0.05,
@@ -1459,14 +1459,14 @@ package IsoEngine
          "divisible":false,
          "doctorImprove":0.03,
          "veterinaryImprove":0.25
-      },{
+      },{//-7
          "name":4265,
          "unit":"",
          "weight":1,
          "price":30000,
          "divisible":true,
          "market":true
-      },{
+      },{//-7
          "name":4266,
          "unit":"",
          "weight":0.02,
@@ -1476,7 +1476,7 @@ package IsoEngine
          "map":true,
          "pictureFrom":60,
          "towns":[35,36,37,38,39,40,41,42,43,44,45,49,50,51]
-      },{
+      },{//-7
          "name":4273,
          "unit":"",
          "weight":0.6,
@@ -1484,7 +1484,7 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":10
-      },{
+      },{//-76
          "name":4274,
          "unit":"",
          "weight":1,
@@ -1492,7 +1492,7 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":20
-      },{
+      },{//-77
          "name":4275,
          "unit":"",
          "weight":21,
@@ -1500,7 +1500,7 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":208
-      },{
+      },{//-78
          "name":4276,
          "unit":"",
          "weight":8,
@@ -1508,13 +1508,13 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":208
-      },{
+      },{//-79
          "name":4386,
          "unit":"",
          "weight":5.3,
          "price":0.01,
          "divisible":false
-      },{
+      },{//-80
          "name":4672,
          "description":4673,
          "unit":"",

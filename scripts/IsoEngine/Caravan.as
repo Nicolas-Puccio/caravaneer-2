@@ -221,9 +221,10 @@ package IsoEngine
       
       public var staticModeAllWindPowered:*;
       
-      public function Caravan(paramType:* = 0, param2:* = null, param3:* = null)
+      public function Caravan(paramType:* = 0, paramMapSymbols:* = null, param3:* = null)
       {
-         //type 5 = main?
+         //paramType 5 = main?
+         //paramType 40 = caravan?
          var _loc11_:* = undefined;
          var _loc10_:* = undefined;
          var _loc8_:* = undefined;
@@ -339,10 +340,10 @@ package IsoEngine
             mapSymbolText2 = new EngineText("",4473408,8,"center",-100,22,200,15);
             mapSymbol.addChild(mapSymbolText1);
             mapSymbol.addChild(mapSymbolText2);
-            if(param2 != null)
+            if(paramMapSymbols != null)
             {
-               param2.addChild(mapSymbol);
-               mapSymbolParent = param2;
+               paramMapSymbols.addChild(mapSymbol);
+               mapSymbolParent = paramMapSymbols;
             }
          }
       }
