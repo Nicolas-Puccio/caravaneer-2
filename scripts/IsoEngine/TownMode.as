@@ -731,7 +731,9 @@ package IsoEngine
          {
             screens[4].playersIndustriesStorageText.text = Texts.fetch(1317).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Towns[town].occupiedPlayersStorageSpace,1,true) + " / " + MathFunctions.NumberFormat(GD.Towns[town].playersStorageSpace,0);
             screens[4].playersIndustriesMoneyText.text = Texts.fetch(1318).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Towns[town].playersMoney,2) + " € ";
-            screens[4].playersIndustriesUnemployedText.text = Texts.fetch(1324).toUpperCase() + ": " + Math.max(GD.Towns[town].unemployed,0);
+            //-unemployed amount required for the town to upgrade an industry other than water well
+            var industryNeeds = Math.ceil(GD.Towns[town].population * 0.01) 
+            screens[4].playersIndustriesUnemployedText.text = Texts.fetch(1324).toUpperCase() + ": " + Math.max(GD.Towns[town].unemployed,0) + " (" + industryNeeds  + " needed for industry expansion)";
             screens[4].playersIndustriesButtons[0].disp.visible = GD.Towns[town].playersStorageSpace > 0;
             screens[4].playersIndustriesButtons[1].disp.visible = !Presets.Towns[town].cantExpandStorage;
             screens[4].playersIndustriesButtons[2].disp.visible = GD.Towns[town].playersIndustries.length > 0;
