@@ -2118,7 +2118,7 @@ package IsoEngine
       public function get currentWeaponIsUsable() : *
       {
          var _loc3_:* = undefined;
-         var _loc1_:* = Infinity;
+         var _loc1_:* = 100000000000000000000;
          var _loc2_:Boolean = false;
          for(_loc3_ in currentWeaponType.modes)
          {
