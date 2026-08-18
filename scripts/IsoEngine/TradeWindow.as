@@ -87,11 +87,12 @@ package IsoEngine
       
       public var mainCharPic:*;
       
-      public function TradeWindow(param1:*, param2:* = null, param3:* = null, param4:* = null, param5:* = null, param6:* = false, param7:* = null, param8:* = "")
+      public function TradeWindow(paramGD:*, paramPartner:* = null, paramPartnerSymbol:* = null, param4:* = null, param5:* = null, param6:* = false, param7:* = null, param8:* = "")
       {
          var _loc9_:* = undefined;
          super();
-         GD = param1;
+         GD = paramGD;
+         //- resets changes from the player's AI
          GD.Caravans[0].People[0].category = 1;
          for(_locCaravanMember_ in GD.Caravans[0].People)
          {
@@ -101,6 +102,7 @@ package IsoEngine
                GD.Caravans[0].People[_locCaravanMember_].name = GD.Caravans[0].People[_locCaravanMember_].name.substring(4);
             }
          }
+
          onExit = new Function();
          D = new Dialogue(880,495);
          addChild(D);
@@ -251,9 +253,9 @@ package IsoEngine
             D.addChild(bulbTexts[_loc9_]);
             _loc9_++;
          }
-         if(param2 != null)
+         if(paramPartner != null)
          {
-            setPartner(param2,param3,param4,param5,param6,param7,param8);
+            setPartner(paramPartner,paramPartnerSymbol,param4,param5,param6,param7,param8);
          }
          ConfirmDialogue = new YesNoDialogue();
          ConfirmDialogue.visible = false;
@@ -267,7 +269,7 @@ package IsoEngine
          addChild(cursorInfo);
       }
       
-      public function setPartner(param1:*, param2:*, param3:* = null, param4:* = null, param5:* = false, param6:* = null, param7:* = "", param8:* = null, param9:* = false, param10:* = null) : *
+      public function setPartner(paramPartner:*, paramPartnerSymbol:*, param3:* = null, param4:* = null, param5:* = false, param6:* = null, param7:* = "", param8:* = null, param9:* = false, param10:* = null) : *
       {
          var _loc14_:* = undefined;
          var _loc15_:* = undefined;
@@ -291,7 +293,7 @@ package IsoEngine
             tradeButtonText = param10;
          }
          closeDealButton.buttonText.text = tradeButtonText;
-         partner = param1;
+         partner = paramPartner;
          shop = param3;
          shopType = param4;
          realShop = shop;
@@ -302,7 +304,7 @@ package IsoEngine
          free = param5;
          blockedFilters = param6;
          partnersName = param7;
-         partnerSymbol = param2;
+         partnerSymbol = paramPartnerSymbol;
          setLimit = param8;
          yourPrice.visible = partnerPrice.visible = bulbBases[0].visible = bulbTexts[0].visible = bulbBases[3].visible = bulbTexts[3].visible = moneyText.visible = moneyDirection.visible = !free;
          if(!param9)
@@ -354,10 +356,12 @@ package IsoEngine
          if(!param9)
          {
             partners[0].list = new List([],450,true,_loc20_,["volunteers","mercenaries","prisoners","other"].concat(blockedFilters),selectPlayerItem,85,false,false,true);
+            //- i think this is my code
             if(partner is Town)
             {
                partners[0].list.EnableNewColor(GD,partner,realShop);
             }
+
             partners[0].list.x = 10;
             partners[0].list.y = 12;
             D.addChild(partners[0].list);
@@ -365,6 +369,9 @@ package IsoEngine
          if(partner is Caravan)
          {
             partners[1].array = partner.Cargo.concat(partner.People);
+
+            //+-just for testing
+            partners[1].array = partners[1].array.concat(partner.Transport);
          }
          if(partner is Town)
          {
@@ -389,15 +396,15 @@ package IsoEngine
          if(partner is Caravan)
          {
             _loc21_ = partner.getConsumptionProduction();
-            _loc18_ = 0;
+            var caloriesOwned = 0;//+- was _loc18_
             for(_loc13_ in partner.Cargo)
             {
                if(partner.Cargo[_loc13_].itemData.food)
                {
-                  _loc18_ += partner.Cargo[_loc13_].amount * partner.Cargo[_loc13_].itemData.calories;
+                  caloriesOwned += partner.Cargo[_loc13_].amount * partner.Cargo[_loc13_].itemData.calories;
                }
             }
-            _loc16_ = Math.max(_loc18_ - _loc21_.foodConsumption * 7,0) / _loc18_;
+            _loc16_ = Math.max(caloriesOwned - _loc21_.foodConsumption * 7,0) / caloriesOwned;
          }
          for(_loc13_ in partners)
          {
@@ -414,7 +421,7 @@ package IsoEngine
                   {
                      _loc11_ = partners[_loc13_].array[_loc14_].amount - partners[_loc13_].array[_loc14_].inUse;
                   }
-                  if(_loc13_ == 1 && partner is Caravan)
+                  if(_loc13_ == 1 && partner is Caravan  &&false/*//+-*/)
                   {
                      if(partners[_loc13_].array[_loc14_].category != 1 || partners[_loc13_].array[_loc14_].itemData.liquidsContainer)
                      {
@@ -449,7 +456,7 @@ package IsoEngine
                      _loc14_--;
                   }
                }
-               if(partners[_loc13_].array[_loc14_] is Character && partners[_loc13_].array[_loc14_].category != 4)
+               if(false &&/*//+-*/partners[_loc13_].array[_loc14_] is Character && partners[_loc13_].array[_loc14_].category != 4)
                {
                   partners[_loc13_].array.splice(_loc14_,1);
                   _loc14_--;
