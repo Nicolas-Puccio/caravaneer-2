@@ -941,7 +941,7 @@ package
          var _loc2_:* = undefined;
          var _loc3_:* = undefined;
 
-
+         
          //- test new town
          /*setLocation(85,{
             "name":1,
@@ -1023,15 +1023,21 @@ package
                GD.Caravans[0].distributeWeapons();
                GD.Caravans[0].distributeAmmo();
             }
-
-            if(theCharacter.name == "Puccio") //+- just for testing
-            {
-               GD.Caravans[0].addCargo(169,1);
-               GD.Caravans[0].addCargo(1,10);
-               GD.Caravans[0].money = 10000000000
-               //GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
-            }
          }
+
+         if(theCharacter.name == "Puccio") //+- just for testing
+         {
+            GD.Caravans[0].addCargo(45,20);
+            GD.Caravans[0].addCargo(169,1);
+            GD.Caravans[0].addCargo(1,40);
+            GD.Caravans[0].money = 100000000000
+            if(GD.storyMode){
+               GD.Caravans[0].x = -9930;
+               GD.Caravans[0].y = -1500;
+            }
+            //GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
+         }
+
          GD.Caravans[0].addCargo(65,2);
          GD.Caravans[0].addCargo(1,2);
          GD.Caravans[0].distributeWeapons();
@@ -1049,7 +1055,44 @@ package
          }
 
          //- test new caravan
-         //GD.createCaravanOnRoute(30);
+         setCaravanRoute(30,{
+            "size":1,
+            "onInit":false,
+            "extraEquipment":[],
+            "points":[{ //spawn at pullid
+            //+-should add forage, food, and water refillAmount here?
+               "town":18,
+               "buy":[],
+               "sell":[{
+                  "item":87,
+                  "amount":100
+               }]
+            },{ //round trip to lintu
+               "town":17,
+               "buy":[{
+                  "item":87,
+                  "amount":100
+               }],
+               "sell":[]
+            }],
+            "customLoadout":{//+-new variable, should be considered on GD.createCaravanOnRoute, TODO
+               "transport":[{
+                  "id":1,
+                  "mult":1
+               }],
+               "cargo":[{
+                  "id":10,
+                  "mult":1
+               },{
+                  "id":80,
+                  "mult":5
+               },{
+                  "id":100,
+                  "mult":1
+               }]
+            }
+         })
+         GD.createCaravanOnRoute(30);
          
 
          //+-always allow basic industries
@@ -1927,7 +1970,13 @@ package
       {
          Presets.town_presets[0][param1] = param2;
       }
-      
+
+      //- to not have to touch Presets cause it takes long time to compile and i don't like touching the default data
+      public function setCaravanRoute(index:*, route:*) : *
+      {
+         Presets.caravan_routes[0][index] = route;
+      }
+
       public function removeLocation(param1:*) : *
       {
          delete Presets.town_presets[0][param1];

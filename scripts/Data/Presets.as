@@ -12,7 +12,7 @@ package Data
          "moving":true
       }];
       
-      private static const caravan_routes:* = [[{//-0
+      public static var caravan_routes:* = [[{//-0
          "size":30,
          "onInit":true,
          "extraEquipment":[{
@@ -3154,32 +3154,6 @@ package Data
                "amount":100
             },{
                "item":94,
-               "amount":100
-            }]
-         }]
-      },{//-30 testing
-         "size":10,
-         "onInit":false,
-         "extraEquipment":[],
-         "points":[{
-            "town":17,
-            "buy":[{
-               "item":87,
-               "amount":100
-            },
-            {
-               "item":"food",
-               "amount":100
-            }],
-            "sell":[]
-         },{
-            "town":18,
-            "buy":[{
-               "item":"food",
-               "amount":10
-            }],
-            "sell":[{
-               "item":87,
                "amount":100
             }]
          }]
