@@ -288,6 +288,7 @@ package
       
       public function setScreen(param1:*) : *
       {
+         //-param1 7 = finish char creation
          var j:*;
          var n:*;
          var i:*;
@@ -941,8 +942,8 @@ package
          var _loc3_:* = undefined;
 
 
-         //-test new town
-         setLocation(85,{
+         //- test new town
+         /*setLocation(85,{
             "name":1,
             "x":-9950,
             "y":-1000,
@@ -969,7 +970,7 @@ package
             "tax":0.05,
             "electricityPrice":0.3,
             "noticeability":80
-         });
+         });*/
 
 
          GD = new GameData(currentScreen,this,null,param1 == 1,mainScreenDifficulty,theCharacter);
@@ -1022,6 +1023,14 @@ package
                GD.Caravans[0].distributeWeapons();
                GD.Caravans[0].distributeAmmo();
             }
+
+            if(theCharacter.name == "Puccio") //+- just for testing
+            {
+               GD.Caravans[0].addCargo(169,1);
+               GD.Caravans[0].addCargo(1,10);
+               GD.Caravans[0].money = 10000000000
+               //GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
+            }
          }
          GD.Caravans[0].addCargo(65,2);
          GD.Caravans[0].addCargo(1,2);
@@ -1040,7 +1049,57 @@ package
          }
 
          //- test new caravan
-         GD.createCaravanOnRoute(30);
+         //GD.createCaravanOnRoute(30);
+         
+
+         //+-always allow basic industries
+         //- i don't like how restrictive the game is with industries, so i added these water/forage based industries to be allowed on every town
+         var allowedIndustryTypes:Array = [1,2,3,4,5,9,10,23,24,25,26,27,33];
+         var presetIndex:*;
+         var allowedIndex:*;
+         var existingIndex:*;
+         var possibleIndex:*;
+
+         for (presetIndex in Presets.town_presets[0])
+         {
+            if (Presets.town_presets[0][presetIndex] != null)
+            {
+               //init array if not there
+               if (Presets.town_presets[0][presetIndex].possibleIndustries == null)
+               {
+                  Presets.town_presets[0][presetIndex].possibleIndustries = [];
+               }
+
+               for (allowedIndex in allowedIndustryTypes)
+               {
+                  var allowedIndustryType:* = allowedIndustryTypes[allowedIndex];
+                  var industryExists:Boolean = false;
+                  var alreadyPossible:Boolean = false;
+
+                  if (Presets.town_presets[0][presetIndex].industries != null)
+                  {
+                     for (existingIndex in Presets.town_presets[0][presetIndex].industries)
+                     {
+                        if (Presets.town_presets[0][presetIndex].industries[existingIndex].type == allowedIndustryType)
+                        {
+                           industryExists = true;
+                        }
+                     }
+                  }
+                  for (possibleIndex in Presets.town_presets[0][presetIndex].possibleIndustries)
+                  {
+                     if (Presets.town_presets[0][presetIndex].possibleIndustries[possibleIndex] == allowedIndustryType)
+                     {
+                        alreadyPossible = true;
+                     }
+                  }
+                  if (!industryExists && !alreadyPossible)
+                  {
+                     Presets.town_presets[0][presetIndex].possibleIndustries.push(allowedIndustryType);
+                  }
+               }
+            }
+         }
       }
       
       public function switchShowTutorial() : *

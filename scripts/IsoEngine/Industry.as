@@ -101,7 +101,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":30,
          "price":400000
-      },{//-5
+      },{//-5 cattle breeding
          "name":1311,
          "consumption":[{
             "item":62,
@@ -128,7 +128,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":50,
          "price":600000
-      },{//-6
+      },{//-6 leather Production
          "name":1312,
          "consumption":[{
             "item":78,
@@ -146,7 +146,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":20,
          "price":300000
-      },{//-7
+      },{//-7 shoes production
          "name":1313,
          "consumption":[{
             "item":90,
@@ -161,7 +161,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":15,
          "price":300000
-      },{//-8
+      },{//-8 leather jackets production
          "name":1314,
          "consumption":[{
             "item":90,
@@ -191,7 +191,7 @@ package IsoEngine
          "replaceEmployeesBySize":true,
          "cantDownsize":true,
          "naturalResource":true
-      },{//-10
+      },{//-10 cotton cultivation
          "name":1337,
          "consumption":[{
             "item":1,
@@ -206,7 +206,7 @@ package IsoEngine
          "fixedExpenses":50,
          "storagePerUnit":50,
          "price":250000
-      },{//-11
+      },{//-11 cotton processing
          "name":1338,
          "consumption":[{
             "item":93,
@@ -221,7 +221,7 @@ package IsoEngine
          "fixedExpenses":5,
          "storagePerUnit":80,
          "price":500000
-      },{//-12
+      },{//-12 wool processing
          "name":1339,
          "consumption":[{
             "item":87,
@@ -236,7 +236,7 @@ package IsoEngine
          "fixedExpenses":20,
          "storagePerUnit":20,
          "price":350000
-      },{//-13
+      },{//-13 vest production
          "name":1340,
          "consumption":[{
             "item":94,
@@ -266,7 +266,7 @@ package IsoEngine
          "fixedExpenses":70,
          "storagePerUnit":20,
          "price":375000
-      },{//-14
+      },{//-14 hats production
          "name":1342,
          "consumption":[{
             "item":95,
@@ -287,7 +287,7 @@ package IsoEngine
          "fixedExpenses":80,
          "storagePerUnit":20,
          "price":375000
-      },{//-15
+      },{//-15 trousers production
          "name":1343,
          "consumption":[{
             "item":94,
@@ -302,7 +302,7 @@ package IsoEngine
          "fixedExpenses":80,
          "storagePerUnit":10,
          "price":400000
-      },{//-16
+      },{//-16 leather vest production
          "name":1428,
          "consumption":[{
             "item":90,
@@ -317,7 +317,7 @@ package IsoEngine
          "fixedExpenses":35,
          "storagePerUnit":30,
          "price":350000
-      },{//-17
+      },{//-17 oil drilling
          "name":1430,
          "consumption":[],
          "production":[{
@@ -330,7 +330,7 @@ package IsoEngine
          "storagePerUnit":40,
          "price":1250000,
          "naturalResource":true
-      },{//-18
+      },{//-18 oil refinery
          "name":1431,
          "consumption":[{
             "item":98,
@@ -348,7 +348,7 @@ package IsoEngine
          "fixedExpenses":520,
          "storagePerUnit":20,
          "price":2750000
-      },{//-19
+      },{//-19 jackets production
          "name":1447,
          "consumption":[{
             "item":95,
@@ -372,7 +372,7 @@ package IsoEngine
          "fixedExpenses":2,
          "storagePerUnit":20,
          "price":300000
-      },{//-20
+      },{//-20 pharmaceutics
          "name":1448,
          "consumption":[{
             "item":1,
@@ -387,7 +387,7 @@ package IsoEngine
          "fixedExpenses":350,
          "storagePerUnit":10,
          "price":1750000
-      },{//-21
+      },{//-21 alcohol distillery
          "name":1571,
          "consumption":[{
             "item":62,
@@ -418,7 +418,7 @@ package IsoEngine
          "storagePerUnit":0,
          "price":375000,
          "naturalResource":true
-      },{//-23
+      },{//-23 bean cultivation
          "name":1639,
          "consumption":[{
             "item":1,
@@ -433,7 +433,7 @@ package IsoEngine
          "fixedExpenses":5,
          "storagePerUnit":20,
          "price":250000
-      },{//-24
+      },{//-24 mushroom cultivation
          "name":1640,
          "consumption":[{
             "item":1,
@@ -448,7 +448,7 @@ package IsoEngine
          "fixedExpenses":6,
          "storagePerUnit":20,
          "price":275000
-      },{//-25
+      },{//-25 potato cultivation
          "name":1641,
          "consumption":[{
             "item":1,
@@ -463,7 +463,7 @@ package IsoEngine
          "fixedExpenses":2,
          "storagePerUnit":30,
          "price":200000
-      },{//-26
+      },{//-26 carrot cultivation
          "name":1642,
          "consumption":[{
             "item":1,
@@ -478,7 +478,7 @@ package IsoEngine
          "fixedExpenses":3,
          "storagePerUnit":20,
          "price":200000
-      },{//-27
+      },{//-27 pea cultivation
          "name":1643,
          "consumption":[{
             "item":1,
@@ -493,7 +493,7 @@ package IsoEngine
          "fixedExpenses":3,
          "storagePerUnit":20,
          "price":250000
-      },{//-28
+      },{//-28 tagelmust production
          "name":2865,
          "consumption":[{
             "item":94,
@@ -514,7 +514,7 @@ package IsoEngine
          "fixedExpenses":0,
          "storagePerUnit":40,
          "price":250000
-      },{//-29
+      },{//-29 shirts production
          "name":2885,
          "consumption":[{
             "item":94,
@@ -574,7 +574,7 @@ package IsoEngine
          "fixedExpenses":30,
          "storagePerUnit":10,
          "price":400000
-      },{//-33
+      },{//-33 jerboa breeding
          "name":2901,
          "consumption":[{
             "item":62,

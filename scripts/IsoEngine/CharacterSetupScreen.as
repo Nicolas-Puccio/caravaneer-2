@@ -329,7 +329,7 @@ package IsoEngine
          buttons[buttons.length - 1].x = 337;
          buttons[buttons.length - 1].y = 459;
          D.addChild(buttons[buttons.length - 1]);
-         buttons.push(new Button(2,pressButton,Texts.fetch(1229,null,20).toUpperCase()));
+         buttons.push(new Button(2,pressButton,Texts.fetch(1229,null,20).toUpperCase()));//- done button
          buttons[buttons.length - 1].x = 632;
          buttons[buttons.length - 1].y = 459;
          D.addChild(buttons[buttons.length - 1]);

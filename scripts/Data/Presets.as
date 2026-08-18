@@ -9731,7 +9731,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":3,
          "faction":8
-      },{//-27
+      },{//-27 orth
          "name":2868,
          "x":-12600,
          "y":3550,

@@ -1361,69 +1361,89 @@ package IsoEngine
                });
             }
          }
-         //+- HORRIBLY made, should clean an made generic
-         var puccioRunLoop:* = true;
-         for(_loc11_ in _loc15_)
+         //+- HORRIBLY made, should clean and make generic
+
+         for (_loc11_ in _loc15_)
          {
-            if(puccioRunLoop && _loc15_[_loc11_].productionRate == 0)
+            var industry:* = _loc15_[_loc11_];
+
+            // Only process industries that are not already producing
+            if (industry.productionRate == 0)
             {
-               if(_loc15_[_loc11_].ref.type == 16)
+               var industryRef:* = industry.ref;
+               var canProduce:Boolean = true;
+
+               //- check have all consumption items
+               for each (var consumption:* in industryRef.consumption)
                {
-                  var leatherVestIndustry:* = _loc15_[_loc11_].ref;
-                  var leatherType:* = leatherVestIndustry.consumption[0].item;
-                  var leatherAmount:* = leatherVestIndustry.consumption[0].amount * param3;
-                  var leatherVestType:* = leatherVestIndustry.production[0].item;
-                  var leatherVestAmount:* = leatherVestIndustry.production[0].amount * param3;
-                  for(_loc12_ in _loc4_.production)
-                  {
-                     if(puccioRunLoop && _loc4_.production[_loc12_].item == leatherType && _loc4_.production[_loc12_].amount >= leatherAmount)
+                     var requiredItem:* = consumption.item;
+                     var requiredAmount:* = consumption.amount * param3;
+                     var foundItem:Boolean = false;
+
+                     for (_loc12_ in _loc4_.production)
                      {
-                        _loc4_.production[_loc12_].amount -= leatherAmount;
-                        addItemToArray(_loc4_.production,{
-                           "item":leatherVestType,
-                           "amount":leatherVestAmount
-                        });
-                        puccioRunLoop = false;
+                        var availableProduction:* = _loc4_.production[_loc12_];
+
+                        if (availableProduction.item == requiredItem)
+                        {
+                           foundItem = true;
+                           if (availableProduction.amount < requiredAmount)
+                           {
+                              canProduce = false;
+                           }
+                           break;
+                        }
+                     }
+
+                     //-don't have an item
+                     if (!foundItem)
+                     {
+                        canProduce = false;
+                     }
+
+                     if (!canProduce)
+                     {
+                        break;
+                     }
+               }
+
+               // --------------------------------------------------
+               // 2. Consume all required inputs
+               // --------------------------------------------------
+               //-consume consumptions, kinda breaks the RECENT DATA UI
+               //+-would like to fix UI
+               if (canProduce)
+               {
+                  for each (consumption in industryRef.consumption)
+                  {
+                     requiredItem = consumption.item;
+                     requiredAmount = consumption.amount * param3;
+
+                     for (_loc12_ in _loc4_.production)
+                     {
+                        availableProduction = _loc4_.production[_loc12_];
+                        if (availableProduction.item == requiredItem)
+                        {
+                           availableProduction.amount -= requiredAmount;
+                           break;
+                        }
                      }
                   }
-               }
-               if(_loc15_[_loc11_].ref.type == 19)
-               {
-                  var jacketIndustry:* = _loc15_[_loc11_].ref;
-                  var yarnType:* = jacketIndustry.consumption[0].item;
-                  var yarnAmount:* = jacketIndustry.consumption[0].amount * param3;
-                  var jacketAmount:* = jacketIndustry.production[0].amount * param3;
-                  var jacket0Type:* = jacketIndustry.production[0].item;
-                  var jacket1Type:* = jacketIndustry.production[1].item;
-                  var jacket2Type:* = jacketIndustry.production[2].item;
-                  var jacket3Type:* = jacketIndustry.production[3].item;
-                  for(_loc12_ in _loc4_.production)
+
+                  //-add production
+                  for each (var production:* in industryRef.production)
                   {
-                     if(puccioRunLoop && _loc4_.production[_loc12_].item == yarnType && _loc4_.production[_loc12_].amount >= yarnAmount)
-                     {
-                        _loc4_.production[_loc12_].amount -= yarnAmount;
-                        addItemToArray(_loc4_.production,{
-                           "item":jacket0Type,
-                           "amount":jacketAmount
-                        });
-                        addItemToArray(_loc4_.production,{
-                           "item":jacket1Type,
-                           "amount":jacketAmount
-                        });
-                        addItemToArray(_loc4_.production,{
-                           "item":jacket2Type,
-                           "amount":jacketAmount
-                        });
-                        addItemToArray(_loc4_.production,{
-                           "item":jacket3Type,
-                           "amount":jacketAmount
-                        });
-                        puccioRunLoop = false;
-                     }
+                     addItemToArray(_loc4_.production, {
+                        "item": production.item,
+                        "amount": production.amount * param3
+                     });
                   }
                }
             }
          }
+
+
+
          return _loc4_;
       }
       
@@ -14617,7 +14637,7 @@ package IsoEngine
          System.pauseForGCIfCollectionImminent(1);
          System.gc();
       }
-      //- i think this was for the puccio.txt file
+      //- i think this was for the industry UI
       public function pucciogetsellprice(param1:* = null, param2:* = null) : *
       {
          if(param1 == null || param2 == null)
@@ -14649,7 +14669,7 @@ package IsoEngine
       public function PuccioReSelectExpansion(possibleExpansions:*, selectedExpansion:*) : *
       {
          _locForageProduction_ = 0;
-         _locForageConsumption_ = 0;
+         _locForageConsumption_ = 0;//-would kinda like to set to 100 to begin with to give it some margin
          puccioForageIndustryIndex = 0;
          result = selectedExpansion;
          for(j in possibleExpansions)

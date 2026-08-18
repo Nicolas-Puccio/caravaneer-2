@@ -97,6 +97,7 @@ In order to put undesired items at the bottom of trade window need to add the ID
 6. Fix how the loop runs in industry optimization(currently only one industry is processed)
 7. Orth still runs out of food, how to fix without affecting all towns?
 8. Verify if escorts work properly, like spencer and the dude from lintu.
+9. New caravan relationship seems not to be reseting when starting a new game, have to close game completely
 
 
 ## Ideas
