@@ -7284,15 +7284,16 @@ package IsoEngine
          GD.setSquareValue(param1.squareX,param1.squareY,"removecaravan",param1);
       }
       
-      public function openDialogue(param1:*, param2:* = null, param3:* = null, param4:* = null) : *
+      public function openDialogue(paramNum:*, paramGroup:* = null, param3:* = null, param4:* = null) : *
       {
+         //-paramNum = 6 = TRADE button from caravanEncounterMenu
          var menuOptions:*;
          var currDialogue:*;
          var partnerPortrait:*;
          var portraitWrap:*;
          var portraitInside:*;
-         var num:* = param1;
-         var altVar:* = param2;
+         var num:* = paramNum;
+         var altVar:* = paramGroup;
          var altVar2:* = param3;
          var altVar3:* = param4;
          musicFadeOut = true;
@@ -7333,7 +7334,7 @@ package IsoEngine
             case 5:
                currDialogue = new YesNoDialogue();
                break;
-            case 6:
+            case 6: //-caravanEncounterMenu "TRADE" button
                currDialogue = new TradeWindow(GD);
                partnerPortrait = new Sprite();
                portraitWrap = new Sprite();

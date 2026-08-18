@@ -429,6 +429,7 @@ package IsoEngine
          return _loc1_;
       }
       
+      //- returns either Cargo or false
       public function findCargo(param1:*) : *
       {
          var _loc3_:* = undefined;

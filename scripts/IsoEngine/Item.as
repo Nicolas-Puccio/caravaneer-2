@@ -709,7 +709,7 @@ package IsoEngine
          "subCategory":116
       }];
       
-      public static var Goods:* = [undefined,{//-1
+      public static var Goods:* = [undefined,{//-1 water
          "name":14,
          "unit":"L",
          "weight":1,

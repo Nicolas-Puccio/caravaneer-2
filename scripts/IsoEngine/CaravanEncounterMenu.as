@@ -19,7 +19,7 @@ package IsoEngine
       
       public var confirmExitDialogue:*;
       
-      public function CaravanEncounterMenu(param1:*, param2:*, param3:*, param4:*, param5:*, param6:* = null, param7:* = null)
+      public function CaravanEncounterMenu(paramTitleNum:*, paramOptions:*, paramGroup:*, paramGD:*, param5:*, param6:* = null, param7:* = null)
       {
          var funct:*;
          var currY:*;
@@ -34,10 +34,10 @@ package IsoEngine
          var subTitle:*;
          var warning:*;
          var lineY:*;
-         var titleNum:* = param1;
-         var options:* = param2;
-         var group:* = param3;
-         var gameData:* = param4;
+         var titleNum:* = paramTitleNum;
+         var options:* = paramOptions;
+         var group:* = paramGroup;
+         var gameData:* = paramGD;
          var attackFunction:* = param5;
          var _settings:* = param6;
          var _obstacles:* = param7;
