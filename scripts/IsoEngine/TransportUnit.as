@@ -773,11 +773,12 @@ package IsoEngine//-not original, fix infinity
          }
          cycleCounter = Rndm.integer(0,59);
          type = param1;
-         if(Types[type].category == 1)
+         if(Types[type].category == 1)//-category 1 = animal
          {
             gender = Rndm.integer(1,2);
             maxAge = Types[type].lifespan * 30 * (0.8 + Rndm.random() * 0.4);
-            age = Math.round((maxAge * .8) * Rndm.random());
+            //some caravans were spawning with baby animals or too old ones
+            age = Math.round(maxAge * (0.1 + Rndm.random() / 2));//-reduced maxRange, 0 - 100 -> 10 - 60
             idealWeight = Types[type].weight * (0.8 + Rndm.random() * 0.4);
             maxHealth = Math.round(Types[type].maxHealth * (_idealWeight / Types[type].weight));
             if(gender == 1)
@@ -797,7 +798,7 @@ package IsoEngine//-not original, fix infinity
             lubricantLevel = maxLubricant;
             waterLevel = maxWater;
          }
-         health = maxHealth * (0.5 + Rndm.random() * 0.5);
+         health = maxHealth * (0.75 + Rndm.random() * 0.25);//-transport spawns with more health 50 - 100 -> 75 - 100
          pregnant = false;
          Passengers = [];
       }
