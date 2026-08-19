@@ -13627,6 +13627,7 @@ package IsoEngine
 
          var _loc4_:* = undefined;
          var _loc3_:* = undefined;
+         var characterVar :* = undefined;
          if(mapMode is MapMode)
          {
             _loc3_ = Caravans.push(new Caravan(40,mapMode.mapSymbols)) - 1;
@@ -13638,14 +13639,26 @@ package IsoEngine
          Caravans[_loc3_].x = Presets.Towns[Presets.caravanRoutes[paramIndex].points[0].town].x;
          Caravans[_loc3_].y = Presets.Towns[Presets.caravanRoutes[paramIndex].points[0].town].y;
          Caravans[_loc3_].category = 5;
-         Caravans[_loc3_].money = Presets.caravanRoutes[paramIndex].size * 100000;
+
+         if(Presets.caravanRoutes[paramIndex].customMoney !== undefined)
+            Caravans[_loc3_].money = Presets.caravanRoutes[paramIndex].customMoney;
+         else
+            Caravans[_loc3_].money = Presets.caravanRoutes[paramIndex].size * 100000;
+
          _loc4_ = 1;
          while(_loc4_ <= Presets.caravanRoutes[paramIndex].size)
          {
-            Caravans[_loc3_].addPerson(new Character({
+            characterVar = new Character({
                "experienceModifier":3,
                "savePointer":true
-            }));
+            })
+            //- it is kinda weird that caravan members can spawn with such bad stats, so i make sure they have at least 5 in these
+            if(characterVar.basePhysical < 4)
+               characterVar.basePhysical = 4
+            if(characterVar.baseAgility < 4)
+               characterVar.baseAgility = 4
+            Caravans[_loc3_].addPerson(characterVar);
+
             if(customLoadout && customLoadout.transport){
                for(customLoadoutIndex in customLoadout.transport)
                {
@@ -13699,14 +13712,18 @@ package IsoEngine
          var _loc6_:* = undefined;
          var _loc9_:* = undefined;
          param1.staticMode = false;
-         for(_loc6_ in Presets.caravanRoutes[param1.route].points[param1.routePoint].sell)
+         var caravanRoute:* = Presets.caravanRoutes[param1.route]
+         var points:* = caravanRoute.points
+         var currentPoint:* = points[param1.routePoint]
+         var currentTown:* = Towns[currentPoint.town]
+         for(_loc6_ in currentPoint.sell)
          {
-            if(Presets.caravanRoutes[param1.route].points[param1.routePoint].sell[_loc6_].item is Number)
+            if(currentPoint.sell[_loc6_].item is Number)
             {
-               sellCargo = param1.findCargo(Presets.caravanRoutes[param1.route].points[param1.routePoint].sell[_loc6_].item);
+               sellCargo = param1.findCargo(currentPoint.sell[_loc6_].item);
                if(sellCargo)
                {
-                  _loc4_ = sellCargo.amount * Presets.caravanRoutes[param1.route].points[param1.routePoint].sell[_loc6_].amount / 100;
+                  _loc4_ = sellCargo.amount * currentPoint.sell[_loc6_].amount / 100;
                   if(!sellCargo.divisible)
                   {
                      _loc4_ = Math.round(_loc4_);
@@ -13715,10 +13732,10 @@ package IsoEngine
                         _loc4_ = 1;
                      }
                   }
-                  _loc12_ = calculatePrice(Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town],Presets.caravanRoutes[param1.route].points[param1.routePoint].sell[_loc6_].item,_loc4_,false,null);
-                  Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].addToStock(Presets.caravanRoutes[param1.route].points[param1.routePoint].sell[_loc6_].item,_loc4_);
-                  param1.reduceCargo(Presets.caravanRoutes[param1.route].points[param1.routePoint].sell[_loc6_].item,_loc4_);
-                  Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].money -= _loc12_;
+                  _loc12_ = calculatePrice(currentTown,currentPoint.sell[_loc6_].item,_loc4_,false,null);
+                  currentTown.addToStock(currentPoint.sell[_loc6_].item,_loc4_);
+                  param1.reduceCargo(currentPoint.sell[_loc6_].item,_loc4_);
+                  currentTown.money -= _loc12_;
                   param1.money += _loc12_;
                }
             }
@@ -13726,9 +13743,9 @@ package IsoEngine
             {
                for(_loc7_ in param1.Cargo)
                {
-                  if(param1.Cargo[_loc7_].itemData[Presets.caravanRoutes[param1.route].points[param1.routePoint].sell[_loc6_].item])
+                  if(param1.Cargo[_loc7_].itemData[currentPoint.sell[_loc6_].item])
                   {
-                     _loc4_ = param1.Cargo[_loc7_].amount * Presets.caravanRoutes[param1.route].points[param1.routePoint].sell[_loc6_].amount / 100;
+                     _loc4_ = param1.Cargo[_loc7_].amount * currentPoint.sell[_loc6_].amount / 100;
                      if(!param1.Cargo[_loc7_].divisible)
                      {
                         _loc4_ = Math.round(_loc4_);
@@ -13737,15 +13754,15 @@ package IsoEngine
                            _loc4_ = 1;
                         }
                      }
-                     _loc12_ = calculatePrice(Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town],param1.Cargo[_loc7_].type,_loc4_,false,null);
-                     Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].addToStock(param1.Cargo[_loc7_].type,_loc4_);
+                     _loc12_ = calculatePrice(currentTown,param1.Cargo[_loc7_].type,_loc4_,false,null);
+                     currentTown.addToStock(param1.Cargo[_loc7_].type,_loc4_);
                      _loc10_ = _loc4_ >= param1.Cargo[_loc7_].amount;
                      param1.reduceCargo(param1.Cargo[_loc7_].type,_loc4_);
                      if(_loc10_)
                      {
                         _loc7_--;
                      }
-                     Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].money -= _loc12_;
+                     currentTown.money -= _loc12_;
                      param1.money += _loc12_;
                   }
                }
@@ -13753,50 +13770,53 @@ package IsoEngine
          }
          consumeFromLastPoint(param1);
          var waterRefillAmount = 50 * param1.People.length
-         var forageRefillAmount = 20 * param1.People.length
          var foodRefillAmount = 20000 * param1.People.length
-         if(param1.route == 30)
+         var forageRefillAmount = 20 * param1.People.length
+         if(caravanRoute.customRefill)
          {
-            waterRefillAmount = 25
-            forageRefillAmount = 10
-            foodRefillAmount = 10000
+            if(caravanRoute.customRefill.water !== undefined)
+               waterRefillAmount = caravanRoute.customRefill.water
+            if(caravanRoute.customRefill.food !== undefined)
+               foodRefillAmount = caravanRoute.customRefill.food
+            if(caravanRoute.customRefill.forage !== undefined)
+               forageRefillAmount = caravanRoute.customRefill.forage
          }
-         refillSupply(param1,1,waterRefillAmount,Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town]);
-         //-refill forage, should check if have animals?
-         refillSupply(param1,62,forageRefillAmount,Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town]);
-         refillSupply(param1,"food",foodRefillAmount,Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town]);
+         refillSupply(param1,1,waterRefillAmount,currentTown);
+         if(forageRefillAmount>0)
+            refillSupply(param1,62,forageRefillAmount,currentTown);
+         refillSupply(param1,"food",foodRefillAmount,currentTown);
          var _loc8_:* = 0;
          var _loc13_:* = [];
-         for(_loc6_ in Presets.caravanRoutes[param1.route].points[param1.routePoint].buy)
+         for(_loc6_ in currentPoint.buy)
          {
-            _loc8_ += Presets.caravanRoutes[param1.route].points[param1.routePoint].buy[_loc6_].amount;
+            _loc8_ += currentPoint.buy[_loc6_].amount;
          }
          var _loc2_:* = param1.maxCargo - param1.totalCargo;
          var _loc3_:* = _loc2_ / _loc8_;
-         for(_loc6_ in Presets.caravanRoutes[param1.route].points[param1.routePoint].buy)
+         for(_loc6_ in currentPoint.buy)
          {
-            _loc9_ = _loc3_ * Presets.caravanRoutes[param1.route].points[param1.routePoint].buy[_loc6_].amount;
+            _loc9_ = _loc3_ * currentPoint.buy[_loc6_].amount;
             _loc5_ = 0;
-            for(_loc7_ in Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock)
+            for(_loc7_ in currentTown.stock)
             {
-               if(Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock[_loc7_].type == Presets.caravanRoutes[param1.route].points[param1.routePoint].buy[_loc6_].item || Presets.caravanRoutes[param1.route].points[param1.routePoint].buy[_loc6_].item is String && Item.getDataFromType(Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock[_loc7_].type)[Presets.caravanRoutes[param1.route].points[param1.routePoint].buy[_loc6_].item])
+               if(currentTown.stock[_loc7_].type == currentPoint.buy[_loc6_].item || currentPoint.buy[_loc6_].item is String && Item.getDataFromType(currentTown.stock[_loc7_].type)[currentPoint.buy[_loc6_].item])
                {
-                  if(_loc5_ + Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock[_loc7_].totalWeight <= _loc9_)
+                  if(_loc5_ + currentTown.stock[_loc7_].totalWeight <= _loc9_)
                   {
-                     _loc5_ += Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock[_loc7_].totalWeight;
+                     _loc5_ += currentTown.stock[_loc7_].totalWeight;
                      _loc13_.push({
-                        "item":Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock[_loc7_].type,
-                        "amount":Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock[_loc7_].amount
+                        "item":currentTown.stock[_loc7_].type,
+                        "amount":currentTown.stock[_loc7_].amount
                      });
                   }
                   else
                   {
-                     _loc4_ = Math.floor((_loc9_ - _loc5_) / Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock[_loc7_].weightPerUnit);
+                     _loc4_ = Math.floor((_loc9_ - _loc5_) / currentTown.stock[_loc7_].weightPerUnit);
                      _loc13_.push({
-                        "item":Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock[_loc7_].type,
+                        "item":currentTown.stock[_loc7_].type,
                         "amount":_loc4_
                      });
-                     _loc5_ += _loc4_ * Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].stock[_loc7_].weightPerUnit;
+                     _loc5_ += _loc4_ * currentTown.stock[_loc7_].weightPerUnit;
                   }
                }
             }
@@ -13809,33 +13829,33 @@ package IsoEngine
             }
             if(_loc13_[_loc6_].amount > 0)
             {
-               _loc12_ = calculatePrice(Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town],_loc13_[_loc6_].item,_loc13_[_loc6_].amount,true,null);
+               _loc12_ = calculatePrice(currentTown,_loc13_[_loc6_].item,_loc13_[_loc6_].amount,true,null);
                param1.addCargo(_loc13_[_loc6_].item,_loc13_[_loc6_].amount);
-               Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].removeFromStock(_loc13_[_loc6_].item,_loc13_[_loc6_].amount);
+               currentTown.removeFromStock(_loc13_[_loc6_].item,_loc13_[_loc6_].amount);
                param1.money -= _loc12_;
-               Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].money += _loc12_;
+               currentTown.money += _loc12_;
             }
          }
          if(param1.money > 0)
          {
-            Math.min(Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].money += param1.money / 10,param1.People.length * 10000);
+            Math.min(currentTown.money += param1.money / 10,param1.People.length * 10000);
          }
          param1.staticMode = true;
          param1.update();
          param1.routePoint++;
-         if(param1.routePoint >= Presets.caravanRoutes[param1.route].points.length)
+         if(param1.routePoint >= points.length)
          {
             param1.routePoint = 0;
          }
-         while(!Towns[Presets.caravanRoutes[param1.route].points[param1.routePoint].town].active)
+         while(!currentTown.active)
          {
             param1.routePoint++;
-            if(param1.routePoint >= Presets.caravanRoutes[param1.route].points.length)
+            if(param1.routePoint >= points.length)
             {
                param1.routePoint = 0;
             }
          }
-         directCaravanToTown(param1,Presets.caravanRoutes[param1.route].points[param1.routePoint].town);
+         directCaravanToTown(param1,points[param1.routePoint].town);
          param1.moving = true;
       }
       

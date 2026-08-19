@@ -1073,7 +1073,6 @@ package
             "onInit":false,
             "extraEquipment":[],
             "points":[{ //spawn at pullid
-            //+-should add forage, food, and water refillAmount here?
                "town":18,
                "buy":[],
                "sell":[{
@@ -1088,8 +1087,9 @@ package
                }],
                "sell":[]
             }],
-            "customLoadout":{//+-new variable
-               "transport":[{//could simply make an array of ids, but i keep the object structure if later want to add more variables
+            "customLoadout":{//-new variable for GameData arriveAtRoutePoint
+               //transport could simply be an array of ids, but i keep the object structure if later want to add more variables
+               "transport":[{
                   "id":1
                }],
                "cargo":[{
@@ -1102,7 +1102,13 @@ package
                   "id":62,
                   "mult":10
                }]
-            }
+            },
+            "customRefill":{//-new variable for GameData arriveAtRoutePoint
+               "water":18,
+               "food":3500,
+               "forage":7
+            },
+            "customMoney":10000//-seems to work
          })
          GD.createCaravanOnRoute(30);
          
