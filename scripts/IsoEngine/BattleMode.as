@@ -232,8 +232,8 @@ package IsoEngine
          {
             fieldHeight = settings.fieldHeight;
          }
-         //-double animation speed
-         BF = new BattleField(640,445,fieldWidth,fieldHeight,obstacles,GD.difficulty,GD.autoCenter,GD.walkAnimationSpeed * 2,GD.showGrid);
+
+         BF = new BattleField(640,445,fieldWidth,fieldHeight,obstacles,GD.difficulty,GD.autoCenter,GD.walkAnimationSpeed,GD.showGrid);
          BF.onWin = function():*
          {
             var _loc7_:* = undefined;
@@ -657,42 +657,63 @@ package IsoEngine
                sides[i]++;
             }
          }
-         for(i in allGroups)
+         for(i in allGroups)//-the "group" variable inside has a .group and .type
          {
-            if(allGroups[i].side != undefined)
+            //-copy group and remove transport and prisioners
+            var copyGroup:Object = {};
+            for (var key:String in allGroups[i]) {
+               copyGroup[key] = allGroups[i][key];
+            }
+            copyGroup.group = {};
+            for (var groupKey:String in allGroups[i].group) {
+               copyGroup.group[groupKey] = allGroups[i].group[groupKey];
+            }
+            copyGroup.group.Transport = [];//remove transports
+            copyGroup.group.People = [];//clears out people
+            var peopleIndex:* = 0
+            for(peopleIndex in allGroups[i].group.People)
             {
-               switch(allGroups[i].side)
-               {//-i believe spawns characters closer to the edge
+               if(allGroups[i].group.People[peopleIndex].category != 4) //adds only those that are not prisoners
+               {
+                  copyGroup.group.People.push(allGroups[i].group.People[peopleIndex])
+               }
+            }
+
+
+            if(copyGroup.side != undefined)
+            {
+               switch(copyGroup.side)
+               {
                   case 0:
-                     BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),
+                     BF.addGroup(copyGroup.group,copyGroup.type,{
+                        "x":Math.round(fieldWidth / sides[i] * (copyGroup.sideIndex + 0.5)),
                         "y":Math.round(Math.max(fieldHeight / 2 - maxRange / 2,0))
                      });
                      break;
                   case 1:
-                     BF.addGroup(allGroups[i].group,allGroups[i].type,{
+                     BF.addGroup(copyGroup.group,copyGroup.type,{
                         "x":Math.min(fieldWidth / 2 + maxRange / 2 - 1,fieldWidth - 1),
-                        "y":Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5))
+                        "y":Math.round(fieldHeight / sides[i] * (copyGroup.sideIndex + 0.5))
                      });
                      break;
                   case 2:
-                     BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                        "x":Math.round(fieldWidth / sides[i] * (allGroups[i].sideIndex + 0.5)),
+                     BF.addGroup(copyGroup.group,copyGroup.type,{
+                        "x":Math.round(fieldWidth / sides[i] * (copyGroup.sideIndex + 0.5)),
                         "y":Math.round(Math.min(fieldHeight / 2 + maxRange / 2 - 1,fieldHeight - 1))
                      });
                      break;
                   case 3:
-                     BF.addGroup(allGroups[i].group,allGroups[i].type,{
+                     BF.addGroup(copyGroup.group,copyGroup.type,{
                         "x":Math.round(Math.max(fieldWidth / 2 - maxRange / 2,0)),
-                        "y":Math.round(fieldHeight / sides[i] * (allGroups[i].sideIndex + 0.5))
+                        "y":Math.round(fieldHeight / sides[i] * (copyGroup.sideIndex + 0.5))
                      });
                }
             }
-            if(allGroups[i].location != undefined)
+            if(copyGroup.location != undefined)
             {
-               BF.addGroup(allGroups[i].group,allGroups[i].type,{
-                  "x":Math.max(1,Math.min(allGroups[i].location.x,fieldWidth - 2)),
-                  "y":Math.max(1,Math.min(allGroups[i].location.y,fieldWidth - 2))
+               BF.addGroup(copyGroup.group,copyGroup.type,{
+                  "x":Math.max(1,Math.min(copyGroup.location.x,fieldWidth - 2)),
+                  "y":Math.max(1,Math.min(copyGroup.location.y,fieldWidth - 2))
                });
             }
          }
