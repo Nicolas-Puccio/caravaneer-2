@@ -128,7 +128,7 @@ package IsoEngine
       
       public static const workersPercentage:* = 0.85;
       
-      public static var workshopRecipes:* = [{
+      public static var workshopRecipes:* = [{//-0
          "outcome":61,
          "outcomeAmount":1,
          "requiredMaterials":[{
@@ -150,7 +150,7 @@ package IsoEngine
             "min":30
          }],
          "perDay":15
-      },{
+      },{//-1
          "outcome":103,
          "outcomeAmount":1,
          "requiredMaterials":[{
@@ -172,7 +172,7 @@ package IsoEngine
             "min":100
          }],
          "perDay":5
-      },{
+      },{//-2
          "outcome":109,
          "outcomeAmount":1,
          "requiredMaterials":[{
@@ -185,7 +185,7 @@ package IsoEngine
             "min":90
          }],
          "perDay":5
-      },{
+      },{//-3
          "outcome":94,
          "outcomeAmount":2,
          "requiredMaterials":[{
@@ -195,7 +195,7 @@ package IsoEngine
          "requiredTools":[],
          "requiredSkills":[],
          "perDay":50
-      },{
+      },{//-4
          "outcome":94,
          "outcomeAmount":2,
          "requiredMaterials":[{
@@ -214,7 +214,7 @@ package IsoEngine
             "min":30
          }],
          "perDay":5
-      },{
+      },{//-5
          "outcome":94,
          "outcomeAmount":2,
          "requiredMaterials":[{
@@ -13622,7 +13622,8 @@ package IsoEngine
       
       public function createCaravanOnRoute(paramIndex:*) : *//-called from MapMode
       {
-         var _locIsCustomCaravan_:* = paramIndex == 30
+         var customLoadout:* = Presets.caravanRoutes[paramIndex].customLoadout//- new var in route
+         var customLoadoutIndex:* //for the loops
 
          var _loc4_:* = undefined;
          var _loc3_:* = undefined;
@@ -13645,9 +13646,11 @@ package IsoEngine
                "experienceModifier":3,
                "savePointer":true
             }));
-            if(_locIsCustomCaravan_){
-               Caravans[_loc3_].addTransport(new TransportUnit(1,true));// donkey
-               Caravans[_loc3_].addTransport(new TransportUnit(2,true));// small cart
+            if(customLoadout && customLoadout.transport){
+               for(customLoadoutIndex in customLoadout.transport)
+               {
+                  Caravans[_loc3_].addTransport(new TransportUnit(customLoadout.transport[customLoadoutIndex].id, true));
+               }
             }
             else{
                //adds a camel + cart
@@ -13656,13 +13659,12 @@ package IsoEngine
             }
             _loc4_++;
          }
-         if(_locIsCustomCaravan_){
-            Caravans[_loc3_].addCargo(1,Presets.caravanRoutes[paramIndex].size * 5 * 5);// water
-            Caravans[_loc3_].addCargo(10,Presets.caravanRoutes[paramIndex].size);//hatchet
-            Caravans[_loc3_].addCargo(62,Presets.caravanRoutes[paramIndex].size * 10);// forage
-            Caravans[_loc3_].addCargo(80,Presets.caravanRoutes[paramIndex].size * 5);//5l water container
-            Caravans[_loc3_].addCargo(100,Presets.caravanRoutes[paramIndex].size);//white jacket
-         }else{
+         if(customLoadout && customLoadout.cargo){
+            for(customLoadoutIndex in customLoadout.cargo)
+            {
+               Caravans[_loc3_].addCargo(customLoadout.cargo[customLoadoutIndex].id, Presets.caravanRoutes[paramIndex].size * customLoadout.cargo[customLoadoutIndex].mult);
+            }
+         } else {
             Caravans[_loc3_].addCargo(120,Presets.caravanRoutes[paramIndex].size);//rifle
             Caravans[_loc3_].addCargo(121,Presets.caravanRoutes[paramIndex].size * 40);//ammo
             Caravans[_loc3_].addCargo(200,Presets.caravanRoutes[paramIndex].size);//some armor it seems

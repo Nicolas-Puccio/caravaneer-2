@@ -972,6 +972,19 @@ package
             "noticeability":80
          });*/
 
+         //-test add workshop recipe
+         /*addRecipe(6, {
+            "outcome":1,
+            "outcomeAmount":5,
+            "requiredMaterials":[{
+               "type":1,
+               "amount":1
+            }],
+            "requiredTools":[],
+            "requiredSkills":[],
+            "perDay":50
+         })*/
+
 
          GD = new GameData(currentScreen,this,null,param1 == 1,mainScreenDifficulty,theCharacter);
          executeDLCOnInit();
@@ -1075,20 +1088,19 @@ package
                }],
                "sell":[]
             }],
-            "customLoadout":{//+-new variable, should be considered on GD.createCaravanOnRoute, TODO
-               "transport":[{
-                  "id":1,
-                  "mult":1
+            "customLoadout":{//+-new variable
+               "transport":[{//could simply make an array of ids, but i keep the object structure if later want to add more variables
+                  "id":1
                }],
                "cargo":[{
-                  "id":10,
-                  "mult":1
-               },{
                   "id":80,
-                  "mult":5
+                  "mult":4
                },{
-                  "id":100,
-                  "mult":1
+                  "id":1,
+                  "mult":20
+               },{
+                  "id":62,
+                  "mult":10
                }]
             }
          })
@@ -1838,9 +1850,9 @@ package
          delete WeaponsData.Attachments[param1];
       }
       
-      public function addRecipe(param1:*, param2:*) : *
+      public function addRecipe(paramIndex:*, param2:*) : *
       {
-         GameData.workshopRecipes[param1] = param2;
+         GameData.workshopRecipes[paramIndex] = param2;
       }
       
       public function removeRecipe(param1:*) : *
