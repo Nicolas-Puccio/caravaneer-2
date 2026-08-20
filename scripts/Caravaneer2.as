@@ -963,13 +963,13 @@ package
             "possibleIndustries":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46],
             "cantExpandStorage":false,
             "noPeopleToHire":true,
-            "storyOnly":true,
+            "storyOnly":false,
             "defaultStorage":1,
             "constantPopulation":false,
             "storagePrice":100,
             "tax":0.05,
             "electricityPrice":0.3,
-            "noticeability":80
+            "noticeability":1000
          });*/
 
          //-test add workshop recipe
@@ -1038,7 +1038,7 @@ package
             }
          }
 
-         if(theCharacter.name == "Puccio") //+- just for testing
+         if(theCharacter.name == "PuccioTest") //+- just for testing
          {
             GD.Caravans[0].addCargo(45,20);
             GD.Caravans[0].addCargo(169,1);
@@ -1072,25 +1072,27 @@ package
             "size":1,
             "onInit":false,
             "extraEquipment":[],
-            "points":[{ //spawn at pullid
-               "town":18,
-               "buy":[],
-               "sell":[{
-                  "item":87,
-                  "amount":100
-               }]
-            },{ //round trip to lintu
+            "points":[{//-maybe customRefill things can be here
                "town":17,
                "buy":[{
                   "item":87,
                   "amount":100
                }],
                "sell":[]
+            },{
+               "town":18,
+               "buy":[],
+               "sell":[{
+                  "item":87,
+                  "amount":100
+               }]
             }],
             "customLoadout":{//-new variable for GameData arriveAtRoutePoint
                //transport could simply be an array of ids, but i keep the object structure if later want to add more variables
                "transport":[{
                   "id":1
+               },{
+                  "id":2
                }],
                "cargo":[{
                   "id":80,
@@ -1104,9 +1106,9 @@ package
                }]
             },
             "customRefill":{//-new variable for GameData arriveAtRoutePoint
-               "water":18,
-               "food":3500,
-               "forage":7
+               "water":19,
+               "food":4000,
+               "forage":8
             },
             "customMoney":10000//-seems to work
          })

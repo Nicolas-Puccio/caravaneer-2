@@ -16,19 +16,23 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 5. **Extra UMi alpha**: Start the game with a free UMi Alpha in the bunker storage, plus the storage got bigger to accomodate the vehicle.
 
-6. **Faster walk animation**: Walk animations during battle are twice as fast.
+6. **Less entities during fights**: Slaves and transport are removed from the fight, to improve performance, and make the battles faster.
 
-7. **Less entities during fights**: Slaves and transport are removed from the fight, to improve performance, and make the battles faster.
+7. **More mercenaries available in towns**: Added +1 to the amount of mercenary in a town, making it easier to find recruits in low population towns.
 
-8. **More mercenaries available in towns**: Added +1 to the amount of mercenary in a town, making it easier to find recruits in low population towns.
+8. **Smaller battle fields**: halved how much battle field size scales with weapon skill, and reduced min size when using melee weapons.
 
-9. **Smaller battle fields**: halved how much battle field size scales with weapon skill, and reduced min size when using melee weapons.
+9. **Fix starving towns due to forage deficit**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
 
-10. **Fix starving towns due to forage deficit**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
+10. **Fix town industries not expanding**: towns need less unemployed people to start upgrading industries other than water.
 
-11. **Partial fix chained industries**: Leather vest and yarn jackets will produce if consumption is satisfied by another industry, regardless of storage space.
+11. **Fix chained industries**: Industries will produce if consumption is satisfied by another industry, regardless of storage space.
 
 12. **Enabled Crowdfunder DLC**: DLC with weapon that shoots money ([Install Instructions](#Installation)).
+
+13. **More industries available on towns**: Forage and breeding industries available to be started at all towns.
+
+14. **CanBreakEconomy = true**: Base game only allows such option once the game is completed, set true by default.
 
 
 
@@ -45,11 +49,16 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - Industries UI
 	- Add estimation of consumption expences, and profit.
+	- "Your industries" tab displayes unemployed requirement for town industries
 
 - Navigation Screen
 	- Auto invert when selecting GO.
 
 - Silos and Kevin's house moved slightly off the main road.
+
+- Animals spawn not too young and not too old
+
+- Disabled fullscreen (scaling is broken and looks ugly)
 
 
 
@@ -67,7 +76,8 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
    - Start it with the `.exe` file or through Steam.
 
 4. Create a new character  
-   - Only needed for the extra UMI ALPHA to spawn in the bunker
+   - new character is only needed for the extra UMI ALPHA to spawn in the bunker
+   - Name it **Puccio** for change #1.
 
 
 

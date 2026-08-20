@@ -84,7 +84,7 @@ package IsoEngine
             theCharacter.baseAccuracy = 10;
             theCharacter.baseIntelligence = 10;
             theCharacter.gender = 1;
-            theCharacter.name = "Puccio";
+            theCharacter.name = "PuccioTest";
          }
          else
          {
