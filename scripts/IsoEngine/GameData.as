@@ -14671,7 +14671,8 @@ package IsoEngine
          System.pauseForGCIfCollectionImminent(1);
          System.gc();
       }
-      //- i think this was for the industry UI
+
+      //- i think this was for the industry UI, should refactor
       public function pucciogetsellprice(param1:* = null, param2:* = null) : *
       {
          if(param1 == null || param2 == null)
@@ -14699,33 +14700,33 @@ package IsoEngine
          }
          return " ($" + Math.round(_locpuccio1_) + ")";
       }
-      //- increase chances of Forage expansion over water
+
+      //- force forage expansion if consumption > production
       public function PuccioReSelectExpansion(possibleExpansions:*, selectedExpansion:*) : *
       {
-         _locForageProduction_ = 0;
-         _locForageConsumption_ = 0;//-would kinda like to set to 100 to begin with to give it some margin
+         var forageProduction:* = 0;
+         forageConsumption = 0;//-would kinda like to set to 100 to begin with to give it some margin
          puccioForageIndustryIndex = 0;
          result = selectedExpansion;
          for(j in possibleExpansions)
          {
-            //locating forage industry
-            if(possibleExpansions[j].industry.production[0].item == 62)
+            //locating forage industry and set production
+            if(possibleExpansions[j].industry.production[0].item == 62)//could use id insted fo checking prod
             {
-               _locForageProduction_ = possibleExpansions[j].industry.production[0].amount;
+               forageProduction = possibleExpansions[j].industry.production[0].amount;
                puccioForageIndustryIndex = j;
             }
-
             //checking how much forage we consume
             for(k in possibleExpansions[j].industry.consumption)
             {
                if(possibleExpansions[j].industry.consumption[k].item == 62)
                {
-                  _locForageConsumption_ += possibleExpansions[j].industry.consumption[k].amount;
+                  forageConsumption += possibleExpansions[j].industry.consumption[k].amount;
                }
             }
          }
          //if we consume more than we produce, force upgrade to be Forage
-         if(_locForageProduction_ != 0 && _locForageConsumption_ > _locForageProduction_)
+         if(forageProduction != 0 && forageConsumption > forageProduction)
          {
             result = puccioForageIndustryIndex;
          }

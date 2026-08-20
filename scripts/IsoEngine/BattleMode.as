@@ -195,7 +195,7 @@ package IsoEngine
                               case 5:
                                  compRange = Math.round(allGroups[i].group.People[j].maxThrowDistance(1.8,3.141592653589793 / 4)) + 10;
                            }
-                           if(weaponType.category == 2 || weaponType.category == 3 || weaponType.category == 4)
+                           if(weaponType.category == 2 || weaponType.category == 3 || weaponType.category == 4)//-ranged
                            {
                               //-reduces how much a weapon skill affects the battlefield size
                               compRange = Math.round(compRange * 0.5 + compRange * allGroups[i].group.People[j][weaponSkillName + "Skill"] / 400);
@@ -217,7 +217,7 @@ package IsoEngine
          if(settings.fieldWidth == undefined)
          {
             //-slightly reduces minimum size
-            fieldWidth = Math.max(maxRange,40);
+            fieldWidth = Math.max(maxRange,30);
          }
          else
          {
@@ -226,7 +226,7 @@ package IsoEngine
          if(settings.fieldHeight == undefined)
          {
             //-slightly reduces minimum size
-            fieldHeight = Math.max(maxRange,40);
+            fieldHeight = Math.max(maxRange,30);
          }
          else
          {
@@ -660,6 +660,8 @@ package IsoEngine
          for(i in allGroups)//-the "group" variable inside has a .group and .type
          {
             //-copy group and remove transport and prisioners
+            //-works but then i would have to re add all these in to OnWin, and would i have ended up with duplicate groups?
+            /*
             var copyGroup:Object = {};
             for (var key:String in allGroups[i]) {
                copyGroup[key] = allGroups[i][key];
@@ -678,7 +680,9 @@ package IsoEngine
                   copyGroup.group.People.push(allGroups[i].group.People[peopleIndex])
                }
             }
-
+            copyGroup.group.name = allGroups[i].group.name // 4 missing
+            */
+            var copyGroup = allGroups[i]
 
             if(copyGroup.side != undefined)
             {
