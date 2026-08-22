@@ -421,8 +421,10 @@ package IsoEngine
          "enabled":false
       }];
       
-      public static const variablesToSave:* = ["seed","gameSpeed","doubleSpeed","tripleSpeed","difficulty","autoSave","adultContent","autoCenter","showGrid","walkAnimationSpeed","interactWithFriendlyCaravans","advancedTrading","pauseOnExitTown","Time","Squares","factionRelations","revealedFactions","mapCenterX","mapCenterY","mapScale","routeStart","routeEnd","globalPrices","storyMode","globalCounter","monthlyCounter","build","producedToday","sextantExperience","lastSextantPos","lastSextantOffset","lastSextantMeasurement","windDirection","windStrength","missingRoutes","updatingEconomy","itemsToUpdate","knownPrices","warnedAboutAdvancedTrading","distributeBatteries","transportAsPassengers","showTutorial","displayedTutorials","initiatedDLC","removedDLC","canBreakEconomy"];
+      public static const variablesToSave:* = ["seed","gameSpeed","doubleSpeed","tripleSpeed","difficulty","autoSave","adultContent","autoCenter","showGrid","walkAnimationSpeed","interactWithFriendlyCaravans","advancedTrading","pauseOnExitTown","Time","Squares","factionRelations","revealedFactions","mapCenterX","mapCenterY","mapScale","routeStart","routeEnd","globalPrices","storyMode","globalCounter","monthlyCounter","build","producedToday","sextantExperience","lastSextantPos","lastSextantOffset","lastSextantMeasurement","windDirection","windStrength","missingRoutes","updatingEconomy","itemsToUpdate","knownPrices","warnedAboutAdvancedTrading","distributeBatteries","transportAsPassengers","showTutorial","displayedTutorials","initiatedDLC","removedDLC","canBreakEconomy","customTowns"];
       
+      public var customTowns:* = []
+
       public static const staticsToSave:* = ["foodAveragePrice","upperBodyClothingAveragePrice","lowerBodyClothingAveragePrice","shoesAveragePrice","hatAveragePrice","averageGDPperCapita","soundFXOn","musicOn"];
       
       public var seed:*;
@@ -2956,6 +2958,14 @@ package IsoEngine
             {
                Rndm.seed = _loc4_.seed;
             }
+            if(_loc4_.customTowns == undefined)//-no custom towns in save? could be from old build
+            {
+               customTowns = []
+            }
+            else //-restore customTowns from save
+            {
+               customTowns = _loc4_.customTowns
+            }
             if(_loc4_.storyClass != undefined)
             {
                _loc3_ = getDefinitionByName(_loc4_.storyClass) as Class;
@@ -3148,6 +3158,21 @@ package IsoEngine
          if(param2 == 4 || param2 == null)
          {
             Towns = [];
+            //-reset to base locations
+            Presets.Towns.splice(85, Presets.Towns.length - 85);
+
+            if(customTowns == undefined)//+-sanity check, i think i can remove this
+               customTowns = []
+
+            //-get customtown data from save
+            //then add that data to presets
+            var customTownIndex:* = 0;
+            for(customTownIndex in customTowns)
+            {
+               var customTownAlt:* = customTowns[customTownIndex]
+               parent.setLocation(customTownAlt.index, customTownAlt.data)
+            }
+
             for(_loc8_ in Presets.Towns)
             {
                Towns[_loc8_] = new Town(_loc8_,this);
@@ -3159,80 +3184,80 @@ package IsoEngine
                   Towns[_loc8_] = new Town(_loc4_.Towns[_loc8_].type,this);
                   gatherInfo(_loc4_.Towns[_loc8_],Towns[_loc8_],Town.variablesToSave,"Town info > ");
                   Towns[_loc8_].people = [];
-                  for(_loc10_ in _loc4_.Towns[_loc8_].people)
-                  {
-                     Towns[_loc8_].people[_loc10_] = _loc14_[_loc4_.Towns[_loc8_].people[_loc10_]];
-                  }
-                  for(_loc10_ in _loc4_.Towns[_loc8_].locations)
-                  {
-                     Towns[_loc8_].locations[_loc10_] = {};
-                     _loc9_ = [];
-                     for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_])
+                     for(_loc10_ in _loc4_.Towns[_loc8_].people)
                      {
-                        if(_loc11_ != "stock" && _loc11_ != "slaves" && _loc11_ != "transport")
+                        Towns[_loc8_].people[_loc10_] = _loc14_[_loc4_.Towns[_loc8_].people[_loc10_]];
+                     }
+                     for(_loc10_ in _loc4_.Towns[_loc8_].locations)
+                     {
+                        Towns[_loc8_].locations[_loc10_] = {};
+                        _loc9_ = [];
+                        for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_])
                         {
-                           _loc9_.push(_loc11_);
+                           if(_loc11_ != "stock" && _loc11_ != "slaves" && _loc11_ != "transport")
+                           {
+                              _loc9_.push(_loc11_);
+                           }
+                        }
+                        gatherInfo(_loc4_.Towns[_loc8_].locations[_loc10_],Towns[_loc8_].locations[_loc10_],_loc9_,"Town location info > ");
+                        if(_loc4_.Towns[_loc8_].locations[_loc10_].people is Array)
+                        {
+                           Towns[_loc8_].locations[_loc10_].people = [];
+                           for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_].people)
+                           {
+                              Towns[_loc8_].locations[_loc10_].people[_loc11_] = _loc14_[_loc4_.Towns[_loc8_].locations[_loc10_].people[_loc11_]];
+                           }
+                        }
+                        Towns[_loc8_].locations[_loc10_].stock = [];
+                        for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_].stock)
+                        {
+                           Towns[_loc8_].locations[_loc10_].stock[_loc11_] = new Item(_loc4_.Towns[_loc8_].locations[_loc10_].stock[_loc11_].type,_loc4_.Towns[_loc8_].locations[_loc10_].stock[_loc11_].amount);
+                        }
+                        Towns[_loc8_].locations[_loc10_].slaves = [];
+                        for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_].slaves)
+                        {
+                           Towns[_loc8_].locations[_loc10_].slaves[_loc11_] = _loc14_[_loc4_.Towns[_loc8_].locations[_loc10_].slaves[_loc11_]];
+                        }
+                        Towns[_loc8_].locations[_loc10_].transport = [];
+                        for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_].transport)
+                        {
+                           Towns[_loc8_].locations[_loc10_].transport[_loc11_] = _loc12_[_loc4_.Towns[_loc8_].locations[_loc10_].transport[_loc11_]];
                         }
                      }
-                     gatherInfo(_loc4_.Towns[_loc8_].locations[_loc10_],Towns[_loc8_].locations[_loc10_],_loc9_,"Town location info > ");
-                     if(_loc4_.Towns[_loc8_].locations[_loc10_].people is Array)
+                     Towns[_loc8_].industries = [];
+                     for(_loc10_ in _loc4_.Towns[_loc8_].industries)
                      {
-                        Towns[_loc8_].locations[_loc10_].people = [];
-                        for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_].people)
+                        Towns[_loc8_].industries[_loc10_] = new Industry(_loc4_.Towns[_loc8_].industries[_loc10_].type,_loc4_.Towns[_loc8_].industries[_loc10_].employees,Towns[_loc8_]);
+                        gatherInfo(_loc4_.Towns[_loc8_].industries[_loc10_],Towns[_loc8_].industries[_loc10_],Industry.variablesToSave,"Industry info > ");
+                     }
+                     Towns[_loc8_].playersIndustries = [];
+                     for(_loc10_ in _loc4_.Towns[_loc8_].playersIndustries)
+                     {
+                        Towns[_loc8_].playersIndustries[_loc10_] = new Industry(_loc4_.Towns[_loc8_].playersIndustries[_loc10_].type,_loc4_.Towns[_loc8_].playersIndustries[_loc10_].employees,Towns[_loc8_]);
+                        gatherInfo(_loc4_.Towns[_loc8_].playersIndustries[_loc10_],Towns[_loc8_].playersIndustries[_loc10_],Industry.variablesToSave,"Industry info > ");
+                     }
+                     Towns[_loc8_].stock = [];
+                     for(_loc10_ in _loc4_.Towns[_loc8_].stock)
+                     {
+                        Towns[_loc8_].stock[_loc10_] = new Item(_loc4_.Towns[_loc8_].stock[_loc10_].type,_loc4_.Towns[_loc8_].stock[_loc10_].amount);
+                        if(Towns[_loc8_].stock[_loc10_].amount <= 0)
                         {
-                           Towns[_loc8_].locations[_loc10_].people[_loc11_] = _loc14_[_loc4_.Towns[_loc8_].locations[_loc10_].people[_loc11_]];
+                           Towns[_loc8_].stock[_loc10_].amount = 0;
                         }
                      }
-                     Towns[_loc8_].locations[_loc10_].stock = [];
-                     for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_].stock)
+                     Towns[_loc8_].playersStorage = [];
+                     for(_loc10_ in _loc4_.Towns[_loc8_].playersStorage)
                      {
-                        Towns[_loc8_].locations[_loc10_].stock[_loc11_] = new Item(_loc4_.Towns[_loc8_].locations[_loc10_].stock[_loc11_].type,_loc4_.Towns[_loc8_].locations[_loc10_].stock[_loc11_].amount);
-                     }
-                     Towns[_loc8_].locations[_loc10_].slaves = [];
-                     for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_].slaves)
-                     {
-                        Towns[_loc8_].locations[_loc10_].slaves[_loc11_] = _loc14_[_loc4_.Towns[_loc8_].locations[_loc10_].slaves[_loc11_]];
-                     }
-                     Towns[_loc8_].locations[_loc10_].transport = [];
-                     for(_loc11_ in _loc4_.Towns[_loc8_].locations[_loc10_].transport)
-                     {
-                        Towns[_loc8_].locations[_loc10_].transport[_loc11_] = _loc12_[_loc4_.Towns[_loc8_].locations[_loc10_].transport[_loc11_]];
+                        if(_loc4_.Towns[_loc8_].playersStorage[_loc10_].kind == 2)
+                        {
+                           Towns[_loc8_].playersStorage[_loc10_] = _loc12_[_loc4_.Towns[_loc8_].playersStorage[_loc10_].vehicle];
+                        }
+                        else
+                        {
+                           Towns[_loc8_].playersStorage[_loc10_] = new Item(_loc4_.Towns[_loc8_].playersStorage[_loc10_].type,_loc4_.Towns[_loc8_].playersStorage[_loc10_].amount);
+                        }
                      }
                   }
-                  Towns[_loc8_].industries = [];
-                  for(_loc10_ in _loc4_.Towns[_loc8_].industries)
-                  {
-                     Towns[_loc8_].industries[_loc10_] = new Industry(_loc4_.Towns[_loc8_].industries[_loc10_].type,_loc4_.Towns[_loc8_].industries[_loc10_].employees,Towns[_loc8_]);
-                     gatherInfo(_loc4_.Towns[_loc8_].industries[_loc10_],Towns[_loc8_].industries[_loc10_],Industry.variablesToSave,"Industry info > ");
-                  }
-                  Towns[_loc8_].playersIndustries = [];
-                  for(_loc10_ in _loc4_.Towns[_loc8_].playersIndustries)
-                  {
-                     Towns[_loc8_].playersIndustries[_loc10_] = new Industry(_loc4_.Towns[_loc8_].playersIndustries[_loc10_].type,_loc4_.Towns[_loc8_].playersIndustries[_loc10_].employees,Towns[_loc8_]);
-                     gatherInfo(_loc4_.Towns[_loc8_].playersIndustries[_loc10_],Towns[_loc8_].playersIndustries[_loc10_],Industry.variablesToSave,"Industry info > ");
-                  }
-                  Towns[_loc8_].stock = [];
-                  for(_loc10_ in _loc4_.Towns[_loc8_].stock)
-                  {
-                     Towns[_loc8_].stock[_loc10_] = new Item(_loc4_.Towns[_loc8_].stock[_loc10_].type,_loc4_.Towns[_loc8_].stock[_loc10_].amount);
-                     if(Towns[_loc8_].stock[_loc10_].amount <= 0)
-                     {
-                        Towns[_loc8_].stock[_loc10_].amount = 0;
-                     }
-                  }
-                  Towns[_loc8_].playersStorage = [];
-                  for(_loc10_ in _loc4_.Towns[_loc8_].playersStorage)
-                  {
-                     if(_loc4_.Towns[_loc8_].playersStorage[_loc10_].kind == 2)
-                     {
-                        Towns[_loc8_].playersStorage[_loc10_] = _loc12_[_loc4_.Towns[_loc8_].playersStorage[_loc10_].vehicle];
-                     }
-                     else
-                     {
-                        Towns[_loc8_].playersStorage[_loc10_] = new Item(_loc4_.Towns[_loc8_].playersStorage[_loc10_].type,_loc4_.Towns[_loc8_].playersStorage[_loc10_].amount);
-                     }
-                  }
-               }
             }
          }
          if(param2 == 5 || param2 == null)

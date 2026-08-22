@@ -68,6 +68,12 @@ package IsoEngine
             textLines.splice(3,0,Texts.fetch(7031).toUpperCase());
             buttonFunctions.splice(3,0,GD.parent.switchFullScreen);
          }
+         else
+         {
+            //-i don't want to change the index of fullscreen for now cause maybe need to enable it in the future, so just replace it
+            textLines.splice(3,0,"start new town");
+            buttonFunctions.splice(3,0,addCustomTown);
+         }
          textObjects = [];
          buttons = [];
          title = new EngineText(Texts.fetch(28).toUpperCase(),16777215,20,"center",0,10,880,30);
@@ -103,6 +109,45 @@ package IsoEngine
          confirmExitDialogue.setText(Texts.fetch(5637,GD.Caravans[0].People[0].gender).toUpperCase());
          confirmExitDialogue.visible = false;
          addChild(confirmExitDialogue);
+      }
+
+      public function addCustomTown() {//-should move this code to GD?
+         var index:* = Presets.town_presets[0].length;
+         GD.parent.setLocation(index, {
+            "name":1,
+            "x":GD.Caravans[0].x,
+            "y":GD.Caravans[0].y,
+            "population":0,
+            "obligatoryPeople":[],
+            "allowsSlaves":false,
+            "locations":[{
+               "x":298,
+               "y":160,
+               "category":1,
+               "subCategory":5,
+               "symbol":18,
+               "visible":true,
+               "name":7007
+            }],
+            "industries":[],
+            "possibleIndustries":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46],
+            "cantExpandStorage":false,
+            "noPeopleToHire":true,
+            "storyOnly":false,
+            "defaultStorage":0,
+            "constantPopulation":false,
+            "storagePrice":100,
+            "tax":0.05,
+            "electricityPrice":0.3,
+            "noticeability":1000
+         }, true);
+         GD.Towns[index] = new Town(index,GD);
+         GD.Towns[index].altName = "town"+index;
+
+         loadSaveDialogue.nameWriter.txt.text = "town"+index
+         loadSaveDialogue.doSave()
+         loadSaveDialogue.update(false)
+         loadSaveDialogue.normalAction()
       }
       
       public function remove() : *

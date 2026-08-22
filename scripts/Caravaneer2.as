@@ -941,7 +941,8 @@ package
          var _loc2_:* = undefined;
          var _loc3_:* = undefined;
 
-         
+         Presets.Towns.splice(85, Presets.Towns.length - 85);
+
          //- test new town
          /*setLocation(85,{
             "name":1,
@@ -1042,14 +1043,19 @@ package
          {
             GD.Caravans[0].addCargo(45,20);
             GD.Caravans[0].addCargo(169,1);
-            GD.Caravans[0].addCargo(1,40);
+            GD.Caravans[0].addCargo(1,30);
+            GD.Caravans[0].addCargo(62,10);
             GD.Caravans[0].money = 100000000000
             if(GD.storyMode){
                GD.Caravans[0].x = -9930;
                GD.Caravans[0].y = -1500;
             }
-            //GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
-         }
+            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
+            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
+            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
+            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
+            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
+        }
 
          GD.Caravans[0].addCargo(65,2);
          GD.Caravans[0].addCargo(1,2);
@@ -1986,9 +1992,15 @@ package
          delete Caravaneer2MainStory.defaultCharacterFactions[param1];
       }
       
-      public function setLocation(param1:*, param2:*) : *
+      public function setLocation(param1:*, param2:*,isCustomTown:* = false) : *
       {
          Presets.town_presets[0][param1] = param2;
+         if(isCustomTown) {
+            GD.customTowns.push({
+               "index": param1,
+               "data": param2
+            });
+         }
       }
 
       //- to not have to touch Presets cause it takes long time to compile and i don't like touching the default data
