@@ -110,11 +110,14 @@ In order to put undesired items at the bottom of trade window need to add the ID
 ## Ideas
 
 1. New bandit types
-2. Make extra towns (succeeded adding static towns, but not generating them while playing)
-3. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
-4. Add config.txt to enable/disable any feature
+2. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
+3. Add config.txt to enable/disable any feature
 
 
 
 ## Files with errors
 BATTLEFIELD (enemy pathfinding breaks)
+
+
+## TestCaravaneer2.swf
+Added button to start new towns
