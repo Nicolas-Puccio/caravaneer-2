@@ -548,7 +548,20 @@ package IsoEngine
          {
             yourPrice.text += " / " + MathFunctions.NumberFormat(partnersAvailableSpace,1,true);
          }
-         partnerPrice.text = Texts.fetch(1347).toUpperCase() + ": " + MathFunctions.NumberFormat(totalPrice(partners[1].items),2,false);
+         var partnersMoneyAlt:* = 0;
+         if(!free)
+         {
+            if(shop is Object && shopType != 1)
+            {
+               partnersMoneyAlt = shop.money;
+            }
+            else
+            {
+               partnersMoneyAlt = partner.money;
+            }
+         }
+         var extraPartnerPriceText:* = " ($" + Math.ceil(partnersMoneyAlt) +")"
+         partnerPrice.text = Texts.fetch(1347).toUpperCase() + ": " + MathFunctions.NumberFormat(totalPrice(partners[1].items),2,false) + extraPartnerPriceText;
          partnerWeight.text = Texts.fetch(1191).toUpperCase() + ": " + MathFunctions.NumberFormat(totalWeight(partners[1].items),1,true) + " / " + MathFunctions.NumberFormat(playersAvailableSpace,1,true);
          for(_loc7_ in partners)
          {

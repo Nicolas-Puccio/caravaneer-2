@@ -1840,6 +1840,9 @@ package IsoEngine
       
       public function updateBottomLine() : *
       {
+         var moneyText:* = " ($" + Math.ceil(GD.Towns[town].money) + ")";
+         screens[0].nameText.text = GD.Towns[town].name.toUpperCase() + moneyText;
+         
          screens[0].bottomLineCapacity.text = Texts.fetch(903).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Caravans[0].totalCargo,0) + "/" + MathFunctions.NumberFormat(GD.Caravans[0].maxCargo,0) + " " + Texts.fetch(12).toUpperCase();
          screens[0].bottomLineMoney.text = Texts.fetch(20).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Caravans[0].money,2);
          var _loc1_:* = GD.makeDate();

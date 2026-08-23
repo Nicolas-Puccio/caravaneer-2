@@ -34,6 +34,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 14. **CanBreakEconomy = true**: Base game only allows such option once the game is completed, set true by default.
 
+15. **Create new towns**: [Testing](#TestCaravaneer2.swf) feature, work in progress.
 
 
 ### Quality of Life
@@ -60,6 +61,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - Disabled fullscreen (scaling is broken and looks ugly)
 
+- Cheat start with a testing character, call it "PuccioTest"
 
 
 ## Installation
