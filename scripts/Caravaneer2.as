@@ -260,6 +260,42 @@ package
          var _loc1_:Number = 0.0025;
          addEventListener("addedToStage",stageAdd);
          addEventListener("enterFrame",EF);
+
+         //+-always allow basic industries
+         //- i don't like how restrictive the game is with industries, so i added these water/forage based industries to be allowed on every town
+         var allowedIndustryTypes:Array = [1,2,3,4,5,9,10,23,24,25,26,27,33];
+         var presetIndex:*;
+         var allowedIndex:*;
+         var possibleIndex:*;
+         for (presetIndex in Presets.town_presets[0])
+         {
+            if (Presets.town_presets[0][presetIndex] != null)
+            {
+               //init array if not there
+               if (Presets.town_presets[0][presetIndex].possibleIndustries == null)
+               {
+                  Presets.town_presets[0][presetIndex].possibleIndustries = [];
+               }
+
+               for (allowedIndex in allowedIndustryTypes)
+               {
+                  var allowedIndustryType:* = allowedIndustryTypes[allowedIndex];
+                  var alreadyPossible:Boolean = false;
+                  
+                  for (possibleIndex in Presets.town_presets[0][presetIndex].possibleIndustries)
+                  {
+                     if (Presets.town_presets[0][presetIndex].possibleIndustries[possibleIndex] == allowedIndustryType)
+                     {
+                        alreadyPossible = true;
+                     }
+                  }
+                  if (!alreadyPossible)
+                  {
+                     Presets.town_presets[0][presetIndex].possibleIndustries.push(allowedIndustryType);
+                  }
+               }
+            }
+         }
       }
       
       public function stageAdd(param1:*) : *
@@ -1119,56 +1155,6 @@ package
             "customMoney":10000//-seems to work
          })
          GD.createCaravanOnRoute(30);
-         
-
-         //+-always allow basic industries
-         //- i don't like how restrictive the game is with industries, so i added these water/forage based industries to be allowed on every town
-         var allowedIndustryTypes:Array = [1,2,3,4,5,9,10,23,24,25,26,27,33];
-         var presetIndex:*;
-         var allowedIndex:*;
-         var existingIndex:*;
-         var possibleIndex:*;
-
-         for (presetIndex in Presets.town_presets[0])
-         {
-            if (Presets.town_presets[0][presetIndex] != null)
-            {
-               //init array if not there
-               if (Presets.town_presets[0][presetIndex].possibleIndustries == null)
-               {
-                  Presets.town_presets[0][presetIndex].possibleIndustries = [];
-               }
-
-               for (allowedIndex in allowedIndustryTypes)
-               {
-                  var allowedIndustryType:* = allowedIndustryTypes[allowedIndex];
-                  var industryExists:Boolean = false;
-                  var alreadyPossible:Boolean = false;
-
-                  if (Presets.town_presets[0][presetIndex].industries != null)
-                  {
-                     for (existingIndex in Presets.town_presets[0][presetIndex].industries)
-                     {
-                        if (Presets.town_presets[0][presetIndex].industries[existingIndex].type == allowedIndustryType)
-                        {
-                           industryExists = true;
-                        }
-                     }
-                  }
-                  for (possibleIndex in Presets.town_presets[0][presetIndex].possibleIndustries)
-                  {
-                     if (Presets.town_presets[0][presetIndex].possibleIndustries[possibleIndex] == allowedIndustryType)
-                     {
-                        alreadyPossible = true;
-                     }
-                  }
-                  if (!industryExists && !alreadyPossible)
-                  {
-                     Presets.town_presets[0][presetIndex].possibleIndustries.push(allowedIndustryType);
-                  }
-               }
-            }
-         }
       }
       
       public function switchShowTutorial() : *
