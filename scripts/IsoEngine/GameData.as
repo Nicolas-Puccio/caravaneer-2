@@ -14730,7 +14730,7 @@ package IsoEngine
       public function PuccioReSelectExpansion(possibleExpansions:*, selectedExpansion:*) : *
       {
          var forageProduction:* = 0;
-         forageConsumption = 0;//-would kinda like to set to 100 to begin with to give it some margin
+         forageConsumption = 50;//-would kinda like to set to 100 to begin with to give it some margin
          puccioForageIndustryIndex = 0;
          result = selectedExpansion;
          for(j in possibleExpansions)
