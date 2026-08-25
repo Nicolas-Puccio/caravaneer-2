@@ -1,0 +1,140 @@
+package IsoEngine
+{
+   import Data.*;
+   import Interface.*;
+   import flash.display.Sprite;
+   import flash.net.*;
+   
+   //-new class
+   public class PuccioDialogue extends Sprite
+   {
+      public var D:*;
+      
+      public var BG:*;
+      
+      public var doneButt:*;
+      
+      public var listArea:*;
+   
+      public var gameRoot:*;
+      
+      private var enabledBoxes:*;
+
+      private var orderedList:* = [];
+      
+      public function PuccioDialogue(param1:*)
+      {
+         gameRoot = param1;
+         super();
+         BG = new Sprite();
+         BG.graphics.beginFill(0,0.5);
+         BG.graphics.drawRect(0,0,880,495);
+         BG.graphics.endFill();
+         addChild(BG);
+         D = new Dialogue(600,460);
+         D.x = 440 - D.dialogueWidth / 2;
+         D.y = 248 - D.dialogueHeight / 2;
+         addChild(D);
+         var title:* = new EngineText("Mod Config",16777215,20,"center",10,10,580,30);
+         D.addToMask(title);
+         D.drawHorizontalLine(45,0,D.dialogueWidth);
+         doneButt = new Button(2,function():* { close(); },Texts.fetch(1229).toUpperCase());
+         doneButt.x = 197;
+         doneButt.y = 417;
+         D.addChild(doneButt);
+         var listFrame:* = new Sprite();
+         listFrame.graphics.beginFill(4735032);
+         listFrame.graphics.drawRect(0,0,560,280);
+         listFrame.graphics.endFill();
+         listFrame.graphics.lineStyle(1,16777215,0.3);
+         listFrame.graphics.moveTo(561,-1);
+         listFrame.graphics.lineTo(561,281);
+         listFrame.graphics.lineTo(-1,281);
+         listFrame.graphics.lineStyle(1,0,0.6);
+         listFrame.graphics.lineTo(-1,-1);
+         listFrame.graphics.lineTo(561,-1);
+         listFrame.x = 20;
+         listFrame.y = 60;
+         D.addChild(listFrame);
+         listArea = new ScrollableArea(550,280,550,280,true,false,false,3,10);
+         listArea.x = 20;
+         listArea.y = 60;
+         D.addChild(listArea);
+      }
+      
+      public function update() : *
+      {
+        listArea.clearAll();
+        enabledBoxes = [];
+         var _loc1_:* = new Sprite();
+        _loc1_.graphics.beginFill(11446745);
+        _loc1_.graphics.drawRect(0,0,534,1);
+        _loc1_.x = 8;
+        _loc1_.y = 10;
+        listArea.addContent(_loc1_,null,null,null,null,true);
+        var index:* = 0
+
+        var _loc2_:* = undefined;
+        for(_loc2_ in gameRoot.puccioConfig)
+        {
+            enabledBoxes[_loc2_] = new Sprite();
+            enabledBoxes[_loc2_].graphics.lineStyle(2,11446745);
+            enabledBoxes[_loc2_].graphics.beginFill(11446745,0.01);
+            enabledBoxes[_loc2_].graphics.drawRect(0,0,20,20);
+            enabledBoxes[_loc2_].graphics.endFill();
+            if(gameRoot.puccioConfig[_loc2_] == true)
+            {
+               enabledBoxes[_loc2_].graphics.moveTo(5,5);
+               enabledBoxes[_loc2_].graphics.lineTo(10,15);
+               enabledBoxes[_loc2_].graphics.lineTo(15,5);
+            }
+            enabledBoxes[_loc2_].x = 10;
+            enabledBoxes[_loc2_].y = 20 + index * 40;
+            enabledBoxes[_loc2_].buttonMode = true;
+            enabledBoxes[_loc2_].addEventListener("click",clickOnEnabledBox);
+            _loc1_ = new Sprite();
+            _loc1_.graphics.beginFill(11446745);
+            _loc1_.graphics.drawRect(0,0,534,1);
+            _loc1_.x = 8;
+            _loc1_.y = index * 40 + 50;
+            listArea.addContent(_loc1_,null,null,null,null,true);
+            listArea.addContent(enabledBoxes[_loc2_],null,null,null,null,true);
+            listArea.addContent(new EngineText(_loc2_,11446745,14,"left",40,20 + index * 40,500,20),null,null,null,null,true);
+            index++;
+        }
+         
+        listArea.updateSize();
+      }
+      
+      public function clickOnEnabledBox(param1:* = null) : *
+      {
+         var _loc4_:* = undefined;
+
+         for(_loc4_ in enabledBoxes)
+         {
+            if(param1.target == enabledBoxes[_loc4_])
+            {
+                  gameRoot.puccioConfig[_loc4_] = !gameRoot.puccioConfig[_loc4_];
+                  update();
+                  break;
+            }
+         }
+      }
+      
+      public function close() : *
+      {
+         try
+         {
+            gameRoot.savedConfig.data.puccioConfig = gameRoot.puccioConfig
+            gameRoot.savedConfig.flush();
+            this.visible = false;
+         }
+         catch(e:Error)
+         {
+            trace("flush error");
+         }
+         //return false;
+      }
+   }
+}
+

@@ -34,7 +34,9 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 14. **CanBreakEconomy = true**: Base game only allows such option once the game is completed, set true by default.
 
-15. **Create new towns**: [Testing](#TestCaravaneer2.swf) feature, work in progress.
+15. **Create new towns**: work in progress (press the RED BUTTON while on the map mode).
+
+16. **Mod Menu**: easily enable and disable features.
 
 
 ### Quality of Life
@@ -46,11 +48,15 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 	- Reduced size of item image to fit more items on the side scrolls.
 	- Visual indicator of high sell price, can be set on [the prices file](#Instructions).
 	- Displays item's ID for using in prices file and modding.
+	- Displays partner's money.
 	- Move undesired items to the bottom of the trade window.
 
 - Industries UI
 	- Add estimation of consumption expences, and profit.
 	- "Your industries" tab displayes unemployed requirement for town industries
+
+- Town UI
+	- Displays town money
 
 - Navigation Screen
 	- Auto invert when selecting GO.
@@ -74,22 +80,16 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
    - Replace the existing `caravaneer2.swf` in the game folder with the new one.  
    - *(Optional)* Add `Crowdfunder.swf` in the same folder.
 
-3. Run the game  
-   - Start it with the `.exe` file or through Steam.
-
-4. Create a new character  
-   - new character is only needed for the extra UMI ALPHA to spawn in the bunker
-   - Name it **Puccio** for change #1.
+3. Enable the features you want in the new menu option.
 
 
 
 ## Instructions
 
 Water/Food need is only updated when the navigation screen is opened, it won't automatically update if more members are recruited/dismissed.
-Trade window displays ID of items.
 
-In order to enable visual indicators need to create a "puccio.txt" with the "ID-Price" format, example .txt in the files section above.
-In order to put undesired items at the bottom of trade window need to add the IDs to the end of "puccio.txt" file
+In order to enable visual indicators need to create a "prices.txt" with the "ID-Price" format, example .txt in the files section above.
+In order to put undesired items at the bottom of trade window need to add the IDs to the end of "prices.txt" file
 
 
 
@@ -102,24 +102,21 @@ In order to put undesired items at the bottom of trade window need to add the ID
 ## Work in progress
 
 1. Industry QOL UI changes (expenses total)
-2. Ability to improve water well (did wells get fixed with the food/forage update in v10?)
+2. Ability to improve water well
 3. Spawn characters in straight line rather than grid, code fails with large groups
-4. Takeall shortcut in trade widnow does not work in middle section, breaks both
+4. Takeall shortcut in trade window does not work in middle section, breaks both
 5. Verify if escorts work properly, like spencer and the dude from lintu.
 6. New caravan relationship seems not to be reseting when starting a new game, have to close game completely
+7. remove umi alpha from bunker
+8. finish mode menu
 
 
 ## Ideas
 
 1. New bandit types
 2. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
-3. Add config.txt to enable/disable any feature
 
 
 
 ## Files with errors
 BATTLEFIELD (enemy pathfinding breaks)
-
-
-## TestCaravaneer2.swf
-Added button to start new towns

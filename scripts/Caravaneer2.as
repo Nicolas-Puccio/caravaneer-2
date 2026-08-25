@@ -98,6 +98,11 @@ package
       public var creditsPauseCounter:*;
       
       public var dlcDialogue:*;
+
+      public var puccioDialogue:*;
+
+      //-want to make it an object but the ordering fucks up
+      public var puccioConfig:* = {"revive dead mercenaries":true /* , "heal after battle":true, "smaller battlefields":true,"umi alpha for sale at lintu camp":true*/};
       
       public var switchSFXCross:*;
       
@@ -181,6 +186,10 @@ package
          if(savedConfig.data.language != undefined)
          {
             Texts.language = savedConfig.data.language;
+         }
+         if(savedConfig.data.puccioConfig != undefined)
+         {
+            puccioConfig = savedConfig.data.puccioConfig;
          }
          creditsTextLeft = new EngineText("",16777215,14,"right",0,0,432,2000,true,true);
          creditsTextRight = new EngineText("",16777215,14,"left",448,0,432,2000,true,true);
@@ -565,6 +574,17 @@ package
                      }
                      NativeApplication.nativeApplication.exit();
                   }
+               },{
+                  "text":"PUCCIO CONFIG",
+                  "onClick":function():*
+                  {
+                     if(GameData.soundFXOn)
+                     {
+                        new SFXClick().play();
+                     }
+                     puccioDialogue.update();
+                     puccioDialogue.visible = true;
+                  }
                }];
                titleScreenButtons = [];
                titleScreenButtonTexts = [];
@@ -670,6 +690,9 @@ package
                dlcDialogue = new DLCDialogue(this);
                currentScreen.addChild(dlcDialogue);
                dlcDialogue.visible = false;
+               puccioDialogue = new PuccioDialogue(this);
+               currentScreen.addChild(puccioDialogue);
+               puccioDialogue.visible = false;
                currentScreen.addChild(DLCLoadingScreen.disp);
                break;
             case 4:

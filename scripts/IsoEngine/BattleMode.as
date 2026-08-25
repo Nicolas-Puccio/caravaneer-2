@@ -289,7 +289,7 @@ package IsoEngine
                   {
                      _loc9_ += BF.ActList[_loc5_].meatAmount;
                   }
-                  if(BF.ActList[_loc5_].caravan.People[0].name == "Puccio" && BF.ActList[_loc5_].specialPurpose == 0)
+                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && BF.ActList[_loc5_].specialPurpose == 0 && GD.parent.puccioConfig["revive dead mercenaries"] == true)
                   {
                      //-ress dead members
                      BF.ActList[_loc5_].HP = BF.ActList[_loc5_].maxHealth / 5;
