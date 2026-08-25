@@ -25,7 +25,7 @@ package Interface
       
       public var enableNewColor:* = false;
       
-      public var newColor:* = 5792848;
+      public var newColor:* = 5796432;
       
       public var partner:*;
       
@@ -114,7 +114,10 @@ package Interface
          var _selectFrameSize:* = param14;
          var _selectFrameAlpha:* = param15;
          var _alwaysAllow:* = param16;
-         //+-loadTextFile();
+         try{
+            loadTextFile();
+         }
+         catch(e:Error){}
          filterButtonsArr = [];
          filterValues = [];
          super();
