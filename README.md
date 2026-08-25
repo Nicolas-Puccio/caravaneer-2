@@ -53,31 +53,31 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - Industries UI
 	- Add estimation of consumption expences, and profit.
-	- "Your industries" tab displayes unemployed requirement for town industries
+	- "Your industries" tab displays unemployed requirement for town industries growth.
 
 - Town UI
-	- Displays town money
+	- Displays town money.
 
 - Navigation Screen
 	- Auto invert when selecting GO.
 
 - Silos and Kevin's house moved slightly off the main road.
 
-- Animals spawn not too young and not too old
+- Animals spawn not too young and not too old.
 
-- Disabled fullscreen (scaling is broken and looks ugly)
+- Disabled fullscreen (scaling is broken and looks ugly).
 
-- Cheat start with a testing character, call it "PuccioTest"
+- Cheat start with a testing character, call it "PuccioTest".
 
 
 ## Installation
 
-1. Download the files  
-   - Download `caravaneer2.swf` from the repository.  
+1. Download the files
+   - Download `caravaneer2.swf` from the repository.
    - *(Optional)* Download `Crowdfunder.swf` to enable the DLC with a new weapon.
 
-2. Replace or add the files  
-   - Replace the existing `caravaneer2.swf` in the game folder with the new one.  
+2. Replace or add the files
+   - Replace the existing `caravaneer2.swf` in the game folder with the new one.
    - *(Optional)* Add `Crowdfunder.swf` in the same folder.
 
 3. Enable the features you want in the new menu option.
@@ -89,7 +89,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 Water/Food need is only updated when the navigation screen is opened, it won't automatically update if more members are recruited/dismissed.
 
 In order to enable visual indicators need to create a "prices.txt" with the "ID-Price" format, example .txt in the files section above.
-In order to put undesired items at the bottom of trade window need to add the IDs to the end of "prices.txt" file
+In order to put undesired items at the bottom of trade window need to add the IDs to the end of "prices.txt" file.
 
 
 
@@ -101,20 +101,20 @@ In order to put undesired items at the bottom of trade window need to add the ID
 
 ## Work in progress
 
-1. Industry QOL UI changes (expenses total)
-2. Ability to improve water well
-3. Spawn characters in straight line rather than grid, code fails with large groups
-4. Takeall shortcut in trade window does not work in middle section, breaks both
-5. Verify if escorts work properly, like spencer and the dude from lintu.
-6. New caravan relationship seems not to be reseting when starting a new game, have to close game completely
-7. remove umi alpha from bunker
-8. finish mode menu
+1. Industry QOL UI changes (expenses total).
+2. Ability to improve water well.
+3. Spawn characters in straight line rather than grid, code fails with large groups.
+4. Takeall shortcut in trade window does not work in middle section, breaks both.
+5. Verify if escorts work properly, like spencer and the dude from lintu..
+6. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
+7. remove umi alpha from bunker.
+8. finish mode menu.
 
 
 ## Ideas
 
-1. New bandit types
-2. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done)
+1. New bandit types.
+2. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done).
 
 
 

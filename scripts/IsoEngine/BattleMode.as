@@ -307,9 +307,9 @@ package IsoEngine
                else
                {
                   //-heal non dead members
-                  if(_loc5_ == 0 && BF.ActList[_loc5_].HP < BF.ActList[_loc5_].maxHealth / 10 + 1)
+                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && BF.ActList[_loc5_].HP < BF.ActList[_loc5_].maxHealth / 5 && GD.parent.puccioConfig["heal after battle"] == true)
                   {
-                     BF.ActList[_loc5_].HP = BF.ActList[_loc5_].maxHealth / 10 + 1;
+                     BF.ActList[_loc5_].HP = BF.ActList[_loc5_].maxHealth / 5;
                   }
                   for(_loc7_ in BF.ActList[_loc5_].weapons)
                   {

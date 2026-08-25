@@ -102,7 +102,7 @@ package
       public var puccioDialogue:*;
 
       //-want to make it an object but the ordering fucks up
-      public var puccioConfig:* = {"revive dead mercenaries":true /* , "heal after battle":true, "smaller battlefields":true,"umi alpha for sale at lintu camp":true*/};
+      public var puccioConfig:* = {"revive dead mercenaries":true, "heal after battle":true /*, "smaller battlefields":true,"umi alpha for sale at lintu camp":true*/};
       
       public var switchSFXCross:*;
       
