@@ -604,7 +604,17 @@ package IsoEngine
                {
                   _loc1_ = 1316;
                }
-               screens[4].townIndustryItems[_loc7_].employeesText = new EngineText(Texts.fetch(_loc1_).toUpperCase() + ": " + GD.Towns[town].industries[_loc7_].employees,16777215,12,"right",100,11,440,20);
+               //-display base size of industries on industry UI
+               var baseSize:* = ""
+               var industryIndex:* = 0
+               for (industryIndex in Presets.town_presets[0][town].industries)
+               {
+                  if(Presets.town_presets[0][town].industries[industryIndex].type == GD.Towns[town].industries[_loc7_].type)
+                  {
+                     baseSize = " (base: "+ Presets.town_presets[0][town].industries[industryIndex].volume +")"
+                  }
+               }
+               screens[4].townIndustryItems[_loc7_].employeesText = new EngineText(Texts.fetch(_loc1_).toUpperCase() + ": " + GD.Towns[town].industries[_loc7_].employees + baseSize,16777215,12,"right",100,11,440,20);
                screens[4].townIndustryItems[_loc7_].disp.addChild(screens[4].townIndustryItems[_loc7_].employeesText);
                _loc2_ = [];
                _loc4_ = GD.Towns[town].industries[_loc7_].consumption;
