@@ -5618,7 +5618,7 @@ package IsoEngine
                         }
                         if(!Presets.Towns[i].noPeopleToHire)
                         {
-                           //-try to guarantee at least 1 unemployed
+                           //-try to guarantee at least 1 people to hire
                            idealNumber = GD.Towns[i].unemployed / 2 + 1;
                            toReduce = idealNumber * 0.1 * Math.random() * 720 / 1440;
                            if(Math.random() < toReduce - Math.floor(toReduce))
@@ -5698,6 +5698,15 @@ package IsoEngine
                                  settings.faction = MathFunctions.random(1,Presets.FactionRelations.length - 1);
                               }
                               newPerson = new Character(settings);
+                              //-ensure better stats so don't have trash mercenaries
+                              if(GD.parent.puccioConfig["remove trash mercenaries"] == true)
+                              {
+                                 if(newPerson.baseAgility < 4)
+                                    newPerson.baseAgility = 4
+                                 if(newPerson.basePhysical < 4)
+                                    newPerson.basePhysical = 4
+                              }
+
                               GD.Towns[i].people.unshift(newPerson);
                               j = Number(j) + 1;
                            }

@@ -102,7 +102,7 @@ package
       public var puccioDialogue:*;
 
       //-want to make it an object but the ordering fucks up
-      public var puccioConfig:* = {"revive dead mercenaries":true, "heal after battle":true /*, "smaller battlefields":true,"umi alpha for sale at lintu camp":true*/};
+      public var puccioConfig:* = {"revive dead mercenaries":true, "heal after battle":true, "remove trash mercenaries":true , "smaller battlefields":true/*,"umi alpha for sale at lintu camp":true*/};
       
       public var switchSFXCross:*;
       
@@ -189,7 +189,15 @@ package
          }
          if(savedConfig.data.puccioConfig != undefined)
          {
-            puccioConfig = savedConfig.data.puccioConfig;
+            //puccioConfig = savedConfig.data.puccioConfig;
+            var savedConfigAlt:*;
+            for(savedConfigAlt in savedConfig.data.puccioConfig)
+            {
+               if(puccioConfig[savedConfigAlt] != undefined)
+               {
+                  puccioConfig[savedConfigAlt] = savedConfig.data.puccioConfig[savedConfigAlt]
+               }
+            }
          }
          creditsTextLeft = new EngineText("",16777215,14,"right",0,0,432,2000,true,true);
          creditsTextRight = new EngineText("",16777215,14,"left",448,0,432,2000,true,true);

@@ -198,7 +198,8 @@ package IsoEngine
                            if(weaponType.category == 2 || weaponType.category == 3 || weaponType.category == 4)//-ranged
                            {
                               //-reduces how much a weapon skill affects the battlefield size
-                              compRange = Math.round(compRange * 0.5 + compRange * allGroups[i].group.People[j][weaponSkillName + "Skill"] / 400);
+                              var compRangeRatio:* = GD.parent.puccioConfig["smaller battlefields"] == true ? 400 : 200;
+                              compRange = Math.round(compRange * 0.5 + compRange * allGroups[i].group.People[j][weaponSkillName + "Skill"] / compRangeRatio);
                            }
                            if(compRange > maxRange)
                            {
@@ -214,10 +215,11 @@ package IsoEngine
          {
             maxRange = settings.maxRange;
          }
+         var fieldMinRange = GD.parent.puccioConfig["smaller battlefields"] == true ? 30 : 50;
          if(settings.fieldWidth == undefined)
          {
             //-slightly reduces minimum size
-            fieldWidth = Math.max(maxRange,30);
+            fieldWidth = Math.max(maxRange, fieldMinRange);
          }
          else
          {
@@ -226,7 +228,7 @@ package IsoEngine
          if(settings.fieldHeight == undefined)
          {
             //-slightly reduces minimum size
-            fieldHeight = Math.max(maxRange,30);
+            fieldHeight = Math.max(maxRange, fieldMinRange);
          }
          else
          {
