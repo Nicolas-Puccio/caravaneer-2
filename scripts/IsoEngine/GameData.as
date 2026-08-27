@@ -792,7 +792,7 @@ package IsoEngine
             Towns[15].addToStock(67,2);
             Towns[15].addToStock(68,1);
             Towns[15].GDPperCapita = 6.3;
-            Towns[15].playersStorage.push(new TransportUnit(13));//-umi alpha to bunker
+            //-Towns[15].playersStorage.push(new TransportUnit(13));//-umi alpha to bunker
             Towns[15].addToStock(2,1,Towns[15].playersStorage);
             Towns[15].addToStock(42,1,Towns[15].playersStorage);
             Towns[15].addToStock(229,1,Towns[15].playersStorage);
@@ -1322,9 +1322,11 @@ package IsoEngine
             }
          }
          _loc4_.consumption = [];
+         //_loc4_.consumptionUI = [];
          _loc4_.production = [];
+         //_loc4_.productionUI = [];
          _loc4_.deficit = [];
-         for(_loc11_ in _loc15_)
+         for(_loc11_ in _loc15_) // _loc15_ seems to be industries that can produce
          {
             if(_loc15_[_loc11_].productionRate > 0)
             {
@@ -1340,6 +1342,10 @@ package IsoEngine
                      "item":_loc16_[_loc12_].item,
                      "amount":_loc6_ * param3
                   });
+                  /*addItemToArray(_loc4_.productionUI,{
+                     "item":_loc16_[_loc12_].item,
+                     "amount":_loc6_ * param3
+                  });*/
                }
                _loc5_ = _loc15_[_loc11_].ref.consumption;
                for(_loc12_ in _loc5_)
@@ -1353,6 +1359,10 @@ package IsoEngine
                      "item":_loc5_[_loc12_].item,
                      "amount":_loc6_ * param3
                   });
+                  /*addItemToArray(_loc4_.consumptionUI,{
+                     "item":_loc5_[_loc12_].item,
+                     "amount":_loc6_ * param3
+                  });*/
                }
             }
             if(_loc15_[_loc11_].productionRate < 1)
@@ -1363,8 +1373,8 @@ package IsoEngine
                });
             }
          }
-         //+- HORRIBLY made, should clean and make generic
 
+         //+-clean up
          for (_loc11_ in _loc15_)
          {
             var industry:* = _loc15_[_loc11_];
@@ -1398,12 +1408,7 @@ package IsoEngine
                      }
 
                      //-don't have an item
-                     if (!foundItem)
-                     {
-                        canProduce = false;
-                     }
-
-                     if (!canProduce)
+                     if (!foundItem || !canProduce)
                      {
                         break;
                      }
@@ -1421,12 +1426,16 @@ package IsoEngine
                      requiredItem = consumption.item;
                      requiredAmount = consumption.amount * param3;
 
-                     for (_loc12_ in _loc4_.production)
+                     for (_loc12_ in _loc4_.production) //-remove production of the consumed good
                      {
                         availableProduction = _loc4_.production[_loc12_];
                         if (availableProduction.item == requiredItem)
                         {
                            availableProduction.amount -= requiredAmount;
+                           /*addItemToArray(_loc4_.consumptionUI,{
+                              "item": availableProduction.item,
+                              "amount": requiredAmount
+                           });*/
                            break;
                         }
                      }
@@ -1439,6 +1448,10 @@ package IsoEngine
                         "item": production.item,
                         "amount": production.amount * param3
                      });
+                     /*addItemToArray(_loc4_.productionUI, {
+                        "item": production.item,
+                        "amount": production.amount * param3
+                     });*/
                   }
                }
             }
@@ -3160,7 +3173,7 @@ package IsoEngine
             Towns = [];
             //-reset to base locations
             Presets.Towns.splice(85, Presets.Towns.length - 85);
-
+            
             if(customTowns == undefined)//+-sanity check, i think i can remove this
                customTowns = []
 
@@ -3354,7 +3367,7 @@ package IsoEngine
                   _loc10_++;
                }
             }
-            for(_loc8_ in Caravans)
+            for(_loc8_ in Caravans)//+- crash custom caravan
             {
                if(Caravans[_loc8_].category == 5)
                {

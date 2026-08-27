@@ -3714,8 +3714,8 @@ package IsoEngine
                               GD.Caravans[i].addCargo(219,fullyCharged);
                            }
                            consumptionProduction = GameData.calculateConsumptionProduction(GD.Caravans[i].Cargo,GD.Caravans[i].Cargo,360 / 1440);
-                           GameData.addArrayToArray(GD.Caravans[i].historicalData[0].production,consumptionProduction.production);
-                           GameData.addArrayToArray(GD.Caravans[i].historicalData[0].consumption,consumptionProduction.consumption);
+                           GameData.addArrayToArray(GD.Caravans[i].historicalData[0].production,consumptionProduction.production/*UI*/);
+                           GameData.addArrayToArray(GD.Caravans[i].historicalData[0].consumption,consumptionProduction.consumption/*UI*/);
                            for(j in consumptionProduction.consumption)
                            {
                               GD.Caravans[j].reduceCargo(consumptionProduction.consumption[j].item,consumptionProduction.consumption[j].amount);

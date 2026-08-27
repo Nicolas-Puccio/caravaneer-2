@@ -14,7 +14,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 4. **Increased starting stats**: Main character now has 80 stat points to distribute during character creation, with each stat capped at 20 points.
 
-5. **Extra UMi alpha**: Start the game with a free UMi Alpha in the bunker storage, plus the storage got bigger to accomodate the vehicle.
+5. **UMi alpha for sale**: Buy more UMI Alphas at Qubba's transport shop.
 
 6. **Less entities during fights**: Slaves and transport are removed from the fight, to improve performance, and make the battles faster.
 
@@ -34,9 +34,11 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 14. **CanBreakEconomy = true**: Base game only allows such option once the game is completed, set true by default.
 
-15. **Create new towns**: work in progress (press the RED BUTTON while on the map mode).
+15. **Create new towns**: Work in progress (press the RED BUTTON while on the map mode).
 
-16. **Mod Menu**: easily enable and disable features.
+16. **Mod Menu**: Easily enable and disable features.
+
+17. **Expand water industry**: Allows you to expand all natural resource industries.
 
 
 ### Quality of Life

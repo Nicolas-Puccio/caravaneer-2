@@ -6866,7 +6866,7 @@ package Data
                "item":228,
                "amount":0.05
             }]
-         },{
+         },{//-transport
             "x":97,
             "y":215,
             "category":1,
@@ -8265,7 +8265,7 @@ package Data
          "noPeopleToHire":true,
          "cantExpandStorage":true,
          "stableEmployment":true,
-         "defaultStorage":4600,
+         "defaultStorage":100,
          "constantPopulation":true,
          "storagePrice":100,
          "tax":0.05,
@@ -8366,7 +8366,7 @@ package Data
             "visible":false,
             "name":500,
             "relPrice":0.8
-         },{
+         },{ //- transport
             "x":117,
             "y":216,
             "category":1,
@@ -8448,9 +8448,6 @@ package Data
             },{
                "type":4,
                "amount":2
-            },{//- umi alpha for sale on lintu camp
-               "type":13,
-               "amount":1
             }]
          }],
          "specialPrices":{45:1.5},
@@ -10851,7 +10848,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":1.5,
          "faction":9
-      },{//-36
+      },{//-36 big pop
          "name":3910,
          "x":-9600,
          "y":7600,
@@ -11363,7 +11360,7 @@ package Data
          "maxAttributes":1.2,
          "maxExperience":3,
          "faction":13
-      },{//-37
+      },{//-37 biggest pop
          "name":3911,
          "x":-8750,
          "y":4700,
@@ -11820,7 +11817,7 @@ package Data
          "maxAttributes":1.3,
          "maxExperience":3.5,
          "faction":14
-      },{//-38
+      },{//-38 big pop
          "name":4252,
          "x":-8700,
          "y":6800,
@@ -13253,7 +13250,7 @@ package Data
          "electricityPrice":0.3,
          "noticeability":150,
          "faction":16
-      },{//-4
+      },{//-4 big pop
          "name":5614,
          "x":-6250,
          "y":2350,
@@ -14139,7 +14136,7 @@ package Data
          "maxAttributes":1.5,
          "maxExperience":4,
          "faction":5
-      },{//-5
+      },{//-5 big pop
          "name":5649,
          "x":-1700,
          "y":-5200,
@@ -14639,7 +14636,7 @@ package Data
          "maxAttributes":1.1,
          "maxExperience":4,
          "faction":18
-      },{//-5
+      },{//-5 big pop?
          "name":5671,
          "x":-820,
          "y":-200,
