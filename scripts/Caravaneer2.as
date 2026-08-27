@@ -99,10 +99,11 @@ package
       
       public var dlcDialogue:*;
 
+      //-   
       public var puccioDialogue:*;
 
       //-want to make it an object but the ordering fucks up
-      public var puccioConfig:* = {"revive dead mercenaries":true, "heal after battle":true, "remove trash mercenaries":true , "smaller battlefields":true/*,"umi alpha for sale at lintu camp":true*/};
+      public var puccioConfig:* = {"revive dead mercenaries":true, "heal after battle":true, "remove trash mercenaries":true , "smaller battlefields":true, "allow expand natural resource industry":true, "umi alpha for sale at qubba":true/*,"umi alpha for sale at lintu camp":true*/};
       
       public var switchSFXCross:*;
       
@@ -187,9 +188,9 @@ package
          {
             Texts.language = savedConfig.data.language;
          }
+         //-puccioConfig
          if(savedConfig.data.puccioConfig != undefined)
          {
-            //puccioConfig = savedConfig.data.puccioConfig;
             var savedConfigAlt:*;
             for(savedConfigAlt in savedConfig.data.puccioConfig)
             {
@@ -312,6 +313,11 @@ package
                   }
                }
             }
+         }
+         
+         if(puccioConfig["umi alpha for sale at qubba"] == true)
+         {
+            Presets.town_presets[0][5].locations[4].transportAssortment.push({"type":13, "amount":1})
          }
       }
       
@@ -582,7 +588,7 @@ package
                      }
                      NativeApplication.nativeApplication.exit();
                   }
-               },{
+               },{ //-new button
                   "text":"PUCCIO CONFIG",
                   "onClick":function():*
                   {
@@ -698,9 +704,11 @@ package
                dlcDialogue = new DLCDialogue(this);
                currentScreen.addChild(dlcDialogue);
                dlcDialogue.visible = false;
+               //-
                puccioDialogue = new PuccioDialogue(this);
                currentScreen.addChild(puccioDialogue);
                puccioDialogue.visible = false;
+
                currentScreen.addChild(DLCLoadingScreen.disp);
                break;
             case 4:
@@ -1114,8 +1122,8 @@ package
             GD.Caravans[0].addCargo(62,10);
             GD.Caravans[0].money = 100000000000
             if(GD.storyMode){
-               GD.Caravans[0].x = -9930;
-               GD.Caravans[0].y = -1500;
+               GD.Caravans[0].x = -12000;
+               GD.Caravans[0].y = 1550;
             }
             GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
             GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
@@ -1141,7 +1149,8 @@ package
          }
 
          //- test new caravan
-         setCaravanRoute(30,{
+         //+- disabled until dynamic caravan added
+         /*setCaravanRoute(30,{
             "size":1,
             "onInit":false,
             "extraEquipment":[],
@@ -1186,6 +1195,7 @@ package
             "customMoney":10000//-seems to work
          })
          GD.createCaravanOnRoute(30);
+         */
       }
       
       public function switchShowTutorial() : *

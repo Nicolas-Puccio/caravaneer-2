@@ -880,8 +880,10 @@ package IsoEngine
                   screens[4].playersIndustryItems[_loc7_].sellButton.addEventListener("click",sellIndustry,false,0,false);
                   screens[4].playersIndustryItems[_loc7_].disp.addChild(screens[4].playersIndustryItems[_loc7_].sellButton);
                }
-               if(GD.Towns[town].playersIndustries[_loc7_].pricePerUnit <= GD.Caravans[0].money && GD.Towns[town].unemployed > 0 && (!GD.Towns[town].playersIndustries[_loc7_].naturalResource || GD.Towns[town].playersIndustries[_loc7_].employees < GD.Towns[town].playersIndustries[_loc7_].maxSize))
-               {
+               //-
+               var expandNaturalResources:* = GD.parent.puccioConfig["allow expand natural resource industry"];
+               if(GD.Towns[town].playersIndustries[_loc7_].pricePerUnit <= GD.Caravans[0].money && GD.Towns[town].unemployed > 0 && (expandNaturalResources || !GD.Towns[town].playersIndustries[_loc7_].naturalResource || GD.Towns[town].playersIndustries[_loc7_].employees < GD.Towns[town].playersIndustries[_loc7_].maxSize))
+               { //-expand button
                   screens[4].playersIndustryItems[_loc7_].expandButton = new Sprite();
                   screens[4].playersIndustryItems[_loc7_].expandButton.graphics.beginFill(0);
                   screens[4].playersIndustryItems[_loc7_].expandButton.graphics.drawRect(0,0,140,20);
@@ -891,7 +893,7 @@ package IsoEngine
                   screens[4].playersIndustryItems[_loc7_].expandButtonText = new EngineText(Texts.fetch(1320).toUpperCase(),16777215,14,"center",0,0,140,20);
                   screens[4].playersIndustryItems[_loc7_].expandButtonText.blendMode = "erase";
                   screens[4].playersIndustryItems[_loc7_].expandButton.addChild(screens[4].playersIndustryItems[_loc7_].expandButtonText);
-                  screens[4].playersIndustryItems[_loc7_].expandButton.mouseChildren = false;
+                  screens[4].playersIndustryItems[_loc7_].expandButton.mouseChildren = false;              
                   screens[4].playersIndustryItems[_loc7_].expandButton.buttonMode = true;
                   screens[4].playersIndustryItems[_loc7_].expandButton.addEventListener("click",expandIndustry,false,0,false);
                   screens[4].playersIndustryItems[_loc7_].disp.addChild(screens[4].playersIndustryItems[_loc7_].expandButton);
@@ -1286,10 +1288,10 @@ package IsoEngine
          }
          changingIndustry = GD.Towns[town].playersIndustries[num];
          maxExpand = Math.min(GD.Towns[town].unemployed,Math.floor(GD.Caravans[0].money / changingIndustry.pricePerUnit));
-         if(changingIndustry.naturalResource)
+         /*if(changingIndustry.naturalResource) allow expand antural resource industry
          {
             maxExpand = Math.min(maxExpand,changingIndustry.maxSize - changingIndustry.employees);
-         }
+         }*/
          calculator.min = 0;
          calculator.max = maxExpand;
          calculator.visible = true;
