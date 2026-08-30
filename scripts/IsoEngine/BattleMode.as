@@ -235,7 +235,7 @@ package IsoEngine
             fieldHeight = settings.fieldHeight;
          }
 
-         BF = new BattleField(640,445,fieldWidth,fieldHeight,obstacles,GD.difficulty,GD.autoCenter,GD.walkAnimationSpeed,GD.showGrid);
+         BF = new MyBattleField(640,445,fieldWidth,fieldHeight,obstacles,GD.difficulty,GD.autoCenter,GD.walkAnimationSpeed,GD.showGrid);
          BF.onWin = function():*
          {
             var _loc7_:* = undefined;
