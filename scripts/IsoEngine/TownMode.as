@@ -881,7 +881,7 @@ package IsoEngine
                   screens[4].playersIndustryItems[_loc7_].disp.addChild(screens[4].playersIndustryItems[_loc7_].sellButton);
                }
                //-
-               var expandNaturalResources:* = GD.parent.puccioConfig["allow expand natural resource industry"];
+               var expandNaturalResources:* = GD.Config("allow expand natural resource industry");
                if(GD.Towns[town].playersIndustries[_loc7_].pricePerUnit <= GD.Caravans[0].money && GD.Towns[town].unemployed > 0 && (expandNaturalResources || !GD.Towns[town].playersIndustries[_loc7_].naturalResource || GD.Towns[town].playersIndustries[_loc7_].employees < GD.Towns[town].playersIndustries[_loc7_].maxSize))
                { //-expand button
                   screens[4].playersIndustryItems[_loc7_].expandButton = new Sprite();

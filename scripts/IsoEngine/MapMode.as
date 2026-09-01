@@ -5699,7 +5699,7 @@ package IsoEngine
                               }
                               newPerson = new Character(settings);
                               //-ensure better stats so don't have trash mercenaries
-                              if(GD.parent.puccioConfig["remove trash mercenaries"] == true)
+                              if(GD.Config("remove trash mercenaries"))
                               {
                                  if(newPerson.baseAgility < 4)
                                     newPerson.baseAgility = 4

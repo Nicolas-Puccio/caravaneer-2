@@ -18,7 +18,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 6. **Less entities during fights**: Slaves and transport are removed from the fight, to improve performance, and make the battles faster.
 
-7. **More mercenaries available in towns**: Added +1 to the amount of mercenary in a town, making it easier to find recruits in low population towns.
+7. **More and better mercenaries available in towns**: Added +1 to the amount of mercenary in a town, mercenaries won't spawn with agi/str below 4.
 
 8. **Smaller battle fields**: halved how much battle field size scales with weapon skill, and reduced min size when using melee weapons.
 
@@ -39,6 +39,8 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 16. **Mod Menu**: Easily enable and disable features.
 
 17. **Expand water industry**: Allows you to expand all natural resource industries.
+
+18. **Infinite ammo**: Infinite ammo during combat.
 
 
 ### Quality of Life
@@ -68,6 +70,8 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 - Animals spawn not too young and not too old.
 
 - Disabled fullscreen (scaling is broken and looks ugly).
+
+- Set walk speed to fast and center screen to disabled by default.
 
 - Cheat start with a testing character, call it "PuccioTest".
 
@@ -104,13 +108,11 @@ In order to put undesired items at the bottom of trade window need to add the ID
 ## Work in progress
 
 1. Industry QOL UI changes (expenses total).
-2. Ability to improve water well.
+2. finish mod menu. (less entities, more mercenaries, fix starving town, fix town industry not expanding, fix chained industries, more industries, expand water, see caravan cargo)
 3. Spawn characters in straight line rather than grid, code fails with large groups.
 4. Takeall shortcut in trade window does not work in middle section, breaks both.
 5. Verify if escorts work properly, like spencer and the dude from lintu..
 6. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
-7. remove umi alpha from bunker.
-8. finish mode menu.
 
 
 ## Ideas
@@ -122,3 +124,7 @@ In order to put undesired items at the bottom of trade window need to add the ID
 
 ## Files with errors
 BATTLEFIELD (enemy pathfinding breaks)
+
+
+## Log
+%appdata%\Macromedia\Flash Player\Logs

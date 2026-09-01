@@ -14,8 +14,7 @@ package IsoEngine
    import flash.utils.*;
    
    public class GameData
-   {
-      
+   {      
       public static var foodAveragePrice:*;
       
       public static var upperBodyClothingAveragePrice:*;
@@ -439,11 +438,11 @@ package IsoEngine
       
       public var adultContent:* = false;
       
-      public var autoCenter:* = true;
+      public var autoCenter:* = false;
       
       public var showGrid:* = true;
       
-      public var walkAnimationSpeed:* = 1;
+      public var walkAnimationSpeed:* = 2;
       
       public var interactWithFriendlyCaravans:* = true;
       
@@ -465,7 +464,7 @@ package IsoEngine
       
       public var removedDLC:*;
       
-      public var canBreakEconomy:*;
+      public var canBreakEconomy:* = true;
       
       public const LOIS_SETTINGS:* = {
          "specialPortrait":2,
@@ -675,7 +674,6 @@ package IsoEngine
          displayedTutorials = [];
          initiatedDLC = [];
          removedDLC = [];
-         canBreakEconomy = true;
          Caravans = [];
          Towns = [];
          Squares = [];
@@ -14769,6 +14767,14 @@ package IsoEngine
             result = puccioForageIndustryIndex;
          }
          return result;
+      }
+
+      public function Config(key:*): Boolean {
+         if(parent.puccioConfig[key] !== undefined && parent.puccioConfig[key] == true)
+         {
+            return true;
+         }
+         return false;
       }
    }
 }

@@ -198,7 +198,7 @@ package IsoEngine
                            if(weaponType.category == 2 || weaponType.category == 3 || weaponType.category == 4)//-ranged
                            {
                               //-reduces how much a weapon skill affects the battlefield size
-                              var compRangeRatio:* = GD.parent.puccioConfig["smaller battlefields"] == true ? 400 : 200;
+                              var compRangeRatio:* = GD.Config("smaller battlefields") ? 400 : 200;
                               compRange = Math.round(compRange * 0.5 + compRange * allGroups[i].group.People[j][weaponSkillName + "Skill"] / compRangeRatio);
                            }
                            if(compRange > maxRange)
@@ -215,7 +215,7 @@ package IsoEngine
          {
             maxRange = settings.maxRange;
          }
-         var fieldMinRange = GD.parent.puccioConfig["smaller battlefields"] == true ? 30 : 50;
+         var fieldMinRange = GD.Config("smaller battlefields") ? 30 : 50;
          if(settings.fieldWidth == undefined)
          {
             //-slightly reduces minimum size
@@ -291,7 +291,7 @@ package IsoEngine
                   {
                      _loc9_ += BF.ActList[_loc5_].meatAmount;
                   }
-                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && BF.ActList[_loc5_].specialPurpose == 0 && GD.parent.puccioConfig["revive dead mercenaries"] == true)
+                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && BF.ActList[_loc5_].specialPurpose == 0 && GD.Config("revive dead mercenaries"))
                   {
                      //-ress dead members
                      BF.ActList[_loc5_].HP = BF.ActList[_loc5_].maxHealth / 5;
@@ -309,7 +309,7 @@ package IsoEngine
                else
                {
                   //-heal non dead members
-                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && BF.ActList[_loc5_].HP < BF.ActList[_loc5_].maxHealth / 5 && GD.parent.puccioConfig["heal after battle"] == true)
+                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && BF.ActList[_loc5_].HP < BF.ActList[_loc5_].maxHealth / 5 && GD.Config("heal after battle"))
                   {
                      BF.ActList[_loc5_].HP = BF.ActList[_loc5_].maxHealth / 5;
                   }
@@ -659,32 +659,9 @@ package IsoEngine
                sides[i]++;
             }
          }
-         for(i in allGroups)//-the "group" variable inside has a .group and .type
+         for(i in allGroups)
          {
-            //-copy group and remove transport and prisioners
-            //-works but then i would have to re add all these in to OnWin, and would i have ended up with duplicate groups?
-            /*
-            var copyGroup:Object = {};
-            for (var key:String in allGroups[i]) {
-               copyGroup[key] = allGroups[i][key];
-            }
-            copyGroup.group = {};
-            for (var groupKey:String in allGroups[i].group) {
-               copyGroup.group[groupKey] = allGroups[i].group[groupKey];
-            }
-            copyGroup.group.Transport = [];//remove transports
-            copyGroup.group.People = [];//clears out people
-            var peopleIndex:* = 0
-            for(peopleIndex in allGroups[i].group.People)
-            {
-               if(allGroups[i].group.People[peopleIndex].category != 4) //adds only those that are not prisoners
-               {
-                  copyGroup.group.People.push(allGroups[i].group.People[peopleIndex])
-               }
-            }
-            copyGroup.group.name = allGroups[i].group.name // 4 missing
-            */
-            var copyGroup = allGroups[i]
+            var copyGroup = allGroups[i]//-bad name
 
             if(copyGroup.side != undefined)
             {
