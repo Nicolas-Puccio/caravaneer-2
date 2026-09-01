@@ -8,10 +8,6 @@ package IsoEngine
    //-new class
    public class PuccioDialogue extends Sprite
    {
-      public var D:*;
-      
-      public var BG:*;
-      
       public var doneButt:*;
       
       public var listArea:*;
@@ -19,19 +15,17 @@ package IsoEngine
       public var gameRoot:*;
       
       private var enabledBoxes:*;
-
-      private var orderedList:* = [];
       
       public function PuccioDialogue(param1:*)
       {
          gameRoot = param1;
          super();
-         BG = new Sprite();
+         var BG:* = new Sprite();
          BG.graphics.beginFill(0,0.5);
          BG.graphics.drawRect(0,0,880,495);
          BG.graphics.endFill();
          addChild(BG);
-         D = new Dialogue(600,460);
+         var D:* = new Dialogue(600,460);
          D.x = 440 - D.dialogueWidth / 2;
          D.y = 248 - D.dialogueHeight / 2;
          addChild(D);
@@ -44,19 +38,19 @@ package IsoEngine
          D.addChild(doneButt);
          var listFrame:* = new Sprite();
          listFrame.graphics.beginFill(4735032);
-         listFrame.graphics.drawRect(0,0,560,280);
+         listFrame.graphics.drawRect(0,0,560,340);
          listFrame.graphics.endFill();
          listFrame.graphics.lineStyle(1,16777215,0.3);
          listFrame.graphics.moveTo(561,-1);
-         listFrame.graphics.lineTo(561,281);
-         listFrame.graphics.lineTo(-1,281);
+         listFrame.graphics.lineTo(561,341);
+         listFrame.graphics.lineTo(-1,341);
          listFrame.graphics.lineStyle(1,0,0.6);
          listFrame.graphics.lineTo(-1,-1);
          listFrame.graphics.lineTo(561,-1);
          listFrame.x = 20;
          listFrame.y = 60;
          D.addChild(listFrame);
-         listArea = new ScrollableArea(550,280,550,280,true,false,false,3,10);
+         listArea = new ScrollableArea(550,340,550,340,true,false,false,3,10);
          listArea.x = 20;
          listArea.y = 60;
          D.addChild(listArea);
@@ -64,19 +58,19 @@ package IsoEngine
       
       public function update() : *
       {
-        listArea.clearAll();
-        enabledBoxes = [];
+         listArea.clearAll();
+         enabledBoxes = [];
          var _loc1_:* = new Sprite();
-        _loc1_.graphics.beginFill(11446745);
-        _loc1_.graphics.drawRect(0,0,534,1);
-        _loc1_.x = 8;
-        _loc1_.y = 10;
-        listArea.addContent(_loc1_,null,null,null,null,true);
-        var index:* = 0
+         _loc1_.graphics.beginFill(11446745);
+         _loc1_.graphics.drawRect(0,0,534,1);
+         _loc1_.x = 8;
+         _loc1_.y = 10;
+         listArea.addContent(_loc1_,null,null,null,null,true);
+         var index:* = 0
 
-        var _loc2_:* = undefined;
-        for(_loc2_ in gameRoot.puccioConfig)
-        {
+         var _loc2_:* = undefined;
+         for(_loc2_ in gameRoot.puccioConfig)
+         {
             enabledBoxes[_loc2_] = new Sprite();
             enabledBoxes[_loc2_].graphics.lineStyle(2,11446745);
             enabledBoxes[_loc2_].graphics.beginFill(11446745,0.01);
@@ -114,9 +108,9 @@ package IsoEngine
          {
             if(param1.target == enabledBoxes[_loc4_])
             {
-                  gameRoot.puccioConfig[_loc4_] = !gameRoot.puccioConfig[_loc4_];
-                  update();
-                  break;
+               gameRoot.puccioConfig[_loc4_] = !gameRoot.puccioConfig[_loc4_];
+               update();
+               break;
             }
          }
       }
@@ -133,7 +127,6 @@ package IsoEngine
          {
             trace("flush error");
          }
-         //return false;
       }
    }
 }
