@@ -103,7 +103,18 @@ package
       public var puccioDialogue:*;
 
       //-want to make it an object but the ordering fucks up
-      public var puccioConfig:* = {"revive dead mercenaries":true, "heal after battle":true, "remove trash mercenaries":true , "smaller battlefields":true, "allow expand natural resource industry":true, "umi alpha for sale at qubba":true, "infinite ammo":true};
+      public var puccioConfig:* = {
+         "revive dead mercenaries":true,
+         "heal after battle":true,
+         "remove trash mercenaries":true,
+         "smaller battlefields":true,
+         "allow expand natural resource industry":true,
+         "umi alpha for sale at qubba":true,
+         "infinite ammo":true,
+         "see hidden cargo":true,
+         "spawn characters in a row during combat":true
+         
+         };
       
       public var switchSFXCross:*;
       

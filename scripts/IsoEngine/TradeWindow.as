@@ -421,7 +421,8 @@ package IsoEngine
                   {
                      _loc11_ = partners[_loc13_].array[_loc14_].amount - partners[_loc13_].array[_loc14_].inUse;
                   }
-                  if(_loc13_ == 1 && partner is Caravan  &&false/*//+-*/)
+                  //-
+                  if(_loc13_ == 1 && partner is Caravan && !GD.Config("see hidden cargo"))
                   {
                      if(partners[_loc13_].array[_loc14_].category != 1 || partners[_loc13_].array[_loc14_].itemData.liquidsContainer)
                      {
@@ -456,7 +457,8 @@ package IsoEngine
                      _loc14_--;
                   }
                }
-               if(false &&/*//+-*/partners[_loc13_].array[_loc14_] is Character && partners[_loc13_].array[_loc14_].category != 4)
+               //-
+               if(!GD.Config("see hidden cargo") && partners[_loc13_].array[_loc14_] is Character && partners[_loc13_].array[_loc14_].category != 4)
                {
                   partners[_loc13_].array.splice(_loc14_,1);
                   _loc14_--;
