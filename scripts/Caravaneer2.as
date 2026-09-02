@@ -103,7 +103,7 @@ package
       public var puccioDialogue:*;
 
       //-want to make it an object but the ordering fucks up
-      public var puccioConfig:* = {"revive dead mercenaries":true, "heal after battle":true, "remove trash mercenaries":true , "smaller battlefields":true, "allow expand natural resource industry":true, "umi alpha for sale at qubba":true/*,"umi alpha for sale at lintu camp":true*/};
+      public var puccioConfig:* = {"revive dead mercenaries":true, "heal after battle":true, "remove trash mercenaries":true , "smaller battlefields":true, "allow expand natural resource industry":true, "umi alpha for sale at qubba":true, "infinite ammo":true};
       
       public var switchSFXCross:*;
       
@@ -609,7 +609,7 @@ package
                   titleScreenButtons[i].graphics.beginFill(16711680);
                   titleScreenButtons[i].graphics.drawRect(0,0,240,30);
                   titleScreenButtons[i].x = 20;
-                  titleScreenButtons[i].y = 167 + i * 41;
+                  titleScreenButtons[i].y = 157 + i * 41;//- was 167
                   titleScreenButtons[i].buttonMode = true;
                   titleScreenButtons[i].addEventListener("click",titleScreenButtonContent[i].onClick);
                   alphas.addChild(titleScreenButtons[i]);
@@ -617,13 +617,13 @@ package
                   titleScreenButtonTexts[i].addChild(new EngineText(titleScreenButtonContent[i].text,255,16,"center",0,0,230,22));
                   titleScreenButtonTexts[i].mouseEnabled = false;
                   titleScreenButtonTexts[i].x = 25;
-                  titleScreenButtonTexts[i].y = 171 + i * 41;
+                  titleScreenButtonTexts[i].y = 161 + i * 41;//- was 171
                   erase.addChild(titleScreenButtonTexts[i]);
                   titleScreenButtonsBrighteners[i] = new Sprite();
                   titleScreenButtonsBrighteners[i].graphics.beginFill(16777215,0.06 * i);
                   titleScreenButtonsBrighteners[i].graphics.drawRect(0,0,240,30);
                   titleScreenButtonsBrighteners[i].x = 20;
-                  titleScreenButtonsBrighteners[i].y = 167 + i * 41;
+                  titleScreenButtonsBrighteners[i].y = 157 + i * 41;//- was 167
                   currentScreen.addChildAt(titleScreenButtonsBrighteners[i],currentScreen.getChildIndex(FG));
                }
                switchSFX = new SoundSwitchSFX();
@@ -1119,17 +1119,15 @@ package
             GD.Caravans[0].addCargo(45,20);
             GD.Caravans[0].addCargo(169,1);
             GD.Caravans[0].addCargo(1,30);
-            GD.Caravans[0].addCargo(62,10);
+            //GD.Caravans[0].addCargo(62,10);
             GD.Caravans[0].money = 100000000000
-            if(GD.storyMode){
-               GD.Caravans[0].x = -12000;
-               GD.Caravans[0].y = 1550;
-            }
-            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
-            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
-            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
-            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
-            GD.Caravans[0].addPerson(new Character({"category":4}))//-add slave
+            /*if(GD.storyMode){
+               GD.Caravans[0].x = -9930;
+               GD.Caravans[0].y = -1500;
+            }*/
+            theCharacter.baseAgility = 20;
+            theCharacter.basePhysical = 20;
+            theCharacter.HP = theCharacter.maxHP;
         }
 
          GD.Caravans[0].addCargo(65,2);

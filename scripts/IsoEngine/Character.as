@@ -2361,10 +2361,17 @@ package IsoEngine
                {
                   if(equipment[_loc4_].category == 3 && equipment[_loc4_].type == selectedAmmo[param1])
                   {
-                     unloadWeapon(param1);
-                     _loc3_ = Math.min(weaponAmmoCapacity(param1),equipment[_loc4_].amount - equipment[_loc4_].inUse);
+                     var infiniteAmmo:* = GameData.currentGame.Config("infinite ammo")
+                     if(infiniteAmmo) {
+                        _loc3_ = weaponAmmoCapacity(param1);
+                     }
+                     else {
+                        unloadWeapon(param1);
+                        _loc3_ = Math.min(weaponAmmoCapacity(param1),equipment[_loc4_].amount - equipment[_loc4_].inUse);
+                        equipment[_loc4_].inUse += _loc3_;
+                     }
+
                      loadedAmmo[param1] = new Item(selectedAmmo[param1],_loc3_);
-                     equipment[_loc4_].inUse += _loc3_;
                      _loc2_ = true;
                      trace("loading " + _loc3_ + " of " + selectedAmmo[param1] + " into slot " + param1);
                   }
@@ -2387,7 +2394,7 @@ package IsoEngine
          {
             for(_loc2_ in equipment)
             {
-               if(equipment[_loc2_].type == loadedAmmo[param1].type)
+               if(equipment[_loc2_].type == loadedAmmo[param1].type && !GameData.currentGame.Config("infinite ammo"))
                {
                   equipment[_loc2_].inUse -= loadedAmmo[param1].amount;
                }
