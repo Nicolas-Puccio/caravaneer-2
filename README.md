@@ -73,6 +73,8 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - Set walk speed to fast and center screen to disabled by default.
 
+- Spawns characters in a straight line during combat
+
 - Cheat start with a testing character, call it "PuccioTest".
 
 - Cheat that allows you to see other caravan's hidden cargo (breaks the game)
@@ -111,11 +113,10 @@ In order to put undesired items at the bottom of trade window need to add the ID
 
 1. Industry QOL UI changes (expenses total).
 2. finish mod menu. (less entities, more mercenaries, fix starving town, fix town industry not expanding, fix chained industries, more industries, expand water)
-3. Spawn characters in straight line rather than grid, code fails with large groups.
-4. Takeall shortcut in trade window does not work in middle section, breaks both.
-5. Verify if escorts work properly, like spencer and the dude from lintu..
-6. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
-7. Error when right clic item icon outside of TradeWindow
+3. Takeall shortcut in trade window does not work in middle section, breaks both.
+4. Verify if escorts work properly, like spencer and the dude from lintu..
+5. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
+6. Error when right clic item icon outside of TradeWindow
 
 
 ## Ideas
