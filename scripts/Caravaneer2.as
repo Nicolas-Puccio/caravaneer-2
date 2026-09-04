@@ -104,16 +104,16 @@ package
 
       //-want to make it an object but the ordering fucks up
       public var puccioConfig:* = {
-         "revive dead mercenaries":true,
-         "heal after battle":true,
-         "remove trash mercenaries":true,
-         "smaller battlefields":true,
-         "allow expand natural resource industry":true,
-         "umi alpha for sale at qubba":true,
-         "infinite ammo":true,
-         "see hidden cargo":true,
-         "spawn characters in a row during combat":true
-         
+         "revive dead mercenaries": true,
+         "heal after battle": true,
+         "remove trash mercenaries": true,
+         "smaller battlefields": true,
+         "allow expand natural resource industry": true,
+         "umi alpha for sale at qubba": true,
+         "infinite ammo": true,
+         "spawn characters in a row during combat": true
+
+         //"see hidden cargo": false, //-totally breaks the progression of the game, only added it for testing
          };
       
       public var switchSFXCross:*;
@@ -138,7 +138,7 @@ package
       
       internal var radios:*;
       
-      public const version:* = "1.1.3";
+      public const version:* = "1.1.3 mod v17 by Puccio";
       
       public const build:* = 210;
       
@@ -506,7 +506,7 @@ package
                theCharacter = null;
                bg = new ImportedBitmap("TitleScreen.jpg");
                currentScreen.addChild(bg);
-               versionText = new EngineText(Texts.fetch(1420).toLowerCase() + " " + "1.1.3",3156000,12,"center",90,20,490,20);
+               versionText = new EngineText(Texts.fetch(1420).toLowerCase() + " " + version,3156000,12,"center",90,20,490,20);
                currentScreen.addChild(versionText);
                FG = new Sprite();
                maskedBmp = new ImportedBitmap("InterfaceForeground.png");
