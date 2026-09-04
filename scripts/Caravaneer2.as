@@ -111,7 +111,8 @@ package
          "allow expand natural resource industry": true,
          "umi alpha for sale at qubba": true,
          "infinite ammo": true,
-         "spawn characters in a row during combat": true
+         "spawn characters in a row during combat": true,
+         "fix chained industries": true
 
          //"see hidden cargo": false, //-totally breaks the progression of the game, only added it for testing
          };
@@ -725,7 +726,7 @@ package
             case 4:
                startNewGame(setToMode);
                break;
-            case 5:
+            case 5: //-load?
                bg = new Sprite();
                bg.graphics.beginFill(0);
                bg.graphics.drawRect(0,0,880,495);

@@ -1,6 +1,6 @@
 # Caravaneer 2 - Modded
 
-This repository contains a modified version of [Caravaneer 2](https://store.steampowered.com/app/1500820/Caravaneer_2/), and a folder structure that allows for a quick BULK IMPORT using JPEXS, it is recommended to edit the code on a separate IDE like VS CODE rather than inside JPEXS
+This repository contains a modified version of [Caravaneer 2](https://store.steampowered.com/app/1500820/Caravaneer_2/), and a folder structure that allows for a quick BULK IMPORT using JPEXS, it is recommended to edit the code on a separate code editor like VS CODE rather than inside JPEXS
 
 
 ## Combat Changes
@@ -115,7 +115,7 @@ In order to put undesired items at the bottom of trade window need to add the ID
 ## Work in progress
 
 1. Industry QOL UI changes (expenses total).
-2. finish mod menu. (less entities, more mercenaries, fix starving town, fix town industry not expanding, fix chained industries, more industries, expand water)
+2. finish mod menu. (less entities, fix starving town, fix town industry not expanding, more industries, expand water)
 3. Takeall shortcut in trade window does not work in middle section, breaks both.
 4. Verify if escorts work properly, like spencer and the dude from lintu..
 5. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.

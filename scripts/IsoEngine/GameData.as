@@ -1372,84 +1372,87 @@ package IsoEngine
             }
          }
 
-         //+-clean up
-         for (_loc11_ in _loc15_)
-         {
-            var industry:* = _loc15_[_loc11_];
-
-            // Only process industries that are not already producing
-            if (industry.productionRate == 0)
+         if(GameData.currentGame.Config("fix chained industries"))
+         {  
+            //+-clean up
+            for (_loc11_ in _loc15_)
             {
-               var industryRef:* = industry.ref;
-               var canProduce:Boolean = true;
+               var industry:* = _loc15_[_loc11_];
 
-               //- check have all consumption items
-               for each (var consumption:* in industryRef.consumption)
+               // Only process industries that are not already producing
+               if (industry.productionRate == 0)
                {
-                     var requiredItem:* = consumption.item;
-                     var requiredAmount:* = consumption.amount * param3;
-                     var foundItem:Boolean = false;
+                  var industryRef:* = industry.ref;
+                  var canProduce:Boolean = true;
 
-                     for (_loc12_ in _loc4_.production)
-                     {
-                        var availableProduction:* = _loc4_.production[_loc12_];
-
-                        if (availableProduction.item == requiredItem)
-                        {
-                           foundItem = true;
-                           if (availableProduction.amount < requiredAmount)
-                           {
-                              canProduce = false;
-                           }
-                           break;
-                        }
-                     }
-
-                     //-don't have an item
-                     if (!foundItem || !canProduce)
-                     {
-                        break;
-                     }
-               }
-
-               // --------------------------------------------------
-               // 2. Consume all required inputs
-               // --------------------------------------------------
-               //-consume consumptions, kinda breaks the RECENT DATA UI
-               //+-would like to fix UI
-               if (canProduce)
-               {
-                  for each (consumption in industryRef.consumption)
+                  //- check have all consumption items
+                  for each (var consumption:* in industryRef.consumption)
                   {
-                     requiredItem = consumption.item;
-                     requiredAmount = consumption.amount * param3;
+                        var requiredItem:* = consumption.item;
+                        var requiredAmount:* = consumption.amount * param3;
+                        var foundItem:Boolean = false;
 
-                     for (_loc12_ in _loc4_.production) //-remove production of the consumed good
-                     {
-                        availableProduction = _loc4_.production[_loc12_];
-                        if (availableProduction.item == requiredItem)
+                        for (_loc12_ in _loc4_.production)
                         {
-                           availableProduction.amount -= requiredAmount;
-                           /*addItemToArray(_loc4_.consumptionUI,{
-                              "item": availableProduction.item,
-                              "amount": requiredAmount
-                           });*/
+                           var availableProduction:* = _loc4_.production[_loc12_];
+
+                           if (availableProduction.item == requiredItem)
+                           {
+                              foundItem = true;
+                              if (availableProduction.amount < requiredAmount)
+                              {
+                                 canProduce = false;
+                              }
+                              break;
+                           }
+                        }
+
+                        //-don't have an item
+                        if (!foundItem || !canProduce)
+                        {
                            break;
                         }
-                     }
                   }
 
-                  //-add production
-                  for each (var production:* in industryRef.production)
+                  // --------------------------------------------------
+                  // 2. Consume all required inputs
+                  // --------------------------------------------------
+                  //-consume consumptions, kinda breaks the RECENT DATA UI
+                  //+-would like to fix UI
+                  if (canProduce)
                   {
-                     addItemToArray(_loc4_.production, {
-                        "item": production.item,
-                        "amount": production.amount * param3
-                     });
-                     /*addItemToArray(_loc4_.productionUI, {
-                        "item": production.item,
-                        "amount": production.amount * param3
-                     });*/
+                     for each (consumption in industryRef.consumption)
+                     {
+                        requiredItem = consumption.item;
+                        requiredAmount = consumption.amount * param3;
+
+                        for (_loc12_ in _loc4_.production) //-remove production of the consumed good
+                        {
+                           availableProduction = _loc4_.production[_loc12_];
+                           if (availableProduction.item == requiredItem)
+                           {
+                              availableProduction.amount -= requiredAmount;
+                              /*addItemToArray(_loc4_.consumptionUI,{
+                                 "item": availableProduction.item,
+                                 "amount": requiredAmount
+                              });*/
+                              break;
+                           }
+                        }
+                     }
+
+                     //-add production
+                     for each (var production:* in industryRef.production)
+                     {
+                        addItemToArray(_loc4_.production, {
+                           "item": production.item,
+                           "amount": production.amount * param3
+                        });
+                        /*addItemToArray(_loc4_.productionUI, {
+                           "item": production.item,
+                           "amount": production.amount * param3
+                        });*/
+                     }
                   }
                }
             }
