@@ -112,7 +112,8 @@ package
          "umi alpha for sale at qubba": true,
          "infinite ammo": true,
          "spawn characters in a row during combat": true,
-         "fix chained industries": true
+         "fix chained industries": true,
+         "optimize battle AI": true
 
          //"see hidden cargo": false, //-totally breaks the progression of the game, only added it for testing
          };
