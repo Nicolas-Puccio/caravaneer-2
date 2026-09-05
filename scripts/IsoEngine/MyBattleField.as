@@ -210,16 +210,14 @@ package IsoEngine
                 if(Groups[_loc25_][_loc15_].category != 4)
                 {
                     trace("addCharacter | group: " + Groups[_loc25_][_loc15_] +    " | finalX: " + finalX +    " | finalY: " + finalY +    " | finalDir: " + finalDir);
-                    try
-                    {
-                        addCharacter(Groups[_loc25_][_loc15_], finalX, finalY, finalDir);
-                    }
-                    catch(e:Error)
-                    {    
-                        addMessage(2, "ERROR: DISABLE SPAWN CHARACTERS IN A ROW DURING COMBAT");
-                        trace("dang it");
-                    }    
+                    addCharacter(Groups[_loc25_][_loc15_], finalX, finalY, finalDir);
                     ActList.push(Groups[_loc25_][_loc15_]);
+
+                    /*if(Groups[_loc25_][_loc15_] == GameData.currentGame.Caravans[0].People[0])
+                    {
+                        centerViewOn(finalX,finalY,false);
+                        //-overided by Init's call, maybe i can override centerViewOn and disable the call if "true"
+                    }*/
                 }
             }
             
@@ -236,7 +234,7 @@ package IsoEngine
                 return;
             }
             trace("optimization called");
-            
+
             var _loc17_:* = undefined;
             var _loc16_:* = undefined;
             var _loc12_:* = undefined;
@@ -260,7 +258,7 @@ package IsoEngine
 
             if(nowActing >= 0 && !ActList[nowActing].dead)
             {
-                if(ActList[nowActing].burning >= 0.2)
+                if(ActList[nowActing].burning >= 0.2) //+-should test if burning works
                 {
                     Hit(ActList[nowActing],Math.round(ActList[nowActing].burning * 3 * (1 - ActList[nowActing].fireResistance / 100)),null,null,false,3);
                     ActList[nowActing].battleMorale -= ActList[nowActing].burning * 10;
@@ -274,7 +272,7 @@ package IsoEngine
                         ActList[nowActing].flameSoundChannel.stop();
                     }
                 }
-                if(ActList[nowActing].bleeding >= 0.5 && ActList[nowActing].HP > 0)
+                if(ActList[nowActing].bleeding >= 0.5 && ActList[nowActing].HP > 0) //+-should test if bleeding works
                 {
                     Hit(ActList[nowActing],Math.round(ActList[nowActing].bleeding),null,null,false,2);
                     ActList[nowActing].battleMorale -= ActList[nowActing].bleeding * 0.3;
@@ -355,11 +353,11 @@ package IsoEngine
                             {
                                 if(ActList[_loc16_].band != 3 && ActList[_loc16_].band != ActList[nowActing].band && ActList[_loc16_].battleMorale > 8)
                                 {
-                                ActList[nowActing].enemies.push(ActList[_loc16_]);
+                                    ActList[nowActing].enemies.push(ActList[_loc16_]);
                                 }
                                 if(_loc16_ != nowActing && ActList[_loc16_].band == ActList[nowActing].band)
                                 {
-                                ActList[nowActing].friends.push(ActList[_loc16_]);
+                                    ActList[nowActing].friends.push(ActList[_loc16_]);
                                 }
                             }
                         }
@@ -369,10 +367,10 @@ package IsoEngine
                             {
                                 if(!ActList[_loc16_].dead)
                                 {
-                                if(ActList[_loc16_].band != 3 && ActList[_loc16_].band != ActList[nowActing].band)
-                                {
-                                    ActList[nowActing].enemies.push(ActList[_loc16_]);
-                                }
+                                    if(ActList[_loc16_].band != 3 && ActList[_loc16_].band != ActList[nowActing].band)
+                                    {
+                                        ActList[nowActing].enemies.push(ActList[_loc16_]);
+                                    }
                                 }
                             }
                         }
@@ -526,21 +524,25 @@ package IsoEngine
                                 }
                                 //-limit squaresToProcess to max 5
                                 //-ai optimization, no need to move if current position is good enough
-                                var enemiesInRange : * = 0;
                                 var enemyIndex : * = undefined;
+                                var enemiesInRange : * = 0; //not using it now
+                                var lowestChance : * = 1; //not using it
+                                var highestChance : * = 0;
                                 for (enemyIndex in ActList[nowActing].enemies)
                                 {
                                     var chance : * = calculateHitChance(ActList[nowActing], ActList[nowActing].enemies[enemyIndex])
-                                    if(chance > 0.9) //-if i have +90% chance to hit an enemy, i don't care about the rest
-                                    {
-                                        enemiesInRange = ActList[nowActing].enemies.length;
-                                        break;
-                                    }
-
+                                    if(chance < lowestChance)
+                                        lowestChance = chance;
+                                    if(chance > highestChance)
+                                        highestChance = chance;
                                     if(chance > 0.25)
                                         enemiesInRange++
                                 }
-                                var squaresToProcessLength : * = enemiesInRange == ActList[nowActing].enemies.length ? 0 : Math.min(5, Math.floor(ActList[nowActing].AP / ActList[nowActing].walkAP))
+                                var squaresToProcessLength : * = Math.min(5, Math.floor(ActList[nowActing].AP / ActList[nowActing].walkAP)) //-this is default capped to 5
+                                if(highestChance > 0.5)
+                                {
+                                    squaresToProcessLength = Math.max(0, Math.min(5, Math.floor((1 - highestChance) * 10)));//steps down for every 10%
+                                }
 
                                 ActList[nowActing].squaresToProcess = generatePossibleSquares(ActList[nowActing].squareX,ActList[nowActing].squareY, squaresToProcessLength);
                                 ActList[nowActing].maxScore = -100000000000000000000;

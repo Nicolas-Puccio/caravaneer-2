@@ -19,7 +19,9 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - **Line formation**: Spawns characters in a straight line.
 
-- **Quality of life**: Set walk speed to fast, and center screen to disabled by default.
+- **Quality of life**
+	- Set walk speed to fast, and center screen to disabled by default.
+	- Optimization to reduce pathfinding when enemy in range for shooting.
 
 
 
@@ -108,7 +110,7 @@ In order to put undesired items at the bottom of trade window need to add the ID
 
 ## Bugs
 
-1. Game freeze for a few seconds if AI is unable to find a path to the target, when this happen the default behaviour is to flee.
+1. Game freeze for a few seconds if AI is unable to find a path to the target, when this happen the default behaviour is to flee.(//+-can fix now)
 
 
 
@@ -126,11 +128,6 @@ In order to put undesired items at the bottom of trade window need to add the ID
 
 1. New bandit types.
 2. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done).
-
-
-
-## Files with errors
-BATTLEFIELD (enemy pathfinding breaks)
 
 
 ## Log
