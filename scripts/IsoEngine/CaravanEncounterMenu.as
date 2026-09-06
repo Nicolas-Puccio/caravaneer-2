@@ -68,13 +68,10 @@ package IsoEngine
                   {
                      for(_locCaravanMember_ in gameData.Caravans[0].People)
                      {
-                        if(gameData.Caravans[0].People[_locCaravanMember_].category == 2 || _locCaravanMember_ == 0)
+                        if(gameData.Caravans[0].People[_locCaravanMember_].category == 2 || gameData.Caravans[0].People[_locCaravanMember_].category == 1)
                         {
+                           gameData.Caravans[0].People[_locCaravanMember_].categoryOriginal = gameData.Caravans[0].People[_locCaravanMember_].category;
                            gameData.Caravans[0].People[_locCaravanMember_].category = 5;
-                           if(_locCaravanMember_ != 0)
-                           {
-                              gameData.Caravans[0].People[_locCaravanMember_].name = "bot-" + gameData.Caravans[0].People[_locCaravanMember_].name;
-                           }
                         }
                      }
                      attackFunction(true,group,settings,obstacles);
@@ -87,8 +84,8 @@ package IsoEngine
                      {
                         if(gameData.Caravans[0].People[_locCaravanMember_].category == 2)
                         {
+                           gameData.Caravans[0].People[_locCaravanMember_].categoryOriginal = gameData.Caravans[0].People[_locCaravanMember_].category;
                            gameData.Caravans[0].People[_locCaravanMember_].category = 5;
-                           gameData.Caravans[0].People[_locCaravanMember_].name = "bot-" + gameData.Caravans[0].People[_locCaravanMember_].name;
                         }
                      }
                      attackFunction(true,group,settings,obstacles);
@@ -116,13 +113,10 @@ package IsoEngine
                   {
                      for(_locCaravanMember_ in gameData.Caravans[0].People)
                      {
-                        if(gameData.Caravans[0].People[_locCaravanMember_].category == 2 || _locCaravanMember_ == 0)
+                        if(gameData.Caravans[0].People[_locCaravanMember_].category == 2 || gameData.Caravans[0].People[_locCaravanMember_].category == 1)
                         {
+                           gameData.Caravans[0].People[_locCaravanMember_].categoryOriginal = gameData.Caravans[0].People[_locCaravanMember_].category;
                            gameData.Caravans[0].People[_locCaravanMember_].category = 5;
-                           if(_locCaravanMember_ != 0)
-                           {
-                              gameData.Caravans[0].People[_locCaravanMember_].name = "bot-" + gameData.Caravans[0].People[_locCaravanMember_].name;
-                           }
                         }
                      }
                      attackFunction(true,group,settings,obstacles);
@@ -135,8 +129,8 @@ package IsoEngine
                      {
                         if(gameData.Caravans[0].People[_locCaravanMember_].category == 2)
                         {
+                           gameData.Caravans[0].People[_locCaravanMember_].categoryOriginal = gameData.Caravans[0].People[_locCaravanMember_].category;
                            gameData.Caravans[0].People[_locCaravanMember_].category = 5;
-                           gameData.Caravans[0].People[_locCaravanMember_].name = "bot-" + gameData.Caravans[0].People[_locCaravanMember_].name;
                         }
                      }
                      attackFunction(true,group,settings,obstacles);

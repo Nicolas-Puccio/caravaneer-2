@@ -94,13 +94,11 @@ package IsoEngine
          super();
          GD = paramGD;
          //- resets changes from the player's AI
-         GD.Caravans[0].People[0].category = 1;
          for(_locCaravanMember_ in GD.Caravans[0].People)
          {
-            if(GD.Caravans[0].People[_locCaravanMember_].category == 5 && GD.Caravans[0].People[_locCaravanMember_].name.indexOf("bot-") == 0)
+            if(GD.Caravans[0].People[_locCaravanMember_].category == 5 && GD.Caravans[0].People[_locCaravanMember_].categoryOriginal !== undefined)
             {
-               GD.Caravans[0].People[_locCaravanMember_].category = 2;
-               GD.Caravans[0].People[_locCaravanMember_].name = GD.Caravans[0].People[_locCaravanMember_].name.substring(4);
+               GD.Caravans[0].People[_locCaravanMember_].category = GD.Caravans[0].People[_locCaravanMember_].categoryOriginal;
             }
          }
 

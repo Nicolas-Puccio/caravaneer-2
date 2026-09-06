@@ -179,6 +179,9 @@ package IsoEngine
       public var currModes:*;
       
       public var category:*;
+
+      //-
+      public var categoryOriginal:*;
       
       public var salary:*;
       
