@@ -16,7 +16,7 @@ package Interface
    
    public class List extends Sprite
    {
-      
+      //-
       private var lookup:Object = {};
       
       private var bottomIDs:* = {};
@@ -30,6 +30,9 @@ package Interface
       public var partner:*;
       
       public var realShop:*;
+
+      public var isTrade:* = false;
+      //-
       
       public var scrollableArea:*;
       
@@ -838,12 +841,15 @@ package Interface
       
       private function selectItemMax(param1:*) : *
       {
+         if(!isTrade)
+            return
          var _loc3_:* = undefined;
          var _loc2_:* = undefined;
          if(GameData.soundFXOn)
          {
             new SFXClick().play();
          }
+         trace("1")
          for(_loc3_ in finalList)
          {
             if(finalList[_loc3_].pic == param1.target)
@@ -852,16 +858,21 @@ package Interface
                break;
             }
          }
+         trace("2")
          if(!unselectable)
          {
             finalList[selectedItem].selectFrame.visible = false;
          }
+         trace("3")
          selectedItem = _loc2_;
+         trace("4")
          onSelect(finalList[selectedItem].item,true);
          if(!unselectable)
          {
             finalList[selectedItem].selectFrame.visible = true;
          }
+         
+         trace("5")
       }
       
       private function selectItem(param1:*) : *

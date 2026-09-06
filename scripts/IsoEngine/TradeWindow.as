@@ -5,6 +5,7 @@ package IsoEngine
    import flash.display.DisplayObject;
    import flash.display.Sprite;
    import flash.filters.DropShadowFilter;
+   import flash.events.MouseEvent;
    
    public class TradeWindow extends Sprite
    {
@@ -356,7 +357,8 @@ package IsoEngine
          if(!param9)
          {
             partners[0].list = new List([],450,true,_loc20_,["volunteers","mercenaries","prisoners","other"].concat(blockedFilters),selectPlayerItem,85,false,false,true);
-            //- i think this is my code
+            //-
+            partners[0].list.isTrade = true;
             if(partner is Town)
             {
                partners[0].list.EnableNewColor(GD,partner,realShop);
@@ -470,6 +472,8 @@ package IsoEngine
          if(!param9)
          {
             partners[1].list = new List([],390,true,[],["volunteers","mercenaries","prisoners","other"],selectPartnerItem,85,false,false,true);//-forgot what 85 was
+            //-
+            partners[1].list.isTrade = true;
             partners[1].list.x = 770;
             partners[1].list.y = 42;
             partners[1].list.update(partners[1].array);
@@ -991,6 +995,8 @@ package IsoEngine
             param1.items[_loc7_].pic.mouseChildren = false;
             param1.items[_loc7_].pic.buttonMode = true;
             param1.items[_loc7_].pic.addEventListener("click",clickBarterItem,false,0,false);
+            //-
+            param1.items[_loc7_].pic.addEventListener(MouseEvent.RIGHT_CLICK,ClickbarterItemAll,false,0,false);
          }
          if(param2 is TransportUnit)
          {

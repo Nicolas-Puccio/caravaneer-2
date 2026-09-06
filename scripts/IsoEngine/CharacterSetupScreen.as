@@ -90,7 +90,7 @@ package IsoEngine
          {
             theCharacter = setCharacter;
          }
-         availablePoints = Math.max(0,80 - theCharacter.basePhysical - theCharacter.baseAgility - theCharacter.baseAccuracy - theCharacter.baseIntelligence);
+         availablePoints = Math.max(0,40 - theCharacter.basePhysical - theCharacter.baseAgility - theCharacter.baseAccuracy - theCharacter.baseIntelligence);
          onDone = defaultOnDone;
          onCancel = defaultOnCancel;
          D = new Dialogue(880,495);
@@ -375,7 +375,7 @@ package IsoEngine
                }
                break;
             case 1:
-               if(availablePoints > 0 && theCharacter.basePhysical < 20)
+               if(availablePoints > 0 && theCharacter.basePhysical < 10)
                {
                   theCharacter.basePhysical++;
                   availablePoints = Number(availablePoints) - 1;
@@ -389,7 +389,7 @@ package IsoEngine
                }
                break;
             case 3:
-               if(availablePoints > 0 && theCharacter.baseAgility < 20)
+               if(availablePoints > 0 && theCharacter.baseAgility < 10)
                {
                   theCharacter.baseAgility++;
                   availablePoints = Number(availablePoints) - 1;
@@ -403,7 +403,7 @@ package IsoEngine
                }
                break;
             case 5:
-               if(availablePoints > 0 && theCharacter.baseAccuracy < 20)
+               if(availablePoints > 0 && theCharacter.baseAccuracy < 10)
                {
                   theCharacter.baseAccuracy++;
                   availablePoints = Number(availablePoints) - 1;
@@ -417,7 +417,7 @@ package IsoEngine
                }
                break;
             case 7:
-               if(availablePoints > 0 && theCharacter.baseIntelligence < 20)
+               if(availablePoints > 0 && theCharacter.baseIntelligence < 10)
                {
                   theCharacter.baseIntelligence++;
                   availablePoints = Number(availablePoints) - 1;
@@ -511,7 +511,7 @@ package IsoEngine
             while(_loc5_ > 0)
             {
                _loc4_ = MathFunctions.random(0,3);
-               if(_loc7_[_loc4_] < 20)
+               if(_loc7_[_loc4_] < 10)
                {
                   _loc7_[_loc4_]++;
                   _loc5_--;
