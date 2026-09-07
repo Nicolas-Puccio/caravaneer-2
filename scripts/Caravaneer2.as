@@ -104,7 +104,7 @@ package
 
       //-want to make it an object but the ordering fucks up
       public var puccioConfig:* = {
-         "revive dead mercenaries": true,
+         "revive dead characters": true,
          "heal after battle": true,
          "remove trash mercenaries": true,
          "smaller battlefields": true,

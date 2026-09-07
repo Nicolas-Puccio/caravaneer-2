@@ -279,7 +279,7 @@ package IsoEngine
                   {
                      GD.Story.loisIsDead = true;
                   }
-                  if(BF.ActList[_loc5_].specialPurpose == 3)
+                  if(BF.ActList[_loc5_].specialPurpose == 3 && !GD.Config("revive dead characters")) //- only set the bool if not meant to be revived
                   {
                      GD.Story.spencerRiceIsDead = true;
                   }
@@ -291,10 +291,12 @@ package IsoEngine
                   {
                      _loc9_ += BF.ActList[_loc5_].meatAmount;
                   }
-                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && BF.ActList[_loc5_].specialPurpose == 0 && GD.Config("revive dead mercenaries"))
+                  //currently only ress spencer rice, idk which other is safe and good idea to ress
+                  var validSpecialPurpose : * = BF.ActList[_loc5_].specialPurpose == 0 || BF.ActList[_loc5_].specialPurpose == 3; 
+                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && validSpecialPurpose && GD.Config("revive dead characters"))
                   {
                      //-ress dead members
-                     BF.ActList[_loc5_].HP = BF.ActList[_loc5_].maxHealth / 5;
+                     BF.ActList[_loc5_].HP = 1 + BF.ActList[_loc5_].maxHealth / 4;
                      BF.ActList[_loc5_].dead = false;
                   }
                   else
@@ -309,9 +311,9 @@ package IsoEngine
                else
                {
                   //-heal non dead members
-                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && BF.ActList[_loc5_].HP < BF.ActList[_loc5_].maxHealth / 5 && GD.Config("heal after battle"))
+                  if(BF.ActList[_loc5_].caravan.People[0] == GD.Caravans[0].People[0] && BF.ActList[_loc5_].HP <= BF.ActList[_loc5_].maxHealth / 4 && GD.Config("heal after battle"))
                   {
-                     BF.ActList[_loc5_].HP = BF.ActList[_loc5_].maxHealth / 5;
+                     BF.ActList[_loc5_].HP = 1 + BF.ActList[_loc5_].maxHealth / 4;
                   }
                   for(_loc7_ in BF.ActList[_loc5_].weapons)
                   {

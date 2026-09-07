@@ -7,11 +7,11 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - **Mercenaries don't die**: Mercenaries are now immortal and won't die in combat. Mission companions can still die and missions can be failed, main character can die as well.
 
-- **Heal after combat**: All caravan members heal to at least 20% HP, ensuring good walking speed and cargo after fights.
+- **Heal after combat**: All caravan members heal to at least 25% HP, ensuring good walking speed and cargo capacity.
 
 - **AI battles**: Let AI control your mercenaries or your main character.
 
-- **Less entities during fights**: Slaves and transport removed from the battlefield, improving performance and making battles faster.
+- **Less entities during fights**: Slaves and transport removed from the battlefield.
 
 - **Smaller battlefield**: Halved how much battlefield size scales with weapon skill, and reduced minimum size.
 
@@ -29,7 +29,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - **Fix starving towns**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
 
-- **Fix town industries not expanding**: towns need less unemployed people to start upgrading industries other than water.
+- **Fix town industries expansion**: towns need less unemployed people to start upgrading industries other than water.
 
 - **Fix chained industries**: Industries will produce if consumption is satisfied by another industry, regardless of storage space.
 
@@ -37,7 +37,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - **Expand water industry**: Allows you to expand all natural resource industries.
 
-- **CanBreakEconomy & finishedTheGame variables set**: Allows you to buy industries that otherwise wouldn't be for sale.
+- **CanBreakEconomy & finishedTheGame variables set**: Allows to buy industries that otherwise wouldn't be for sale.
 
 - **More industries available on towns**: Forage and breeding industries available to be started at all towns.
 
@@ -76,11 +76,8 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 - **Quality of life**
 	- Navigation Screen
 		- Auto invert when selecting GO.
-
 	- Silos and Kevin's house moved slightly off the main road.
-
 	- Animals no longer spawn as extremely young or elderly.
-
 	- Disabled fullscreen (scaling is broken and looks ugly).
 
 
@@ -122,6 +119,7 @@ In order to put undesired items at the bottom of trade window need to add the ID
 4. Verify if escorts work properly, like spencer and the dude from lintu..
 5. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
 6. Remove PuccioTest
+7. Remove missing dlc error.
 
 
 ## Ideas
