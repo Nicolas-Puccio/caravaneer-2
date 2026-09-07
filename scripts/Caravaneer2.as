@@ -108,10 +108,10 @@ package
          "heal after battle": true,
          "remove trash mercenaries": true,
          "smaller battlefields": true,
-         "allow expand natural resource industry": true,
+         "expand natural resource industry": true,
          "umi alpha for sale at qubba": true,
          "infinite ammo": true,
-         "spawn characters in a row during combat": true,
+         "spawn characters in a row": true,
          "fix chained industries": true,
          "optimize battle AI": true
 

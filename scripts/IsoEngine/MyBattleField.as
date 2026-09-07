@@ -138,7 +138,7 @@ package IsoEngine
                 side = 0;
                 finalX = _loc32_;
                 finalY = _loc30_;
-                var tryToSpawnInRow:* = GameData.currentGame.Config("spawn characters in a row during combat")
+                var tryToSpawnInRow:* = GameData.currentGame.Config("spawn characters in a row")
                 while(surroundingsBlocked(finalX,finalY))
                 {
                     if(side == 0)
@@ -225,7 +225,7 @@ package IsoEngine
             ActList.sortOn("maxAP",18);
         }
 
-        //+- must add mod config
+        
         override public function nextTurn() : *
         {
             if(!GameData.currentGame.Config("optimize battle AI"))
@@ -522,7 +522,6 @@ package IsoEngine
                                         ActList[nowActing].maximumRange = Math.round((10 + ActList[nowActing][_loc7_ + "Skill"] / 15) * ActList[nowActing].currentWeaponData.accuracy / 2);
                                         ActList[nowActing].optimalRange = Math.round((5 + ActList[nowActing][_loc7_ + "Skill"] / 30) * ActList[nowActing].currentWeaponData.accuracy / 2);
                                 }
-                                //-limit squaresToProcess to max 5
                                 //-ai optimization, no need to move if current position is good enough
                                 var enemyIndex : * = undefined;
                                 var enemiesInRange : * = 0; //not using it now
@@ -538,10 +537,17 @@ package IsoEngine
                                     if(chance > 0.25)
                                         enemiesInRange++
                                 }
-                                var squaresToProcessLength : * = Math.min(5, Math.floor(ActList[nowActing].AP / ActList[nowActing].walkAP)) //-this is default capped to 5
-                                if(highestChance > 0.5)
+
+                                var squaresToProcessLength : *
+                                if(ActList[nowActing].caravan == GameData.currentGame.Caravans[0])
                                 {
-                                    squaresToProcessLength = Math.max(0, Math.min(5, Math.floor((1 - highestChance) * 10)));//steps down for every 10%
+                                    trace("+")
+                                    squaresToProcessLength : *  = Math.floor((1 - highestChance) * 5);
+                                }
+                                else
+                                {
+                                    trace("-")
+                                    squaresToProcessLength : * = Math.floor(ActList[nowActing].AP / ActList[nowActing].walkAP) //-this is default
                                 }
 
                                 ActList[nowActing].squaresToProcess = generatePossibleSquares(ActList[nowActing].squareX,ActList[nowActing].squareY, squaresToProcessLength);
