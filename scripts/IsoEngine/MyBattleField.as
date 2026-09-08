@@ -541,13 +541,13 @@ package IsoEngine
                                 var squaresToProcessLength : *
                                 if(ActList[nowActing].caravan == GameData.currentGame.Caravans[0])
                                 {
-                                    trace("+")
-                                    squaresToProcessLength : *  = Math.floor((1 - highestChance) * 5);
+                                    trace("+");
+                                    squaresToProcessLength = Math.floor((1 - highestChance) * 5);
                                 }
                                 else
                                 {
-                                    trace("-")
-                                    squaresToProcessLength : * = Math.floor(ActList[nowActing].AP / ActList[nowActing].walkAP) //-this is default
+                                    trace("-");
+                                    squaresToProcessLength = Math.floor(ActList[nowActing].AP / ActList[nowActing].walkAP) //-this is default
                                 }
 
                                 ActList[nowActing].squaresToProcess = generatePossibleSquares(ActList[nowActing].squareX,ActList[nowActing].squareY, squaresToProcessLength);

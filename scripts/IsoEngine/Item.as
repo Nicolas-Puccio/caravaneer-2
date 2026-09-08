@@ -521,13 +521,13 @@ package IsoEngine
       },{//-167
          "category":1,
          "subCategory":75
-      },{//-168
+      },{//-168 big plastic jerrycan
          "category":1,
          "subCategory":76
-      },{//-169
+      },{//-169 metal barrel
          "category":1,
          "subCategory":77
-      },{//-170
+      },{//-170 plastic barrel?
          "category":1,
          "subCategory":78
       },{
@@ -988,7 +988,7 @@ package IsoEngine
          "calories":1830,
          "divisible":true,
          "waterPercentage":0.4
-      },{//-31
+      },{//-31 sheep milk
          "name":1301,
          "unit":"L",
          "weight":1,
@@ -1484,7 +1484,7 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":10
-      },{//-76
+      },{//-76 big plastic jerrycan
          "name":4274,
          "unit":"",
          "weight":1,
@@ -1492,7 +1492,7 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":20
-      },{//-77
+      },{//-77 metal barrel
          "name":4275,
          "unit":"",
          "weight":21,
@@ -1500,7 +1500,7 @@ package IsoEngine
          "divisible":false,
          "liquidsContainer":true,
          "volume":208
-      },{//-78
+      },{//-78 plastic barrel
          "name":4276,
          "unit":"",
          "weight":8,

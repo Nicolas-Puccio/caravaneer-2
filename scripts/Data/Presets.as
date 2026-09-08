@@ -9274,7 +9274,7 @@ package Data
          "maxAttributes":1,
          "maxExperience":1.2,
          "faction":8
-      },{//-25
+      },{//-25 lost
          "name":2866,
          "x":-13200,
          "y":2200,
@@ -10701,7 +10701,7 @@ package Data
          "faction":11
       },{//-33 kevin house
          "name":2938,
-         "x":-11950,
+         "x":-11910,//- 11950
          "y":1800,
          "population":1,
          "obligatoryPeople":[],
