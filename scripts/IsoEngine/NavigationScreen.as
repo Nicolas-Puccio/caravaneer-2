@@ -787,13 +787,14 @@ package IsoEngine
          {
             GD.waterNeed = waterNeed * travelTime / 24;
             GD.foodNeed = foodNeed * travelTime / 24;
+            GD.forageNeed = forageNeed * travelTime / 24;
             infoText.text += Texts.fetch(1402) + ": " + MathFunctions.NumberFormat(GD.waterNeed,0) + " " + Texts.fetch(11) + "\n";
             infoText.text += Texts.fetch(1403) + ": " + MathFunctions.NumberFormat(waterAvailable,0) + " " + Texts.fetch(11) + "\n\n";
             infoText.text += Texts.fetch(1404) + ": " + MathFunctions.NumberFormat(GD.foodNeed,0) + " " + Texts.fetch(939) + "\n";
             infoText.text += Texts.fetch(1405) + ": " + MathFunctions.NumberFormat(foodAvailable,0) + " " + Texts.fetch(939) + "\n\n";
             if(forageNeed > 0)
             {
-               infoText.text += Texts.fetch(1406) + ": " + MathFunctions.NumberFormat(forageNeed * travelTime / 24,0) + " " + Texts.fetch(12) + "\n";
+               infoText.text += Texts.fetch(1406) + ": " + MathFunctions.NumberFormat(GD.forageNeed,0) + " " + Texts.fetch(12) + "\n";
                infoText.text += Texts.fetch(1407) + ": " + MathFunctions.NumberFormat(forageAvailable,0) + " " + Texts.fetch(12) + "\n\n";
             }
             if(fuelNeed > 0 || fuelPer100Km > 0)

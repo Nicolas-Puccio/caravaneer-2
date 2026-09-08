@@ -56,7 +56,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 	- Trade Window
 		- Right clic on side scrolls will quickly take all items.
 		- Add display of water/food needed, considering water % from food.
-		- Auto select amount of water/food required for travel.
+		- Auto select amount of water/food/forage required for travel.
 		- Reduced size of item image to fit more items on the side scrolls.
 		- Visual indicator of high sell price, can be set on [the prices file](#Instructions).
 		- Displays item's ID for using in prices file and modding.
@@ -98,7 +98,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 ## Instructions
 
-Water/Food need is only updated when the navigation screen is opened, it won't automatically update if more members are recruited/dismissed.
+Water/Food/Forage need is only updated when the navigation screen is opened, it won't automatically update if more members are recruited/dismissed.
 
 In order to enable visual indicators need to create a "prices.txt" with the "ID-Price" format, example .txt in the files section above.
 In order to put undesired items at the bottom of trade window need to add the IDs to the end of "prices.txt" file.
@@ -115,11 +115,12 @@ In order to put undesired items at the bottom of trade window need to add the ID
 
 1. Industry QOL UI changes (expenses total).
 2. finish mod menu. (less entities, fix starving town, fix town industry not expanding, more industries, expand water)
-3. Takeall shortcut in trade window does not work in middle section, breaks both.
-4. Verify if escorts work properly, like spencer and the dude from lintu..
-5. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
-6. Remove PuccioTest
-7. Remove missing dlc error.
+3. Verify if escorts work properly, like spencer and the dude from lintu..
+4. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
+5. Remove PuccioTest.
+6. Remove missing dlc error.
+7. Equipment List in CaravanMenu slightly broken (equipping wrong item and it being hidden, temp fix going to Cargo list and remove from used).
+8. If infinite ammo, should only distribute 1 of each
 
 
 ## Ideas

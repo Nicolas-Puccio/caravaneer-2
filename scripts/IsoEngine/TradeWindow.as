@@ -917,6 +917,7 @@ package IsoEngine
                         }
                      }
                   };
+                  //-old var names
                   _locAmountNeeded_ = Math.min(1,calculator.max);
                   if(item.itemData.food)
                   {
@@ -927,6 +928,12 @@ package IsoEngine
                   if(item.type == 1)
                   {
                      _locAmountNeeded_ = GD.waterNeed - GD.Caravans[0].water - _locWaterFromFood_;
+                     _locAmountNeeded_ = Math.min(_locAmountNeeded_,calculator.max);
+                     _locAmountNeeded_ = Math.max(_locAmountNeeded_,Math.min(1,calculator.max));
+                  }
+                  if(item.type == 62)
+                  {
+                     _locAmountNeeded_ = GD.forageNeed - GD.Caravans[0].forage;
                      _locAmountNeeded_ = Math.min(_locAmountNeeded_,calculator.max);
                      _locAmountNeeded_ = Math.max(_locAmountNeeded_,Math.min(1,calculator.max));
                   }

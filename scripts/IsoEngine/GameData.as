@@ -544,6 +544,8 @@ package IsoEngine
       public var waterNeed:* = 0;
       
       public var foodNeed:* = 0;
+
+      public var forageNeed:* = 0;
       
       public var Towns:*;
       

@@ -308,7 +308,7 @@ package Interface
       {
          var loader:URLLoader = new URLLoader();
          loader.addEventListener(Event.COMPLETE,onFileLoaded);
-         loader.load(new URLRequest("puccio.txt"));
+         loader.load(new URLRequest("prices.txt"));
       }
       
       private function onFileLoaded(e:Event) : void
