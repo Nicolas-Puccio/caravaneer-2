@@ -420,9 +420,11 @@ package IsoEngine
          "enabled":false
       }];
       
-      public static const variablesToSave:* = ["seed","gameSpeed","doubleSpeed","tripleSpeed","difficulty","autoSave","adultContent","autoCenter","showGrid","walkAnimationSpeed","interactWithFriendlyCaravans","advancedTrading","pauseOnExitTown","Time","Squares","factionRelations","revealedFactions","mapCenterX","mapCenterY","mapScale","routeStart","routeEnd","globalPrices","storyMode","globalCounter","monthlyCounter","build","producedToday","sextantExperience","lastSextantPos","lastSextantOffset","lastSextantMeasurement","windDirection","windStrength","missingRoutes","updatingEconomy","itemsToUpdate","knownPrices","warnedAboutAdvancedTrading","distributeBatteries","transportAsPassengers","showTutorial","displayedTutorials","initiatedDLC","removedDLC","canBreakEconomy","customTowns"];
+      public static const variablesToSave:* = ["seed","gameSpeed","doubleSpeed","tripleSpeed","difficulty","autoSave","adultContent","autoCenter","showGrid","walkAnimationSpeed","interactWithFriendlyCaravans","advancedTrading","pauseOnExitTown","Time","Squares","factionRelations","revealedFactions","mapCenterX","mapCenterY","mapScale","routeStart","routeEnd","globalPrices","storyMode","globalCounter","monthlyCounter","build","producedToday","sextantExperience","lastSextantPos","lastSextantOffset","lastSextantMeasurement","windDirection","windStrength","missingRoutes","updatingEconomy","itemsToUpdate","knownPrices","warnedAboutAdvancedTrading","distributeBatteries","transportAsPassengers","showTutorial","displayedTutorials","initiatedDLC","removedDLC","canBreakEconomy","customTowns","customCaravans"];
       
       public var customTowns:* = []
+
+      public var customCaravans:* = []
 
       public static const staticsToSave:* = ["foodAveragePrice","upperBodyClothingAveragePrice","lowerBodyClothingAveragePrice","shoesAveragePrice","hatAveragePrice","averageGDPperCapita","soundFXOn","musicOn"];
       
@@ -2982,6 +2984,14 @@ package IsoEngine
             {
                customTowns = _loc4_.customTowns
             }
+            if(_loc4_.customCaravans == undefined)//-no custom towns in save? could be from old build
+            {
+               customCaravans = []
+            }
+            else //-restore customCaravans from save
+            {
+               customCaravans = _loc4_.customCaravans
+            }
             if(_loc4_.storyClass != undefined)
             {
                _loc3_ = getDefinitionByName(_loc4_.storyClass) as Class;
@@ -3187,7 +3197,33 @@ package IsoEngine
             {
                var customTownAlt:* = customTowns[customTownIndex]
                parent.setLocation(customTownAlt.index, customTownAlt.data)
+               trace("set town:" + customTownAlt.index)
             }
+
+            //-reset to base caravans
+            trace("old length: " + Presets.caravan_routes[0].length)
+            Presets.caravan_routes[0].splice(30, Presets.caravan_routes[0].length - 30);
+            trace("new length: " + Presets.caravan_routes[0].length)
+            
+            trace("customCaravans length: " + customCaravans.length)
+            if(customCaravans == undefined)//+-sanity check, i think i can remove this
+               customCaravans = []
+
+            trace("customCaravans length: " + customCaravans.length)
+            //-get customtown data from save
+            //then add that data to presets
+            var customCaravanIndex:* = 0;
+            for(customCaravanIndex in customCaravans)
+            {
+               var customCaravanAlt:* = customCaravans[customCaravanIndex]
+               trace("trying to add: " + customCaravanAlt.index)
+               parent.setCaravanRoute(customCaravanAlt.index, customCaravanAlt.data)
+               trace("set route:" + customCaravanAlt.index)
+            }
+            trace("finish setup")
+
+
+
 
             for(_loc8_ in Presets.Towns)
             {
@@ -3278,6 +3314,9 @@ package IsoEngine
          }
          if(param2 == 5 || param2 == null)
          {
+            
+
+
             for(_loc8_ in staticsToSave)
             {
                GameData[staticsToSave[_loc8_]] = _loc4_[staticsToSave[_loc8_]];

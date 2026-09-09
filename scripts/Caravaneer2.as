@@ -113,9 +113,9 @@ package
          "infinite ammo": true,
          "spawn characters in a row": true,
          "fix chained industries": true,
-         "optimize battle AI": true
+         "optimize battle AI": true,
 
-         //"see hidden cargo": false, //-totally breaks the progression of the game, only added it for testing
+         "see hidden cargo": true //-totally breaks the progression of the game, only added it for testing
          };
       
       public var switchSFXCross:*;
@@ -2042,9 +2042,18 @@ package
       }
 
       //- to not have to touch Presets cause it takes long time to compile and i don't like touching the default data
-      public function setCaravanRoute(index:*, route:*) : *
+      public function setCaravanRoute(index:*, route:*, isNew:* = false) : *
       {
          Presets.caravan_routes[0][index] = route;
+         if(isNew)
+         {
+            GD.customCaravans.push({
+               "index": index,
+               "data": route
+            });
+            
+            GD.createCaravanOnRoute(index);
+         }
       }
 
       public function removeLocation(param1:*) : *

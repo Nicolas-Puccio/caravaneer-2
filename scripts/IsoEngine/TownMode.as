@@ -6,6 +6,11 @@ package IsoEngine
    import flash.filters.DropShadowFilter;
    import flash.geom.ColorTransform;
    import flash.geom.Matrix;
+   import flash.text.TextField;
+   import flash.text.TextFieldType;
+   import flash.text.TextFieldAutoSize;
+   import flash.events.MouseEvent;
+   import flash.events.Event;
    
    public class TownMode extends Sprite
    {
@@ -131,6 +136,22 @@ package IsoEngine
          screens[0].alphas.addChild(categoryMarker);
          screens[0].nameText = new EngineText(GD.Towns[town].name.toUpperCase(),0,22,"center",20,18,620,26);
          screens[0].alphas.addChild(screens[0].nameText);
+
+
+
+         screens[1].createCaravanButton = new Sprite();
+         screens[1].createCaravanButton.graphics.beginFill(16711680);
+         screens[1].createCaravanButton.graphics.drawRect(0,0,200,40);
+         screens[1].createCaravanButton.blendMode = "layer";
+         screens[1].createCaravanButton.buttonMode = true;
+         screens[1].createCaravanButton.mouseChildren = false;
+         screens[1].createCaravanButton.addEventListener("click",createCaravanButton,false,0,false);
+         screens[1].createCaravanButton.x = 10;
+         screens[1].createCaravanButton.y = 100;
+         screens[1].alphas.addChild(screens[1].createCaravanButton);
+         //-
+
+
          screens[0].alphas.graphics.lineStyle(1,0);
          screens[0].alphas.graphics.moveTo(0,472);
          screens[0].alphas.graphics.lineTo(880,472);
@@ -497,6 +518,261 @@ package IsoEngine
          cursorInfo.mouseEnabled = false;
          addChild(cursorInfo);
          addEventListener("enterFrame",EF,false,0,false);
+      }
+
+      public function createCaravanButton(param1:*) : *
+      {
+         trace("create caravanbutton");
+/*
+         var ui:Sprite = new Sprite();
+         ui.name = "createCaravanUI";
+
+         // Background
+         ui.graphics.beginFill(0x222222, 0.95);
+         ui.graphics.drawRect(0, 0, 300, 220);
+         ui.graphics.endFill();
+
+         // Title
+         var title:TextField = new TextField();
+         title.text = "Create Caravan";
+         title.width = 280;
+         title.height = 30;
+         title.x = 10;
+         title.y = 10;
+         title.selectable = false;
+         ui.addChild(title);
+
+         // Item ID label
+         var itemLabel:TextField = new TextField();
+         itemLabel.text = "Item ID:";
+         itemLabel.width = 100;
+         itemLabel.height = 25;
+         itemLabel.x = 20;
+         itemLabel.y = 55;
+         itemLabel.selectable = false;
+         ui.addChild(itemLabel);
+
+         // Item ID input
+         var itemInput:TextField = new TextField();
+         itemInput.type = TextFieldType.INPUT;
+         itemInput.border = true;
+         itemInput.background = true;
+         itemInput.backgroundColor = 0xFFFFFF;
+         itemInput.textColor = 0x000000;
+         itemInput.width = 150;
+         itemInput.height = 25;
+         itemInput.x = 110;
+         itemInput.y = 55;
+         itemInput.restrict = "0-9";
+         ui.addChild(itemInput);
+
+         // Town ID label
+         var townLabel:TextField = new TextField();
+         townLabel.text = "Town ID:";
+         townLabel.width = 100;
+         townLabel.height = 25;
+         townLabel.x = 20;
+         townLabel.y = 95;
+         townLabel.selectable = false;
+         ui.addChild(townLabel);
+
+         // Town ID input
+         var townInput:TextField = new TextField();
+         townInput.type = TextFieldType.INPUT;
+         townInput.border = true;
+         townInput.background = true;
+         townInput.backgroundColor = 0xFFFFFF;
+         townInput.textColor = 0x000000;
+         townInput.width = 150;
+         townInput.height = 25;
+         townInput.x = 110;
+         townInput.y = 95;
+         townInput.restrict = "0-9";
+         ui.addChild(townInput);
+
+         // Submit button
+         var submitButton:Sprite = createSimpleButton("Create Caravan");//-func not used anymore
+         submitButton.x = 20;
+         submitButton.y = 150;
+         submitButton.addEventListener(
+            MouseEvent.CLICK,
+            function(e:MouseEvent):void
+            {
+               var itemID:int = int(itemInput.text);
+               var townID:int = int(townInput.text);
+
+               createCaravan(itemID, townID);
+            }
+         );
+         ui.addChild(submitButton);
+
+         // Close button
+         var closeButton:Sprite = createSimpleButton("Close");//-func not used anymore
+         closeButton.x = 180;
+         closeButton.y = 150;
+         closeButton.addEventListener(
+            MouseEvent.CLICK,
+            function(e:MouseEvent):void
+            {
+               if (ui.parent)
+               {
+                  ui.parent.removeChild(ui);
+               }
+            }
+         );
+         ui.addChild(closeButton);*/
+
+         var D:* = new Dialogue(600, 300);
+         D.x = 440 - D.dialogueWidth / 2;
+         D.y = 200 - D.dialogueHeight / 2;
+         addChild(D);
+
+         // Title
+         var title:* = new EngineText( "Create Caravan", 16777215, 20, "center", 10, 10, 580, 30 );
+         D.addToMask(title);
+
+         // Separator
+         D.drawHorizontalLine(45, 0, D.dialogueWidth);
+
+         // Item ID label
+         var itemLabel:* = new EngineText( "Item ID:", 16777215, 16, "left", 20, 80, 120, 30 );
+         D.addToMask(itemLabel);
+         var itemLabel2:* = new EngineText( "-", 16777215, 16, "left", 400, 80, 120, 30 );
+         D.addToMask(itemLabel2);
+
+         // Item ID input
+         var itemInput:TextField = new TextField();
+         itemInput.type = TextFieldType.INPUT;
+         itemInput.border = true;
+         itemInput.background = true;
+         itemInput.backgroundColor = 0xFFFFFF;
+         itemInput.textColor = 0x000000;
+         itemInput.width = 200;
+         itemInput.height = 25;
+         itemInput.x = 150;
+         itemInput.y = 80;
+         itemInput.restrict = "0-9";
+         D.addChild(itemInput);
+
+         // Town ID label
+         var townLabel:* = new EngineText("Town ID:", 16777215, 16, "left", 20, 125, 120, 30 );
+         D.addToMask(townLabel);
+         var townLabel2:* = new EngineText("-", 16777215, 16, "left", 400, 125, 120, 30 );
+         D.addToMask(townLabel2);
+
+         // Town ID input
+         var townInput:TextField = new TextField();
+         townInput.type = TextFieldType.INPUT;
+         townInput.border = true;
+         townInput.background = true;
+         townInput.backgroundColor = 0xFFFFFF;
+         townInput.textColor = 0x000000;
+         townInput.width = 200;
+         townInput.height = 25;
+         townInput.x = 150;
+         townInput.y = 125;
+         townInput.restrict = "0-9";
+         D.addChild(townInput);
+
+         var inputChangeEvent:Function = function(e:Event):*{
+            var itemID:int = int(itemInput.text);
+            var townID:int = int(townInput.text);
+            var itemData:* = itemID < Item.Items.length ? Item.getDataFromType(itemID): undefined;
+            var townData:* = itemID != undefined? Presets.town_presets[0][townID] : undefined;
+            trace(itemData)
+            itemLabel2.text = itemData != undefined ? Texts.fetch(itemData.name) : "unknown item";
+            townLabel2.text = townData != undefined ? Texts.fetch(townData.name) : "unknown town";
+         }
+
+         itemInput.addEventListener(Event.CHANGE, inputChangeEvent);
+         townInput.addEventListener(Event.CHANGE, inputChangeEvent);
+
+         // Create button
+         var submitButton:* = new Button(2, function():* {
+            var itemID:int = int(itemInput.text);
+            var townID:int = int(townInput.text);
+            createCaravan(itemID, townID);
+            
+            itemInput.removeEventListener(Event.CHANGE, inputChangeEvent);
+            townInput.removeEventListener(Event.CHANGE, inputChangeEvent);
+            D.parent.removeChild(D);
+         }, "CREATE CARAVAN" );
+         submitButton.x = 100;
+         submitButton.y = 200;
+         D.addChild(submitButton);
+         // Close button
+         var closeButton:* = new Button(2, function():* {
+            itemInput.removeEventListener(Event.CHANGE, inputChangeEvent);
+            townInput.removeEventListener(Event.CHANGE, inputChangeEvent);
+            D.parent.removeChild(D);
+         }, "CLOSE" );
+         closeButton.x = 350;
+         closeButton.y = 200;
+         D.addChild(closeButton);
+      }
+
+
+      private function createCaravan(item:*, targetTown:*) : *
+      {
+         var index:* = Presets.caravan_routes[0].length;
+         trace("item: " + item + "     targetTown: " + targetTown + "     index: " + index);
+         var dx:Number = Presets.Towns[town].x - Presets.Towns[targetTown].x;
+         trace("dx: " + dx)
+         var dy:Number = Presets.Towns[town].y - Presets.Towns[targetTown].y;
+         trace("dy: " + dy)
+         var distance:Number = Math.sqrt(dx * dx + dy * dy);
+         trace("distance: " + distance)
+
+
+         var caravanData : * = {
+            "size":1,
+            "onInit":false,
+            "extraEquipment":[],
+            "points":[{//-maybe customRefill things can be here
+               "town":town,
+               "buy":[{
+                  "item":item,
+                  "amount":100
+               }],
+               "sell":[]
+            },{
+               "town":targetTown,
+               "buy":[],
+               "sell":[{
+                  "item":item,
+                  "amount":100
+               }]
+            }],
+            "customLoadout":{//-new variable for GameData arriveAtRoutePoint
+               //transport could simply be an array of ids, but i keep the object structure if later want to add more variables
+               "transport":[{
+                  "id":1
+               },{
+                  "id":2
+               }],
+               "cargo":[{
+                  "id":168,
+                  "mult":2
+               },{
+                  "id":62,
+                  "mult":10
+               },{
+                  "id":45,
+                  "mult":5
+               },{
+                  "id":1,
+                  "mult":40
+               }]
+            },
+            "customRefill":{//-new variable for GameData arriveAtRoutePoint
+               "forage":distance / 125,
+               "food":distance * 4,
+               "water":distance / 65
+            },
+            "customMoney":50000//-new variable
+         }
+         trace("forage: " + distance / 125 + "   food: "+ (distance * 4)  + "   water: " + distance / 80)
+         GD.parent.setCaravanRoute(index, caravanData, true);
       }
       
       public function updateIndustries() : *
