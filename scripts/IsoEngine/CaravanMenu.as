@@ -810,9 +810,9 @@ package IsoEngine
       
       public var logBookmarkWidth:*;
       
-      private const logCategoryNames:*;
+      private var logCategoryNames:* = [null,2176,2177,2179];
       
-      private const logBookmarkGap:* = 5;
+      private var logBookmarkGap:* = 5;
       
       public var readDialogue:*;
       
@@ -822,7 +822,7 @@ package IsoEngine
       
       public function CaravanMenu(param1:*, param2:* = null)
       {
-         var categoryButtonYs:*;
+         var categoryButtonYs:* = [12,52,102,142,182,232,272,312,362,402,452];;
          var i:*;
          var t:*;
          var categoryButtonsTextBitmap:*;
@@ -869,7 +869,6 @@ package IsoEngine
          categoryButtonBodies = [];
          categoryButtonShining = [];
          knownPricesItems = [];
-         logCategoryNames = [null,2176,2177,2179];
          super();
          addEventListener("enterFrame",cursorControl,false,0,false);
          addEventListener("mouseUp",releaseButton,false,0,false);
@@ -888,7 +887,6 @@ package IsoEngine
          {
             logCategories = [1,3];
          }
-         categoryButtonYs = [12,52,102,142,182,232,272,312,362,402,452];
          bottomLineCapacity = new EngineText("",16777215,14,"left",10,472,640,20);
          D.addToMask(bottomLineCapacity);
          bottomLineDate = new EngineText("",16777215,14,"right",10,472,640,20);
@@ -3010,7 +3008,7 @@ package IsoEngine
          _loc1_.name = selectedCrewMember.name;
          _loc1_.category = 2;
          var _loc4_:* = null;
-         var _loc7_:* = Infinity;
+         var _loc7_:* = 100000000000000000000;
          for(_loc6_ in Presets.Towns)
          {
             _loc3_ = MathFunctions.CalcDistance(GD.Caravans[0].x,GD.Caravans[0].y,Presets.Towns[_loc6_].x,Presets.Towns[_loc6_].y);
@@ -3123,7 +3121,7 @@ package IsoEngine
             workshopItems[i].disp.addChild(workshopItems[i].nameText);
             workshopItems[i].requirementsText = new EngineText(Texts.fetch(1555).toUpperCase() + ": ",16777215,12,"left",100,30,500,20);
             workshopItems[i].maxProduction = 0;
-            workshopItems[i].maxAmount = Infinity;
+            workshopItems[i].maxAmount = 100000000000000000000;
             workshopItems[i].canProduce = true;
             currLine = 0;
             linePos = 0;
@@ -3175,7 +3173,7 @@ package IsoEngine
                tmpItem2 = new Item(GameData.workshopRecipes[i].requiredTools[j],1);
                workshopItems[i].disp.addChild(createWorkshopRequirementItem(tmpItem2.name.toUpperCase(),workshopItems[i].requirementsText.textWidth + 5,thisOK));
             }
-            minRel = Infinity;
+            minRel = 100000000000000000000;
             for(j in GameData.workshopRecipes[i].requiredSkills)
             {
                switch(GameData.workshopRecipes[i].requiredSkills[j].skill)
@@ -3213,7 +3211,7 @@ package IsoEngine
                }
                workshopItems[i].disp.addChild(createWorkshopRequirementItem(Texts.fetch(name).toUpperCase() + ": " + GameData.workshopRecipes[i].requiredSkills[j].min,workshopItems[i].requirementsText.textWidth + 5,thisOK));
             }
-            if(minRel == Infinity)
+            if(minRel == 100000000000000000000)
             {
                minRel = 1;
             }
@@ -3767,7 +3765,7 @@ package IsoEngine
             ConfirmDialogue.onApprove = function():*
             {
                var _loc1_:* = GD.Caravans[0].liquidsContainers[manageContainers.dragFromType][manageContainers.dragFromContainer].type;
-               GD.Caravans[0].moveLiquidsContainer(_loc1_,Infinity,-1,0);
+               GD.Caravans[0].moveLiquidsContainer(_loc1_,100000000000000000000,-1,0);
                manageContainers.changes = true;
                updateManageContainers();
             };
@@ -6659,7 +6657,7 @@ package IsoEngine
       {
          calculator.visible = true;
          calculator.min = selectedCrewMember.minSalary;
-         calculator.max = Infinity;
+         calculator.max = 100000000000000000000;
          calculator.info.text = Texts.fetch(995).toUpperCase();
          calculator.onDone = setSalary;
          calculator.setValue(selectedCrewMember.salary);
@@ -7383,7 +7381,7 @@ package IsoEngine
                      {
                         _loc15_.push(new EngineText(Texts.fetch(_loc5_[_loc8_]),3156000,14,"center",10,5 + (_loc8_ + 1) * 20,300,20));
                      }
-                     _loc23_ = 0 - Infinity;
+                     _loc23_ = 0 - 100000000000000000000;
                      for(_loc8_ in _loc15_)
                      {
                         _loc22_ = _loc15_[_loc8_].textWidth + 20;
@@ -7786,7 +7784,7 @@ package IsoEngine
                   {
                      if(_loc1_ != -1)
                      {
-                        GD.Caravans[0].moveLiquidsContainer(_loc2_,Infinity,_loc1_,-1);
+                        GD.Caravans[0].moveLiquidsContainer(_loc2_,100000000000000000000,_loc1_,-1);
                         manageContainers.changes = true;
                      }
                   }
