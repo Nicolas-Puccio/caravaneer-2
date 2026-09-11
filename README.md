@@ -3,6 +3,7 @@
 This repository contains a modified version of [Caravaneer 2](https://store.steampowered.com/app/1500820/Caravaneer_2/), and a folder structure that allows for a quick BULK IMPORT using JPEXS, it is recommended to edit the code on a separate code editor like VS CODE rather than inside JPEXS
 
 
+
 ## Combat Changes
 
 - **Mercenaries don't die**: Mercenaries are now immortal and won't die in combat. Mission companions can still die and missions can be failed, main character can die as well.
@@ -31,7 +32,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - **Fix town industries expansion**: towns need less unemployed people to start upgrading industries other than water.
 
-- **Fix chained industries**: Industries will produce if consumption is satisfied by another industry, regardless of storage space.
+- **Fix chained industries**: Industries produce if consumption is satisfied by another industry, regardless of storage space.
 
 - **UMi alpha for sale**: Buy more UMI Alphas at Qubba's transport shop.
 
@@ -71,7 +72,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - **Increased starting stats**: Main character now has 80 stat points to distribute during character creation, with each stat capped at 20 points.
 
-- **Enabled Crowdfunder DLC**: DLC with weapon that shoots money ([Install Instructions](#Installation)).
+- **Enabled Crowdfunder DLC**: Weapon that shoots money ([Install Instructions](#Installation)).
 
 - **Quality of life**
 	- Navigation Screen
@@ -115,12 +116,12 @@ In order to put undesired items at the bottom of trade window need to add the ID
 
 1. Industry QOL UI changes (expenses total).
 2. finish mod menu. (less entities, fix starving town, fix town industry not expanding, more industries, expand water)
-3. Verify if escorts work properly, like spencer and the dude from lintu..
-4. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
-5. Remove PuccioTest.
-6. Remove missing dlc error.
-7. Equipment List in CaravanMenu slightly broken (equipping wrong item and it being hidden, temp fix going to Cargo list and remove from used).
-8. If infinite ammo, should only distribute 1 of each
+3. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
+4. Remove PuccioTest.
+5. Remove missing dlc error.
+6. Equipment List in CaravanMenu slightly broken (equipping wrong item and it being hidden, temp fix going to Cargo list and remove from used).
+7. If infinite ammo, should only distribute 1 of each.
+
 
 
 ## Ideas
@@ -129,5 +130,15 @@ In order to put undesired items at the bottom of trade window need to add the ID
 2. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done).
 
 
+
 ## Log
 %appdata%\Macromedia\Flash Player\Logs
+
+%USERPROFILE%\mm.cfg
+```
+ErrorReportingEnable=1
+TraceOutputEnable=1
+TraceOutputFileEnable=1
+TraceOutputBuffered=0
+MaxWarnings=1000
+```

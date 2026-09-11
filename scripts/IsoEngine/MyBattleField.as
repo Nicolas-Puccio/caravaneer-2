@@ -542,7 +542,7 @@ package IsoEngine
                                 if(ActList[nowActing].caravan == GameData.currentGame.Caravans[0])
                                 {
                                     trace("+");
-                                    squaresToProcessLength = Math.floor((1 - highestChance) * 5);
+                                    squaresToProcessLength = highestChance >= 0.99 ? 0 : Math.ceil((1 - highestChance) * 5);
                                 }
                                 else
                                 {
