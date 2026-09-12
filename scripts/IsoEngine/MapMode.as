@@ -5884,7 +5884,8 @@ package IsoEngine
                               //-previous unemployed quantity requirement seemed too big 5% -> 1%
                               //orth constantly run out of food because it didn't reach the unemployed quantity requirement
                               //with 840 population it would need 42 unemployed to upgrade food industry, that amount of population would already starve the town
-                              if(GD.Towns[i].unemployed >= 1 && GD.Towns[i].unemployed > GD.Towns[i].population * 0.01 || Industry.Types[GD.Towns[i].industries[j].type].replaceEmployeesBySize)
+                              var populationUnemployedRatio =  GD.Towns[i].population * (GD.Config("fix town industries expansion") ? 0.01 : 0.05)
+                              if(GD.Towns[i].unemployed >= 1 && GD.Towns[i].unemployed > populationUnemployedRatio || Industry.Types[GD.Towns[i].industries[j].type].replaceEmployeesBySize)
                               {
                                  n = possibleExpansions.push({
                                     "industry":GD.Towns[i].industries[j],
@@ -7967,7 +7968,7 @@ package IsoEngine
          _loc7_ = 0;
          while(_loc7_ < _loc4_.People.length)
          {
-            if(_loc4_.People[_loc7_].HP <= 0)
+            if(_loc4_.People[_loc7_].HP <= 0)//-if want to use this function should consider these guys
             {
                if(_loc4_.People[_loc7_].specialPurpose == 1)
                {

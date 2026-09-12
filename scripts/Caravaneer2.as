@@ -110,12 +110,13 @@ package
          "smaller battlefields": true,
          "expand natural resource industry": true,
          "umi alpha for sale at qubba": true,
-         "infinite ammo": true,
+         "infinite ammo": false,
          "spawn characters in a row": true,
          "fix chained industries": true,
          "optimize battle AI": true,
+         "fix town industries expansion": false
 
-         "see hidden cargo": true //-totally breaks the progression of the game, only added it for testing
+         //"see hidden cargo": true //-totally breaks the progression of the game, only added it for testing
          };
       
       public var switchSFXCross:*;
@@ -1132,6 +1133,18 @@ package
             GD.Caravans[0].addCargo(45,20);
             GD.Caravans[0].addCargo(169,1);
             GD.Caravans[0].addCargo(1,30);
+            GD.Caravans[0].addCargo(247,1);
+            GD.Caravans[0].addCargo(240,1);
+            GD.Caravans[0].addCargo(241,1);
+            GD.Caravans[0].addCargo(242,1);
+            GD.Caravans[0].addCargo(243,1);
+            GD.Caravans[0].addCargo(255,1);
+            GD.Caravans[0].addCargo(256,1);
+            GD.Caravans[0].addCargo(257,1);
+            GD.Caravans[0].addCargo(258,1);
+            GD.Caravans[0].addCargo(259,1);
+            GD.Caravans[0].addCargo(260,1);
+            GD.Caravans[0].addCargo(261,1);
             //GD.Caravans[0].addCargo(62,10);
             GD.Caravans[0].money = 100000000000
             /*if(GD.storyMode){
