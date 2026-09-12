@@ -115,12 +115,12 @@ In order to put undesired items at the bottom of trade window need to add the ID
 ## Work in progress
 
 1. Industry QOL UI changes (expenses total).
-2. finish mod menu. (less entities, fix starving town, fix town industry not expanding, more industries, expand water)
+2. finish mod menu. (less entities, fix starving town, more industries)
 3. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
 4. Remove PuccioTest.
 5. Remove missing dlc error.
 6. Equipment List in CaravanMenu slightly broken (equipping wrong item and it being hidden, temp fix going to Cargo list and remove from used).
-7. If infinite ammo, should only distribute 1 of each.
+
 
 
 
@@ -128,7 +128,7 @@ In order to put undesired items at the bottom of trade window need to add the ID
 
 1. New bandit types.
 2. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done).
-
+3. If infinite ammo, should only distribute 1 of each.
 
 
 ## Log
