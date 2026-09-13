@@ -112,6 +112,28 @@ package IsoEngine
       }
 
       public function addCustomTown() {//-should move this code to GD?
+         //+- should check not so close to another town
+         //+- should check have money and prisoners
+         var distanceToClosestTown : * = 100
+         var haveEnoughMoney : * = true
+         var slaveCount : * = 10
+
+         trace("distance: " + distanceToClosestTown)
+         if(distanceToClosestTown < 100)
+         {
+            trace("too close, canceling")
+            return;
+         }
+         if(!haveEnoughMoney)
+         {
+            trace("not enough money, canceling")
+            return;
+         }
+         if(slaveCount < 5)
+         {
+            trace("not enough slaves, canceling")
+            return;
+         }
          var index:* = Presets.town_presets[0].length;
          GD.parent.setLocation(index, {
             "name":1,
@@ -121,13 +143,22 @@ package IsoEngine
             "obligatoryPeople":[],
             "allowsSlaves":false,
             "locations":[{
-               "x":298,
+               "x":300,
                "y":160,
                "category":1,
                "subCategory":5,
                "symbol":18,
                "visible":true,
                "name":7007
+               },{
+               "x":225,
+               "y":160,
+               "category":1,
+               "subCategory":1,
+               "symbol":16,
+               "visible":true,
+               "name":1663,
+               "margin":0.5
             }],
             "industries":[],
             "possibleIndustries":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46],

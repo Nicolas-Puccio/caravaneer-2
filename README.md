@@ -46,6 +46,8 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 - **Create new towns**: Work in progress (press the RED BUTTON while on the map mode).
 
+- **Create new caravans**: select what cargo to transport and what town to, the caravan will permanently travel back and forth as a regular caravan.
+
 - **Quality of life**
 	- Town UI
 		- Displays town money.
@@ -120,8 +122,7 @@ In order to put undesired items at the bottom of trade window need to add the ID
 4. Remove PuccioTest.
 5. Remove missing dlc error.
 6. Equipment List in CaravanMenu slightly broken (equipping wrong item and it being hidden, temp fix going to Cargo list and remove from used).
-7. Limit town creation somehow. (maybe require X slaves)
-8. Add market to custom town.
+7. Limit town creation somehow. (require 10 slaves)
 
 
 

@@ -138,16 +138,20 @@ package IsoEngine
          screens[0].alphas.addChild(screens[0].nameText);
 
 
-
+         //-
          screens[1].createCaravanButton = new Sprite();
          screens[1].createCaravanButton.graphics.beginFill(16711680);
-         screens[1].createCaravanButton.graphics.drawRect(0,0,200,40);
+         screens[1].createCaravanButton.graphics.drawRect(0,0,160,40);
          screens[1].createCaravanButton.blendMode = "layer";
          screens[1].createCaravanButton.buttonMode = true;
          screens[1].createCaravanButton.mouseChildren = false;
          screens[1].createCaravanButton.addEventListener("click",createCaravanButton,false,0,false);
          screens[1].createCaravanButton.x = 10;
-         screens[1].createCaravanButton.y = 100;
+         screens[1].createCaravanButton.y = 92;
+         screens[1].createCaravanCut = new Sprite();
+         screens[1].createCaravanCut.addChild(new EngineText("CREATE CARAVAN",16777215,14,"center",0,10,160,30));
+         screens[1].createCaravanCut.blendMode = "erase";
+         screens[1].createCaravanButton.addChild(screens[1].createCaravanCut);
          screens[1].alphas.addChild(screens[1].createCaravanButton);
          //-
 
@@ -520,124 +524,24 @@ package IsoEngine
          addEventListener("enterFrame",EF,false,0,false);
       }
 
-      public function createCaravanButton(param1:*) : *
+      public function createCaravanButton(param1:* = null) : *
       {
-         trace("create caravanbutton");
-/*
-         var ui:Sprite = new Sprite();
-         ui.name = "createCaravanUI";
-
-         // Background
-         ui.graphics.beginFill(0x222222, 0.95);
-         ui.graphics.drawRect(0, 0, 300, 220);
-         ui.graphics.endFill();
-
-         // Title
-         var title:TextField = new TextField();
-         title.text = "Create Caravan";
-         title.width = 280;
-         title.height = 30;
-         title.x = 10;
-         title.y = 10;
-         title.selectable = false;
-         ui.addChild(title);
-
-         // Item ID label
-         var itemLabel:TextField = new TextField();
-         itemLabel.text = "Item ID:";
-         itemLabel.width = 100;
-         itemLabel.height = 25;
-         itemLabel.x = 20;
-         itemLabel.y = 55;
-         itemLabel.selectable = false;
-         ui.addChild(itemLabel);
-
-         // Item ID input
-         var itemInput:TextField = new TextField();
-         itemInput.type = TextFieldType.INPUT;
-         itemInput.border = true;
-         itemInput.background = true;
-         itemInput.backgroundColor = 0xFFFFFF;
-         itemInput.textColor = 0x000000;
-         itemInput.width = 150;
-         itemInput.height = 25;
-         itemInput.x = 110;
-         itemInput.y = 55;
-         itemInput.restrict = "0-9";
-         ui.addChild(itemInput);
-
-         // Town ID label
-         var townLabel:TextField = new TextField();
-         townLabel.text = "Town ID:";
-         townLabel.width = 100;
-         townLabel.height = 25;
-         townLabel.x = 20;
-         townLabel.y = 95;
-         townLabel.selectable = false;
-         ui.addChild(townLabel);
-
-         // Town ID input
-         var townInput:TextField = new TextField();
-         townInput.type = TextFieldType.INPUT;
-         townInput.border = true;
-         townInput.background = true;
-         townInput.backgroundColor = 0xFFFFFF;
-         townInput.textColor = 0x000000;
-         townInput.width = 150;
-         townInput.height = 25;
-         townInput.x = 110;
-         townInput.y = 95;
-         townInput.restrict = "0-9";
-         ui.addChild(townInput);
-
-         // Submit button
-         var submitButton:Sprite = createSimpleButton("Create Caravan");//-func not used anymore
-         submitButton.x = 20;
-         submitButton.y = 150;
-         submitButton.addEventListener(
-            MouseEvent.CLICK,
-            function(e:MouseEvent):void
-            {
-               var itemID:int = int(itemInput.text);
-               var townID:int = int(townInput.text);
-
-               createCaravan(itemID, townID);
-            }
-         );
-         ui.addChild(submitButton);
-
-         // Close button
-         var closeButton:Sprite = createSimpleButton("Close");//-func not used anymore
-         closeButton.x = 180;
-         closeButton.y = 150;
-         closeButton.addEventListener(
-            MouseEvent.CLICK,
-            function(e:MouseEvent):void
-            {
-               if (ui.parent)
-               {
-                  ui.parent.removeChild(ui);
-               }
-            }
-         );
-         ui.addChild(closeButton);*/
-
-         var D:* = new Dialogue(600, 300);
+         var D:* = new Dialogue(550, 300);
          D.x = 440 - D.dialogueWidth / 2;
          D.y = 200 - D.dialogueHeight / 2;
          addChild(D);
 
          // Title
-         var title:* = new EngineText( "Create Caravan", 16777215, 20, "center", 10, 10, 580, 30 );
+         var title:* = new EngineText( "Create Caravan", 16777215, 20, "center", 10, 10, 500, 30 );
          D.addToMask(title);
 
          // Separator
          D.drawHorizontalLine(45, 0, D.dialogueWidth);
 
          // Item ID label
-         var itemLabel:* = new EngineText( "Item ID:", 16777215, 16, "left", 20, 80, 120, 30 );
+         var itemLabel:* = new EngineText( "Item ID:", 16777215, 16, "left", 40, 80, 120, 30 );
          D.addToMask(itemLabel);
-         var itemLabel2:* = new EngineText( "-", 16777215, 16, "left", 400, 80, 120, 30 );
+         var itemLabel2:* = new EngineText( "-", 16777215, 16, "left", 260, 80, 200, 30 );
          D.addToMask(itemLabel2);
 
          // Item ID input
@@ -647,7 +551,7 @@ package IsoEngine
          itemInput.background = true;
          itemInput.backgroundColor = 0xFFFFFF;
          itemInput.textColor = 0x000000;
-         itemInput.width = 200;
+         itemInput.width = 100;
          itemInput.height = 25;
          itemInput.x = 150;
          itemInput.y = 80;
@@ -655,9 +559,9 @@ package IsoEngine
          D.addChild(itemInput);
 
          // Town ID label
-         var townLabel:* = new EngineText("Town ID:", 16777215, 16, "left", 20, 125, 120, 30 );
+         var townLabel:* = new EngineText("Town ID:", 16777215, 16, "left", 40, 120, 120, 30 );
          D.addToMask(townLabel);
-         var townLabel2:* = new EngineText("-", 16777215, 16, "left", 400, 125, 120, 30 );
+         var townLabel2:* = new EngineText("-", 16777215, 16, "left", 260, 120, 200, 30 );
          D.addToMask(townLabel2);
 
          // Town ID input
@@ -667,38 +571,79 @@ package IsoEngine
          townInput.background = true;
          townInput.backgroundColor = 0xFFFFFF;
          townInput.textColor = 0x000000;
-         townInput.width = 200;
+         townInput.width = 100;
          townInput.height = 25;
          townInput.x = 150;
-         townInput.y = 125;
+         townInput.y = 120;
          townInput.restrict = "0-9";
          D.addChild(townInput);
+
+
+         // Size Label
+         var sizeLabel:* = new EngineText("Size ID:", 16777215, 16, "left", 40, 160, 120, 30 );
+         D.addToMask(sizeLabel);
+         var sizeLabel2:* = new EngineText("-", 16777215, 16, "left", 260, 160, 300, 30 );
+         D.addToMask(sizeLabel2);
+
+         // Size ID input
+         var sizeInput:TextField = new TextField();
+         sizeInput.type = TextFieldType.INPUT;
+         sizeInput.border = true;
+         sizeInput.background = true;
+         sizeInput.backgroundColor = 0xFFFFFF;
+         sizeInput.textColor = 0x000000;
+         sizeInput.width = 100;
+         sizeInput.height = 25;
+         sizeInput.x = 150;
+         sizeInput.y = 160;
+         sizeInput.restrict = "0-9";
+         D.addChild(sizeInput);
+
 
          var inputChangeEvent:Function = function(e:Event):*{
             var itemID:int = int(itemInput.text);
             var townID:int = int(townInput.text);
-            var itemData:* = itemID < Item.Items.length ? Item.getDataFromType(itemID): undefined;
-            var townData:* = itemID != undefined? Presets.town_presets[0][townID] : undefined;
-            trace(itemData)
-            itemLabel2.text = itemData != undefined ? Texts.fetch(itemData.name) : "unknown item";
+            var itemData:* = itemID < Item.Items.length && Item.Items[itemID].category == 1 ? Item.getDataFromType(itemID) : undefined;
+            var townData:* = itemID != undefined && townInput.text !== "" ? Presets.town_presets[0][townID] : undefined;
+            if(itemData !== undefined)
+               trace(itemData.name)
+            else
+               trace("undefined item")
+            if(itemData != undefined && itemData.name !== undefined)
+               itemLabel2.text = Texts.fetch(itemData.name);
+            else
+               itemLabel2.text = "unknown item";
+
             townLabel2.text = townData != undefined ? Texts.fetch(townData.name) : "unknown town";
+
+            var caravanSize:int = int(sizeInput.text);
+            var cost:int = caravanSize > 0 ? 50000 * caravanSize : 0;
+            sizeLabel2.text = caravanSize > 0 ? caravanSize <= 50 ? "Cost: " + MathFunctions.NumberFormat(cost, 0) + " €" : "maximum 50" : "select amount of members"
          }
 
          itemInput.addEventListener(Event.CHANGE, inputChangeEvent);
          townInput.addEventListener(Event.CHANGE, inputChangeEvent);
+         sizeInput.addEventListener(Event.CHANGE, inputChangeEvent);
 
          // Create button
          var submitButton:* = new Button(2, function():* {
             var itemID:int = int(itemInput.text);
+            var isValidItem:* = itemID < Item.Items.length && Item.Items[itemID].category == 1 ? true : false;
             var townID:int = int(townInput.text);
-            createCaravan(itemID, townID);
-            
-            itemInput.removeEventListener(Event.CHANGE, inputChangeEvent);
-            townInput.removeEventListener(Event.CHANGE, inputChangeEvent);
-            D.parent.removeChild(D);
+            var caravanSize:int = int(sizeInput.text);
+            var cost:int = caravanSize > 0 ? 50000 * caravanSize : 0;
+
+            if (itemInput.text !== "" && townInput.text !== "" && isValidItem && cost > 0 && cost <= GD.Caravans[0].money && caravanSize <= 50)
+            {
+               GD.Caravans[0].money -= cost;
+               createCaravan(itemID, townID, caravanSize);
+               itemInput.removeEventListener(Event.CHANGE, inputChangeEvent);
+               townInput.removeEventListener(Event.CHANGE, inputChangeEvent);
+               D.parent.removeChild(D);
+            }
          }, "CREATE CARAVAN" );
-         submitButton.x = 100;
-         submitButton.y = 200;
+         submitButton.x = 60;
+         submitButton.y = 250;
          D.addChild(submitButton);
          // Close button
          var closeButton:* = new Button(2, function():* {
@@ -706,26 +651,21 @@ package IsoEngine
             townInput.removeEventListener(Event.CHANGE, inputChangeEvent);
             D.parent.removeChild(D);
          }, "CLOSE" );
-         closeButton.x = 350;
-         closeButton.y = 200;
+         closeButton.x = 280;
+         closeButton.y = 250;
          D.addChild(closeButton);
       }
 
 
-      private function createCaravan(item:*, targetTown:*) : *
+      private function createCaravan(item:*, targetTown:*, caravanSize:*) : *
       {
          var index:* = Presets.caravan_routes[0].length;
-         trace("item: " + item + "     targetTown: " + targetTown + "     index: " + index);
          var dx:Number = Presets.Towns[town].x - Presets.Towns[targetTown].x;
-         trace("dx: " + dx)
          var dy:Number = Presets.Towns[town].y - Presets.Towns[targetTown].y;
-         trace("dy: " + dy)
          var distance:Number = Math.sqrt(dx * dx + dy * dy);
-         trace("distance: " + distance)
-
 
          var caravanData : * = {
-            "size":1,
+            "size":caravanSize,
             "onInit":false,
             "extraEquipment":[],
             "points":[{//-maybe customRefill things can be here
@@ -752,7 +692,7 @@ package IsoEngine
                }],
                "cargo":[{
                   "id":168,
-                  "mult":2
+                  "mult":3
                },{
                   "id":62,
                   "mult":10
@@ -765,13 +705,12 @@ package IsoEngine
                }]
             },
             "customRefill":{//-new variable for GameData arriveAtRoutePoint
-               "forage":distance / 125,
-               "food":distance * 4,
-               "water":distance / 65
+               "forage": distance / 130 * caravanSize,
+               "food": distance * 4 * caravanSize,
+               "water": distance / 65 * caravanSize
             },
-            "customMoney":50000//-new variable
+            "customMoney": 20000 * caravanSize//-new variable
          }
-         trace("forage: " + distance / 125 + "   food: "+ (distance * 4)  + "   water: " + distance / 80)
          GD.parent.setCaravanRoute(index, caravanData, true);
       }
       
@@ -1018,8 +957,8 @@ package IsoEngine
             screens[4].playersIndustriesStorageText.text = Texts.fetch(1317).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Towns[town].occupiedPlayersStorageSpace,1,true) + " / " + MathFunctions.NumberFormat(GD.Towns[town].playersStorageSpace,0);
             screens[4].playersIndustriesMoneyText.text = Texts.fetch(1318).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Towns[town].playersMoney,2) + " € ";
             //-unemployed amount required for the town to upgrade an industry other than water well
-            var industryNeeds = Math.ceil(GD.Towns[town].population * 0.01) 
-            screens[4].playersIndustriesUnemployedText.text = Texts.fetch(1324).toUpperCase() + ": " + Math.max(GD.Towns[town].unemployed,0) + " (" + industryNeeds  + " needed for industry expansion)";
+            var populationUnemployedRatio =  GD.Towns[town].population * (GD.Config("fix town industries expansion") ? 0.01 : 0.05)
+            screens[4].playersIndustriesUnemployedText.text = Texts.fetch(1324).toUpperCase() + ": " + Math.max(GD.Towns[town].unemployed,0) + " (" + populationUnemployedRatio + " needed for industry expansion)";
             screens[4].playersIndustriesButtons[0].disp.visible = GD.Towns[town].playersStorageSpace > 0;
             screens[4].playersIndustriesButtons[1].disp.visible = !Presets.Towns[town].cantExpandStorage;
             screens[4].playersIndustriesButtons[2].disp.visible = GD.Towns[town].playersIndustries.length > 0;
@@ -2128,7 +2067,7 @@ package IsoEngine
       
       public function updateBottomLine() : *
       {
-         var moneyText:* = " ($" + Math.ceil(GD.Towns[town].money) + ")";
+         var moneyText:* = " (" + Math.ceil(GD.Towns[town].money) + " €)";
          screens[0].nameText.text = GD.Towns[town].name.toUpperCase() + moneyText;
          
          screens[0].bottomLineCapacity.text = Texts.fetch(903).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Caravans[0].totalCargo,0) + "/" + MathFunctions.NumberFormat(GD.Caravans[0].maxCargo,0) + " " + Texts.fetch(12).toUpperCase();
