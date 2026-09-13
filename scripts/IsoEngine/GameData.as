@@ -14764,7 +14764,7 @@ package IsoEngine
          {
             _locpuccio1_ += calculatePrice(Towns[param2],param1[_locpuccio2_].item,param1[_locpuccio2_].amount,false,null);
          }
-         return " ($" + Math.round(_locpuccio1_) + ")";
+         return " (" + Math.round(_locpuccio1_) + " €)";
       }
       
       public function pucciogetbuyprice(param1:* = null, param2:* = null) : *
@@ -14778,7 +14778,7 @@ package IsoEngine
          {
             _locpuccio1_ += calculatePrice(Towns[param2],param1[_locpuccio2_].item,param1[_locpuccio2_].amount,true,null);
          }
-         return " ($" + Math.round(_locpuccio1_) + ")";
+         return " (" + Math.round(_locpuccio1_) + " €)";
       }
 
       //- force forage expansion if consumption > production

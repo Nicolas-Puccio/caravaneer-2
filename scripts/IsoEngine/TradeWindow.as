@@ -564,7 +564,7 @@ package IsoEngine
                partnersMoneyAlt = partner.money;
             }
          }
-         var extraPartnerPriceText:* = " ($" + Math.ceil(partnersMoneyAlt) +")"
+         var extraPartnerPriceText:* = " (" + Math.ceil(partnersMoneyAlt) + " €)"
          partnerPrice.text = Texts.fetch(1347).toUpperCase() + ": " + MathFunctions.NumberFormat(totalPrice(partners[1].items),2,false) + extraPartnerPriceText;
          partnerWeight.text = Texts.fetch(1191).toUpperCase() + ": " + MathFunctions.NumberFormat(totalWeight(partners[1].items),1,true) + " / " + MathFunctions.NumberFormat(playersAvailableSpace,1,true);
          for(_loc7_ in partners)
