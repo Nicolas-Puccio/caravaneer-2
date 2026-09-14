@@ -108,16 +108,16 @@ package
          "heal after battle": true,
          "remove trash mercenaries": true,
          "smaller battlefields": true,
-         "expand natural resource industry": true,
          "umi alpha for sale at qubba": true,
-         "infinite ammo": false,
          "spawn characters in a row": true,
          "fix chained industries": true,
          "optimize battle AI": true,
-         "fix town industries expansion": false
+         "fix town industries expansion": false,
+         "expand natural resource industry": false,
+         "infinite ammo": false
 
          //"see hidden cargo": true //-totally breaks the progression of the game, only added it for testing
-         };
+      };
       
       public var switchSFXCross:*;
       
@@ -1032,35 +1032,7 @@ package
 
          Presets.Towns.splice(85, Presets.Towns.length - 85);
 
-         //- test new town
-         /*setLocation(85,{
-            "name":1,
-            "x":-9950,
-            "y":-1000,
-            "population":0,
-            "obligatoryPeople":[],
-            "allowsSlaves":false,
-            "locations":[{
-               "x":298,
-               "y":160,
-               "category":1,
-               "subCategory":5,
-               "symbol":18,
-               "visible":true,
-               "name":7007
-            }],
-            "industries":[],
-            "possibleIndustries":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46],
-            "cantExpandStorage":false,
-            "noPeopleToHire":true,
-            "storyOnly":false,
-            "defaultStorage":1,
-            "constantPopulation":false,
-            "storagePrice":100,
-            "tax":0.05,
-            "electricityPrice":0.3,
-            "noticeability":1000
-         });*/
+         
 
          //-test add workshop recipe
          /*addRecipe(6, {
@@ -2137,6 +2109,16 @@ package
                }
                else
                {
+                  /*if(param2 == "updateChangeNameButton")
+                  {
+                     var townIndustries = GD.Towns[param1].industries;
+                     var playersIndustries = GD.Towns[param1].playersIndustries
+                     loadedDLC[_loc4_].changeNameButton.disp.visible = (townIndustries.length == 0 && playersIndustries.length > 0) || (townIndustries.length == 1 && playersIndustries.length > 0 && townIndustries[0].type == 9);
+                  }
+                  else
+                  {
+                     
+                  }*/
                   loadedDLC[_loc4_][param2](param3);
                }
             }
