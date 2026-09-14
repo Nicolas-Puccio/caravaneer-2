@@ -185,7 +185,7 @@ package IsoEngine
             mapTowns[_loc6_].circle.graphics.beginFill(2232576);
             mapTowns[_loc6_].circle.graphics.drawCircle(0,0,3 + GD.Towns[_loc6_].population / 500);
             mapTowns[_loc6_].disp.addChild(mapTowns[_loc6_].circle);
-            mapTowns[_loc6_].text = new EngineText(GD.Towns[_loc6_].name,2232576,12,"center",-100,mapTowns[_loc6_].circle.height / 2,200,20);
+            mapTowns[_loc6_].text = new EngineText(GD.Towns[_loc6_].name + " (" + _loc6_ + ")",2232576,12,"center",-100,mapTowns[_loc6_].circle.height / 2,200,20);
             mapTowns[_loc6_].width = mapTowns[_loc6_].textWidth + 10;
             mapTowns[_loc6_].x = 0 - mapTowns[_loc6_].width / 2;
             mapTowns[_loc6_].disp.addChild(mapTowns[_loc6_].text);
