@@ -14820,6 +14820,24 @@ package IsoEngine
          }
          return false;
       }
+
+      public function QuickDialogue(text) : * {
+         var QD = new Dialogue(400,200);
+         QD.x = 325 - QD.dialogueWidth / 2; //125
+         QD.y = 248 - QD.dialogueHeight / 2;//148
+
+         var waitText = new EngineText(text,16777215,18,"center",0,QD.dialogueHeight / 2 - 50,QD.dialogueWidth,80);
+         QD.addChild(waitText);
+
+
+         var closeButton:* = new Button(2, function():* {
+            QD.parent.removeChild(QD);
+         }, "CLOSE" );
+         closeButton.x = 95;//100 too right
+         closeButton.y = 150;
+         QD.addChild(closeButton);
+         parent.currentScreen.addChild(QD);
+      }
    }
 }
 
