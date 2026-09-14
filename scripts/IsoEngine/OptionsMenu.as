@@ -112,34 +112,60 @@ package IsoEngine
       }
 
       public function addCustomTown() {//-should move this code to GD?
-         //+- should check not so close to another town
-         //+- should check have money and prisoners
-         var distanceToClosestTown : * = 100
-         var haveEnoughMoney : * = true
-         var slaveCount : * = 10
+         var errorText : * = "";
+
+         var distanceToClosestTown : * = 1000000
+         var townPresetIndex : *
+         for(townPresetIndex in Presets.town_presets[0])
+         {
+            var townPreset = Presets.town_presets[0][townPresetIndex]
+            var distance : * = Math.abs(GD.Caravans[0].x - townPreset.x) + Math.abs(GD.Caravans[0].y - townPreset.y)
+            if(distance < distanceToClosestTown)
+            {
+               distanceToClosestTown = distance
+            }
+         }
+
+
+         var slaveCount : * = 0
+         var char : *;
+         for(char in GD.Caravans[0].People)
+         {
+            if(GD.Caravans[0].People[char].category == 4)
+               slaveCount++;
+         }
 
          trace("distance: " + distanceToClosestTown)
-         if(distanceToClosestTown < 100)
+         if(distanceToClosestTown < 1000)
          {
-            trace("too close, canceling")
+            trace("too close, canceling");
+            errorText += "you are too close to another town.\n";
+         }
+         if(slaveCount < 5)//+- should remove them from your caravan
+         {
+            trace("not enough slaves, canceling");
+            errorText += "you need 5 slaves.\n";
+         }
+         if(GD.Caravans[0].money <= 1000000)
+         {
+            trace("not enough money, canceling");
+            errorText += "you need 1.000.000 €\n";
+         }
+
+         if(errorText !== "")
+         {
+            GD.QuickDialogue(errorText);
             return;
          }
-         if(!haveEnoughMoney)
-         {
-            trace("not enough money, canceling")
-            return;
-         }
-         if(slaveCount < 5)
-         {
-            trace("not enough slaves, canceling")
-            return;
-         }
+
+         GD.Caravans[0].money -= 1000000;
+
          var index:* = Presets.town_presets[0].length;
          GD.parent.setLocation(index, {
             "name":1,
             "x":GD.Caravans[0].x,
             "y":GD.Caravans[0].y,
-            "population":0,
+            "population":4,
             "obligatoryPeople":[],
             "allowsSlaves":false,
             "locations":[{
@@ -155,12 +181,24 @@ package IsoEngine
                "y":160,
                "category":1,
                "subCategory":1,
-               "symbol":16,
+               "symbol":1,
                "visible":true,
-               "name":1663,
+               "name":1267,
                "margin":0.5
             }],
-            "industries":[],
+            "industries":[{
+               "type":9,
+               "volume":2,
+               "forSale":false
+            },{
+               "type":1,
+               "volume":1,
+               "forSale":false
+            },{
+               "type":3,
+               "volume":1,
+               "forSale":false
+            }],
             "possibleIndustries":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46],
             "cantExpandStorage":false,
             "noPeopleToHire":true,

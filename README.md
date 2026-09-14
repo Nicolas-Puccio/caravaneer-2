@@ -122,8 +122,7 @@ In order to put undesired items at the bottom of trade window need to add the ID
 4. Remove PuccioTest.
 5. Remove missing dlc error.
 6. Equipment List in CaravanMenu slightly broken (equipping wrong item and it being hidden, temp fix going to Cargo list and remove from used).
-7. Limit town creation somehow. (require 10 slaves)
-
+7. Allow to change town name even if town still owns water industry.
 
 
 ## Ideas

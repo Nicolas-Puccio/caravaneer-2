@@ -532,16 +532,16 @@ package IsoEngine
          addChild(D);
 
          // Title
-         var title:* = new EngineText( "Create Caravan", 16777215, 20, "center", 10, 10, 500, 30 );
+         var title:* = new EngineText("Create Caravan", 16777215, 20, "center", 10, 10, 550, 30 );
          D.addToMask(title);
 
          // Separator
          D.drawHorizontalLine(45, 0, D.dialogueWidth);
 
          // Item ID label
-         var itemLabel:* = new EngineText( "Item ID:", 16777215, 16, "left", 40, 80, 120, 30 );
+         var itemLabel:* = new EngineText("Item ID:", 16777215, 16, "left", 40, 80, 120, 30 );
          D.addToMask(itemLabel);
-         var itemLabel2:* = new EngineText( "-", 16777215, 16, "left", 260, 80, 200, 30 );
+         var itemLabel2:* = new EngineText("-", 16777215, 16, "left", 260, 80, 200, 30 );
          D.addToMask(itemLabel2);
 
          // Item ID input
@@ -957,7 +957,7 @@ package IsoEngine
             screens[4].playersIndustriesStorageText.text = Texts.fetch(1317).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Towns[town].occupiedPlayersStorageSpace,1,true) + " / " + MathFunctions.NumberFormat(GD.Towns[town].playersStorageSpace,0);
             screens[4].playersIndustriesMoneyText.text = Texts.fetch(1318).toUpperCase() + ": " + MathFunctions.NumberFormat(GD.Towns[town].playersMoney,2) + " € ";
             //-unemployed amount required for the town to upgrade an industry other than water well
-            var populationUnemployedRatio =  GD.Towns[town].population * (GD.Config("fix town industries expansion") ? 0.01 : 0.05)
+            var populationUnemployedRatio =  Math.ceil(GD.Towns[town].population * (GD.Config("fix town industries expansion") ? 0.01 : 0.05))
             screens[4].playersIndustriesUnemployedText.text = Texts.fetch(1324).toUpperCase() + ": " + Math.max(GD.Towns[town].unemployed,0) + " (" + populationUnemployedRatio + " needed for industry expansion)";
             screens[4].playersIndustriesButtons[0].disp.visible = GD.Towns[town].playersStorageSpace > 0;
             screens[4].playersIndustriesButtons[1].disp.visible = !Presets.Towns[town].cantExpandStorage;
@@ -1915,7 +1915,7 @@ package IsoEngine
          {
             screens[1].locations[_loc1_].blueSign.visible = screens[1].locations[_loc1_].eraseSign.visible = screens[1].locations[_loc1_].fillSign.visible = GD.Towns[town].locations[_loc1_].visible;
          }
-         GD.parent.executeDLCFunction(5,"updateChangeNameButton",town);
+         GD.parent.executeDLCFunction(5,"updateChangeNameButton",town);//-
       }
       
       public function pressMainMenuButton(param1:*) : *
