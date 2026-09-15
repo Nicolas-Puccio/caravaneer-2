@@ -26,6 +26,7 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 
 
+
 ## Town, Economy, and Trade
 
 - **Fix starving towns**: Some towns did not expand forage industry properly which caused a deficit in food production and expensive food prices.
@@ -59,7 +60,8 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 	- Trade Window
 		- Right clic on side scrolls will quickly take all items.
 		- Add display of water/food needed, considering water % from food.
-		- Auto select amount of water/food/forage required for travel.
+		- Button that auto select water and forage needed.
+		- Auto select amount of food required.
 		- Reduced size of item image to fit more items on the side scrolls.
 		- Visual indicator of high sell price, can be set on [the prices file](#Instructions).
 		- Displays item's ID for using in prices file and modding.
@@ -68,20 +70,23 @@ This repository contains a modified version of [Caravaneer 2](https://store.stea
 
 
 
+
 ## Other Changes
 
 - **Mod Menu**: Easily enable and disable features from the main menu.
 
-- **Increased starting stats**: Main character now has 80 stat points to distribute during character creation, with each stat capped at 20 points.
+- **Increased starting stats**: Main character now has 80 stat points to distribute during character creation.
 
 - **Enabled Crowdfunder DLC**: Weapon that shoots money ([Install Instructions](#Installation)).
 
 - **Quality of life**
-	- Navigation Screen
-		- Auto invert when selecting GO.
+
 	- Silos and Kevin's house moved slightly off the main road.
 	- Animals no longer spawn as extremely young or elderly.
 	- Disabled fullscreen (scaling is broken and looks ugly).
+	- Navigation Screen
+		- Auto invert when selecting GO.
+		- Display ID of towns
 
 
 
@@ -116,13 +121,10 @@ In order to put undesired items at the bottom of trade window need to add the ID
 
 ## Work in progress
 
-1. Industry QOL UI changes (expenses total).
-2. finish mod menu. (less entities, fix starving town, more industries).
-3. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
-4. Remove PuccioTest.
-5. Remove missing dlc error.
-6. Equipment List in CaravanMenu slightly broken (equipping wrong item and it being hidden, temp fix going to Cargo list and remove from used).
-7. Allow to change town name even if town still owns water industry.
+1. finish mod menu. (less entities, fix starving town, more industries).
+2. New caravan relationship seems not to be reseting when starting a new game, have to close game completely.
+3. Equipment List in CaravanMenu slightly broken (equipping wrong item and it being hidden, temp fix going to Cargo list and remove from used).
+
 
 
 ## Ideas
@@ -130,6 +132,10 @@ In order to put undesired items at the bottom of trade window need to add the ID
 1. New bandit types.
 2. Visual indicator if buy/sell price of a good is high/low in the current trade (partially done).
 3. If infinite ammo, should only distribute 1 of each.
+4. Allow to change town name even if town still owns water industry.
+5. Remove missing dlc error.
+6. Industry QOL UI changes (expenses total).
+
 
 
 ## Log

@@ -252,6 +252,11 @@ package IsoEngine
             D.addChild(bulbTexts[_loc9_]);
             _loc9_++;
          }
+         //-
+         var autoSupplyButton = new Button(6,AutoSupply,"Forage/Water");
+         autoSupplyButton.x = 350;
+         autoSupplyButton.y = 10;
+         D.addChild(autoSupplyButton);
          if(paramPartner != null)
          {
             setPartner(paramPartner,paramPartnerSymbol,param4,param5,param6,param7,param8);
@@ -539,15 +544,8 @@ package IsoEngine
          }
          playersAvailableSpace = GD.Caravans[0].maxCargo - GD.Caravans[0].totalCargo + totalWeight(partners[1].items);
          yourPrice.text = Texts.fetch(1347).toUpperCase() + ": " + MathFunctions.NumberFormat(totalPrice(partners[0].items),2,false) + "   " + Texts.fetch(1191).toUpperCase() + ": " + MathFunctions.NumberFormat(totalWeight(partners[0].items),1,true);
-         _locWaterFromFood_ = 0;
-         for(_locCargo_ in GD.Caravans[0].Cargo)
-         {
-            if(GD.Caravans[0].Cargo[_locCargo_].itemData.food)
-            {
-               _locWaterFromFood_ += GD.Caravans[0].Cargo[_locCargo_].itemData.waterPercentage * GD.Caravans[0].Cargo[_locCargo_].amount * GD.Caravans[0].Cargo[_locCargo_].weightPerUnit;
-            }
-         }
-         yourWeight.text = "WATER NEED: " + MathFunctions.NumberFormat(Math.max(GD.waterNeed - GD.Caravans[0].water - _locWaterFromFood_,0),0) + "   FOOD NEED: " + MathFunctions.NumberFormat(Math.max(GD.foodNeed - GD.Caravans[0].food,0),0) + " kcal";
+         var finalWaterNeed = FinalWaterNeed();
+         yourWeight.text = "WATER NEED: " + MathFunctions.NumberFormat(Math.max(finalWaterNeed,0),0) + "   FOOD NEED: " + MathFunctions.NumberFormat(Math.max(GD.foodNeed - GD.Caravans[0].food,0),0) + " kcal";
          if(partnersAvailableSpace != null)
          {
             yourPrice.text += " / " + MathFunctions.NumberFormat(partnersAvailableSpace,1,true);
@@ -2663,6 +2661,38 @@ package IsoEngine
          {
             this.removeChildAt(0);
          }
+      }
+
+      public function AutoSupply() : *
+      {
+         if(partners[1].list.isTrade)
+         {
+            trace("try move water")
+            var finalWaterNeed = FinalWaterNeed();
+            if(finalWaterNeed > 0.1)
+               doMove(partners[1],new Item(1,1),finalWaterNeed);
+            trace("move water")
+            trace("try move forage")
+            if(GD.forageNeed - GD.Caravans[0].forage > 0.1)
+               doMove(partners[1],new Item(62,1),GD.forageNeed - GD.Caravans[0].forage);
+            trace("move forage")
+         }
+         else
+         {
+            trace("not trade")
+         }
+      }
+
+      public function FinalWaterNeed() : *{
+         var waterFromFood = 0;
+         for(i in GD.Caravans[0].Cargo)
+         {
+            if(GD.Caravans[0].Cargo[i].itemData.food)
+            {
+               waterFromFood += GD.Caravans[0].Cargo[i].itemData.waterPercentage * GD.Caravans[0].Cargo[i].amount * GD.Caravans[0].Cargo[i].weightPerUnit;
+            }
+         }
+         return GD.waterNeed - waterFromFood - GD.Caravans[0].water;
       }
    }
 }
