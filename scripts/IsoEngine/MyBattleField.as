@@ -496,6 +496,8 @@ package IsoEngine
                                 case 2:
                                 case 3:
                                 case 4:
+                                var isFromPlayerCaravan = ActList[nowActing].caravan == GameData.currentGame.Caravans[0]
+                                var maximumRangeMult = isFromPlayerCaravan ? 2 : 1;
                                 switch(_loc7_ = WeaponsData.detectWeaponSkill(ActList[nowActing].currentWeaponData))
                                 {
                                     case "pistol":
@@ -504,49 +506,46 @@ package IsoEngine
                                     case "smg":
                                     case "crossbow":
                                         ActList[nowActing].minimumRange = 0;
-                                        ActList[nowActing].maximumRange = Math.round((10 + ActList[nowActing][_loc7_ + "Skill"] / 15) * ActList[nowActing].currentWeaponData.accuracy * (1 + ActList[nowActing].attachmentsEffects(ActList[nowActing].currSlot).accuracy) / 2.5);
+                                        ActList[nowActing].maximumRange = maximumRangeMult * Math.round((10 + ActList[nowActing][_loc7_ + "Skill"] / 15) * ActList[nowActing].currentWeaponData.accuracy * (1 + ActList[nowActing].attachmentsEffects(ActList[nowActing].currSlot).accuracy) / 2.5);
                                         ActList[nowActing].optimalRange = Math.round((5 + ActList[nowActing][_loc7_ + "Skill"] / 30) * ActList[nowActing].currentWeaponData.accuracy * (1 + ActList[nowActing].attachmentsEffects(ActList[nowActing].currSlot).accuracy) / 2.5);
                                         break;
                                     case "shotgun":
                                         ActList[nowActing].minimumRange = 0;
-                                        ActList[nowActing].maximumRange = Math.round(5 + ActList[nowActing][_loc7_ + "Skill"] / 5);
+                                        ActList[nowActing].maximumRange = maximumRangeMult * Math.round(5 + ActList[nowActing][_loc7_ + "Skill"] / 5);
                                         ActList[nowActing].optimalRange = Math.round(3 + ActList[nowActing][_loc7_ + "Skill"] / 10);
                                         break;
                                     case "flamethrower":
                                         ActList[nowActing].minimumRange = 0;
-                                        ActList[nowActing].maximumRange = ActList[nowActing].currentWeaponData.range;
+                                        ActList[nowActing].maximumRange = maximumRangeMult * ActList[nowActing].currentWeaponData.range;
                                         ActList[nowActing].optimalRange = Math.round(ActList[nowActing].currentWeaponData.range / 2);
                                         break;
                                     case "rocketLauncher":
                                         ActList[nowActing].minimumRange = 5;
-                                        ActList[nowActing].maximumRange = Math.round((10 + ActList[nowActing][_loc7_ + "Skill"] / 15) * ActList[nowActing].currentWeaponData.accuracy / 2);
+                                        ActList[nowActing].maximumRange = maximumRangeMult * Math.round((10 + ActList[nowActing][_loc7_ + "Skill"] / 15) * ActList[nowActing].currentWeaponData.accuracy / 2);
                                         ActList[nowActing].optimalRange = Math.round((5 + ActList[nowActing][_loc7_ + "Skill"] / 30) * ActList[nowActing].currentWeaponData.accuracy / 2);
                                 }
-                                //-ai optimization, no need to move if current position is good enough
-                                var enemyIndex : * = undefined;
-                                var enemiesInRange : * = 0; //not using it now
-                                var lowestChance : * = 1; //not using it
-                                var highestChance : * = 0;
-                                for (enemyIndex in ActList[nowActing].enemies)
-                                {
-                                    var chance : * = calculateHitChance(ActList[nowActing], ActList[nowActing].enemies[enemyIndex])
-                                    if(chance < lowestChance)
-                                        lowestChance = chance;
-                                    if(chance > highestChance)
-                                        highestChance = chance;
-                                    if(chance > 0.25)
-                                        enemiesInRange++
-                                }
+                                
 
                                 var squaresToProcessLength : *
-                                if(ActList[nowActing].caravan == GameData.currentGame.Caravans[0])
+                                if(isFromPlayerCaravan)
                                 {
-                                    trace("+");
-                                    squaresToProcessLength = highestChance >= 0.99 ? 0 : Math.ceil((1 - highestChance) * 5);
+                                    trace("optimized " + ActList[nowActing].name)
+                                    //-ai optimization, no need to move if current position is good enough, and limit movement to 5
+                                    var enemyIndex : * = undefined;
+                                    var highestChance : * = 0;
+                                    for (enemyIndex in ActList[nowActing].enemies)
+                                    {
+                                        var chance : * = calculateHitChance(ActList[nowActing], ActList[nowActing].enemies[enemyIndex])
+                                        if(chance > highestChance)
+                                            highestChance = chance;
+                                    }
+
+                                    squaresToProcessLength = Math.ceil((1 - highestChance) * 5);
+                                    if(squaresToProcessLength == 1)
+                                        squaresToProcessLength = 0;
                                 }
                                 else
                                 {
-                                    trace("-");
                                     squaresToProcessLength = Math.floor(ActList[nowActing].AP / ActList[nowActing].walkAP) //-this is default
                                 }
 
