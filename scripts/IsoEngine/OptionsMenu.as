@@ -146,10 +146,10 @@ package IsoEngine
             trace("not enough slaves, canceling");
             errorText += "you need 5 slaves.\n";
          }
-         if(GD.Caravans[0].money <= 1000000)
+         if(GD.Caravans[0].money <= 5000000)
          {
             trace("not enough money, canceling");
-            errorText += "you need 1.000.000 €\n";
+            errorText += "you need 5.000.000 €\n";
          }
 
          if(errorText !== "")
@@ -158,14 +158,17 @@ package IsoEngine
             return;
          }
 
-         GD.Caravans[0].money -= 1000000;
-
          var index:* = Presets.town_presets[0].length;
+         loadSaveDialogue.nameWriter.txt.text = "before town"+index
+         loadSaveDialogue.doSave()
+
+         GD.Caravans[0].money -= 5000000;
+
          GD.parent.setLocation(index, {
             "name":1,
             "x":GD.Caravans[0].x,
             "y":GD.Caravans[0].y,
-            "population":4,
+            "population":0,
             "obligatoryPeople":[],
             "allowsSlaves":false,
             "locations":[{
@@ -184,30 +187,18 @@ package IsoEngine
                "symbol":1,
                "visible":true,
                "name":1267,
-               "margin":0.5
+               "margin":1
             }],
-            "industries":[{
-               "type":9,
-               "volume":2,
-               "forSale":false
-            },{
-               "type":1,
-               "volume":1,
-               "forSale":false
-            },{
-               "type":3,
-               "volume":1,
-               "forSale":false
-            }],
+            "industries":[],
             "possibleIndustries":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46],
             "cantExpandStorage":false,
             "noPeopleToHire":true,
             "storyOnly":false,
             "defaultStorage":0,
             "constantPopulation":false,
-            "storagePrice":100,
-            "tax":0.05,
-            "electricityPrice":0.3,
+            "storagePrice":800,
+            "tax":0.2,
+            "electricityPrice":2,
             "noticeability":1000
          }, true);
          GD.Towns[index] = new Town(index,GD);
