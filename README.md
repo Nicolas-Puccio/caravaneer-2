@@ -135,6 +135,9 @@ In order to put undesired items at the bottom of trade window need to add the ID
 4. Allow to change town name even if town still owns water industry.
 5. Remove missing dlc error.
 6. Industry QOL UI changes (expenses total).
+7. Allow for base stat improvement during gameplay.
+8. Hotkey for trade window. (take all, confirm trade)
+9. Buff Sheeps and Goats (let them transport cargo)
 
 
 
