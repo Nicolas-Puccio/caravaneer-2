@@ -103,7 +103,7 @@ package IsoEngine//-not original, fix infinity
             "x":0.9,
             "y":1
          }]
-      },{
+      },{ //-3 toe cutter
          "category":3,
          "name":1154,
          "speed":22,
@@ -140,7 +140,7 @@ package IsoEngine//-not original, fix infinity
             "x":0.5,
             "y":0.8
          }]
-      },{
+      },{ //-4 sheep
          "category":1,
          "name":2863,
          "speed":3.5,
@@ -206,7 +206,7 @@ package IsoEngine//-not original, fix infinity
             "x":0.5,
             "y":-0.4
          }]
-      },{
+      },{ //-5 goat
          "category":1,
          "name":2872,
          "speed":4,
@@ -272,7 +272,7 @@ package IsoEngine//-not original, fix infinity
             "x":0.5,
             "y":-0.4
          }]
-      },{
+      },{ //-6 cow
          "category":1,
          "name":2880,
          "speed":3,
@@ -325,7 +325,7 @@ package IsoEngine//-not original, fix infinity
             "x":0.8,
             "y":0
          }]
-      },{
+      },{ //-7 horse
          "category":1,
          "name":4206,
          "speed":12,
@@ -378,7 +378,7 @@ package IsoEngine//-not original, fix infinity
             "x":0.8,
             "y":0
          }]
-      },{
+      },{ //-8 medium cart
          "category":2,
          "name":4209,
          "noticeability":40,
@@ -412,7 +412,7 @@ package IsoEngine//-not original, fix infinity
             "x":1,
             "y":1
          }]
-      },{
+      },{ //-9 camel
          "category":1,
          "name":4211,
          "speed":6,
@@ -465,7 +465,7 @@ package IsoEngine//-not original, fix infinity
             "x":0.8,
             "y":-0.7
          }]
-      },{
+      },{ //-10 large cart
          "category":2,
          "name":4214,
          "noticeability":50,
@@ -499,7 +499,7 @@ package IsoEngine//-not original, fix infinity
             "x":1,
             "y":1
          }]
-      },{
+      },{ //-11 fiberglass cart
          "category":2,
          "name":4215,
          "noticeability":30,
@@ -533,7 +533,7 @@ package IsoEngine//-not original, fix infinity
             "x":1,
             "y":1
          }]
-      },{
+      },{ //-12 metal wagon
          "category":2,
          "name":4219,
          "noticeability":60,
@@ -567,7 +567,7 @@ package IsoEngine//-not original, fix infinity
             "x":1,
             "y":1
          }]
-      },{
+      },{ //-13 umi alpha
          "category":3,
          "name":6058,
          "speed":16,
@@ -605,7 +605,7 @@ package IsoEngine//-not original, fix infinity
             "y":1
          }],
          "yCorrection":-40
-      },{
+      },{ //-14 sand glider
          "category":3,
          "name":6377,
          "speed":0.7,
@@ -644,7 +644,7 @@ package IsoEngine//-not original, fix infinity
          }],
          "yCorrection":0,
          "windPowered":true
-      },{
+      },{ //-15 igelkott
          "category":3,
          "name":6827,
          "speed":19,
