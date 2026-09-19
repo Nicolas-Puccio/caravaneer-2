@@ -134,10 +134,10 @@ In order to put undesired items at the bottom of trade window need to add the ID
 3. If infinite ammo, should only distribute 1 of each.
 4. Allow to change town name even if town still owns water industry.
 5. Remove missing dlc error.
-6. Industry QOL UI changes (expenses total).
-7. Allow for base stat improvement during gameplay.
+6. Industry QOL UI changes (expenses total? days to break even).
+7. Allow for base stat improvement during gameplay. (4 books, one for each stat, +1, limit 10, usable on any caravan member)
 8. Hotkey for trade window. (take all, confirm trade)
-9. Buff Sheeps and Goats (let them transport cargo)
+9. New Town available industries depend on 5x closest towns (display them in UI, proper sqrt calculation)
 
 
 
